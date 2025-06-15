@@ -1,0 +1,88 @@
+//An Array in java is a linear data structure that is used to store multiple values of the same data type
+=In an array each individual element has a unique index to allow access of values of individual elements
+
+Declare An array in Java:
+=An array is declared by specifying its data type and identifier and adding [] brackets to indicate it is an array
+
+Syntax:
+Method1
+type arrayName[];
+Method2
+type[] arrayName;
+
+=type: The type of elements the array will hold(int, String)
+=arrayName: The name of the array
+
+=The reference to an array is created in memory during declaration(memory address of array)
+
+
+Initialize an Array in Java
+i)Fixed size and Default values
+=An array can be initialized with default values when the size of the array is declared with a square bracket
+i.e) int[]array = new int[10] //An array of size 10; initialized with default values of zero
+=The size of an array can be specified during initialization where elements get a default value(0 for integers, false for boolean, null for objects)
+
+ii)Specific Values
+If the values to be stored are known, an array with specific values can be initialized.
+int[]arr = {1, 2, 3, 4, 5}; //Array initialized with Specific values
+
+iii)Curly Braces
+=When the size of an array does not need to be declared an array can be initialized with curly braces{}
+=All the non-default values are initialized in the curly braces separated by a Comma
+String[]arr = {"An", "Array", "Of", "Characters"};
+
+iv)Initialize an array with non-default values
+Syntax:
+int[]arr = new int[4]
+arr[0] = 10;
+arr[1] = 100;
+arr[2] = 1000;
+arr[3] = 10000;
+= an integer type array of size 4 is declared and then 4 non-default values are initialized in it.
+
+v)Initialize an array using a for loop
+=Loops can also be used to initialize array elements with specific values
+=Used for larger arrays
+Example:
+int[]arr = new int[5]
+for(int i = 0; i <arr.length; i++){
+arr[i]  = i +1;
+}
+
+Using arrays with unknown Size
+=If the size of the array is unknown but one wants to fill it dynamically, we can initialize it first with a fixed size and add values later
+
+//Accessing Array Elements using index
+=We can access and manipulate array elements by referring to their index
+int[]arr = {1, 2, 3, 4}
+System.out.println(arr[0])
+
+//Use of Array Length
+=The length property returns the number of elements in an array
+int[]arr = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+System.out.println("Array Length: " + arr.length)
+
+vi)Array Initialization using Streams
+=An array can be initialized using a Stream Interface
+The IntStreamInterface offers additional ways of initialization of arrays with sequential or predefined values
+
+i)Using IntStream.range()
+It is used to initialize an array of integers within a given range.
+=The first parameter is the Starting element
+=Second parameter defines the upper limit
+=The array will include elements greater than  or equal to the first parameter but less than the second one.
+
+Example:
+int[]arr1 = java.util.Stream.IntStream.range(1, 5).toArray();
+
+
+ii)Using IntStream.rangeClosed()
+It creates an array within a closed range(inclusive of the end)
+int[]arr2 = java.util.Stream.IntStream.rangeClosed(1, 4).toArray();
+
+iii)Using IntStream.of()
+=It directly initializes an array with specified values
+int[]arr3 = java.util.stream.IntStream.of(1, 2, 3, 4).toArray()
+
+
+

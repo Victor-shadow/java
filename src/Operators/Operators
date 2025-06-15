@@ -1,0 +1,165 @@
+//Operators are special symbols used to perform operations on variables or values
+
+
+//Types of Operators in JAVA
+=> Bitwise Operators
+=> Arithmetic Operators
+=> Relational Operators
+=> Unary Operators
+=> Logical Operators
+=> Ternary Operators
+=> Shift Operators
+=> is instance Operators
+=> Assignment Operators
+
+--------------------------------------------------------------------------------------
+//ARITHMETIC OPERATORS
+=> Perform Simple arithmetic operations on primitive and non-primitive data types
+: * => Multiplication
+: / => Division
+: % => Modulo
+: + => Addition
+: - => Subtraction
+
+//Division truncates decimal points for integers
+//Modulus is used to check for even/odd numbers
+---------------------------------------------------------------------------------------
+
+//UNARY OPERATORS
+=> They only need one operand(integer.number)
+=> They are used to Increment, decrement or negate a value
+: - => Negates the value
+: + => Indicates a positive value(automatically converts char, byte, short to int)
+: ++ => Increments by 1
+     => Post-Increment: Uses value first then increments
+     => Pre-Increment: Increments first, then uses value
+
+: -- => Decrements by 1
+     =>Post-Decrement: Uses value first then decrements
+     =>Pre-Increment: Decrements first, then uses value
+: !  => Inverts a boolean value
+----------------------------------------------------------------------------------------
+
+ASSIGNMENT OPERATOR
+ => '=' Assignment Operator is used to assign a value to any variable
+ => It has a right-left associativity(value given on the right side of the operator is assigned to the variable on the left)
+
+ => Syntax: variable = value
+
+ => Compound Operators:
+ : += Add and assign
+ : -= Subtract and assign
+ : %= Modulo and assign
+ : *= Multiply and assign
+ : /= Divide and assign
+--------------------------------------------------------------------------------------------
+
+//RELATIONAL OPERATORS
+=> They are used to check for relations like equality, greater than or less than
+=> They return boolean results after comparison
+:Syntax = variable relational_operator value
+
+=>They include:
+: == Equal to
+: != Not Equal to
+: < Less than
+: > Greater than
+: <= Less than or equal to
+: >= Greater than or equal to
+
+---------------------------------------------------------------------------------------
+
+//LOGICAL OPERATORS
+=> They are used to perform "logical AND" and "logical OR"
+=> Conditional Operators are:
+= &&(LOGICAL AND) => Returns true when both conditions are true
+= ||(LOGICAL OR) => Returns true if at least one condition is true
+= !(LOGICAL NOT) => Returns true when condition is False
+                 => Returns false when condition is true
+---------------------------------------------------------------------------------------
+
+//TERNARY OPERATOR
+=> It is used as an alternative to if-else statements
+=>Syntax: condition ? if true: if false
+
+//If the condition evaluates to true execute the statements after '?' or else execute the statements after ':'
+
+-----------------------------------------------------------------------------------------
+
+//BITWISE OPERATORS
+=> Perform manipulation of individual bits of a number and with any of the integer types
+=> They are used in update and query operations of the Binary Indexed Trees
+ : &(Bitwise AND) =returns bit-by-bit AND of input values
+ : |(Bitwise OR) = returns bit-by-bit OR of input values
+ : ^(Bitwise XOR) = returns bit-by-bit XOR of input values
+ : ~ (Bitwise Complement) = Inverts all bits(one's complement)
+
+ -----------------------------------------------------------------------------------------
+
+ //SHIFT OPERATORS
+ => Shift Operators are used to shift the bits of a number left or right thereby multiplying or dividing a number by two respectively
+ => They are used during multiplication and division of a number by two
+ :Syntax = number shift_op number_of_places_to_shift
+
+ : <<(Left Shift) Shifts bits to the left, filling zeros (multiply by power of 2)
+ : >>(Signed Right Shift) Shifts bits to the right, filling zeros (divide by power of 2) with the leftmost bit depending on the sign
+ : >>>(Unsigned Right Shift) Shifts bits to the right, filling zeros, with the leftmost bit always zero
+
+// Java program to demonstrate bitwise operators
+class BitwiseExample {
+    public static void main(String[] args) {
+        int x = 5;  //  Binary: 0101
+        int y = 3;  //  Binary: 0011
+
+        // Bitwise AND (&)
+        System.out.println("x & y: " + (x & y));  // Output: 1 (Binary: 0001)
+
+        // Bitwise OR (|)
+        System.out.println("x | y: " + (x | y));  // Output: 7 (Binary: 0111)
+
+        // Bitwise XOR (^)
+        System.out.println("x ^ y: " + (x ^ y));  // Output: 6 (Binary: 0110)
+
+        // Bitwise NOT (~) - Negates the number (Two's complement)
+        System.out.println("~x: " + (~x));  // Output: -6 (Binary representation depends on Java's 32-bit system)
+
+        // Left Shift (<<) - Multiplies by 2^n
+        System.out.println("x << 1: " + (x << 1));  // Output: 10 (Binary: 1010)
+
+        // Right Shift (>>) - Divides by 2^n while preserving the sign
+        System.out.println("x >> 1: " + (x >> 1));  // Output: 2 (Binary: 0010)
+
+        // Unsigned Right Shift (>>>) - Divides by 2^n, without preserving the sign for negative numbers
+        int z = -8;
+        System.out.println("z >>> 2: " + (z >>> 2));  // Output depends on Java's unsigned shift behavior
+    }
+}
+
+---------------------------------------------------------------------------------------
+
+ //instance of OPERATORS
+ => It is used for type checking.
+ => It can be used to check if an object is an instance of a class, a subclass or an interface
+
+ :Syntax = object instanceof class/subclass/interface
+
+ ---------------------------------------------------------------------------------------------
+
+ //PRECEDENCE AND ASSOCIATIVITY OF OPERATORS
+ => Used when dealing with hybrid equations involving more than one type of operator
+
+ Operators                      Associativity                           Type
+ ++, --                         Right to Left                           Unary Postfix
+ ++, --, -, +, ~, !             Right to Left                           Unary Prefix
+ *, /, %                        Left to Right                           Multiplicative
+ + -                            Left to Right                           Additive
+ << >> >>>                      Left to Right                           Shift
+ <, <=, >, >=                   Left to Right                           Relational
+ ==, !=                         Left to Right                           Equality
+ &                              Left to Right                           Boolean Logical AND
+ ^                              Left to Right                           Boolean Logical Exclusive OR
+ |                              Left to Right                           Boolean Logical Inclusive OR
+ &&                             Left to Right                           Conditional AND
+ ||                             Left to Right                           Conditional OR
+ ?:                             Right to Left                           Conditional
+ =, +=, -=, *=, /=, %=          Right to Left                           Assignment

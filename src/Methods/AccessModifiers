@@ -1,0 +1,164 @@
+= access modifiers are keywords used to set the visibility or accessibility of classes, methods, variables and constructors.
+=They are essential tools that defines how the members of a class and even the class itself can be accessed from other parts of the program
+
+Types of Access Modifiers
+1) Default = no keyword required
+2) Private
+3) Protected
+4) Public
+
+Default Access Modifier
+=When no access modifier is specified for a class, method or a data member it is said to have a default access modifier by default.
+=Classes within the same package can access it
+
+-----------------------------------------------------------------------------------------------------------------------
+=Access to a Default Access Modifier from a different package results in compilation-time error
+Package p1:
+// File: Modifier.java
+package p1;
+
+class Modifier { // default access - not public
+    void display() {
+        System.out.println("Hello from Modifier class in p1!");
+    }
+}
+Package p2:
+// File: NewModifier.java
+package p2;
+
+import p1.*; // Attempt to import Geek
+
+class NewModifier {
+    public static void main(String[] args) {
+        Modifier obj = new Modifier();  // ❌ Compilation error here
+        obj.display();
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------------
+
+2)Private Access Modifier
+=It is specified using the private keyword
+=The methods, constructors or data members(variables) declared as private are accessible only within the class they are declared
+:Any other class of the same package will not be able to access these members
+:Top level classes or interfaces cannot be declared as private because:
+i)private shows that it is only visible  within the enclosing class
+ii)protected shows that it is only visible within the enclosing class and any other subclasses
+
+Syntax:
+------------------------------------------------------------------------------------------------------------------------
+// File: [PackageName]/[PrivateClassName].java
+package [PackageName];
+
+class [PrivateAccessModifierExample] {
+    private void [privateMethod]() {
+        System.out.println("Private method can only be accessed within this class.");
+    }
+
+    // Accessing the private method internally is allowed
+    void callPrivateMethod() {
+        [privateMethod]();
+    }
+}
+// File: [PackageName]/[AnotherClassName].java
+package [PackageName];
+
+class [AnotherClass] {
+    public static void main(String[] args) {
+        [PrivateAccessModifierExample] obj = new [PrivateAccessModifierExample]();
+        obj.[privateMethod](); // ❌ Compilation error
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+3)Protected Access Modifier
+=It is specified using the keyword protected
+=The methods, constructors or data members(variables) declared as protected are accessible within the same package or subclasses within different packages
+= protected method is accessible in a subclass from a different package using inheritance.
+
+Rules of Protected Access Modifier
+Access Scope: Same class, same package, and even subclasses even in a different package
+Outside Package Access: Only through Subclass using Inheritance
+Non-subclass access outside pkg: Not allowed
+
+------------------------------------------------------------------------------------------------------------------------
+Syntax:
+// File: [package1]/[Superclass].java
+package [package1];
+
+public class [Superclass] {
+    protected void [protectedMethod]() {
+        System.out.println("This is a protected method.");
+    }
+}
+
+// File: [package2]/[Subclass].java
+package [package2];
+
+import [package1].*;
+
+class [Subclass] extends [Superclass] {
+    public static void main(String[] args) {
+        [Subclass] obj = new [Subclass]();
+        obj.[protectedMethod](); // ✅ Accessible due to inheritance
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+4)Public Access Modifier
+= It is specified using the keyword public
+= It has the widest scope among all other access modifiers
+= Classes, Methods or data Members that are declared as public are accessible from anywhere in the program
+= There is no restriction on scope of public class members
+
+Syntax:
+------------------------------------------------------------------------------------------------------------------------
+// File: [PackageOne]/[PublicClass].java
+package [PackageOne];
+
+public class [PublicClass] {
+
+    public void [publicMethod]() {
+        System.out.println("This is a public method.");
+    }
+}
+// File: [PackageTwo]/[AnotherClass].java
+package [PackageTwo];
+
+import [PackageOne].*;
+
+class [AnotherClass] {
+    public static void main(String[] args) {
+        [PublicClass] obj = new [PublicClass]();
+        obj.[publicMethod](); // ✅ Accessible anywhere
+    }
+}
+------------------------------------------------------------------------------------------------------------------------
+
+Comparison of Access Modifiers
+Class/Package                   Default               Private                   Public                    Protected
+Same Class                       Yes                   Yes                       Yes                       Yes
+Same Package(Subclass)           Yes                   No                        Yes                       Yes
+Same Package(Non-Subclass)       Yes                   No                        Yes                       Yes
+Different Package(Subclass)      No                    No                        Yes                       Yes
+Different Package(Non-Subclass)  No                    No                        No                        Yes
+
+
+Usage of Access Modifiers
+Private: Used for encapsulation of sensitive data and internal helper methods should not be accessed outside the class
+Example:Private fields in a model class with getter and setter methods
+Public:This is used for classes, methods or fields meant to accessible from anywhere:
+Example: API Endpoints, service classes or utility methods shared across different parts of an application
+Protected:Ideal for methods and fields that should be accessible within the same package and subclasses;
+Example: Used in inheritance based designs like framework extensions
+Default(Package-Private): This is suitable for classes and methods that should be only accessible within the same package
+Example: Used in package-scoped utilities or helper classes
+
+Algorithms to use Access-Modifiers in Java
+i)Define a class: Create a class to represent the object you want to manage
+ii)Define instance variables: Inside the class define the variables for the data to be managed
+iii)Set an access modifier:
+Use private for variables only accessible within the class.
+Use protected for variables accessible within the class and its subclasses.
+Use public for variables accessible from anywhere.
+iv)Use getter and setter methods: To access or modify variables, use getter (accessor) and setter (mutator) methods, even for public variables, to maintain encapsulation.

@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 //Int Data Type
 //syntax: int intVar;

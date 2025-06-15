@@ -1,0 +1,52 @@
+Method: sort(T[] a, Comparator< super T> c)
+//This method is used to sort an entire array of objects using a custom comparator(Comparator<?superT>)
+
+General Syntax
+import java.util.*;
+
+class Entity<T extends Comparable<T>> {
+    T id;
+    String name, detail;
+
+    // Constructor
+    public Entity(T id, String name, String detail) {
+        this.id = id;
+        this.name = name;
+        this.detail = detail;
+    }
+
+    @Override
+    public String toString() {
+        return id + " " + name + " " + detail;
+    }
+}
+
+// Generic comparator for sorting by ID
+class SortById<T extends Comparable<T>> implements Comparator<Entity<T>> {
+    public int compare(Entity<T> a, Entity<T> b) {
+        return a.id.compareTo(b.id);
+    }
+}
+
+public class GenericSorter {
+    public static void main(String[] args) {
+        Entity<Integer>[] arr = new Entity[]{
+                new Entity<>(111, "bbbb", "Location1"),
+                new Entity<>(131, "aaaa", "Location2"),
+                new Entity<>(121, "cccc", "Location3")
+        };
+
+        System.out.println("Unsorted:");
+        for (Entity<Integer> entity : arr) {
+            System.out.println(entity);
+        }
+
+        // Sorting using Comparator<? super T>
+        Arrays.sort(arr, new SortById<>());
+
+        System.out.println("\nSorted by ID:");
+        for (Entity<Integer> entity : arr) {
+            System.out.println(entity);
+        }
+    }
+}

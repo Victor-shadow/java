@@ -1,0 +1,165 @@
+=A method is a block of reusable code that performs a specific task
+=All methods used must belong to a class.
+=Methods are similar to functions and expose behaviour of objects.
+
+Syntax of a method:
+<access_modifier> <return_type> <method_name>(list of parameters){
+    //body
+   }
+
+Components of a Method Declaration
+Modifier: It specifies the method's access level(public,protected, private, default).
+Return Type: The type of value being returned or void if no value is being returned.
+MethodName: It should start with a lowercase and use camelCase for multiple words
+Parameters: A list of input values(optional).Empty parentheses are used if no parameters are needed
+ExceptionList: The exceptions the method might throw(Optional)
+Method Body: It contains the logic to be implemented(optional if methods are abstract)
+
+Types of Methods in Java
+i)Predefined methods
+=These are methods already defined in the Java class libraries.
+=It is also known as the standard library method or built-in method.
+Syntax: ClassName.methodName()
+
+Example:(Methods in the Math class)
+Math.random() //Returns a random value
+Math.PI() //Returns the value of PI
+
+ii)User-Defined Method
+=Methods written by the user and modified according to user requirements.
+Example:
+setName()
+
+Ways to Create a method
+1) Instance Method= Access the Instance data using the object name.
+   Declared inside a class
+
+   Syntax:
+   //Instance method
+   void method_name(){
+   //Instance method body
+   }
+
+2) Static Method: Access the static data using the class Name
+   Declared inside the class using a static keyword
+
+   Syntax:
+   //Static Method
+   static void method_name(){
+   //Static method body
+   }
+
+Method Signature
+It consists of the method name and the parameter list.
+=Number of parameters
+=Type of parameters
+=Order of parameters
+:The return type and exceptions are not considered part of it
+
+Example:
+max(int x, int y)
+:Number of parameters = 2
+:Type of parameter = int
+
+Method Calling:
+It allows reusability of code and organization of the program
+A method returns to the code that invoked it when:
+i) It completes all statements in the method
+ii) It reaches a return Statement
+iii) Throws an exception
+
+Method calling using object of a class.
+Syntax:
+// Define a class
+public class ClassName {
+    // Define a method
+    public ReturnType methodName(ParameterType parameter) {
+        // Method body
+        return Value; // If ReturnType is not void
+    }
+}
+
+// Main class to create object and call method
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of the class
+        ClassName objectName = new ClassName();
+
+        // Call the method using the object
+        objectName.methodName(argument);
+    }
+}
+
+Method Calling General Syntax:
+// Helper class
+class ClassName {
+
+    // Static field (optional)
+    public static DataType staticField = initialValue;
+
+    // Constructor
+    ClassName() {
+        // Constructor body
+        // Optional: update static field or do setup
+    }
+
+    // Static method (can be called using class name)
+    public static ReturnType staticMethodName() {
+        // Static method body
+        return Value;
+    }
+
+    // Instance method calling another instance method
+    public ReturnType methodOne() {
+        System.out.println("Inside methodOne");
+
+        // Calling another instance method using 'this'
+        this.methodTwo();
+
+        return Value;
+    }
+
+    // Another instance method
+    public void methodTwo() {
+        System.out.println("Inside methodTwo");
+    }
+}
+
+// Main class
+public class MainClassName {
+    public static void main(String[] args) {
+
+        // Creating an object of ClassName
+        ClassName objectName = new ClassName();
+
+        // Calling instance method using object
+        ReturnType var = objectName.methodOne();
+
+        System.out.println("Returned value: " + var);
+
+        // Calling static method using class name
+        ReturnType result = ClassName.staticMethodName();
+
+        System.out.println("Static method result: " + result);
+    }
+}
+
+Passing Parameters to Methods
+i) Pass Arrays as arguments
+ii) Passing Variable-arguments as an Argument
+iii) Method Overloading
+
+Memory Allocation for Method Calls
+1)Method calls use a stack: Each time a method is called, it is added to a special memory structure called a call stack
+2)A stack frame is created: This frame holds all the information related to that method call i.e arguments, local variables and eventually its return value
+3)Execution follows(Last-in First-Out) = The last method called is the first one to complete before control goes back to the one that called it
+4)Once the method finishes its execution its stack frame is removed(popped) and memory is cleared thus returning control to the previous method
+5)The stack pointer tracks progress: It keeps a reference to the top of the stack and updates automatically as methods are called and completed
+
+Advantages of Methods
+1) Reusability: Methods enable one to write code that can be re-used
+2) Abstraction: Methods allow abstraction of complex logic and provide a simple interface that can be used
+3) Encapsulation: It allows Encapsulation of complex logic and data
+4) Modularity: Methods simplify code into smaller and more manageable units
+5) Customization: Easy to customize for specific tasks
+6) Improving Performance by reduction in amount of code

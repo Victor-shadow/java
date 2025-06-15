@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 //syntax: boolean booleanVar;
 public class Boolean {

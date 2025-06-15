@@ -1,0 +1,33 @@
+=Variable Arguments write methods that can take any number of inputs
+
+Definition of varargs
+i)It lets a method take many values or even no value at all. Java treats the values as a list so that they can be used inside a method easily
+It is implemented using the single dimension array concept
+Arguments can be differentiated using index
+A variable length argument is specified by (...)
+
+Syntax:
+public static void fun(int...a){
+//Method body
+}
+=This means that fun can be invoked with zero or more arguments
+=a is implicitly declared as an array of type []int
+
+NB: A method can have more than one variable length parameters including others but one varargs parameter should only exist that should be written last in the parameter list
+ie)int nums(int a, float b, double c...)
+
+Rules for use of varargs
+1)Specifying two Varargs in a single method leads to compile time error
+= Only one varargs parameter is allowed per method
+void Method(String...name,int...i){
+//Compile time error as there are two varargs
+}
+
+2)Specifying Varargs as the first parameter of the method instead of the last one
+= The vararg parameter must be the last argument/parameter
+void method(int...n, String n){
+//Compile time error since vararg appears before normal argument
+}
+
+3)Vararg internally use an array to store arguments
+4)Vararg Methods can also be overloaded but this leads to ambiguity

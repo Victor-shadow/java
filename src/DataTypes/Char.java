@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 // Syntax: char variableName;
 public class Char {

@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 public class string {
     public static void main(String[] args){

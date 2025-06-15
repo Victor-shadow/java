@@ -1,0 +1,59 @@
+=>The String buffer class in java represents a sequence of characters that can be modified(changing the content of the string buffer without creation of a new object)
+
+------------------------------------------------------------------------------------------------------------------------
+//Features of the string buffer class
+i)The content of the string buffer can be modified without creation of a new object
+ii)String Buffer has an initial capacity which can be adjusted later with the use of the method ensureCapacity()
+iii)Characters, strings or objects can be added at the end of the String Buffer class with the use of append() method
+iv)Characters, strings or objects can be inserted at the specified position of the string buffer using thr insert() method
+v)Characters from the string Buffer can be removed with the use of the delete() method
+vi)The order of characters in the string buffer can be reversed with the use of the reverse method
+------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+=>Constructors of StringBuffer Class
+Constructor                          Description                                     Syntax
+StringBuffer()                       it reserves room for 16 characters              StringBuffer s = new StringBuffer();
+                                     without reallocation
+StringBuffer(int size)               it accepts an integer argument that             StringBuffer s = new StringBuffer(20);
+                                     explicitly sets the size of StringBuffer
+StringBuffer(String str)             it accepts a string argument that sets the      StringBuffer s = new StringBuffer("Default Value")
+                                     initial content of the string Buffer  object
+                                     and reserves room for 16 more characters
+                                     without reallocation
+--------------------------------------------------------------------------------------------------------------------------
+
+Methods Used in the StringBuffer Class
+Method                                          Action Performed
+append()                                                        used to add text at the end of the existing text
+length()                                                        To find the length of the StringBuffer
+capacity()                                                      To find the total allocated capacity
+charAt()                                                        The method returns the char value in this sequence at the specified index
+delete()                                                        Delete a sequence of characters from the invoking object
+deleteCharAt()                                                  Deletes the character at the index specified by the loc
+ensureCapacity()                                                Ensures capacity is at least  equal to the given maximum
+insert()                                                        Inserts text at the specified index position
+reverse()                                                       Reverses the character within the StringBuffer object
+replace()                                                       Replaces one set of characters with another set inside a string buffer object
+appendCodePoint(int CodePoint)                                  This method appends the string representation of the codePoint argument to the sequence(Public StringBuffer appendCodePoint(int codePoint)
+charAt(int index)                                               This method returns the char value in this sequence at the specified index: public char charAt(int index)
+IntStream chars()                                               This method returns a stream of int-zero extending the char values from the sequence: public IntStream chars()
+int codePointAt(int index)                                      This method returns the character(Unicode code point) at the specified index: public int codePointAt(int index)
+int codePointBefore(int index)                                  This method returns the character(Unicode code point) before the specified index: public int codePointBefore(index)
+int codePointCount(int beginIndex, int endIndex)                This method returns the number of unicode CodePoints in the specified text range of the sequence: public int codePointCount(int beginIndex, int endIndex)
+IntStream codePoints()                                          This method returns a stream of code point values from the sequence: public intStream codePoints()
+void trimToSize()                                               This method attempts to reduce storage used for the character sequence: public void trimToSize()
+String toString()                                               This method returns a string representing the data in this sequence: public String toString()
+String substring(int start)                                     This method returns a new string that contains a subsequence of characters currently contained in the character sequence: public String substring(int start), public String substring(int start, int end)
+CharSequence subSequence(int start, int end)                    This method returns a new character sequence that is a subsequence: public CharSequence subSequence(int start, int end)
+void setLength(int newLength)                                   This method sets the length of the character sequence: public void setLength(int newLength)
+void setCharAt(int index, char ch)                              The character at the specified index is set to ch : public void setCharAt(int index, char ch)
+int offsetByCodePoints(int index, int codePointOffset)          This method returns the index within this sequence that is offset from the given index by codePointOffset code Points: public int offsetByCodePoints(int index, int codePointOffset)
+int lastIndexOf(String str)                                     The method returns the index within this string of the last occurrence of the specified substring: public int lastIndexOf(String str), public int lastIndexOf(String str, int fromIndex)
+int indexOf(String str)                                         This method returns the index within this string of the first occurrence of the specified substring: public int indexOf(String str), public int indexOf(String str, int fromIndex)
+void getChars(int srcBegin, int srcEnd, char[] dst,int,dstBegin)The characters are copied form the sequence into the destination character array dst: public void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+
+//The methods for replace, delete, reverse, return a string buffer object
+
+
+-----------------------------------------------------------------------------------------------------------------------
+

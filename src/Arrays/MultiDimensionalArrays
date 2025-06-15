@@ -1,0 +1,341 @@
+=> Multidimensional Arrays: They are used to store data in rows and columns, where each row can represent another individual array
+=> They are also known as an array of arrays
+=> Each row in the array is stored in the heap independently
+
+Syntax:
+data_type[1dimension][2dimension][]...[n dimension]
+array_name = new data_type[size1][size2]...[size n]
+
+Parameters
+data_type: Type of data to be stored in the array(int, float, double)
+dimension: Dimension of the array created[1D, 2D, 3D]
+array_name: Name of the array
+size1, size2, size n: Size of the dimensions respectively
+
+Example:
+//Two Dimensional Array
+int[][] array2d = new int[10][20]
+//Three Dimensional Array
+int[][][] array3d = new int[100][200][300]
+
+Size of MultiDimensional Arrays
+Can be calculated by multiplying the size of all dimensions of an array
+i.e)Array:  int[][][] x = new int[3, 5, 7]
+: The Array can store a total of (3 * 5 * 7) = 105 elements
+
+------------------------------------------------------------------------------------------------------------------------
+Two-Dimensional-Array(2D-Array)
+=An array storing multiple 1-Dimensional arrays
+Syntax:(Declare, Initialize and Assign)
+//Declare and Initialize
+data_type[][]array_name = new data_type[x][y]
+//Assign a Value
+array_name[row_index][column_index] = value;
+//Row number ranges[0 to x-1]
+//Column number ranges[0 to x-1]
+
+
+Representation of Two-Dimensional-Arrays
+            Column 0             Column 1                Column 2
+ Row 0      x[0][0]              x[0][1]                 x[0][2]
+ Row 1      x[1][0]              x[1][1]                 x[1][2]
+ Row 2      x[2][0]              x[2][1]                 x[2][2]
+
+------------------------------------------------------------------------------------------------------------
+Two-Dimensional-Array(Initialize and Print 2D Array)
+package PackageName;  // Replace with  package name
+
+public class ClassName {   // Replace with your class name
+    public static void main(String[] args) {
+
+        DataType[][] arrayName = { { value1, value2 }, { value3, value4 } };  // Replace placeholders
+
+        // Printing the 2D array
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(arrayName[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+- DataType → Replace with desired type (int, double, String, etc.).
+- arrayName → Name of 2D array.
+- value1, value2, value3, value4 → Replace with actual values.
+- rows and columns → Replace with actual row/column count.
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+Creating and Assigning Values to a 2D Array Using Loops
+package PackageName;
+
+public class ClassName {
+    public static void main(String[] args) {
+        int rows = PlaceholderValue;  // Replace with number of rows
+        int columns = PlaceholderValue;  // Replace with number of columns
+
+        DataType[][] arrayName = new DataType[rows][columns];  // Replace placeholders
+
+        DataType iteratorVariable = StartingValue;  // Initializing iterator variable
+
+        // Assigning values using loops
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                arrayName[i][j] = iteratorVariable;
+                iteratorVariable++;  // Update value for next element
+            }
+        }
+
+        // Printing the 2D array
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(arrayName[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+- PlaceholderValue → Replace with actual row/column numbers.
+- DataType → Replace with desired type (int, double, String, etc.).
+- arrayName → Name of your array.
+- iteratorVariable → Replace with a meaningful variable name.
+- StartingValue → Initial value (e.g., 1 for numbering).
+
+-----------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------
+Accessing Specific Elements in a 2D Array
+=In 2Dimensional Array the row is presented as i and the column is presented as j
+=The elements in the array can be obtained using arr[i][j] in a nested loop. arr is the name of the variable which references 2D array
+package PackageName;
+
+public class ClassName {
+    public static void main(String[] args) {
+        DataType[][] arrayName = { { value1, value2 }, { value3, value4 } };  // Replace placeholders
+
+        // Accessing a specific element at rowIndex and columnIndex
+        System.out.println("Element at [" + rowIndex + "][" + columnIndex + "] : " + arrayName[rowIndex][columnIndex]);
+    }
+}
+
+- rowIndex and columnIndex → Replace with specific row and column numbers.
+- DataType → Replace with actual data type.
+- arrayName → Name of  array.
+------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------
+ Two Dimensional Array with User Input
+ :Import the scanner class from the util package
+ :Create the scanner class Object: To provide a prompt for the user to enter number of rows and columns
+ :Create a nested loop to take input from the user to add element in the multi-dimensional array
+ :Print Multi-dimensional Object and close the scanner object
+
+Syntax:
+
+package PackageName;   // Replace with package name
+
+import java.util.Scanner;
+
+public class ClassName {   // Replace with class name
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Taking number of rows and columns from user
+        System.out.print("Enter number of Rows: ");
+        int row = sc.nextInt();
+        System.out.print("Enter number of Columns: ");
+        int column = sc.nextInt();
+
+        DataType[][] arrayName = new DataType[row][column];  // Replace DataType with desired type
+
+        System.out.println("Enter the elements for the array: ");
+        // Taking Input from the user for each element of the array
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                arrayName[i][j] = sc.nextDataType();  // Replace nextDataType() with appropriate input method
+            }
+        }
+
+        System.out.println("Elements of the array are: ");
+        // Printing elements of the array
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                System.out.print(arrayName[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------
+Three-Dimensional Array(3D Array)
+=It is a table of arrays with 'x' rows and 'y' columns where the row number ranges from 0 to (x-1) and column number ranges from 0 to (y-1).
+
+1) creating and printing a 3D array
+package PackageName;  // Replace with package name
+
+public class ClassName {  // Replace with class name
+    public static void main(String[] args) {
+        // Array Creation and Initialization
+        DataType[][][] arrayName = {
+            { { value1, value2 }, { value3, value4 } },
+            { { value5, value6 }, { value7, value8 } }
+        };  // Replace values accordingly
+
+        // Define dimensions of the Multi-Dimensional Array
+        int x = arrayName.length;      // Number of 2D arrays (depth)
+        int y = arrayName[0].length;   // Number of rows in each 2D array
+        int z = arrayName[0][0].length;// Number of columns in each row
+
+        // Printing the array
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                for (int k = 0; k < z; k++) {
+                    System.out.println("arrayName[" + i + "][" + j + "][" + k + "] = " + arrayName[i][j][k]);
+                }
+            }
+        }
+    }
+}
+
+2) Assigning values using Indices
+package PackageName;  // Replace with package name
+
+public class ClassName {  // Replace with class name
+    public static void main(String[] args) {
+        // Creating a 3D array dynamically
+        DataType[][][] arrayName = new DataType[xDimension][yDimension][zDimension];  // Replace DataType with desired type
+
+        int x = arrayName.length;      // Number of 2D arrays (depth)
+        int y = arrayName[0].length;   // Number of rows in each 2D array
+        int z = arrayName[0][0].length;// Number of columns in each row
+
+        DataType iteratorVariable = StartingValue;  // Replace with desired initial value
+
+        // Assigning values to the array using nested loops
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                for (int k = 0; k < z; k++) {
+                    arrayName[i][j][k] = iteratorVariable;
+                    iteratorVariable++;  // Update value for next element
+                }
+            }
+        }
+
+        // Printing the 3D array
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                for (int k = 0; k < z; k++) {
+                    System.out.print(arrayName[i][j][k] + " ");
+                    System.out.println();
+                }
+                System.out.println();  // Space between 2D layers
+            }
+        }
+    }
+}
+
+- PackageName →  package name (optional).
+- ClassName → class name (e.g., ThreeDimensionalArrayExample).
+- DataType → Specify the type of array elements (int, double, String, etc.).
+- arrayName → The name of the 3D array.
+- xDimension, yDimension, zDimension → Dimensions for depth, rows, and columns.
+- iteratorVariable → A variable used to assign values dynamically.
+- StartingValue → Initial value (e.g., 1 for numbering).
+
+3)Accessing Elements in 3D Arrays
+Elements in the 3Dimensional Arrays are referred to arr[i][j][k]
+i = arrayNumber
+j = row number
+k = column number
+NOTE: If Size of an Array is N then:
+index = 0 to N-1
+row_index 2 = actual row number is 2 + 1 = 3
+
+Syntax:
+package PackageName;  // Replace with package name
+
+public class ClassName {  // Replace with class name
+    public static void main(String[] args) {
+        // Creating and initializing a 3D array
+        DataType[][][] arrayName = {
+            { { value1, value2 }, { value3, value4 } },
+            { { value5, value6 }, { value7, value8 } }
+        };  // Replace values accordingly
+
+        // Accessing a specific element at [xIndex][yIndex][zIndex]
+        System.out.println("arrayName[xIndex][yIndex][zIndex] = " + arrayName[xIndex][yIndex][zIndex]);
+    }
+}
+
+- PackageName → package name (optional).
+- ClassName → class name.
+- DataType → Specify the type of array elements (int, double, String, etc.).
+- arrayName → The name of  3D array.
+- value1, value2, ... value8 → Replace with actual values.
+- xIndex, yIndex, zIndex → Replace with specific indices for accessing an element
+
+//Inserting a Multi-dimensional Array during Runtime
+User Input in Multi-dimensional Arrays
+Syntax: package PackageName;  // Replace with your package name
+
+        import java.util.Scanner;
+
+        public class ClassName {  // Replace with your class name
+            public static void main(String[] args) {
+                Scanner scannerVariable = new Scanner(System.in); // Replace scannerVariable with preferred name
+
+                // Taking number of rows from user
+                System.out.print("Enter the number of rows: ");
+                int rowSize = scannerVariable.nextInt();  // Replace rowSize with preferred variable name
+
+                // Initialize a 2D array with dynamic column sizes
+                DataType[][] arrayName = new DataType[rowSize][];  // Replace DataType with desired type
+
+                // Taking Input for each row dynamically
+                for (int i = 0; i < rowSize; i++) {
+                    System.out.print("Enter number of columns for row " + i + ": ");
+                    int columnSize = scannerVariable.nextInt();  // Replace columnSize with preferred variable name
+
+                    arrayName[i] = new DataType[columnSize]; // Define column size dynamically
+
+                    System.out.println("Enter " + columnSize + " elements for row " + i + ":");
+                    for (int j = 0; j < columnSize; j++) {
+                        arrayName[i][j] = scannerVariable.nextDataType();  // Replace nextDataType() with correct method
+                    }
+                }
+
+                // Displaying array structure
+                System.out.println("\nArray Elements:");
+                for (int i = 0; i < rowSize; i++) {
+                    for (int j = 0; j < arrayName[i].length; j++) {
+                        System.out.print(arrayName[i][j] + " ");
+                    }
+                    System.out.println(); // Newline after each row
+                }
+
+                scannerVariable.close();
+            }
+        }
+         - PackageName → package name (optional).
+         - ClassName → Replace with the appropriate class name.
+        - scannerVariable → Name of the Scanner object (e.g., sc or inputScanner).
+        - rowSize → Replace with your preferred variable for number of rows.
+        - columnSize → Replace with your preferred variable for number of columns per row.
+        - DataType → Replace with the appropriate data type (int, double, String, etc.).
+        - arrayName → Name of the multidimensional array.
+        - nextDataType() → Use correct method based on DataType:
+        - nextInt() for integers
+        - nextDouble() for decimals
+        - nextLine() for Strings
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+//Applications of Multi-Dimensional Arrays
+=They are used to arrange data in a more manageable form
+=In dynamic programming questions, multi-dimensional arrays are used to represent the state of the problem
+=They are used in Standard Algorithmic problems: Matrix Multiplication, Adjacency matrix representation in graphs, Grid search problems.

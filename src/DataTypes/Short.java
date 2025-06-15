@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 // Syntax: short variableName;
 public class Short {

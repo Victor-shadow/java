@@ -1,0 +1,75 @@
+Static Method = It is part of the class and can be invoked without creating an object
+Instance Method = It belongs to an object hence objects have be created to use the methods
+
+Differences between the StaticMethods & Instance Methods
+Features                      StaticMethod                           InstanceMethod
+Definition                    Created using the Static keyword       Requires objects of its class to                                be invoked
+                              and retrieved without creation         be invoked
+                              of objects
+Access                        Access only Static variables           Can access both static and
+                              and methods                            instance members
+this keyword                  Cannot use this keyword within         Can use this keyword to refer
+                              static methods                         to current object
+Override                      Does not support runtime               Supports Runtime Polymorphism
+                              polymorphism
+Memory Allocation             Stored in MethodArea                   Stored in Method Area (PermGen/Metaspace)
+                              PermGen space in Java 7,
+                              replaced by Metaspace in Java 8+
+
+STATIC METHODS
+= A Static method is created using the static keyword, it can be invoked without creating an object of the class referenced by the class name itself
+or reference to the objects of that class
+
+Memory Allocation of Static Methods
+=Static methods belong to the class, not its objects and they are stored in the permanent generation space of the heap
+=Their local variables and arguments are stored in the stack
+=They can be called without creating an instance of the class:
+ClassName.methodName(args)
+
+NOTE:
+i)Static methods are shared among all objects of the class
+ii)They cannot be overridden as they use static binding at compile time
+iii)If both superclass and subclass have static methods with the same name it is called Method Hiding where the subclass method hides the superclass method
+
+General Syntax of Static methods
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+// Java program to demonstrate static methods
+
+import java.io.*;
+
+class ClassName {
+
+    // Static method definition
+    public static ReturnType methodName() {
+
+        // Print message to show execution
+        System.out.println(">>> This is a static method.");
+
+        // Return a value if not void
+        return Value;
+    }
+
+    public static void main(String[] args) {
+
+        // Calling static method directly
+        methodName();
+
+        // Calling static method using class name
+        ClassName.methodName();
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------
+
+INSTANCE METHOD
+=They are methods that require creation of objects to operate.
+=To access an instance method, an object of the class where the method is written needs to be created
+
+Memory Allocation of Instance Method
+=Instance Methods are stored in the PermanentGenerationSpace of the heap memory and Meta Space for better efficiency
+=Its parameters, local variables and return values are allocated on the stack
+= They can be called within their class or from other classes based on access modifiers
+
+NOTE:
+Instance Methods belong to the object and not the class and require an object to be called
+They are stored in one Memory location and identify their object through the this pointer
+They can be overridden as they use dynamic binding at runtime

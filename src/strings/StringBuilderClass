@@ -1,0 +1,75 @@
+//The StringBuilder class is part of the java.lang.package that provides a mutable sequence of characters
+=>Declaration: StringBuilder sb = new StringBuilder("Initial String")
+
+//Features of the String Builder Class
+=>StringBuilder represent a mutable sequence of characters
+=>StringClass creates an immutable sequence of characters
+=>StringBuilder does not guarantee synchronization. It is a high performance and a low-overhead non-thread safe alternative
+=>Suitable for single threaded operations
+
+Syntax:
+public final class StringBuilder extends Object implements Serializable, CharSequence
+
+StringBuilder Class Hierarchy:
+java.lang.Object
+ ↳ java.lang
+    ↳ Class StringBuilder
+
+ StringBuilder classes in java are used since:
+ i) They are mutable: one can change the string without creation of a new object, Hence efficient for repeated modifications.
+ ii) Faster than String: StringBuilder does not create new objects for every change, it avoids unnecessary memory allocations
+ iii) Suitable for Single Threaded environments since it does not have the overhead of thread safety and synchronization is not required
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ StringBuilderClass Constructors
+ i) StringBuilder() = Creates an empty string builder with a default initial capacity of 16: StringBuilder stringbuilder = new StringBuilder();
+ ii) StringBuilder(int capacity) = Creates a String Builder with the specified initial capacity: StringBuilder stringbuilder = new StringBuilder(50);
+ iii)StringBuilder(String str) = Creates a String Builder Initialized with the contents of a given string: StringBuilder stringbuilder= new StringBuilder("default");
+ iv)StringBuilder(CharSequence cs) = Creates a String Builder Initialized with the contents of a given CharSequence object: CharSequence stringbuilder ="Default Value"; StringBuilder sb = new StringBuilder(cs)
+ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ //Methods of StringBuilderClass
+ Method                                        Description                                              Example
+ append(String str)                            Appends the specified string to the end                  sb.append("String")
+                                               of the StringBuilder
+ insert(int offset, string)                    Inserts the specified string at the given                sb.insert(5, "String")
+                                               position in StringBuilder
+ replace(int start, int end, String)           Replaces characters in the Substring with                sb.replace(5, 10, "String")
+                                               specified string
+ delete(int start, int end)                    Removes characters in specified range                    sb.delete(5,10)
+ reverse()                                     Reverses the sequence of characters in                   sb.reverse()
+                                               String Builder
+ capacity()                                    Returns the current capacity of the                      int cap = sb.capacity()
+                                               String Builder
+ length()                                      Returns the number of characters in                      int len = sb.length()
+                                               String Builder
+ charAt(int Index)                             Returns the character at specified index                 char ch = sb.charAt(4)
+ setCharAt(Int Index, char)                    Replaces the character at the specified position         sb.setCharAt(0, 'G')
+                                               with the new character
+ substring(int start, int end)                 Returns a new string that contains characters            String sub = sb.substring(0, 5)
+                                               from specified range
+ ensureCapacity(int minimum)                   Ensures the capacity of the StringBuilder is             sb.ensureCapacity(50)
+                                               at least equal to the specified minimum
+ deleteCharAt(int index)                       Removes the character at specified position              sb.deleteCharAt(3)
+ indexOf(String str)                           Returns the index of the first occurrence of             int idx = sb.indexOf("String")
+                                               specified string
+ lastIndexOf(String str)                       Returns the index of the last occurrence of              int idx = sb.lastIndexOf("String")
+                                               specified string
+ toString()                                    Converts the StringBuilderObject to a string             String result = sb.toString()
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Advantages
+i) It is more efficient than String when performing multiple string manipulations (like concatenation) since it modifies the string in place.
+ii) It avoids creating new objects on every modification, reducing memory overhead.
+iii)Unlike String, StringBuilder allows the modification of strings without creating new instances.
+iv) It dynamically adjusts its capacity as needed, minimizing the need for resizing.
+v) Great for scenarios where strings are modified repeatedly inside loops.
+
+Disadvantages
+i) It is not synchronized, making it unsuitable for use in multi-threaded environments.
+ii) If not used properly, StringBuilder may allocate excess memory, especially if the initial capacity is set too large.
+iii) For multi-threaded scenarios, you must handle synchronization manually, unlike StringBuffer.
+
+
+

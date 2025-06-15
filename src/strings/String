@@ -1,0 +1,118 @@
+=> A String is a type of object that can store a sequence of characters enclosed by double quotes and every character is stored in 16 bits.(UTF 16-BITS)
+=> It is also an array of characters
+
+//Creation of strings
+=> Use of String Literal
+=> New Keyword
+
+:Syntax
+<String_Type> <string_variable> = "<sequence_of_string">
+
+//String Literal(Static Memory)
+=> Used to make Java more memory efficient since no new objects are created if it already exists in the String constant pool
+: String str = "An array of characters";
+
+//New Keyword(Heap Memory)
+: String str = new String("An Array of characters");
+//The Java Virtual Machine checks the String Constant Pool. If the String does not exist then a new String instance is created and placed in the pool
+If the String exists then it will not create the new object but rather it will return the reference to that instance
+
+//The cache that stores these string instances is known as a String Constant Pool or String Pool
+=> str will refer to the object in the heap memory
+
+-------------------------------------------------------------------------------------------------------------
+
+//Interfaces and Classes in Strings
+=> CharBuffer: This class implements the CharSequence Interface. This class is used to allow character buffers to be used in place of CharSequences
+:The Use of regular expression package(java.util.regex)
+=> String: It is a sequence of characters, In java objects of string are immutable which means that it is a constant and cannot be changed once created
+
+--------------------------------------------------------------------------------------------------------------------
+
+CharSequenceInterface
+=> It is used for representing the sequence of characters.
+=> Classes implemented using the CharSequenceInterface include:
+   :String
+   :String Buffer
+   :String Builder
+=> They provide functionality such as: first occurrence, last occurrence, concatenate, toupper, tolower
+
+--------------------------------------------------------------------------------------------------------
+
+STRING
+=> It is an immutable class which means a constant and cannot be changed once created
+Syntax:
+=>Method 1
+String str = "An array of characters";
+=>Method 2
+String str = new String("An Array of Characters")
+-----------------------------------------------------------------------------------------
+
+STRING BUFFER
+=> It is a peer class of String, it is mutable in nature and thread safe class
+=> Suitable for multi-thread environment and shared object of string buffer i.e; that is used by multiple thread
+
+Syntax:
+StringBuffer demoString = new StringBuffer("An array of Characters")
+
+-------------------------------------------------------------------------------------------
+
+STRING BUILDER
+=> It creates a mutable sequence of characters and it is not thread safe
+=> It is used only within the thread so there is no extra overhead
+=> Mainly used in a single threaded program
+
+Syntax:
+StringBuilder demoString = new StringBuilder()
+demoString.append("An Array of Characters")
+
+-----------------------------------------------------------------------------------------
+
+STRING TOKENIZER
+=> It is used to break a string into tokens
+=> A StringTokenizer object internally maintains a current position within the string to be tokenized. Some operations advance this current position past the characters processed.
+=> A token is returned by taking a substring of the string that was used to create the StringTokenizerObject
+
+-------------------------------------------------------------------------------------------
+
+StringJoiner
+=> It is a class in java.util package which is used to construct a sequence of characters(strings) separated by a delimiter and optionally starting with a supplied prefix and ending with a supplied suffix
+
+:Syntax
+public StringJoiner(CharSequenceDelimiter)
+------------------------------------------------------------------------------------------------
+
+Memory Allotment of String
+String literal
+=> Whenever a String object is created as a literal, The object will be created in the String constant pool which allows JVM to optimize the initialization of the string literal
+=> The String constant pool is present in the heap
+
+:Use of String literal to assign char Sequence value
+String str = "An Array of characters";
+str => Stack Memory
+An Array of characters => Heap Memory in the String constant pool
+
+:Use of new Keyword(dynamically allocated)
+=> In case String is dynamically allocated they are assigned new memory location in the heap. The String will not be added to the String constant pool
+String str1 = new String("James");
+String str2 = new String("Gosling");
+
+str1, str2 => Stack Memory
+"James", "Gosling" => Outside the String Constant Pool
+
+Use of intern() to add the String Object inside the String Constant Pool
+String internedString = demoString.intern()
+
+---------------------------------------------------------------------------------------
+String Literals(normal String declaration) allow the JVM to optimize memory allocation
+
+Note: All Objects in java are stored in Heap Memory
+---------------------------------------------------------------------------------------
+
+Reasons why Java Strings are immutable:
+i)String Constant Pool: Java stores string literals in a pool to save memory. Immutability ensures that one reference does not change the value of the others
+ii)Security: Strings are used for Storage of sensitive data: Username, password. Immutability prevents altering of values stored by strings
+iii)Thread-Safety: Since Strings are immutable, they are thread safe, multiple threads can use the same string
+iv)Efficiency: The JVM reuses strings in he String pool for improving memory usage and performance
+
+=> String class and all wrapper classes in Java that include Boolean, Character, Byte, Short, Integer, Long, Float, and Double are immutable

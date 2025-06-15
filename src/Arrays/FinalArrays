@@ -1,0 +1,17 @@
+=>final keyword is used to make a variable constant meaning the value of the variable cannot change throughout the program
+
+//Final Arrays
+If an array is final, it cannot be pointed to a new array but the elements inside the array can be modified
+Example:
+final int[]arr = {100, 20, 30, 40, 50, 60, 70};
+//Modification of elements inside the array works
+arr[0] = 10;
+//Reassignment of array reference triggers a compilation error
+arr = new int[]{600, 700, 800}
+
+NOTE:
+= Elements in a final array can be modified since Array elements are mutable.
+= Final arrays can not be reassigned to a new array since reference is final and cannot point to a new object
+= Object states in a final array can be modified
+=Object References stored cannot be reassigned since final variables cannot point to a new instance
+= array variables are actually a reference to an object

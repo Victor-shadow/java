@@ -1,0 +1,19 @@
+= A CommandLineArgument is an argument passed at the time of running the Java Program.
+
+//Definition of Command-Line Arguments
+The extra information given right after the program name is called the command line arguments
+Example:
+java Name Hello World
+Note: The words Hello and World are command line arguments. The Java Virtual Machine will collect these words and pass them to the main method as an array of Strings called args
+
+//Operation of CommandLine Arguments
+One needs to pass the arguments as space-separated values
+One can pass both strings and primitive data types(int double float char) as command-line arguments
+The arguments convert into a string array and are provided to the main function() as a string array argument
+When command-line arguments are supplied to JVM, JVM wraps these and supplies them to args[]. It can be confirmed that they are wrapped up in an args array by checking the length of args using args.length.
+Internally, JVM wraps up these command-line arguments into the args[ ] array that we pass into the main() function. We can check these arguments using args.length method. JVM stores the first command-line argument at args[0], the second at args[1], the third at args[2]
+
+//Reasons for use of Command Line Arguments
+=It is used to provide input at runtime without modification of the main program
+=It helps to run programs automatically by giving them the needed information outside
+

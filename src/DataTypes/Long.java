@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 // Syntax: long variableName;
 public class Long {

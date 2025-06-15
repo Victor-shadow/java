@@ -1,0 +1,123 @@
+//Variables are containers that store data in memory
+//They have three components:
+//DataTypes Type: Defines the kind of data stored (int, String, float)
+//Variable Name: Unique Identifier
+//Value: The Actual DataTypes assigned to the variable
+
+//There are three types of variables in java:
+//Local Variables = It is defined within a block({})or method or constructor
+ => It is created at the time of declaration and destroyed when the function completes its execution
+ => The scope of local variables exist only within the block they are declared
+
+ :Syntax
+ public void methodName() {
+     DataType variableName = value;  // Local variable
+     System.out.println(variableName);
+ }
+
+//Instance Variables = They are declared in a class outside any method, constructor or block{}
+=> It is created when the object of the class is declared using new keyword and it is destroyed when the object is removed
+=> Access Specifiers are used by Instance Variables
+=> Instance Variables can be accessed only through creation of objects
+=> They are initialized using Constructors while creating an object and also Instance Blocks are used
+=> Scope of instance variables are throughout the class except static contexts
+=> The default values for Instance variables is dependent on the data type of the variable
+  :String = null
+  :float = 0.0f
+  :int = 0
+ => unique per instance of a class.
+
+ :syntax
+ public class ClassName {
+     public DataType variableName;  // Instance variable
+
+     public void methodName() {
+         System.out.println(variableName);  // Accessible within class
+     }
+ }
+
+
+ //Static Variables = They are also known as class variables
+ => They are declared using static keyword within a class and outside any method, constructor or block{}
+ => There can be only one copy of a static variable per class, regardless of objects created
+ => Static variables are created at the start of program execution and destroyed automatically when execution ends
+ => The default values of Static variables are dependent on data type:
+    :String = null
+    :float = 0.0f
+    :int = 0
+  => Static variables cannot be declared locally inside an instance method
+  => Static blocks can be used to initialize static variables
+  => They can be accessed directly using the class name
+
+  :syntax
+  public class ClassName {
+      public static DataType variableName = value;  // Static variable
+
+      public static void methodName() {
+          System.out.println(ClassName.variableName);  // Access directly via class
+      }
+  }
+
+---------------------------------------------------------------------------------------------
+//Scope of variables
+=> It is the part of the program where the variable is accessible
+=> All Identifiers are lexically(statically) scoped
+
+//Class Level Scope(Instance Variables)
+=> These Variables must be declared inside a class(outside any function). They can be directly accessed from anywhere in the class
+: Syntax
+public class Test{
+//All variables defined directly inside a class are member variables
+int a;
+private String b;
+void method1(){
+
+}
+int method2(){
+
+}
+char c;
+}
+=> Class variables can be declared anywhere inside the class but outside methods
+=> Access specified of member variables does not affect scope of them within a class
+=> Member variables can be accessed outside a class
+
+= Access Modifiers and Member Variable Scope
+Modifier         Package          Subclass           World
+public            yes             yes                 yes
+protected         yes             yes                 no
+private           yes             no                  no
+Default           no              no                  no
+
+//Class Level Scope(Static Variables)
+=> It is a type of class variable shared across all instances of a class
+=> Its scope is not limited to the class or block
+
+
+//Method Level Scope(Local Variables) = variables that exist only within a method
+=> Variables declared inside a method have a method level scope and can't be accessed outside the method
+:Syntax
+public class Test{
+void method1(){
+//Local variable(Method Level Scope)
+int x;
+}
+=> Local variables do not exist after method execution is over
+
+//Parameter Scope(Local Variables)
+=> The variable is passed in as a parameter to the method
+:syntax
+class Test{
+private int x;
+
+public void SetX(int x){
+this.x = x;
+}
+}
+=> They cannot be used outside any method where they are defined
+=> Used to pass data dynamically into methods
+=> Declared in a method parameter's list
+
+//Block Level Scope
+=> A variable declared inside a pair of curly braces{} in a method has a scope within the brackets only
+

@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 // Syntax: byte variableName;
 public class Byte {

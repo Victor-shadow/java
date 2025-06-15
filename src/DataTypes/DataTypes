@@ -1,5 +1,5 @@
-//Data Types
-//Primitive Data Types = store simple values directly in memory
+//DataTypes Types
+//Primitive DataTypes Types = store simple values directly in memory
 //They include boolean, char, byte, short, int, long, float, double
 //They are stored on the stack
 
@@ -7,13 +7,13 @@
 //boolean  true or false                  false        JVM DEPENDENT(1 byte)      true,false                                          true,false
 //byte     8-bit(signed integer)           0             1 byte                    none                                               -128 to 127
 //char     unicode character(16-bit)      \u0000        2 bytes                   'a', '\u0041', '\101', '\\', '\', '\n', 'β'        0 to 65,535 (unsigned)
-//short    16-bit(signed Data.Integer)          0             2 bytes                   none                                               -32,768 to 32,767
-//int      32-bit(signed Data.Integer)          0             4 bytes                   -2,0,1                                             -2,147,483,648 - 2,147,483,647
-//long     64-bit(signed Data.Integer)          0L            8 bytes                   -2L,0L,1L                                          -9,223,372,036,854,775,808 - 9,223,372,036,854,775,807
+//short    16-bit(signed DataTypes.Integer)          0             2 bytes                   none                                               -32,768 to 32,767
+//int      32-bit(signed DataTypes.Integer)          0             4 bytes                   -2,0,1                                             -2,147,483,648 - 2,147,483,647
+//long     64-bit(signed DataTypes.Integer)          0L            8 bytes                   -2L,0L,1L                                          -9,223,372,036,854,775,808 - 9,223,372,036,854,775,807
 //float    32-bit IEEE 754 floating-point  0.0f          4 bytes                   3.14f, -1.23e-10f                                  ~6-7 significant decimal digits
 //double   64-bit IEEE 754 floating-point  0.0d          8 bytes                   3.1415d, 1.23e100d                                 ~15-16 significant decimal digits
 
-//NonPrimitive Data Types = These are reference types that store memory addresses of objects
+//NonPrimitive DataTypes Types = These are reference types that store memory addresses of objects
 //They include String, Array, Class Interface, Object
 //Stored on the Heap
 //String = An array of characters

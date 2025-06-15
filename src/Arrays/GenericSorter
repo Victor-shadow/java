@@ -1,0 +1,51 @@
+ Method:sort(T[] a, int fromIndex, int toIndex, Comparator< super T> c)
+ The method is used to sort a specified range of an array using a custom comparator for Sorting
+
+
+ import java.util.*;
+ class Entity<T> {
+     T id;
+     String name, detail;
+
+     // Constructor
+     public Entity(T id, String name, String detail) {
+         this.id = id;
+         this.name = name;
+         this.detail = detail;
+     }
+
+     @Override
+     public String toString() {
+         return id + " " + name + " " + detail;
+     }
+ }
+
+ // Comparator to sort by ID
+ class SortById<T extends Comparable<T>> implements Comparator<Entity<T>> {
+     public int compare(Entity<T> a, Entity<T> b) {
+         return a.id.compareTo(b.id);
+     }
+ }
+
+ public class GenericSorter {
+     public static void main(String[] args) {
+         List<Entity<Integer>> arr = Arrays.asList(
+                 new Entity<>(111, "bbbb", "Location1"),
+                 new Entity<>(131, "aaaa", "Location2"),
+                 new Entity<>(121, "cccc", "Location3")
+         );
+
+         System.out.println("Unsorted:");
+         for (Entity<Integer> entity : arr) {
+             System.out.println(entity);
+         }
+
+         // Sorting using a specified range with a custom comparator
+         arr.sort(new SortById<>());
+
+         System.out.println("\nSorted by ID:");
+         for (Entity<Integer> entity : arr) {
+             System.out.println(entity);
+         }
+     }
+ }

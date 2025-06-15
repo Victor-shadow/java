@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 //Syntax: double doubleVar;
 public class Double {

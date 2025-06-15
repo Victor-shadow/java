@@ -1,0 +1,40 @@
+= The Arrays class in java.util.package is part of the java collection Framework.
+= The class provides static methods to dynamically create and access java arrays
+
+Class Hierarchy
+java.lang.Object
+ ? java.util.Arrays
+
+Class Declaration
+=> public class Arrays extends Objects
+To use arrays:
+=> Arrays.<function name>
+
+Methods in Java Arrays Class
+asList() = Returns a fixed-size list backed by the specified Arrays
+binarySearch() = Searches for the specific element in the array with the help of the Binary Search Algorithm
+binarySearch(array,fromIndex,toIndex, key, Comparator) = Searches a range of the specified array for the specified object using the Binary Search Algorithm
+compare(array1, array2) = Compares two arrays passed as parameters lexicographically
+copyOf(originalArray,newLength) = Copies the specified array, truncating or padding with the default value when necessary so that the copy has specified length
+copyOfRange(OriginalArray, fromIndex, endIndex) = Copies the specified range of the specified array into new Arrays
+deepEquals(Object[] a1, Object[] a2) = Returns true if two specified arrays are deeply equal to each other
+deepHashCode(Object[]a) = Returns a hash code based on the deep contents of the specified arrays
+deepToString(Object[]a) = Returns a string representation of the deep contents of the specified arrays
+equals(array1, array2) = Checks if both arrays are equal or not
+fill(originalArray,fillValue) = Assigns this fill values to each index of the arrays
+hashCode(originalArray) = Returns an integer hashCode of the array instance
+mismatch(array1, array2) = Finds and returns the index of the first unmatched element between the two specified arrays
+parallelPrefix(originalArray,fromIndex,endIndex,functionalOperator) = performs parallelPrefix for the given range of array with the specified functional Operator
+parallelPrefix(originalArray,operator) = performs parallel prefix for complete array with specified functional operator
+parallelSetAll(originalArray, functionalGenerator) = Sets all the elements of this array in parallel  using the provided generator function
+parallelSort(originalArray) = Sorts the specific array using parallel sort
+setAll(originalArray, functionalGenerator) = Sets all the elements of the specified array using the generator function provided
+sort(originalArray) = Sorts the complete array in ascending order
+sort(originalArray, fromIndex, endIndex) = Sorts the specified range of array in ascending order
+sort(T[] a, int fromIndex, int toIndex,Comparator<super T>c) = Sorts the specified range of the specified array of objects according to the order induced by the specified comparator
+sort(T[] a, Comparator <super T>c) = Sorts the specified array of objects according to the order induced by the specified comparator.
+spliterator(originalArray) = Returns a spliterator covering all the specified arrays
+spliterator(originalArray, fromIndex, toIndex) = Returns a spliterator of the type of the array covering the specified range of the specified array
+stream(originalArray) = Returns a sequential stream with the specified array as its source
+toString(originalArray) = It returns a string representation of the contents of this array. The string representation consists a list of the array's elements enclosed in square brackets []. Adjacent elements are separated by the characters a comma followed by a space. Elements are converted to strings as by String.valueOf() function
+

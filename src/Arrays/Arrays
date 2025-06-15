@@ -1,0 +1,322 @@
+//Arrays: are containers that store multiple values of the same data type in a single variable
+:They are useful for storage and management of collections of data
+:Arrays are objects of a class
+:A direct superclass of arrays is a Class Object
+
+=> Primitive arrays = elements are stored in contiguous memory locations
+=> Non-Primitive arrays = references are stored at contiguous locations but the actual objects may be at different locations
+
+-------------------------------------------------------------------------------------------------------------------------
+:Features of Arrays
+i) Contiguous memory locations for Primitive arrays: Java Array elements are stored in contiguous memory locations in which elements of the array are next to each other.
+ii) Zero-Based Indexing: The First element of the array is at index 0
+iii)Fixed-Length: Once an array is created, its size is fixed and cannot be changed
+iv)Can Store Objects & Primitives: Java arrays can hold both primitive data types(int, char, boolean) and Objects(String, Integer)
+
+-------------------------------------------------------------------------------------------------------------
+
+Array Declaration(reference of an array is created)
+syntax1: type[]arrayName;
+syntax2: type arrayName[];
+
+type = The data type of the array elements that comprises the array.
+The data types can also be objects of a class
+The primitive data type can also be: char, int, float,double
+arrayName: name of the array
+
+-------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+Initialization of an Array
+format: var-name = new type[size];
+type = specifies the type of data being allocated
+size = determines the number of elements in an array
+var-name = name of the array variable linked to the array
+
+Syntax:
+//declaring array
+int intArray[];
+//Memory allocation to an array
+intArray = new int[20];
+//Array Initialization
+int[] intArray = new int[20];
+
+//Elements in the array will be automatically initialized to zero(numeric types: int(0), float(0.0),  false(boolean), null(reference Types: Strings)
+
+
+-------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------
+Access an Element of an Array
+We can access array elements using their index, which starts from 0:
+
+// Setting the first element of the array
+numbers[0] = 10;
+
+// Accessing the first element
+int firstElement = numbers[0];
+---------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------
+Change an Array Element
+=To change an element, assign a new value to a specific index
+//Change first element to 20
+numbers[0] = 20
+--------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------
+Length of an Array
+=Can be accessed using the length property
+// Getting the length of the array
+int length = numbers.length;
+---------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------
+Array Literal in Java
+=Used whenever the size of the array and the variables of the array are known
+=>Declaration of an Array Literal
+int[] intArray = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+=The length of this array determines the length of the created array
+
+--------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------
+Accessing Java Array Elements using a for loop
+Syntax:
+//Accessing elements of the specified array
+for(int i = 0; i <arr.length; i++)
+System.out.println("Element at Index " + i + ":" + arr[i]);
+
+----------------------------------------------------------------------------------------------------------
+
+Types of Arrays in JAVA
+i) Single-Dimension Arrays(1D Arrays): Elements in the Array are stored in a linear order.
+Syntax: int[] singleDimensionArray = {1, 2, 3, 4, 5}
+ii)Multi-Dimension Arrays(2D Arrays, 3D Arrays): Are Arrays of Arrays with each element of the array holding reference of other arrays
+A multidimensional array is created by appending one set of square brackets ([]) per dimension.
+Syntax:
+//Method1
+datatype [][] array variable;
+//Method 2
+datatype array variable[][]
+
+iv) Array of Objects in Java
+Syntax:
+Method1 = ObjectType[] arrayName;
+Method2 = ObjectType arrayName[];
+
+//Dynamic Creation of array of objects
+//Method1
+// Java program to illustrate creating an array of objects dynamically
+
+class ClassName {
+    // Define attributes
+    public DataType attribute1;
+    public DataType attribute2;
+
+    // Constructor to initialize object
+    ClassName(DataType attribute1, DataType attribute2) {
+        this.attribute1 = attribute1;
+        this.attribute2 = attribute2;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Declare an array of ClassName objects
+        ClassName[] arr;
+
+        // Allocate memory for N objects of type ClassName
+        int N = NumberOfObjects;  // Replace with actual number
+        arr = new ClassName[N];
+
+        // Initialize the elements of the array
+        arr[0] = new ClassName(Value1_1, Value1_2);
+        arr[1] = new ClassName(Value2_1, Value2_2);
+        arr[2] = new ClassName(Value3_1, Value3_2);
+        // Continue initializing as needed...
+
+        // Access and display the elements of the array
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Element at " + i + " : { "
+                               + arr[i].attribute1 + " "
+                               + arr[i].attribute2 + " }");
+        }
+    }
+}
+
+- ClassName: Replace with any class name.
+- DataType: Replace with actual data types.
+- attribute1, attribute2: Replace with actual attribute names.
+- NumberOfObjects: Set the desired array size.
+- ValueX_Y: Replace with actual values for each object.
+
+Method2:
+// Java program to illustrate creating an array of objects dynamically
+
+class ClassName {
+    // Define attributes
+    public DataType attribute;
+
+    // Constructor to initialize object
+    ClassName(DataType attribute) {
+        this.attribute = attribute;
+    }
+
+    @Override
+    public String toString() {
+        return attribute.toString(); // Converts attribute to string for printing
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Declare and initialize an array of ClassName objects
+        ClassName[] objectArray = new ClassName[]{
+            new ClassName(Value1),
+            new ClassName(Value2),
+            new ClassName(Value3),
+            new ClassName(Value4)
+        };
+
+        // Access and display the elements of the array
+        for (ClassName obj : objectArray) {
+            System.out.println(obj);
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+Passing Arrays in Methods in Java
+=Arrays can also be passed into methods
+Syntax:
+package Arrays; // Optional package declaration
+
+public class ArrayTraversal {
+    // Method to traverse a 2D array
+    public static void traverseArray(int arr[][]) {
+        for(int i = 0; i < arr.length; i++){ // Loop through rows
+            for(int j = 0; j < arr[i].length; j++){ // Loop through columns
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println(); // Print new line after each row
+        }
+    }
+
+    // Main method
+    public static void main(String[] args){
+        // Placeholder for a sample 2D array
+        int sampleArray[][] = {
+            {A1, A2, A3, ..., An},  // Row 1
+            {B1, B2, B3, ..., Bm},  // Row 2
+            {C1, C2, C3, ..., Cp}   // Row 3
+        };
+
+        // Call the method with the sample array
+        traverseArray(sampleArray);
+    }
+}
+
+Syntax1:
+package Arrays; // Optional package declaration
+
+public class ArrayTraversal {
+    // Method to traverse a 1D array
+    public static void traverseArray(int arr[]) {
+        for(int i = 0; i < arr.length; i++) { // Loop through each element
+            System.out.print(arr[i] + " "); // Print element with space
+        }
+        System.out.println(); // Print new line after traversal
+    }
+
+    // Main method
+    public static void main(String[] args){
+        // Placeholder for a sample 1D array
+        int sampleArray[] = {A1, A2, A3, ..., An};
+
+        // Call the method with the sample array
+        traverseArray(sampleArray);
+    }
+}
+---------------------------------------------------------------------------------------------------------
+
+RETURNING ARRAYS FROM METHODS
+= A method can also return an array
+Syntax:
+// Java program to demonstrate
+// return of an array from a method
+
+class ClassName {
+    // Driver method
+    public static void main(String[] args) {
+        DataType[] arrayName = methodName();
+
+        for (int i = 0; i < arrayName.length; i++)
+            System.out.print(arrayName[i] + " ");
+    }
+
+    public static DataType[] methodName() {
+        // returning an array
+        return new DataType[] { value1, value2, value3 };
+    }
+}
+---------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------
+PROPERTIES OF ARRAYS
+i)All arrays are dynamically allocated
+ii)Arrays may be stored in contiguous memory locations[consecutive memory locations]
+iii)Since arrays are objects, the length of arrays can be obtained using the object length property
+iv)A java Array variable can also be declared like other variables with [] after the data type
+v)Variables in the array are ordered and each has an index beginning with zero
+vi)Java array can also be used as a static field, a local variable, or a method parameter
+
+----------------------------------------------------------------------------------------------------------
+
+JAVA Array Members
+=The Members of an array type are all of the following:
+i) The public final field length contains the number of components of the array.(Length may be positive or 0)
+ii)All the members are inherited from class Object; the only method of Object that is not inherited is its clone method
+iii)The public method clone() overrides the clone method in class Object and throws no checked exceptions
+
+ArrayTypes and their Allowed Elements Types
+ArrayTypes                                                Elements
+Primitive Type Arrays                                      Any Type which can be implicitly promoted to declared type
+Object Type Arrays                                         Either Declared Types Objects or its child class objects
+Abstract Class Type Arrays                                 Its child-class objects are allowed
+Interface Type Arrays                                      Its implementation class objects are allowed
+
+------------------------------------------------------------------------------------------------------------------------
+
+COMMON ARRAY OPERATIONS
+Operation                                 Example
+Sort                                      Arrays.sort(arr);
+Search                                    Arrays.binarySearch(arr, key);
+Copy                                      int[]copy = Arrays.copyOf(arr, len);
+Fill                                      Arrays.fill(arr, 0)
+
+------------------------------------------------------------------------------------------------------------------------
+
+Cloning of Single Dimensional Arrays
+=When a single-dimensional array is cloned: object[] a shallow copy is performed which means that the new array contains references to the original array elements rather than copies of the objects themselves
+=A deep copy occurs in Arrays containing primitive data types where actual values are copied
+
+Cloning Multi Dimensional Arrays
+A clone of a multi-dimensional array: object[][] is a shallow copy which means that it only creates a single new array with each element array a reference to the original array but subarrays are shared
+
+------------------------------------------------------------------------------------------------------------------------
+
+Advantages of Java Arrays
+i) Efficient Access: Accessing an element by its index is fast and has a constant time complexity
+ii)Memory Management: Arrays have fixed size, which makes memory management straightforward and simple
+iii)Data Organization: Arrays help in Organization of data in a structured manner
+
+Disadvantages of Java Arrays
+i)Fixed Size: Once an array is created, its size cannot be changed which can lead to memory wastage if size is overestimated or underestimated or storage is insufficient
+ii)Type Homogeneity: Arrays can only store elements of the same data type which may require additional data handling for mixed types of data
+iii)Inserting or deleting elements in an array  especially in the middle of an array can be costly as it may require shifting of elements

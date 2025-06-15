@@ -1,4 +1,4 @@
-package Data;
+package DataTypes;
 
 //Syntax: float floatVar;
 public class Float {
