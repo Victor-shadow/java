@@ -1,0 +1,103 @@
+Abstract Classes and Abstract Methods
+=In Java abstraction is achieved by interfaces and abstract classes
+=Data Abstraction is defined as the process of identifying only the required characteristics
+of an object ignoring the irrelevant details
+=The properties and behaviour of an object differentiate it from other similar objects and also
+help in classifying/grouping objects
+
+
+=An abstract class is declared using abstract keyword
+=An abstract method is one that is declared without implementation
+=An abstract class may have both abstract methods(methods without implementation) and concrete methods
+(methods with implementation)
+=An abstract method must always be redefined in the subclass, thus making overriding necessary
+or making the subclass abstract
+=Any class that contains one or more abstract methods must also be declared using abstract
+keyword
+=There can be no object of an abstract class, That is it cannot be instantiated with the new operator
+=An abstract class can have parameterized constructors and the default constructor is always present in an abstract class
+
+Algorithm To implement Abstraction
+=Determine the classes or interfaces that will be part of abstraction
+=Create an abstract class or interface that defines common behaviour and properties of the class
+=Define abstract methods within the abstract class or interface that do not have
+implementation details
+=Implement concrete classes that extend the abstract class or implement the interface
+=Override the abstract methods in the concrete classes to provide their specific implementation
+=Use concrete classes to store logic of the program
+
+Interfaces
+=It is another method for implementation of abstraction in Java
+=Interfaces include both methods and variables but lack a method body
+=Interfaces are also used to implement inheritance in Java
+
+NOTE:To Implement an interface we use keyword implements with class
+
+
+General Syntax:
+package Classes; // Define package
+
+// Interface for abstraction
+interface AbstractEntity {
+    double calculateValue(); // Abstract method to perform a calculation
+}
+
+// Implement the interface in a class (e.g., ShapeA)
+class ShapeX implements AbstractEntity {
+    private DataType Parameter1;
+
+    // Constructor for initialization
+    public ShapeX(DataType Parameter1) {
+        this.Parameter1 = Parameter1;
+    }
+
+    // Implement the abstract method
+    @Override
+    public double calculateValue() {
+        return FormulaUsing(Parameter1); // Replace with relevant formula
+    }
+}
+
+// Implement another class (e.g., ShapeB)
+class ShapeY implements AbstractEntity {
+    private DataType Parameter1;
+    private DataType Parameter2;
+
+    // Constructor for initialization
+    public ShapeY(DataType Parameter1, DataType Parameter2) {
+        this.Parameter1 = Parameter1;
+        this.Parameter2 = Parameter2;
+    }
+
+    // Implement the abstract method
+    @Override
+    public double calculateValue() {
+        return FormulaUsing(Parameter1, Parameter2); // Replace with relevant formula
+    }
+}
+
+// Main class to test the abstraction
+public class InterfaceAbstractionTest {
+    public static void main(String[] args) {
+        // Creating instances of ShapeX and ShapeY
+        AbstractEntity instance1 = new ShapeX(Value1);
+        AbstractEntity instance2 = new ShapeY(Value1, Value2);
+
+        // Display results
+        System.out.println("Result of instance1: " + instance1.calculateValue());
+        System.out.println("Result of instance2: " + instance2.calculateValue());
+    }
+}
+
+
+Advantages of Abstraction
+1)It makes complex systems easier to understand by hiding implementation details
+2)Abstraction keeps different parts of a system Separated
+3)Abstraction maintains code more efficiently
+4)Abstraction increases security by showing only necessary details to the user
+
+Disadvantages of Abstraction
+i)It can add unnecessary complexity if overused
+ii)May reduce flexibility in implementation
+iii)Makes debugging and understanding systems difficult for unfamiliar users
+iv)Overhead from abstraction layers can affect performance

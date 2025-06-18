@@ -1,0 +1,78 @@
+=Encapsulation refers to binding of data members(attributes) and methods into a single unit
+=It is used in hiding the implementation part of methods and show functionality for better readability and usability
+
+Roles of Encapsulation
+i)Simpler Parameter Passing: When one passes an object to a method associated data members and members
+are passed along, hence one does not have to pass individual elements
+ii)Display and Modify Data: getter(display data) and setter(modify data) method are used to provide the functionality
+to access and modify data and the implementation of the methods are hidden from the user
+iii)Better Code Management: Encapsulation ensures no other code has access to implementation details and data members
+
+
+Uses of Encapsulation
+1)Data Hiding: The internal data of an object is hidden from the outside preventing direct access
+2)Data Integrity: Only validated or safe values can be assigned to an object's attributes via setter methods
+3)Reusability: Encapsulated code is more flexible and reusable for future modifications and requirements
+4)Security: Sensitive data is protected as it cannot be accessed directly
+
+Implementation of Encapsulation in Java
+=Encapsulation is implemented by declaring an instance variables as private restricting direct access
+=Public getter methods retrieve variable values, while setter methods modify them enabling controlled access
+=In Encapsulation, the variables or data of a class are hidden from any other class and
+can only be accessed through a member function of its own class
+=A private class can hide its members or methods from the end user using abstraction to hide
+implementation details, by combining data hiding and abstraction
+=Encapsulation can be achieved by declaring all variables in the class private and writing public methods in the class
+to set and get the values of variables
+=It is more defined within the getter and setter method
+
+
+Basic Syntax:
+package PlaceholderPackage; // Define package name
+
+// Class to demonstrate encapsulation
+class PlaceholderClass {
+
+    // Encapsulated attributes (private variables)
+    private DataType attribute1;
+    private DataType attribute2;
+
+    // Getter and setter for attribute1
+    public DataType getAttribute1() { return attribute1; }
+    public void setAttribute1(DataType attribute1) { this.attribute1 = attribute1; }
+
+    // Getter and setter for attribute2
+    public DataType getAttribute2() { return attribute2; }
+    public void setAttribute2(DataType attribute2) { this.attribute2 = attribute2; }
+}
+
+// Driver Class to test encapsulation
+public class PlaceholderMain {
+
+    public static void main(String[] args) {
+        // Creating an instance of PlaceholderClass
+        PlaceholderClass object = new PlaceholderClass();
+        object.setAttribute1(Value1);
+        object.setAttribute2(Value2);
+
+        // Accessing encapsulated attributes using methods
+        System.out.println("Attribute 1: " + object.getAttribute1());
+        System.out.println("Attribute 2: " + object.getAttribute2());
+    }
+}
+
+- Private attributes prevent direct access from outside the class.
+- Getter and setter methods control access to private attributes.
+- Encapsulated values are modified and retrieved only through methods.
+- Main class tests encapsulation by setting and getting values.
+
+Advantages of Encapsulation
+1)Data Hiding: Encapsulation is used to hide the details of a class. It just uses setter methods to
+give values to variables
+2)Data Integrity: With help of getter and setter methods, it ensures that correct data is assigned to the variable
+3)Reusability: Using Encapsulation, increases readability of code
+4)Testing of Code is simple: Encapsulated code is easy to test for unit testing
+
+Disadvantages of Encapsulation
+i)Encapsulation can make code complex and hard to understand if not used in the correct way
+ii)It can make it more difficult to understand how the program works because some parts of the program is hidden

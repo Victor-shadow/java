@@ -1,0 +1,148 @@
+=Polymorphism allows objects to behave differently based on their class type.
+=It also refers to an entity that can have many forms
+=It allows the same method or object to behave differently based on the context especially
+the actual runtime class.
+
+Features of polymorphism
+Multiple Behaviours: The same method can behave differently depending on the object that
+invokes the method.
+Method Overriding: A child class can redefine the method of its parent class
+Method Overloading: Definition of methods with the same name but different parameters
+Runtime Decision: At runtime, java decides which method to call depending on the object's actual class
+
+
+Reasons for Use of Polymorphism
+1)Code Reusability: Polymorphism allows the same method or class to be used with different types of objects making code
+reusable
+2)Flexibility: Polymorphism enables objects of different classes to be treated as objects of the common
+superclass which provides flexibility in method execution and object interaction
+3)Abstraction: It allows the use of abstract classes or interfaces enabling one to work with general types(superclass, interface)
+instead of concrete types(specific subclasses) thus simplifying interactions with objects
+4)Dynamic Behaviour: With polymorphism, Java can select the appropriate method to call at runtime, giving the program dynamic
+behaviour based on the actual object types rather than the reference types
+
+Types of Polymorphism in Java
+I)Compile-time polymorphism(method overloading) = static
+II)Runtime Polymorphism = dynamic
+:Method overriding
+:Virtual Functions
+
+
+COMPILE TIME POLYMORPHISM
+=It is also known as static polymorphism or method overloading
+=It usually occurs when methods have the same name but have different parameters
+NOTE: Java does not support operator overloading
+
+Method Overloading
+It allows one to define multiple methods with the same name but different parameters within the same class.
+The difference include:
+i)The number of parameters
+ii)The types of parameters
+iii)The order of parameters
+
+CHANGING THE NUMBER OF PARAMETERS
+=Method Overloading can be achieved by changing the number of parameters while passing to different
+methods.
+CHANGING THE ORDER OF PARAMETERS
+=Method Overloading can also be implemented by rearranging the parameters of two or more overloaded methods
+CHANGING THE TYPE OF PARAMETERS
+=If methods have different parameter types i.e int, boolean, String they are considered overloaded
+
+
+Features of method overloading
+1)Multiple methods can share the same name in a class when their parameter lists are different
+2)Overloading is a way to increase flexibility and improve readability of code
+3)Overloading does not depend on the return type of the method, two methods cannot be just overloaded because of change in
+the return type
+
+Ways of Method Overloading in Java
+i) Changing the number of parameters
+ii) Changing Data types of arguments
+iii) Changing the Order of parameters of the method
+
+NOTE:
+If the method prototype does not match with Arguments the compiler:
+i)Type Conversion: but to a higher type (in terms of range) in the same category (bye -> int)
+ii)If no suitable method is found compilation error
+
+Type-Conversion in Method Overloading
+Syntax:
+// Class definition
+class ClassA {
+
+    public void method1(int x) {
+        System.out.println("In int: " + x);
+    }
+
+    public void method1(String s) {
+        System.out.println("In String: " + s);
+    }
+
+    public void method1(byte b) {
+        System.out.println("In byte: " + b);
+    }
+}
+
+// Execution class
+class UseClassA {
+
+    public static void main(String[] args) {
+        byte var1 = 10;
+        ClassA object = new ClassA();
+
+        object.method1(var1);       // Matches byte
+        object.method1("text");     // Matches String
+        object.method1(100);        // Matches int
+        object.method1('X');        // char → int (widening conversion)
+        object.method1("X");        // Matches String
+        object.method1(5.5);        // No exact match → Compile-time error
+    }
+}
+
+
+
+Advantages of Method Overloading In Java
+1)It improves readability and re-usability of the program
+2)Method overloading reduces the complexity of the program
+3)Allows one to perform tasks efficiently and effectively
+4)Objects of a class can be initialized in different ways using the constructors
+5)Using method overloading it is possible to access methods performing related functions with slightly different arguments
+
+Disadvantages of Method Overloading In Java
+1)Improper use may lead to method ambiguity especially in selection of methods and type conversion
+2)Too many overloaded methods make code harder to read and maintain
+3)Incorrect usage may occur if Similar method names with different parameters are used
+
+Difference Between Method Overriding and Method Overloading
+Method Overriding                                             Method Overloading
+A)Occurs when a subclass                                      It is definition of methods with the
+provides its own implementation of a method                   same name but different parameters
+already present in parent class
+B)Compile-Time polymorphism                                   Runtime-polymorphism
+C)No inheritance involved                                     Inheritance Involved
+D)Return type must be same                                    Return type can be different
+E)Must follow overriding rules                                No restriction
+
+
+Runtime Polymorphism
+=It is also known as Dynamic Method Dispatch
+=It is a process to which a function call to the overridden method is resolved at runtime
+=This type of polymorphism is achieved through method overriding
+
+Method Overriding
+It means when a subclass provides a specific implementation of the method that is already defined in the parent class
+=The method in the subclass must have the same name, return type and parameters as the methods in the superclass
+=It allows a subclass to modify or extend the behaviour of an existing method in the parent class.This enables
+dynamic dispatch where the method that gets executed is determined at runtime  based on the object's actual type
+
+Advantages of Polymorphism
+1)Encourages code reuse
+2)Simplifies maintenance
+3)Enables dynamic method dispatch
+4)Helps in writing generic code that works with many types
+
+Disadvantages of Polymorphism
+1)It can be difficult to understand the behaviour of an object
+2)It may cause performance issues as polymorphic behaviour may require additional computations
+at runtime
+

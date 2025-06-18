@@ -1,0 +1,19 @@
+Static Binding
+=It is one which is resolved at compile time by the compiler
+=Also Known as early binding
+=The binding of all static,private and final methods is done at compile time
+
+Dynamic Binding
+=The compiler does not decide which method to be invoked
+=Overriding is an example of dynamic binding since in overriding the Parent class and the child class
+have the same method
+
+Difference between Static binding and Dynamic Binding
+Static Binding                                                 Dynamic Binding
+I)It takes place at compile time                               It takes place at runtime so it is
+for which is referred as early binding                         referred as late binding
+II)It uses overloading more precisely                          It uses overriding methods
+operator overloading method
+III)Takes place using normal functions                         Takes place using virtual functions
+IV)Static, const, private functions                            Real objects use dynamic binding
+use real objects in static binding

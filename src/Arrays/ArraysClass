@@ -5,7 +5,7 @@ Class Hierarchy
 java.lang.Object
  ? java.util.Arrays
 
-Class Declaration
+Class Classes.Declaration
 => public class Arrays extends Objects
 To use arrays:
 => Arrays.<function name>

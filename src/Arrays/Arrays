@@ -15,7 +15,7 @@ iv)Can Store Objects & Primitives: Java arrays can hold both primitive data type
 
 -------------------------------------------------------------------------------------------------------------
 
-Array Declaration(reference of an array is created)
+Array Classes.Declaration(reference of an array is created)
 syntax1: type[]arrayName;
 syntax2: type arrayName[];
 
@@ -75,7 +75,7 @@ int length = numbers.length;
 --------------------------------------------------------------------------------------------------------
 Array Literal in Java
 =Used whenever the size of the array and the variables of the array are known
-=>Declaration of an Array Literal
+=>Classes.Declaration of an Array Literal
 int[] intArray = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 =The length of this array determines the length of the created array
 

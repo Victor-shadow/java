@@ -1,0 +1,469 @@
+=A class is a blueprint for creation of objects.
+=It represents a group of objects that have similar properties and behaviour.
+=An object is an instance of a class
+
+DIFFERENCE BETWEEN A CLASS AND AN OBJECT
+Class                                                       Object
+-A class is a blueprint                                     An object is an instance
+of an object.It is used                                     of a class
+to create an object.
+-No memory is allocated                                     Memory is allocated when an
+when a class is created.                                    object is created
+-A class is a group of                                      A object is a real-world                                                             entity
+objects                                                     entity
+-Class is a logical entity                                  An object is a physical entity
+(does not perform actions on its own)
+-A class can be declared once                               An object can be created multiple times
+
+Java Classes
+=A class in java is a set of objects that share common characteristics and properties
+=It is a user-defined blueprint or prototype from which objects are created
+
+Properties of Java Classes
+1)Class does not occupy memory
+2)A Class is a group of variables of different data types and a group of methods
+3)A Class is not a real-world entity.It is just a prototype, template or a blueprint from
+which objects are created
+4)A class in java contains:
+  -Data member
+  -Constructor
+  -Method
+  -Nested Class
+  -Interface
+
+Class Classes.Declaration in Java
+access_modifier class <class_name> {
+data member;
+method;
+constructor;
+nested class;
+interface;
+}
+
+Components of Java Classes
+Class Declarations can include these components:
+i)Modifiers: A class can be public or have default access
+ii)Class Keyword: It is used to create a class
+iii)Class name: The name should begin with an initial letter(capitalized by convention)
+iv)Superclass: The name of the class's parent(superclass), if any, preceded by the keyword extend. A class(subclass) can only extend one parent
+v)Interfaces: A comma-separated list of interfaces implemented by the class, if any, preceded by the keyword implements.
+A class can implement more than one interface
+vi)Body: The class body is surrounded by {}(Curly braces)
+
+Constructors are used for initializing new objects.
+Fields are variables that provide the state of the class and its objects
+Methods are used to implement the behaviour of classes and its objects
+
+There are various types of classes:
+i) Nested Classes
+ii) Lambda Expressions
+iii) Anonymous classes
+
+Java Objects
+An Object in java represents a real-life entity and it is the basic unit of Object-Oriented Programming
+Objects are instances of a Class that are created to use the attributes and methods of a class
+An Object consists of:
+State: It is represented by attributes of the object. It also reflects properties of an object
+Behaviour: It is represented by the methods of the object. It also reflects the response of an object with other objects
+Identity: It gives a unique name to an object and enables one object to interact with another object
+
+NOTE:
+i)Objects of non-primitive types are always allocated on the heap, while their reference variables are stored on the stack
+ii)Objects of Abstract classes or Interfaces cannot be created
+iii)In primitive variables, declaration also reserves proper amount of memory for the variable
+iv)For reference variables, the type must be strictly a concrete class name
+v)A reference variable does not create an object
+
+Object Declaration
+=When an object of a class is created, the class is said to be instantiated
+=All the instances share the attributes and behaviour of the class but the values/state of those attributes are unique for
+each object
+=A single class may have any number of instances
+
+Object Creation
+Syntax:
+// Package declaration (if applicable)
+package [PackageName];
+
+public class [BlueprintClassName] {
+
+    // Instance Variable Declaration and Initialization
+    [DataType] [attributeName] = [InitialValue];
+
+    // Main method – entry point of the program
+    public static void main(String[] args) {
+        try {
+            // Locate the blueprint using its fully qualified class name
+            Class<?> [classReference] = Class.forName("[PackageName].[BlueprintClassName]");
+
+            // Create a new instance (object) of the class using its no-arg constructor
+            [BlueprintClassName] [objectInstance] = ([BlueprintClassName]) [classReference]
+                                                    .getDeclaredConstructor()
+                                                    .newInstance();
+
+            // Access and output an instance variable or result
+            System.out.println([objectInstance].[attributeName]);
+        }
+        // Exception handling to manage potential errors in reflection
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Object Initialization
+=The new operator instantiates a class by allocating memory for a new object and returning a reference to that memory
+=The constructor is used to initialize values to the variable
+=ToString() method is used to provide a String representation of the Object
+=The Class contains a single constructor(declared using the same name as the class and has no return type)
+It also invokes the Constructor
+Syntax:
+// Package Declaration (optional)
+package [package.name];
+
+// Class Declaration
+public class [ClassName] {
+
+    // Instance Variables (Attributes)
+    [DataType1] [attributeOne];
+    [DataType2] [attributeTwo];
+    [DataType3] [attributeThree];
+    ...
+
+    // Constructor Declaration
+    public [ClassName]([DataType1] [attributeOne], [DataType2] [attributeTwo], [DataType3] [attributeThree]) {
+        this.[attributeOne] = [attributeOne];
+        this.[attributeTwo] = [attributeTwo];
+        this.[attributeThree] = [attributeThree];
+    }
+
+    // Getter Method for attributeOne
+    public [DataType1] get[AttributeOneCapitalized]() {
+        return [attributeOne];
+    }
+
+    // Additional Getter Methods
+    public [DataType2] get[AttributeTwoCapitalized]() {
+        return [attributeTwo];
+    }
+
+    // ...repeat as needed
+
+    // toString Method (Representation of Object’s State)
+    @Override
+    public String toString() {
+        return ("[Label1]: " + this.get[AttributeOneCapitalized]() +
+                "\n[Label2], [Label3], and [Label4]: " +
+                this.get[AttributeTwoCapitalized]() + ", " +
+                this.get[AttributeThreeCapitalized]() + ", " +
+                ...);
+    }
+
+    // Main Method to Initialize and Display Object
+    public static void main(String[] args) {
+        [ClassName] [objectInstance] = new [ClassName](
+            [valueOne], [valueTwo], [valueThree], ...);
+
+        System.out.println([objectInstance].toString());
+    }
+}
+//=All Classes have at least one constructor. If a class does not explicitly declare any,The JVM
+automatically provides a no argument constructor also called default constructor.
+=The default constructor calls the class parent's no-argument constructor as it contains only one statement i.e super();), or the  Object  class constructor if the class has no other parent (as the Object class is the parent of all classes either directly or indirectly).
+
+//INITIALIZE OBJECT BY USING METHOD/FUNCTION
+// Class Declaration
+public class [ClassBlueprint] {
+
+    // Static Variables (Shared Across All Instances)
+    static [DataType1] [propertyOne];
+    static [DataType2] [propertyTwo];
+
+    // Static Method to Initialize Data
+    static void [setMethodName]([DataType1] [paramOne], [DataType2] [paramTwo]) {
+        [propertyOne] = [paramOne];
+        [propertyTwo] = [paramTwo];
+    }
+
+    // Static Method to Display Object State
+    static void [displayMethodName]() {
+        System.out.println("[Label1]: " + [propertyOne]);
+        System.out.println("[Label2]: " + [propertyTwo]);
+    }
+
+    // Main Method – Entry Point
+    public static void main(String[] args) {
+        [ClassBlueprint].[setMethodName]([value1], [value2]);
+        [ClassBlueprint].[displayMethodName]();
+    }
+}
+
+//Ways to create an Object of a Class
+i)Using new Keyword
+It is a general way to create an object
+//Create object
+Class object = new Class();
+
+ii)Using Reflection
+Reflection is the ability of a program to inspect and manipulate classes, methods, fields(variables) and constructors at runtime
+General Syntax:
+// Assumed Class Definition with a Public No-Arg Constructor
+class [TargetClass] {
+
+    public [TargetClass]() {
+        // Optional: Initialization logic
+    }
+
+}
+
+// Main Class
+public class [MainClass] {
+
+    public static void main(String[] args) {
+
+        try {
+            // Load the class by its fully qualified name as a String
+            Class<?> [classReference] = Class.forName("[FullyQualifiedClassName]");
+
+            // Use reflection to get a no-argument constructor and create an object
+            [TargetClass] [objectVariable] = ([TargetClass]) [classReference]
+                                              .getDeclaredConstructor()
+                                              .newInstance();
+
+            // Output confirmation or use the object
+            System.out.println("Object created: " + [objectVariable]);
+
+        } catch (ClassNotFoundException e) {
+            System.err.println("Class not found!");
+        } catch (NoSuchMethodException e) {
+            System.err.println("No default constructor!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+}
+
+
+iii)Using clone method
+= The clone()method is present in the Object class.
+= It creates and returns a copy of the object
+//Creation of Object
+Class object = new Class();
+//Create clone of the Object
+Class object2 = (Class)object.clone()
+
+Syntax:
+// Class Blueprint
+// Implements Cloneable interface to allow object cloning
+class [ClassBlueprint] implements Cloneable {
+
+    // Instance Variable
+    [DataType] [attributeName] = [InitialValue];
+
+    // Method: Enables object cloning
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); // Performs field-by-field copy
+    }
+
+    // Main method – Entry point of the program
+    public static void main(String[] args) {
+        // Original object creation
+        [ClassBlueprint] [originalObject] = new [ClassBlueprint]();
+
+        try {
+            // Cloning the object using clone() method
+            [ClassBlueprint] [clonedObject] = ([ClassBlueprint]) [originalObject].clone();
+
+            // Accessing and displaying data from the cloned object
+            System.out.println([clonedObject].[attributeName]);
+
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace(); // Handles cloning error
+        }
+    }
+}
+
+iv)De-Serialization
+=It is a technique of reading an object from the saved state in a file
+
+General Syntax
+// Import necessary I/O and serialization libraries
+import java.io.*;
+
+// Define a class blueprint that must implement Serializable
+class [ClassBlueprint] implements Serializable {
+
+    // Example attribute
+    private [DataType] [attributeName];
+
+    // Constructor to initialize the attribute
+    public [ClassBlueprint]([DataType] [param]) {
+        this.[attributeName] = [param];
+    }
+
+    // Override toString() to display object state
+    @Override
+    public String toString() {
+        return "[Label]: " + [attributeName];
+    }
+}
+
+// Main driver class
+public class [MainClass] {
+
+    public static void main(String[] args) {
+
+        // ---------- Serialization ----------
+        try (ObjectOutputStream [outputStream] = new ObjectOutputStream(
+                new FileOutputStream("[FileName].ser"))) {
+
+            // Save object state to file
+            [outputStream].writeObject(new [ClassBlueprint]([value]));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // ---------- Deserialization ----------
+        try (ObjectInputStream [inputStream] = new ObjectInputStream(
+                new FileInputStream("[FileName].ser"))) {
+
+            // Reconstruct object from saved state
+            [ClassBlueprint] [newObject] = ([ClassBlueprint]) [inputStream].readObject();
+
+            // Display deserialized object's state
+            System.out.println([newObject]);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Placeholder                                      Meaning
+ClassBlueprint                                   The class whose object is saved and stored
+DataType                                         Type of Attribute(String, int)
+attributeName                                    Property to store object name
+value                                            Actual data used during serialization
+FileName                                         The File where the object is stored(.ser)
+newObject                                        Deserialized Instance
+Serializable                                     The Interface that must be implemented to enable Object Serialization
+
+v)Creation of Multiple Object by one type only
+=Declaration of a static reference variable to be used whenever required to reduce memory wastage
+Example:
+Class object = new Class();
+object = new Class();
+
+=In the Inheritance system, we use a parent class reference variable to store a sub-class object which enables switching
+into different subclass objects using the same reference variable
+
+Syntax:
+// Superclass Declaration
+class [ParentClass] {
+    // Common features or behavior for all subclasses
+}
+
+// Subclass 1 extends ParentClass
+class [ChildClassOne] extends [ParentClass] {
+    // Specific behaviors or overrides
+}
+
+// Subclass 2 extends ParentClass
+class [ChildClassTwo] extends [ParentClass] {
+    // Specific behaviors or overrides
+}
+
+// Main class demonstrating object switching
+public class [MainClass] {
+
+    public static void main(String[] args) {
+
+        // Declaration of a reference variable of the parent class
+        [ParentClass] [commonReference];
+
+        // Assign first subclass object to the parent class reference
+        [commonReference] = new [ChildClassOne]();
+
+        // Perform operations using the reference (optional)
+        // e.g., [commonReference].[Method]();
+
+        // Reassign second subclass object to the same parent class reference
+        [commonReference] = new [ChildClassTwo]();
+
+        // Continue operations as needed
+    }
+}
+
+ParentClass = A general Superclass
+ChildClassOne, ChildClassTwo = Specific subclass extending Parent Class
+commonReference = A single reference variable declared once  but used with multiple subclasses
+new ChildClassOne, new ChildClassTwo = Multiple Object Instances created dynamically with reduced overhead
+
+
+Anonymous Objects
+=Are Objects that are instantiated without storing their reference in a variable
+=They are used for One-Time Operations(method calls) and Discarded immediately after use
+=It is common in event handling(button clicks)
+=No reference Variable: Cannot re-use the object
+=Saves memory for short-lived tasks
+
+Syntax:
+// Import required JavaFX packages
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.[UIComponent];
+import javafx.scene.layout.[LayoutContainer];
+import javafx.stage.Stage;
+
+// Main class extending Application
+public class [MainClass] extends Application {
+
+    // Entry point of JavaFX application
+    public static void main(String[] args) {
+        launch(args); // Launches the JavaFX app
+    }
+
+    // Override start() to set up the UI
+    @Override
+    public void start(Stage [window]) {
+
+        // Anonymous object used for a one-time event handler
+        [UIComponent] [component] = new [UIComponentType]("[LabelText]");
+        [component].setOnAction(event -> System.out.println("[MessageOnEvent]"));
+
+        // Root layout with the UI component
+        [LayoutContainer] [root] = new [LayoutContainer]([component]);
+
+        // Set scene with size and display
+        [window].setScene(new Scene([root], [Width], [Height]));
+        [window].show();
+    }
+}
+
+Placeholder                                                   Role
+MainClass                                                     The name of the main JavaFX class
+UIComponent                                                   The variable name for UI element
+UIComponentType                                               Type of UI component(Button Label)
+labelText                                                     Text Shown on UI element
+MessageOnEvent                                                Message Displayed when event is triggered
+LayoutContainer                                               Layout Manager: StackPane, VBox
+window                                                        JavaFX stage object (primary application window)
+Width, Height                                                 Dimensions of scene
+
+

@@ -1,0 +1,74 @@
+=A constructor is a special block of code that is called when a class is instantiated
+=The main role of the constructor is to initialize the object, set up its internal state or
+assign values to its attributes.
+
+Characteristics of a Constructor
+i)Same name as the class: A constructor has the same name as the class in which it is defined
+ii)No return type: Constructors have no return type, not even void since the main purpose of a constructor is to initialize an object
+iii)Automatically called on object creation: When an object of the class is created, the constructor is called immediately to initialize the object's attributes
+iv)Used to set initial values for Object Attributes: Constructors are primarily used to set the initial value/state of an object's attributes when created
+
+NOTE: It is not necessary to write a constructor for a class since the JVM creates a default constructor that has no arguments
+
+DIFFERENCE BETWEEN CONSTRUCTOR AND METHOD IN JAVA
+Feature                         Constructor                              Method
+Name                            They must have the same name as          They can have any
+                                the class                                valid name
+Return Type                     Constructors do not return any           Methods have the return type or
+                                type                                     void if it doesn't return any value
+Invocation                      Constructors are called automatically    Methods are called
+                                with new keyword                         explicitly
+Purpose                         Constructors are used to initialize      Methods are used to perform
+                                objects                                  operations
+
+Syntax:
+class Name{
+//A constructor
+Name(){
+
+}
+//Creation of an object by instantiation
+//Invoke the constructor
+Name object = new Name();
+
+=The First Line of a Constructor is a call to super() or this(), a call to a constructor of a super class
+or an overloaded constructor
+=The compiler also provides a default non-argument call to super if one does not type the call to super in the constructor
+=Every class in java is the subclass of a class object
+
+Without constructors:
+1)Objects might have undefined  or default values
+2)Extra initialization methods would be required
+3)Risk of improper object state
+
+=Constructors are used to assign values to the class variables at the time of object creation
+
+Rules for Writing Constructors
+1)The constructor of a class must have the same name as the class name
+2)A constructor in java cannot be abstract, final, static or Synchronized
+3)Access Modifiers can be used in constructor declaration to control its access i.e which other classes can call the constructor
+
+TYPES OF CONSTRUCTORS IN JAVA
+1)Default Constructor
+=A Default Constructor is invisible
+=A constructor that has no parameter is known as a default constructor.
+The Default constructor can be implicit or explicit
+i)Implicit Default Constructor = If no constructor is defined in a class, the Java Compiler provides
+a default constructor automatically
+This constructor does not take any parameters and initializes the objects with a default value(0 for int, null for String)
+
+ii)Explicit Default Constructor
+=A constructor that is defined with no parameters is called an Explicit Default Constructor
+=It replaces the one the compiler would create automatically
+
+2)Parameterized Constructor
+=It is a constructor that has a parameter
+=It is used during initialization of fields of the class.
+=The constructor returns the current instance of the class
+
+
+3)Copy Constructor
+=It is passed with another object which copies the data available from the passed object to the new object
+
+Constructor Overloading
+=This allows creation of multiple constructors in the same class with different parameterized lists

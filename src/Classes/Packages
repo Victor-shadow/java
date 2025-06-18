@@ -1,0 +1,193 @@
+=Packages in Java are a mechanism that encapsulates a group of classes, sub-packages and interfaces
+=Packages are used for:
+I)Prevent naming conflicts by allowing classes with the same name to exist in different packages
+II)They make it simple to locate, organize and use classes, interfaces and other components
+III)They also provide controlled access for protected members that are accessible within the same package and
+by subclasses
+Iv)Also default members(no access specifier) are accessible only within the same package
+
+Creation Of Packages:
+Step1: Create a directory that will be used to create packages and java files
+i.e) mkdir java
+Step 2:Change the directory and create a folder inside the main folder
+i.e) cd java
+     mkdir programming
+     cd programming
+     mkdir arrays
+Step3: Create an empty text file and write the java code:
+
+i.e) TwoPointerClass
+// Defining a class inside a package
+// Package name is programming.arrays
+package programming.arrays;
+
+// Main class present inside the package
+public class TwoPointers {
+
+    public static void main(String[] args) {
+        System.out.println("Inside the package");
+    }
+}
+//The package name should be inside the program file
+
+Step 4: Run the program
+i) javac src\programming\arrays\TwoPointers.java
+ii)src/programming/arrays/TwoPointers.java
+
+Working of Java Packages
+Directory Structure: Package names and directory structures are closely related
+i.e) package name = package.util.arrays
+The three directories are: package, util and arrays where:
+*arrays is inside util
+*util is inside package
+
+Naming Conventions: Packages are named in reverse order of domain names
+
+Example:
+import java.util.*
+=util is a subpackage that is inside java package
+
+Accessing Classes inside a Package
+=In java classes can be imported from packages using either of the following methods:
+i) Import a specific class
+import java.util.Vector;
+This imports only the Vector class from the java.util package
+
+ii)Import all classes from a package
+import java.util.*;
+This imports all classes, interfaces from the java.util package
+
+Example:
+//Import vector class from the java.util package
+import java.util.Vector;
+
+  public class Main{
+     public Main(){
+        //java.util.Vector is imported
+        Vector v = new Vector();
+
+        //java.util.ArrayList is not imported
+        //We refer to it using complete package name
+        java.util.ArrayList list = new java.util.ArrayList();
+        list.add(3);
+        list.add(5);
+        list.add(7);
+
+        System.out.println(list);
+        }
+        public static void main(String[]args){
+        //create an instance of main class to invoke the constructor
+           new Main();
+          }
+          }
+
+NOTE:
+Using import package.*; imports all classes in a package, but not all classes in its subpackage
+When two packages have classes with the same name use the fully qualified name to avoid conflicts
+i.e java.util.Date and my.package.Date
+
+import java.util.Date;
+import my.package.Date
+
+Types of Java Packages
+I)Built-in packages
+II)User-defined packages
+
+A)Built-in Packages
+=These packages consist of a large number of classes which are part of JAVA API.
+=They include:
+java.lang: Contains language support classes(classes which define primitive data types, math operations)
+java.io: Contains classes for support of input/output operations
+java.util: Contains utility classes which implement data structures like: Linked Lists, Dictionaries, date/time operations
+java.applet: Contains classes for creating applets
+java.awt: Contains classes for implementation of components for graphical user interfaces(buttons, menus)
+java.net: Contains classes for supporting network operations
+
+B)User-defined packages
+=Packages defined by the user
+1) Create the package:
+=First create a directory named myPackage(name should be same as the name of the package)
+=Then create myClass inside the directory with the first statement being package names
+
+Example:
+package myPackage;
+
+public class MyClass
+{
+public void getNames(String s){
+   System.out.println(s);
+ }
+
+2)Use the class in the program
+//import 'MyClass' class from 'names' myPackage
+import myPackage.MyClass;
+public class Main{
+   public static void main(String[]args){
+      //Initialize the String variable with a value
+      String s = "An array of characters";
+      //Create the instance of class MyClass in  package
+      MyClass object = new MyClass();
+      object.getNames(s);
+      }
+   }
+
+NOTE: MyClass.java must be saved inside the myPackage directory since it is also part
+of the package
+
+Example 2:
+//first package
+package package_name;
+
+public class ClassOne {
+    public void methodClassOne()
+    {
+        System.out.println("Hello there its ClassOne");
+    }
+}
+//second package
+package package_one;
+
+public class ClassTwo {
+    public void methodClassTwo()
+    {
+        System.out.println("Hello there i am ClassTwo");
+    }
+}
+//main java file
+import package_name.ClassOne;
+import package_one.ClassTwo;
+
+public class Testing {
+    public static void main(String[] args)
+    {
+        ClassTwo a = new ClassTwo();
+        ClassOne b = new ClassOne();
+        a.methodClassTwo();
+        b.methodClassOne();
+    }
+}
+
+
+Static Import
+It is about simplifying access to static members and separates it from user-defined packages
+=It is a feature in java programming that allows members(fields/variables and members) defined in a class as public static
+to be used in java code without specifying the class in which the fields are defined
+
+Access Modifiers in Packages:
+Public: Members with the public modifier are accessible from anywhere regardless of whether the accessing class
+is in the same package or not
+Protected: Members with the protected modifier are accessible within the same package, In subclasses
+Default: Members with no access modifiers are accessible only within the same package
+Private: Members with the private modifier are accessible only within the same class. They cannot be accessed by classes in the
+same package, subclasses or different packages
+
+NOTE:
+Every Class is some part of a package
+=If no package is specified, the classes in the file go into a special unnamed package
+(the same unnamed package for all files).
+=All classes/interfaces  in a file are some part of a package. Multiple files can specify
+the same package name
+=If package name is specified, the file must be in a subdirectory called name:
+directory name = package name
+=We can access public classes in another named package using:
+package-name.class-name

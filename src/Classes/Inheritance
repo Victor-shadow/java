@@ -1,0 +1,397 @@
+=Inheritance in Java is a mechanism in java by which one class is allowed to inherit the
+features(fields and methods) of another class
+=It also refers to creation of classes based on existing ones
+=A class that inherits from another class can reuse the methods and fields of that class.
+=Inheritance promotes code reusability, method overriding and polymorphism
+
+NOTE:In java Inheritance is implemented using the extends keyword
+:The class that inherits is called the subclass(child class)
+:The class being inherited from is called the superclass(parent class)
+
+Reasons for Use of Inheritance in Java
+1)Code Reusability: The code written in the Superclass is common to all subclasses
+child class can directly use parent class code
+2)Method Overriding: It is achieved through inheritance
+3)Abstraction: It is also implemented through inheritance. It only shows functionality to the user
+4)It organizes classes in a structured manner improving code readability and maintainability
+
+Terminologies used in Inheritance
+i)Class: It is a set of objects that share common characteristics/behaviour and common properties/attributes.
+It is a template/blueprint/prototype from which objects are created
+ii)Super Class(Parent Class): The class whose features are inherited is known as superclass(base class/parent class)
+iii)SubClass(Child Class): The class that inherits the other class is known as subclass(derived class, extended class, child class)
+The SubClass can add its own fields and methods in addition to the ones provided by the parent class
+iv)extends keyword: This keyword is used to inherit properties from a superclass
+v)Reusability: Inheritance supports a concept called Reusability:
+creation of a class when there is already an existing class containing the needed information
+derived classes can be obtained from the Parent class
+
+Use of Inheritance in java
+=The extends keyword is used for inheritance in java.
+=It enables the subclass to inherit the fields and methods of the superclass
+=When a class extends another class it means it inherits all non-primitive members(fields and methods) in the parent class
+and the subclass can also override and add new functionality
+
+NOTE: The extends keyword establishes "is a" relationship between the parent class and the child class
+This allows a child class to have the behaviour of the parent class
+
+
+Syntax:
+class ChildClass extends ParentClass{
+   //Additional Fields and methods
+   }
+
+NOTE://Only Objects of the subclass is created
+Example1:
+package PlaceholderPackage; // Define package
+
+// Base class (Super Class)
+class BaseClass {
+    DataType baseAttribute = BaseValue; // Encapsulated attribute
+}
+
+// Derived class (Sub Class) inheriting from BaseClass
+class DerivedClass extends BaseClass {
+    DataType derivedAttribute = DerivedValue; // Additional attribute
+}
+
+// Main class to execute the program
+public class PlaceholderMain {
+    public static void main(String[] args) {
+        // Creating an instance of DerivedClass
+        DerivedClass object = new DerivedClass();
+
+        // Display attributes from both base and derived classes
+        System.out.println("Base Attribute: " + object.baseAttribute +
+                           "\nDerived Attribute: " + object.derivedAttribute);
+    }
+}
+- PlaceholderPackage → Represents the package name.
+- BaseClass → Represents the base (super) class.
+- DerivedClass → Represents the inherited (sub) class.
+- DataType → Represents any valid data type (e.g., int, double, String).
+- baseAttribute → Generic placeholder for attributes in the base class.
+- derivedAttribute → Represents additional attributes in the derived class.
+- BaseValue, DerivedValue → Replace with actual values.
+- PlaceholderMain → Represents the main execution class.
+
+Example2:
+package PlaceholderPackage; // Define package
+
+// Base class
+class BaseClass {
+    // Encapsulated attributes
+    public DataType attribute1;
+    public DataType attribute2;
+
+    // Constructor to initialize attributes
+    public BaseClass(DataType attribute1, DataType attribute2) {
+        this.attribute1 = attribute1;
+        this.attribute2 = attribute2;
+    }
+
+    // Method to modify attribute1
+    public void modifyAttribute1(DataType decrement) {
+        attribute1 -= decrement;
+    }
+
+    // Method to modify attribute2
+    public void modifyAttribute2(DataType increment) {
+        attribute2 += increment;
+    }
+
+    // Override toString method to display values
+    @Override
+    public String toString() {
+        return ("Attribute 1 value: " + attribute1 + "\n" +
+                "Attribute 2 value: " + attribute2);
+    }
+}
+
+// Derived class extending BaseClass
+class DerivedClass extends BaseClass {
+    // Additional attribute unique to DerivedClass
+    public DataType additionalAttribute;
+
+    // Constructor for DerivedClass
+    public DerivedClass(DataType attribute1, DataType attribute2, DataType additionalValue) {
+        // Invoking base class constructor
+        super(attribute1, attribute2);
+        additionalAttribute = additionalValue;
+    }
+
+    // Method to modify additional attribute
+    public void modifyAdditionalAttribute(DataType newValue) {
+        additionalAttribute = newValue;
+    }
+
+    // Override toString method to include additional attribute
+    @Override
+    public String toString() {
+        return (super.toString() + "\nAdditional Attribute value: " + additionalAttribute);
+    }
+}
+
+// Main class to test inheritance
+public class InheritanceTest {
+    public static void main(String[] args) {
+        // Creating an instance of DerivedClass
+        DerivedClass object = new DerivedClass(Value1, Value2, Value3);
+
+        // Display object details
+        System.out.println(object.toString());
+    }
+}
+- PlaceholderPackage → Represents the package name.
+- BaseClass → Represents the parent class (superclass).
+- DerivedClass → Represents the child class (subclass).
+- DataType → Represents any data type (e.g., int, double, String).
+- attribute1, attribute2 → General placeholders for attributes of the base class.
+- additionalAttribute → Represents an attribute exclusive to the derived class.
+- modifyAttribute1(), modifyAttribute2() → Placeholder methods modifying attributes.
+- modifyAdditionalAttribute() → Placeholder method modifying the extra attribute in the derived class.
+- Value1, Value2, Value3 → Replace with actual values when creating an instance.
+- InheritanceTest → Represents the main class executing the program.
+
+Types of Inheritance In Java
+i)Single Inheritance
+ii)Multilevel Inheritance
+iii)Hierarchical Inheritance
+iv)Multiple Inheritance
+v)Hybrid Inheritance
+
+
+SINGLE INHERITANCE
+=In Single Inheritance, a sub-class is derived from only one super class. It inherits
+properties and behaviour of a single parent class
+=It is also known as Simple Inheritance
+
+package Classes;
+import java.io.*;
+import  java.lang.*;
+import  java.util.*;
+
+class ParentClass {
+    public void print_result(){
+        System.out.println("Single Inheritance is when a derived class only inherits from one parent class.");
+    }
+}
+class ChildClass extends ParentClass{
+    public void print_for(){
+        System.out.println("Implementation of Single Inheritance.");
+    }
+}
+//Driver Class
+public class SingleInheritance{
+    public static void main(String[]args){
+        ChildClass object = new ChildClass();
+        object.print_for();
+        object.print_result();
+    }
+}
+
+ii)Multilevel Inheritance
+=In Multilevel inheritance, a derived class will be inheriting a base class and it also acts as a base class for other classes.
+Example:
+package Classes;
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+//Parent Class
+class ParentName{
+    //Method to print Output
+    public void print_output(){
+        System.out.println("Multilevel Inheritance");
+
+    }
+}
+
+//Child Class Inherits from parent class
+class ChildOne extends ParentName{
+    //Method to print
+    public void print_for(){
+        System.out.println("for");
+    }
+}
+//Child Class 2 inherits from ChildOne class
+class ChildTwo extends ChildOne{
+    //Method to print output
+    public void print_final(){
+        System.out.println("The derived class is also a parent to another subclass");
+    }
+}
+public class MultilevelInheritance {
+    public static void main(String[]args){
+        //Create an object of class Three
+        ChildTwo object = new ChildTwo();
+        //Call method from class One
+        object.print_output();
+        //Call method from class TWO
+        object.print_for();
+        //Call method from class Three
+        object.print_final();
+    }
+}
+
+iii)Hierarchical Inheritance
+=In Hierarchical Inheritance one class serves as a superclass(base class) for more than one subclass
+
+Example:
+package Classes;
+
+class A{
+    public void print_A(){
+        System.out.println("Class A");
+    }
+}
+class B extends A{
+    public void print_B(){
+        System.out.println("Class B");
+    }
+}
+class C extends A{
+    public void print_C(){
+        System.out.println("Class C");
+    }
+}
+class D extends A{
+    public void print_D(){
+        System.out.println("Class D");
+    }
+}
+//Main Class
+public class HierarchicalInheritance {
+    public static void main(String[]args){
+        B object_B = new B();
+        object_B.print_A();
+        object_B.print_B();
+
+        C object_C = new C();
+        object_C.print_A();
+        object_C.print_C();
+
+
+        D object_D = new D();
+        object_D.print_A();
+        object_D.print_D();
+
+
+    }
+}
+
+iv) Multiple Inheritance
+=In Multiple Inheritance, one class can have more than one superclass and inherit all features from all parent classes
+=Multiple Inheritance is only achieved through interfaces and not classes
+
+Example
+package PlaceholderPackage;
+
+// Interface 1 representing behavior A
+interface InterfaceA {
+    void methodFromA(); // Abstract method from InterfaceA
+}
+
+// Interface 2 representing behavior B
+interface InterfaceB {
+    void methodFromB(); // Abstract method from InterfaceB
+}
+
+// Derived class implementing both interfaces
+class DerivedClass implements InterfaceA, InterfaceB {
+
+    @Override
+    public void methodFromA() {
+        System.out.println("DerivedClass implements behavior from InterfaceA.");
+    }
+
+    @Override
+    public void methodFromB() {
+        System.out.println("DerivedClass implements behavior from InterfaceB.");
+    }
+    - InterfaceA, InterfaceB → Represent separate interfaces, each defining a distinct behavior.
+    - DerivedClass → A class that inherits from both interfaces using implements.
+    - methodFromA(), methodFromB() → Placeholder methods defined in their respective interfaces.
+    - exclusiveMethod() → A method unique to the implementing class (optional extension).
+    - PlaceholderMain → The class containing the main() method that tests everything.
+
+
+v) Hybrid Inheritance
+=Hybrid Inheritance is only achieved through interfaces
+=It is a mix of two or more typs of inheritance
+
+Inheritance Relationship
+=It is a way of saying an object is a type of that object
+public class A {
+}
+public class B extends A {
+}
+public class C extends A {
+}
+public class D extends B {
+}
+
+NOTE:
+A is the superclass of B
+A is the superclass of C
+B and C are subclasses of A
+D is a subclass of both B and A
+
+
+
+
+
+
+Roles in a subclass
+1) The inherited fields can be used directly
+2)One can declare new fields in the subclass that are not in the Superclass
+3)The inherited methods can be used directly as they are
+4)One can write a new instance method in the subclass that has the same signature as the one
+in the superclass, thus overriding it
+5)One can write a new static method in the subclass that has the same signature as the one
+in the superclass, thus hiding it
+6)One can declare new methods in the subclass that are not in the SuperClass
+7)One can write a subclass constructor that invokes the constructor of the superclass either implicitly
+or using keyword super
+
+Advantages of Inheritance in Java:
+1)Code Reusability: Inheritance allows for code reuse and reduces the amount of code that has to be written
+The subclass can reuse properties and methods of the superclass reducing duplication of code
+2)Abstraction: Inheritance allows for creation of abstract classes that define a common interface for a group of related classes
+This promotes abstraction and encapsulation making code easier to maintain and extend
+3)Class Hierarchy:Inheritance allows for creation of a class hierarchy
+4)Polymorphism: Inheritance allows for polymorphism, which is the ability of an object to take multiple forms
+Subclasses can override methods of the superclass which allows change of behaviour in different ways
+
+Disadvantages of Inheritance
+1)Tight Coupling: Inheritance creates a tight coupling between the superclass and the sub class making it difficult to make changes
+to the super class without affecting subclass
+2)Complexity: Inheritance can make the code more complex and harder to understand in multiple Inheritances
+
+
+    // Additional behavior exclusive to DerivedClass
+    public void exclusiveMethod() {
+        System.out.println("DerivedClass has its own unique behavior.");
+    }
+}
+
+// Main class for execution
+public class PlaceholderMain {
+    public static void main(String[] args) {
+        DerivedClass object = new DerivedClass();
+
+        object.methodFromA();        // Calling method from InterfaceA
+        object.methodFromB();        // Calling method from InterfaceB
+        object.exclusiveMethod();    // Calling unique method from DerivedClass
+    }
+}
+
+NOTE:
+1)Inheriting Constructors: A subclass inherits all its members(fields, methods, nested classes) from its superclass
+Constructors are not members, so they are not inherited by sub classes, but the constructor of the superclass can be invoked in the subclass
+2)Private members Inheritance: A subclass does not inherit private members from its parent class. However if the superclass
+has public or protected methods(like getters and setters) for accessing its private fields then they can be used by the subclass
+3)Superclass can only be one: A superclass can have any number of subclasses, But a subclass can only have one super class
+since Java does not support multiple inheritance with classes only interfaces
+4)Default SuperClass: Except Object class which has no super class, every class has one and only one direct superclass(single Inheritance)
+In the absence of any other explicit superclass, every class is implicitly a subclass of the Object class

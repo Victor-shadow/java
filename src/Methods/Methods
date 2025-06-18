@@ -7,7 +7,7 @@ Syntax of a method:
     //body
    }
 
-Components of a Method Declaration
+Components of a Method Classes.Declaration
 Modifier: It specifies the method's access level(public,protected, private, default).
 Return Type: The type of value being returned or void if no value is being returned.
 MethodName: It should start with a lowercase and use camelCase for multiple words

@@ -1,0 +1,340 @@
+=Overriding in Java occurs when a subclass or child class implements a method that is already
+defined in the superclass or base class. This is called method overriding
+=The subclass method must match the parent class method's name, parameters and return type
+
+Rules for Overriding
+1)Name, parameters and return type must match the parent method.
+2)Java picks which method to run, based on the actual object type, not just variable type
+3)Static methods cannot be overridden
+4)The @Override annotation catches mistakes like typos in method names
+
+Reasons for Overriding methods
+A)To change how a parent class method works in a subclass
+B)It enables polymorphism, that let one method call  to adapt to different objects at runtime
+C)Reuse methods name logically instead of creating new ones for minor changes
+
+
+Access Modifiers In Overriding
+=A subclass can make an overridden method more accessible i.e upgrade protected to public but not
+downgrade public to private
+=Trying to hide a method through downgrade causes compiler errors
+
+Example:
+//Overriding and Access Modifiers
+class Parent{
+//Private methods are not overridden
+  private void m1(){
+    System.out.println("From parent m1()");
+    }
+  protected void m2(){
+    System.out.println("From parent m2()");
+    }
+    }
+class Child extends Parent{
+//new m1 method unique to child class
+private void m1(){
+System.out.println("From child m1");
+}
+//Overriding method with more accessibility
+@Override public void m2(){
+System.out.println("From child m2()");
+}
+}
+class Main{
+ public static void main(String[]args){
+ //Parent class Object
+ Parent P = new Parent();
+ P.m2();
+ //Child Class Object
+ Parent C = new Child();
+ C.m2();
+ }
+
+Final Methods cannot be overridden
+=If a method is declared using final it cannot be overridden by subclasses
+
+Example:
+// A Java program to demonstrate that
+// final methods cannot be overridden
+
+class Parent {
+    // Can't be overridden
+    final void show() {}
+}
+
+class Child extends Parent {
+    // This would produce error
+    void show() {}
+}
+
+Static Methods Cannot Be Overridden(Method Hiding)
+=When one defines a static method with the same signature as a static method in the base class
+it is known as method hiding
+i)Subclass instance methods can override the superclass instance method but when they try to override the superclass
+static method it gives a compile-time error
+ii)Subclass static method generate compile time when trying to override the superclass instance method. Subclass static method
+hides when trying to override superclass static method
+
+Example
+// Java program to show that
+// if the static method is redefined by a derived
+// class, then it is not overriding, it is hiding
+class Parent {
+    // Static method in base class
+    // which will be hidden in subclass
+    static void m1()
+    {
+        System.out.println("From parent "
+                           + "static m1()");
+    }
+    // Non-static method which will
+    // be overridden in derived class
+    void m2()
+    {
+        System.out.println(
+            "From parent "
+            + "non - static(instance) m2() ");
+    }
+}
+
+class Child extends Parent {
+    // This method hides m1() in Parent
+    static void m1()
+    {
+        System.out.println("From child static m1()");
+    }
+
+    // This method overrides m2() in Parent
+    @Override public void m2()
+    {
+        System.out.println(
+            "From child "
+            + "non - static(instance) m2() ");
+    }
+}
+
+// Driver class
+class Result {
+    public static void main(String[] args)
+    {
+        Parent obj1 = new Child();
+
+        // here parents m1 called.
+        // bcs static method can not overridden
+        obj1.m1();
+
+        // Here overriding works
+        // and Child's m2() is called
+        obj1.m2();
+    }
+}
+=When a subclass defines a static method  with the same signature as the parent's static method, it hides the parent method
+=The method called depends on the reference type and not object type
+
+
+Private Methods cannot be Overridden
+=Private methods cannot be overridden since they are bonded during compile time
+=One cannot even override private methods in a subclass
+
+Example:
+package Classes;
+
+class Baseclass{
+    private void privateMethod(){
+        System.out.println("It is a private method in the Parent Class");
+    }
+    public void publicMethod(){
+        System.out.println("It is a public method in the Parent Class");
+        //Calling Private Method
+        privateMethod();
+    }
+}
+class Subclass extends Baseclass{
+    //A new method with the same name as the private method in the Superclass
+    private void privateMethod(){
+        System.out.println("This is a private method in the subclass");
+    }
+    //This method Overrides the public method in th parent class
+    public void publicMethod(){
+        //Calls the privateMethod() in the subclass and not the superclass
+       System.out.println("It is a public method in the subclass.");
+       privateMethod();
+    }
+}
+public class PrivateMethodsCannotBeOverridden {
+    public static void main(String[]args){
+        Baseclass object = new Baseclass();
+        //Invoke publicMethod in superclass
+        object.publicMethod();
+        Subclass object2 = new Subclass();
+        //Invoke overridden public method in Subclass
+        object2.publicMethod();
+    }
+
+}
+
+
+Methods must have the same return type or Subtype
+=Initially, when one overrides a parent class method, the name, argument type and the return type of the overriding method in the child class
+had to be exactly the same as that of the parent class method.
+The overriding method was said to be invariant with respect to the return type
+=But It is possible to have different return types for an overriding method in the child class, but
+the child return type should be a subtype of the parent return type.
+=The overriding method becomes variant with respect to return type(based on the Liskov substitution principle)
+
+Advantages
+=It helps to avoid confusion of type casts present in the class hierarchy, thus making code more readable, usable and maintainable
+=There is liberty of having more specific return types when overriding methods
+=Helps in preventing run-time ClassCastExceptions on returns
+
+Example:
+class SuperClass {
+    public Object method()
+    {
+        System.out.println(
+            "This is the method in SuperClass");
+        return new Object();
+    }
+}
+
+class SubClass extends SuperClass {
+    public String method()
+    {
+        System.out.println(
+            "This is the method in SubClass");
+        return "Hello, World!";
+      // having the Covariant return type
+    }
+}
+
+public class Main {
+    public static void main(String[] args)
+    {
+        SuperClass obj1 = new SuperClass();
+        obj1.method();
+
+        SubClass obj2 = new SubClass();
+        obj2.method();
+    }
+}
+=The subclass method overrides the superclass method but with a more specific return type
+
+
+Invoking Parent's overridden methods using Super
+=One can call the parent class method in the overriding method using the super() keyword
+NOTE: Use super.methodName() to call the parent's version
+
+example:
+package Classes;
+
+class parent{
+    void Display(){
+        System.out.println("This is a method in the parent class");
+    }
+}
+class child extends parent{
+    //This method overrides Display() method in the parent class
+    @Override
+    void Display() {
+        super.Display();
+        System.out.println("This is a child class method");
+    }
+}
+public class SuperKeyword {
+    public static void main(String[]args){
+        parent object = new child();
+        object.Display();
+    }
+}
+
+
+Overriding and Constructor
+=One cannot override the constructor as the parent class and the child class can never have a constructor
+with the same name
+
+Exception Handling in Overriding
+Rules in Exception Handling
+i)if the super-class overridden method does not throw an exception, the subclass overriding method
+can only throw the unchecked exception, throwing a checked exception leads to compile-time error
+ii)If the superclass overridden method does not throw the exception, the subclass overriding method can only throw the same
+subclass exception
+
+=Throwing parent exceptions in the Exception hierarchy leads to compile-time error
+=There is no problem if the subclass overridden method does not throw any exception
+
+Example for Rule(II)
+class Parent{
+  void method1() throws RuntimeException{
+    System.out.println("From parent method1()")
+    }
+  }
+class Child1 extends Parent{
+  @Override void method1() throws RuntimeException{
+     System.out.println("From Child method1()")
+     }
+  }
+class Child2 extends Parent{
+   @Override void method1() throws RuntimeException{
+     System.out.println("From Child2 method1()")
+     }
+  }
+class Child3 extends Parent{
+    @Override void method1(){
+      System.out.println("From Child3 method1()")
+      }
+   }
+class Child4 extends Parent{
+   @Override void method1() throws Exception{
+   //This causes compile time error due to the parent class method not
+   //declaring the exception
+   System.out.println("From Child4 method1()");
+   }
+ }
+
+public class Example{
+   public static void main(String[]args){
+   Parent p1 = new Child1();
+   Parent p2 = new Child2();
+   Parent p3 = new Child3();
+   Parent p4 = new Child4();
+
+   //Handling runtime exceptions for each child class method
+   try{
+      p1.m1();
+    }
+    catch(Runtime Exception e){
+      System.out.println("Exception caught: " + e);
+    }
+    try {
+                p2.m1();
+            }
+            catch (RuntimeException e) {
+                System.out.println("Exception caught: " + e);
+            }
+
+            try {
+                p3.m1();
+            }
+            catch (Exception e) {
+                System.out.println("Exception caught: " + e);
+            }
+
+            // Child4 throws a compile-time error due to
+            // mismatched exception type
+            try {
+                p4.m1(); // This will throw a compile-time error
+            }
+            catch (Exception e) {
+                System.out.println("Exception caught: " + e);
+            }
+        }
+    }
+
+
+Overriding and Abstract methods
+=Abstract methods in an interface or an abstract class are meant to be overridden in derived
+concrete classes otherwise a compile-time error will be thrown
+
+Overriding and Synchronized/strictfp method
+=The presence of a synchronized/strictfp modifier with the method has no effect on the rules of overriding
+=It is possible that a synchronized/strictfp method can override a non synchronized/strictfp method and vice versa

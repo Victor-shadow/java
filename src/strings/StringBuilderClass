@@ -1,5 +1,5 @@
 //The StringBuilder class is part of the java.lang.package that provides a mutable sequence of characters
-=>Declaration: StringBuilder sb = new StringBuilder("Initial String")
+=>Classes.Declaration: StringBuilder sb = new StringBuilder("Initial String")
 
 //Features of the String Builder Class
 =>StringBuilder represent a mutable sequence of characters
