@@ -1,0 +1,95 @@
+=In Java, the scanner class is present in the java.util.package and it is used to obtain
+input for primitive types like int, double etc and strings
+=The scanner class can be used to read input from a user or a file
+
+To Use Scanner Class to take User Input
+1)import the java.util.Scanner package in the top of the program file. Without importing the package, the Scanner class
+cannot be used
+We can also import the java.util.* package to use all the classes present in the package
+
+import java.util.Scanner;
+public class Main{
+  public static void main(String[]args){
+
+     }
+
+2)Create the object of the scanner class
+Scanner sc = new Scanner(System.in);
+"sc" is an object of the Scanner class
+Using the object we can use various methods of the Scanner class
+
+3)Create the variable and using Scanner class object invoke the corresponding method to take input value
+int variable = sc.nextInt();
+
+Java Scanner Input Types
+=The scanner class helps take the standard input stream in java.
+Method                                               Description
+nextBoolean()                                        used for reading boolean values
+nextInt()                                            used for reading int values
+nextFloat()                                          used for reading Float values
+nextDouble()                                         used for reading Double values
+nextByte()                                           used for reading Byte values
+nextLine()                                           used for reading Line values
+nextLong()                                           used for reading Long values
+nextShort()                                          used for reading short values
+hasNextInt()                                         used to check if the token is an integer
+hasNextLine()                                        Checks if there is input in the next line
+useDelimiter()                                       Changes the default whitespace delimiter
+
+Note:
+i)To create an object of Scanner class, pass the predefined object System.in which represents the standard
+input stream.We may pass an object of class file if one wants to read input from a file.
+ii)To read numerical values from a certain data type XYZ the function to use is nextXYZ()
+iii)To read strings use nextLine()
+iv)To read a single character, use next().charAt(0). next() function returns the next token/word in the input as a string
+and charAt(0) function returns the first character in the String
+v)Always close the scanner object to avoid resource leaks
+vi)The scanner class reads an entire line and divides the line into tokens.
+Tokens are small elements that have meaning to the Java compiler
+
+Scanner Methods
+I) nextBoolean method()
+=The nextBoolean() method of java.util.Scanner scans the next token of the input as a Boolean
+=If translation is successful, the scanner advances past the input that matched
+
+public boolean nextBoolean(){
+    }
+
+Parameters: The function does not accept any parameter
+Return Value: The function returns the boolean value scanned from the input
+Exceptions: the function throws three exceptions:
+InputMismatchException: if the next token is not a valid Boolean
+NoSuchElementException: throws if input is exhausted
+IllegalStateException: throws if this scanner is closed
+
+
+II)nextByte method
+-The nextByte(radix) method of java.util.Scanner class scans the next token of the input as a Byte
+=If the translation is successful, the scanner advances past the input that matched
+=If parameter radix is not passed then it behaves similarly as nextByte(radix) where radix is by default
+
+Syntax:
+public byte nextByte()
+
+Parameters: The function accepts parameter as radix which is used to interpret the token as a Byte value
+Return Value: This function returns the byte scanned from the input
+The function throws three Exceptions as follows:
+InputMismatchException: if the next token does not match The Byte regular expression or is out of range
+NoSuchElementException: throws if input is exhausted
+IllegalStateException: throws if this scanner is closed
+
+
+III)nextFloat method
+=It scans the next token of the input as a Float().
+=If translation is successful, the scanner advances past the input that matched.
+
+Syntax:
+public float nextFloat()
+Parameters: The function does not accept any parameter
+Return Value: The function returns the float value scanned from the input
+Exceptions: The function throws three exceptions:
+NoSuchElementException: If input is exhausted
+IllegalStateException: if this scanner is closed
+InputMismatchException:If the next token does not match the Float regular expression, or is out of range
+
+
