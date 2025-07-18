@@ -1,6 +1,14 @@
 =A class is a blueprint for creation of objects.
 =It represents a group of objects that have similar properties and behaviour.
 =An object is an instance of a class
+=Class declarations include the following
+Modifiers: A class can be public or has default access
+Class name: The name should begin(capitalized by convention) with an initial letter
+Superclass(if any): The name of the class parent(superclass) if any preceded by the extends keyword
+A class can only extend one parent
+Interfaces(if any): A comma separated list of interfaces implemented by the class if any preceded by the keyword
+implements. A class can implement more than one interface
+Body: The class body surrounded by braces{}
 
 DIFFERENCE BETWEEN A CLASS AND AN OBJECT
 Class                                                       Object

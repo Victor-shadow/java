@@ -1,0 +1,144 @@
+=Serialization is a mechanism of converting the state of an object into a byte stream
+=Serialization helps to save the current state of an object and enable sharing of complex data between different systems
+NOTE:
+i)Platform-Independent = In Java, the serialization is a platform-independent process. If one serializes an object
+using a byte stream on one platform can be easily deserialized on different platforms
+ii)Serializable Interface = To make a class serializable, then it must implement serializable interface
+The interface does not contain any methods and variables(marker interface) but it gives a signal that a class is serializable
+
+=Deserialization is the reverse process where the byte-stream is used to recreate the actual Java object in memory
+NOTE:
+Rebuilds Objects = Deserialization takes the byte stream and turns it back into an original object with the same state
+Platform-Independent = Deserialization works well with different platforms
+Class must be Available = When we deserialize an object, it is necessary that the class definition must be present
+in the program
+
+Serialization Process
+=The byte stream created is platform independent. So the object serialized on one platform can be deserialized in a different
+platform
+=To make an object serializable in Java implement java.io.Serializable interface
+=The ObjectOutputStream class contains writeObject() method for serializing an object
+:public final void writeObject(Object obj) throws IOException{
+
+}
+
+Advantages of Serialization
+i)Persistence: Serialization allows to save and persist  the state of an object to a file or database
+ii)Network Communication: Serialization is often used to transfer objects across a network, enabling communication across
+different components or systems
+
+Deserialization Process
+The ObjectInputStream class contains readObject() method for deserialization of an object
+public final Object readObject()throws IOException, ClassNotFoundException{
+
+}
+
+Advantages of Deserialization
+i)It turns saved data back into original objects
+ii)It helps different programs or systems share information easily by rebuilding objects from the saved data
+
+Serializable Interface and Markable Interface
+=Only the objects of those classes can be serialized which are implementing java.io.Serializable interface
+=Serializable is a Marker Interface(has no data member and method). It is used to "mark" java classes so that objects of these
+classes may get certain capabilities
+=While using serialization:
+1)Parent-Child serialization = if a parent class has implemented Serializable Interface, then the child class
+does not need to implement it but the opposite is false
+2)Non-Static Data Members = Only non-static data members are saved via Serialization process.Static variables are not serialized
+since they are not associated with any specific instance
+3)Transient Data Members = Static and Transient data members are not saved via serialization process.
+If one does not want to save the value of a non-static data member make it transient
+4)Constructor Calling = Constructor of an object is never called when an object is deserialized
+5)Associated Objects = They must be implementing Serializable interface
+
+Example:
+class A implements Serializable{
+  //B also implements Serializable
+  B object = new B();
+  }
+
+
+SerialVersion UID
+=The Serialization runtime associates a version number with each Serializable class  called a SerialVersionUID
+which is used during Deserialization to verify the sender and receiver of the serialized object which  have loaded classes
+for that object which are compatible with respect to serialization. If the receiver has loaded a class for the object
+that has different UID than that of the corresponding sender class, the Deserialization will result in InvalidClassException
+Syntax:
+private static final long serialVersionUID = 3L;
+=A Serializable class can declare its own UID explicitly by declaring a field name. It must be static, final and of
+type long. i.e ANY-ACCESS-MODIFIER static final long serialVersionUID=42L
+If a serializable class does not explicitly declare a serialVersionUID, then the serialization runtime will calculate a default one
+for that class based on various aspects of that class as described in Java Object Serialization Specification
+=It is strongly recommended that all serializable classes explicitly declare serialVersionUID value,
+since its computation is highly sensitive to class details that may vary depending on compiler implementations
+any change in class, or using different id may affect serialized data
+=It is also advisable to use private modifier for UID since it is not useful as inherited member.serialver
+The serialver is a tool that comes with JDK. It is used for getting serialVersionUID number for java classes
+
+=In case of transient variables: A variable defined using transient keyword is not serialized during serialization process.
+This variable will be initialized with default value during deserialization(for objects it is null, for int is 0)
+=In case of static variables: A variable defined with static keyword is not serialized during serialization process
+This variable will be loaded with current value defined in the class during deserialization
+
+Transient vs Final
+=Final variables are serialized by their values directly
+=Declaring a final variable as transient has no use, because the compiler replaces final variables
+with their literal values in the bytecode
+Example:
+final int x = 10;
+int y = 20;
+System.out.println(x); //compiler will replace this with
+System.out.println(10) -> 10
+because x is final
+System.out.println(y); //20
+NOTE:
+Serialization is the process of converting an object to a byte stream
+Deserialization is the process of converting a byte stream into an object
+
+General Syntax:
+import java.io.*;
+
+// 🔧 Define a serializable class with attributes
+class [ClassName] implements Serializable {
+    // Regular attribute
+    [DataType] [attribute1] = [value1];
+
+    // Transient final attribute (won’t be serialized)
+    transient final [DataType] [attribute2] = [value2];
+}
+
+public class [MainClassName] {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        // 🐾 Step 1: Create an object of the class
+        [ClassName] obj1 = new [ClassName]();
+
+        // 📦 Step 2: Start serialization
+        System.out.println("🔒 Starting serialization...");
+
+        FileOutputStream fileOut = new FileOutputStream("[filename].ser");
+        ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+
+        objOut.writeObject(obj1);  // Serialize the object
+        objOut.close();
+        fileOut.close();
+        System.out.println("✅ Serialization completed.");
+
+        // 📥 Step 3: Start deserialization
+        System.out.println("🔓 Starting deserialization...");
+
+        FileInputStream fileIn = new FileInputStream("[filename].ser");
+        ObjectInputStream objIn = new ObjectInputStream(fileIn);
+
+        [ClassName] obj2 = ([ClassName]) objIn.readObject();
+        objIn.close();
+        fileIn.close();
+        System.out.println("✅ Deserialization completed.");
+
+        // 📊 Step 4: Display object data
+        System.out.println("📢 Displaying deserialized object attributes:");
+        System.out.println("[Label1]: " + obj2.[attribute1]);
+        System.out.println("[Label2]: " + obj2.[attribute2]); // This may show default value due to transient
+    }
+}
+
+

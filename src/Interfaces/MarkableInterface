@@ -1,0 +1,74 @@
+=In Java, a marker interface is an empty interface with no fields and methods.
+=It is used to just mark or tag a class
+=These interfaces do not have any method inside  but act as metadata and provide information
+about the class
+=They include:
+Serializable
+Cloneable
+Remote
+
+NOTE:When a class implements a markable interface, it indicates to the system that it supports certain operations
+or features associated with that interface
+
+Working of a markable Interface
+=A markable interface is a special type of interface because it does not have any methods, so when a class implements
+a markable interface, it means it is giving signal to java to treat this class differently
+
+Cloneable Interface
+=It is present in the java.lang package
+=There is a method clone in the object class
+=A class that implements Cloneable interface indicates that it is legal for clone() method to make a field-for-field copy.
+of that instance of the class
+=Invoking Object clone method on an instance of a class that does not implement Cloneable interface results
+in an exception CloneNotSupportedException being thrown
+=By convention, classes that implement this interface should override Object.clone() method
+
+
+Serializable Interface
+=It is present in the java.io package
+=It is used for making an object eligible for saving its state in a file. This is called serialization
+=Classes that do not implement Serializable do not have their state serialized or deserialized
+All subtypes of serializable class are themselves serializable
+
+import java.io.*;
+//By implementing Serializable Interface we make sure that the state of instances of class A can be saved in a file
+class A implements Serializable{
+   int i;
+   String s;
+
+   //A class constructor
+   public A(int i, String s){
+     this.i = i;
+     this.s = s;
+     }
+     }
+     public class Main{
+       public static void main(String[]args) throws IOException, ClassNotFoundException{
+       A a = new A(100, "String");
+       //Serializing a
+       FileOutputStream fos = new FileOutputStream("file.txt");
+       ObjectOutputStream oos = new ObjectOutputStream(fos);
+       oos.writeObject(a);
+
+       //Deserializing a
+       FileInputStream fis = new FileInputStream("file.txt");
+       ObjectInputStream ois = new ObjectInputStream(fis);
+       A b = (A)ois.readObject(); //down-casting object
+       System.out.println(b.i + " " + b.s);
+
+       //closing stream
+       oos.close();
+       ois.close();
+
+Remote Interface
+Remote interface is present in java.rmi package.
+=A remote object is an object which is stored in one machine and accessed at another machine
+=To make an object remote , one needs to flag a Remote Interface.
+=Remote interfaces serve to identify interfaces whose methods may be invoked from a non-local virtual machine
+Any object that is remote must directly or indirectly implement this interface
+
+
+
+
+
+

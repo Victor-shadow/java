@@ -1,0 +1,261 @@
+//Threads are the backbone of multithreading
+
+//MULTI-PROCESSING AND MULTI-THREADING
+//The mechanism of dividing tasks is called multithreading in which every process or task is called by a thread, where a thread is responsible for what to execute, when to stop and how long to be in the waiting state
+//A thread is a smallest unit of processing
+//Multitasking is the process of executing multiple tasks at a time
+
+//MultiTasking is achieved in two ways:
+//Multithreading=Thread-based multi-tasking is a lightweight process and occupies the same address space
+Hence while switching cost communication will be very less
+//Multiprocessing = Process based multi-tasking is a heavy weight process and occupies different address spaces in memory
+//Hence while switching from one process to another, it will require some time and it will be very small causing a lag because of switching. This happens as registers are loaded in memory maps and
+the list will be updated
+
+Lifecycle of a Thread
+//New = when the thread is is just created
+//Runnable = When a start() method is called over thread processed by the thread scheduler
+i)Case A = Can be a running thread
+ii)Case B = Cannot be a running thread
+
+//Running = When it hits case1 means that the scheduler has selected it to run the thread from the runnable state to the run state
+//Blocked = When it case2 it means the scheduler has selected not to allow a thread to change state from runnable to run
+//Terminated = When the run() method exits or stop() method gets called
+
+//If we incorporate threads in operating systems one can perceive that the process scheduling algorithms in operating-systems are strongly working on the concept of incorporating thread in Gantt charts
+
+//Advantages of multi threading
+1)The user is not blocked as threads are independent even if there is an issue with one thread then only the corresponding
+process will be stopped. The rest of the operations will be completed successfully
+2)Saves time as too many operations are carried over at the same time causing work to get finished
+as if threads are not used the only one process will be handled by the processor
+3)Threads are independent through sharing the same address space
+
+//WAYS TO IMPLEMENT MULTITHREADING
+I)USING THREAD CLASS
+//Java provides thread class to achieve programming invoking threads thereby major methods are used
+Methods
+isDaemon() = It checks whether the current thread is daemon or not
+start() = it starts the execution of the thread
+run() = it does the executable operations statements in the body  of the method over a thread
+sleep() = it is a static method that puts the thread to sleep for a certain time being passed as an argument to it
+wait() = It sets the thread back to waiting state
+notify() = it gives out a notification to one thread that it is in waiting state
+notifyAll() = It gives out a notification to all threads in the waiting state
+setDaemon() = it sets the current thread as Daemon
+stop() = it is used to stop the execution of one thread
+resume() = it is used to resume the suspended thread
+suspend() method = The suspend() method of thread class puts the thread from running to waiting state
+This method is employed if you would like to prevent the thread execution and begin it again when a particular event occurs
+This allows a thread to temporarily cease execution
+The suspended thread is often resumed using the resume() method
+If the present thread cannot modify the target thread then it will throw SecurityException
+NOTE: The suspend() method is deprecated in the Latest java version
+Syntax:
+public final void suspend()
+//Return: It does not return any value
+//Exception: Throws SecurityException if the current thread cannot modify the thread
+
+
+import java.io.*;
+class ThreadStop extends Thread {
+    public void run(){
+        for (int i = 1; i < 5; i++){
+            try{
+                //thread sleep for 500 ms
+                sleep(5);
+                System.out.println("Currently Running- " + Thread.currentThread().getName());
+            }
+            catch (InterruptedException e){
+                System.out.println(e);
+            }
+            System.out.println(i);
+        }
+    }
+    public static void main(String[]args){
+        //Creating three threads
+        ThreadStop object = new ThreadStop();
+        ThreadStop object2 = new ThreadStop();
+        ThreadStop object3 = new ThreadStop();
+        //call run method
+        object.start();
+        object2.start();
+        //suspend thread 2
+        object2.suspend();
+        //call run method
+        object3.start();
+    }
+
+
+}
+
+
+=By default threads are named thread-0, thread-1 and so on
+
+Syntax
+//This method returns the name of the thread
+public string getName();
+//To change the name of the thread
+public string setName(),
+
+
+II)Using Runnable Interface
+Here Runnable Interface being a functional Interface, has its own run() method
+//Classes are implemented to the runnable interface
+//Later on, in the main method, Runnable reference is created for the classes that are implemented in order to make bondage with the Thread class to run ones own corresponding run() methods
+Further when creating an object of Thread class we will pass references to the Thread class as its constructor allows only one runnable object which is passed as a parameter while creating Thread class object in a main() method
+//start() method is invoked over the runnable object which is now already linked with Thread class objects, so the execution begins for run() method in case of a Runnable Interface
+
+NOTE:Whenever one wants to create threads there only two ways which are
+i)Extend Thread class
+ii)Implement Runnable Interface
+//Make sure to create object of threads in which you have to pass object of runnable
+
+//SIMILARITY BETWEEN WAIT AND JOIN
+=Both wait() and join() method are non-static methods
+=Both wait() and join() are overloaded in java
+=Wait and join which without timeout as well accepts a timeout parameter
+=Both wait and join can be interrupted using interrupt() method in java
+=The method() wait and join() both are used to pause the current thread in Java
+
+//DIFFERENCE BETWEEN WAIT AND JOIN METHODS
+wait()                                                             join()
+i)It is a method of                                                   it is a method of
+java.lang.Object class                                                java.lang
+ii)wait() method can be called                                        It is used to stop the
+by a synchronized block or                                            current thread
+method
+iii)wait() method is implemented for                                  It can be called either with synchronized
+performing multi-thread synchronization                               and without synchronized context
+iv)Syntax:                                                            Syntax:
+public final void  wait() throws                                      public final void join() throws
+InterruptedException                                                  InterruptedException
+v)wait() method causes thread to go                                   It can be used to add sequence among more
+to sleep until notify() and notifyAll()                               than one thread
+methods are called
+
+//NOTE: join() method  is used to wait for a thread to die while wait() method is used for sharing resources(a thread notifies other waiting threads when a resource becomes free)
+
+//wait() Method
+=Inter-thread communication is a way by which synchronized threads can communicate with each other using the methods namely wait(), notify(), notifyAll()
+=wait() method is part of the java.lang.Object class
+=When wait() method is called, the calling thread stops its execution until notify() and notifyAll() method is invoked by some other thread
+
+Syntax
+public final void wait() throws InterruptedException
+
+Exceptions:
+InterruptedException = If any thread interrupted the current thread before or while the current thread was waiting for a notification
+IllegalMonitorStateException = If the current thread is not the owner of the object monitor
+
+=In Java, synchronized methods and blocks allow only one thread to acquire the lock on a resource at a time. So, when wait() method is called by a thread, then it gives up the lock on that resource and
+goes to sleep until some other thread enters the same monitor and invokes the notify() and notifyAll() method
+=Calling notify() wakes only one thread and calling notifyAll() method wakes up all threads on the same object
+Calling both of these methods does not give up the lock on the resource, rather its job is to wake up the threads that have been sent to sleep
+state using wait() method
+=sleep() method causes a thread to sleep for a specified amount of time while wait() causes the thread to sleep until
+notify() and notifyAll() method are invoked
+
+
+//Java Concurrency - yield(), sleep() and join() method
+
+
+//Notify() and NotifyAll() method
+The notify() and notifyAll() methods with wait() methods are used for communication between threads
+=A thread that goes into waiting for state by calling the wait() method will be in waiting for the state until any other thread calls either notify() or notifyAll() method on the same object
+
+notify() = The notify() method is defined in the object class, which is java top-level class.
+It is used to wake only one thread that's waiting for an object, and that thread then begins execution
+The thread class notify() method is used to wake a single thread
+
+notifyAll() = The notifyAll() method wakes up all threads that are waiting on the object's monitor
+//A thread waits on the object's monitor by calling the wait() method
+The awakened threads will not be able to proceed until the current thread relinquishes the lock on this object
+
+DIFFERENCE BETWEEN NOTIFY() AND NOTIFY ALL() METHOD
+=In the case of Multi-Threading, notify method sends the notification to only one thread among the multiple waiting threads which are waiting for the send lock
+while notifyAll() methods in the same context send notifications to all waiting threads  instead of a single thread
+=In notify() method the notification is sent to a single thread among the multiple waiting  thread, so it is sure that which of those waiting threads is going to receive the lock
+while notifyAll() sends a notification to all waiting threads. Hence, it is not clear which of the
+thread is going to receive the lock
+=In notify() method the risk of thread missing is high, as notification is sent to only one thread and if it misses that , then no other thread will get the notification
+hence the lock, while in the case of notifyAll() method, it sends notification to all waiting threads and hence if any thread misses the notification, there are other threads to do the job, Hence the
+risk is less
+=Memory and CPU drain is less in notify() method as compared to notifyAll() method as notification is sent to a single thread hence
+performance is better while on the other hand the cost of no notification is dropped and the notification is set to all waiting threads , the memory and CPU drain
+is more compared to notify() and hence performance in notifyAll() is less
+=In the case of notify() method, only a single thread is in the picture hence no concept of thread interchangeable is possible
+While in notifyAll() method all the waiting threads are interchangeable (the order they wake up does not matter)
+
+//Applications of notify() and notifyAll()
+i)A maintenance operation on a shared resource, where multiple threads are waiting for the operation
+to complete before accessing the resource for these use notifyAll() method
+ii)When we want to have a notification when a lengthly process has finished. You need a beep and a screen update
+The process performs notifyAll() to notify both beeping thread and screen-update thread
+
+NAMING A THREAD AND FETCHING NAME OF A CURRENT THREAD
+=A thread can be referred to as a lightweight process.
+=Assigning descriptive names to threads enhances code readability and simplifies debugging
+
+Methods to set the thread name
+Creating the thread and passing the thread name(Direct method)
+Using the setName method of thread class (Indirect Method)
+
+How to fetch the Name of the Current Thread
+=We can fetch the current thread name at the time of creating the thread and bypassing the thread's name as an argument
+Syntax:
+public static Thread currentThread()
+Package: java.lang.Thread
+Return Type: It returns a reference to the currently executing thread
+
+// Import necessary packages (optional for this case)
+import java.io.*;
+
+// Define a thread class by extending Thread
+class <ThreadClassName> extends Thread {
+
+    // Optional attributes
+    private String <attribute1>;
+    private int <attribute2>;
+
+    // Constructor to initialize attributes (if needed)
+    public <ThreadClassName>(String <param1>, int <param2>) {
+        this.<attribute1> = <param1>;
+        this.<attribute2> = <param2>;
+    }
+
+    // Override the run() method to define thread behavior
+    @Override
+    public void run() {
+        System.out.println("Executing logic inside thread: " + Thread.currentThread().getName());
+
+        // Example behavior: print attributes or do work
+        System.out.println("Attribute1: " + <attribute1>);
+        System.out.println("Attribute2: " + <attribute2>);
+
+        // More task-specific logic can be added here
+    }
+}
+
+// Driver class to start threads
+class <MainClassName> {
+    public static void main(String[] args) {
+        // Create thread instances with custom names or values
+        <ThreadClassName> threadA = new <ThreadClassName>("TaskA", 1);
+        <ThreadClassName> threadB = new <ThreadClassName>("TaskB", 2);
+
+        // Optionally set custom thread names
+        threadA.setName("Worker-A");
+        threadB.setName("Worker-B");
+
+        // Start threads using start() to trigger run()
+        threadA.start();
+        threadB.start();
+    }
+}
+
+
+
+
+
+

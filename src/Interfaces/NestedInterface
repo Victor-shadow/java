@@ -1,0 +1,55 @@
+=In Java, we can declare an interface as members of a class or another interface. Such an interface is known as
+nested interface or member interface
+=Interfaces declared outside a class can only have public and default(package-private) access specifiers
+=In Java nested interfaces(interfaces declared inside a class or another interface) can be declared within
+the public, protected, package-private(default) or private access specifiers
+=A top level interface(not nested) can only be declared as public or package-private(default). It cannot be declared protected or private
+
+Declaration of Nested-Interface
+interface i_first{
+  interface i_second{
+
+     }
+    }
+=When implementing a nested interface, we refer to it as i_first.i_second where:
+i_first is the name of the interface in which the interface is nested
+and i_second is the interface's name
+
+=There is another nested interface which is nested inside a class whose syntax is as follows:
+ class c_name{
+     interface i_name{
+     }
+    }
+=When implementing a nested interface, we refer it to as c_name.i_name where:
+c_name is the name of the class in which the interface is nested and i_name is the interface
+
+Nested Interface
+//Interface cannot have non-public member interface
+import java.util.*;
+
+interface Parent{
+  protected interface Test{
+    void show();
+    }
+   }
+  class Child implements Parent.Test{
+  public void show(){
+  System.out.println("show method of interface");
+  }
+  }
+  class Main{
+  public static void main(String[]args){
+  Parent.Test object;
+  Child t = new Child();
+  obj = t;
+  obj.show();
+  }
+  }
+
+//Use of NestedInterface
+1)Nested Interfaces are great for callbacks. This means an object can pass itself to another and the second object
+can call a method defined inside the nested interface
+2)When one puts an interface inside another interface it makes code more organized and readable
+3)If an interface is nested inside a class, it limits where the interface can be used
+4)By using nested interfaces one can set up a contract. Different classes can follow this contract by implementing these interfaces
+but with their own versions

@@ -1,0 +1,173 @@
+=The Comparator interface in java is used to sort the objects of the user-defined class
+=It is present in the java.util package.
+=The interface allows one to define custom comparison logic outside of the class for which instances
+we want to sort
+=The comparator interface is useful when:
+i)We need multiple sorting strategies of a class
+ii)When the sorting logic is to be kept separate from the class
+=>A comparator object is capable of comparing two objects of the same class.
+Syntax:
+public int compare(Object obj1, Object obj2);
+=It will return:
+A negative integer when: obj1 < obj2
+Zero when: obj1 == obj2
+A positive integer when: obj1 > obj2
+
+Methods to implement Comparator Interface
+=Writing the sort() function using one of the standard algorithms
+=Using Comparator Interface. The Comparator interface is used to order the objects of a user-defined class
+This interface contains two methods that are: compare(Object obj1, Object obj2) and equals(Object element)
+Using a comparator one can sort the elements based on data members
+
+Sort Method of the Collection Class
+=It is used to sort elements of a list by the given comparator
+public void sort(List list, ComparatorClass c)
+To sort a given list, Comparator class must implement a Comparator Interface
+=Internally, the sort() method does call the Compare method of the classes it is sorting
+Compare method returns 1, 0, -1 to say if it less than, greater than or equal to the other.
+
+Sort Collections By One Field
+import java.util.*;
+
+// 💡 Define a generic class with multiple attributes
+class Entity {
+    // Placeholder attributes
+    private int attribute1;
+    private String attribute2;
+
+    // 🚀 Constructor
+    public Entity(int attribute1, String attribute2) {
+        this.attribute1 = attribute1;
+        this.attribute2 = attribute2;
+    }
+
+    // 👓 Override toString to print details
+    @Override
+    public String toString() {
+        return "Attribute1: " + attribute1 + ", Attribute2: " + attribute2;
+    }
+
+    // 📌 Getter for attribute1 (used in comparison)
+    public int getAttribute1() {
+        return attribute1;
+    }
+}
+
+// 🧭 Comparator implementation to sort by attribute1
+class SortByAttribute1 implements Comparator<Entity> {
+    // 🔍 Compare by attribute1 in ascending order
+    public int compare(Entity a, Entity b) {
+        return a.getAttribute1() - b.getAttribute1();
+    }
+}
+
+// 🏁 Driver class to demonstrate sorting
+public class ComparatorDemo {
+    public static void main(String[] args) {
+        // 📋 Create a list of Entity objects
+        List<Entity> list = new ArrayList<>();
+
+        // ➕ Add elements to the list
+        list.add(new Entity(305, "Alpha"));
+        list.add(new Entity(102, "Beta"));
+        list.add(new Entity(210, "Gamma"));
+        list.add(new Entity(150, "Delta"));
+
+        // 📌 Sort using Comparator based on attribute1
+        Collections.sort(list, new SortByAttribute1());
+
+        // 📣 Print sorted result
+        System.out.println("🔽 Sorted by attribute1 (ascending):");
+        for (Entity e : list) {
+            System.out.println(e);
+        }
+    }
+}
+NOTE:One can use a lambda function in place of a helper function by following this statement:
+Collections.sort((a1, a2) -> Integer.compare(a1.attribute, a2.attribute);
+
+Sort Collections By More than One Field
+import java.util.*;
+
+// 🎓 Define a generic class with multiple fields
+class Entity {
+    private String attribute1;
+    private Integer attribute2;
+
+    // 🏗️ Constructor to initialize fields
+    public Entity(String attribute1, Integer attribute2) {
+        this.attribute1 = attribute1;
+        this.attribute2 = attribute2;
+    }
+
+    // 🚪 Getters for attributes
+    public String getAttribute1() {
+        return attribute1;
+    }
+
+    public Integer getAttribute2() {
+        return attribute2;
+    }
+
+    // 🎯 toString method for formatted output
+    @Override
+    public String toString() {
+        return attribute1 + " : " + attribute2;
+    }
+}
+
+// 🧠 Comparator to sort by multiple fields
+class MultiFieldComparator implements Comparator<Entity> {
+    public int compare(Entity e1, Entity e2) {
+        // 🔤 First sort by attribute1 (e.g., name)
+        int primaryCompare = e1.getAttribute1().compareTo(e2.getAttribute1());
+
+        // 🔢 If attribute1 matches, sort by attribute2 (e.g., age)
+        int secondaryCompare = e1.getAttribute2().compareTo(e2.getAttribute2());
+
+        // 🧮 Combine comparisons
+        return (primaryCompare == 0) ? secondaryCompare : primaryCompare;
+    }
+}
+
+// 🕹️ Driver class to execute sorting logic
+public class ComparatorMultipleFieldsDemo {
+    public static void main(String[] args) {
+        // 📋 Create a collection of Entity objects
+        List<Entity> entities = new ArrayList<>();
+
+        // ➕ Populate list with sample data
+        entities.add(new Entity("Delta", 27));
+        entities.add(new Entity("Alpha", 23));
+        entities.add(new Entity("Echo", 37));
+        entities.add(new Entity("Bravo", 22));
+        entities.add(new Entity("Charlie", 29));
+        entities.add(new Entity("Alpha", 22));
+
+        // 📍 Print original list
+        System.out.println("📌 Original List:");
+        for (Entity e : entities) {
+            System.out.println(e);
+        }
+
+        System.out.println();
+
+        // 🚀 Apply sorting by multiple fields
+        Collections.sort(entities, new MultiFieldComparator());
+
+        // 🎉 Print sorted list
+        System.out.println("✅ Sorted by attribute1 then attribute2:");
+        for (Entity e : entities) {
+            System.out.println(e);
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------
+Comparator                                                                                      Comparable
+Sorting logic is defined externally                                                             Sorting logic is defined within
+                                                                                                the class(internally)
+Supports multiple sorting orders                                                                Does not support multiple sorting
+                                                                                                orders
+Uses the compare() method                                                                       Uses compareTo() method
+It is a functional interface                                                                    It is also a functional interface
+More flexible and reusable                                                                      Simple and tightly coupled

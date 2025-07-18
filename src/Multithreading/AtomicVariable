@@ -1,0 +1,16 @@
+In multithreading, shared entities may lead to problems when concurrency is incorporated
+A shared entity such as a mutable object or variable might be changed, which may result in the inconsistency of the program or database
+It is crucial to deaL with shared entities while accessed concurrently
+=Java provides atomic classes such as Atomic integers, Atomic Long, Atomic Boolean
+and Atomic Reference
+=Objects of these classes represent the atomic variable int, long boolean and object reference respectively
+These classes contain the following methods:
+1: set(int value) = sets to the given value
+2: get() = gets the current value
+3: lazySet(int value) = Eventually sets to the given value
+4: compareAndSet(int expect, int update) = Atomically sets the value to the given updated value if the current value == expected value
+5: addAndGet(int delta) = Atomically adds the given value to the current value
+6: decrementAndGet() = Atomically decrements by one  the current value
+
+//Atomic variable
+AtomicInteger vat;

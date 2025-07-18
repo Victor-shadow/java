@@ -1,0 +1,30 @@
+//Multithreading is the process of running multiple threads simultaneously
+Thread Safety occurs when a thread is working on an object and it prevents another thread
+from working on the same object
+
+WAYS TO ACHIEVE THREAD SAFETY IN JAVA
+1: Using Synchronization
+2: Using Volatile keyword
+3: Using Atomic Variable
+4: Using Final Keyword
+
+Using synchronization
+=Synchronization is the process of allowing only one thread at a time to complete a particular task
+It means when multiple threads are executing simultaneously and want to access the same resource at the same time, then
+the problem of inconsistency occurs, so synchronization is used to solve inconsistency problem by allowing only one thread at a time
+=Synchronization uses the synchronized keyword
+=Synchronized is the modifier that creates a block of code known as a critical session
+=
+
+Using Volatile Keyword
+=A volatile keyword is a field modifier that ensures that the object can be used  by multiple threads at the same time
+without having any problem
+=Volatile is one good way of ensuring that the java program is thread safe
+
+Using Atomic variable
+=It is another way of achieving thread safety in java
+When variables are shared by multiple threads, the atomic variables ensure that the threads do not crash into each other
+
+Using Final Keyword
+Final variables in java are also thread safe because once assigned some reference of an object it cannot point to a reference of another
+object

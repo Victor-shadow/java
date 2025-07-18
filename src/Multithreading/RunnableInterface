@@ -1,0 +1,14 @@
+=java.lang.Runnable is an interface that it is to be implemented by a class whose instances are intended to be executed by a thread
+=There are two ways to start a new Thread:
+:Thread Class
+:Runnable Interface(implement this interface)
+=There is no need to subclass a Thread when a task can be done by overriding only the run() method of Runnable
+
+Steps to Create a New Thread Using Runnable
+1)Create a Runnable Implementer and implement the run() method
+2)Instantiate the Thread Class and pass the implementer to the Thread, Thread has a constructor
+which accepts Runnable Interface
+3)Invoke start() of thread instance , start internally and calls the run() method of the implementer
+:Invoking start() creates a new thread that executes a block of code written in the run() method
+:Calling run() directly does not create and start a new Thread, it will run on the same thread
+:To start a new line of execution, call start() on the thread

@@ -1,0 +1,107 @@
+=Collection class in Java is one of the utility classes  in the Java Collection Framework
+=The java.util package contains the Collection class.
+The Collection class is used with the static methods that operate on the collections or return
+the collections
+=All methods of this class throw a NullPointerException if the collection or object passed to the
+methods is null
+
+Collection Class Declaration
+public class Collections extend Object
+NOTE:Object is the parent class of all classes
+
+Common Java Collection Classes
+=The Collection framework contains both classes and interfaces
+
+I)//Array List
+=It is a class from the java Collection Framework
+=It is implemented using a list interface, in that it provides functionality of the dynamic array, when
+the size of the array is not fixed
+=It is used for storing elements in a list by maintaining the insertion order and also allows duplication
+
+Syntax:
+ArrayList<_type_> var_name = new ArrayList<_type_>();
+
+II)//Vector
+=It is part of the collection class that implements a dynamic array that can grow or shrink its size as required
+Syntax:
+public class Vector<E> extends AbstractList<E> implements List<E>, Random Access, Cloneable, Serializable
+
+III)Stack
+=It is part of the Java Collection class that models and implements a Stack Data Structure
+=It is based on the principal of Last-In-First-Out(LIFO)
+Syntax:
+public class Stack<E> extends Vector<E>
+
+IV)Linked List
+=Is an implementation of the LinkedList Data Structure
+=It can store the elements that are not stored in contiguous memory locations and every element is a separate object
+with a different data part and address part
+Syntax:
+LinkedList<_type_> var_name = new LinkedList<_type_>();
+
+V)HashSet
+=It is implemented using the HashTable Data Structure
+=It helps one to add, remove or find items very quickly
+Syntax:
+public class HashSet<E> extends AbstractSet<E> implements Set<E>, Cloneable, Serializable
+NOTE:HashSet internally uses HashMap not HashTable
+
+VI)Linked HashSet
+=It is an ordered version of a HashSet that maintains a doubly-linked list across all elements
+Syntax:
+public class LinkedHashSet<E> extends HashSet<E> implements Set<E>, Cloneable, Serializable
+
+VII)Tree Set
+=It is the implementation of the SortedSet Interface in Java that uses a Tree for Storage
+The ordering of the elements is maintained by the set using their natural ordering whether an explicit comparator
+is provided or not
+Syntax:
+TreeSet<E> set = new TreeSet<>();
+
+VIII)Priority Queue
+=It keeps the elements in order based on their importance
+Syntax:
+public class PriorityQueue<E> extends AbstractQueue<E> implements Serializable
+
+IX)Array Deque
+=It is a class that works with DoubleEndedQueue. It uses a resizable array to store elements. It provides constant
+time for adding and removing elements from both ends
+Syntax:
+public class ArrayDeque<E> extends AbstractCollection<E> implements Deque<E> Cloneable,Serializable
+
+X)HashMap
+=It is similar to HashTable but the data is unsynchronized. It stores the element in Key, Value pairs
+and one can access the elements using index
+Syntax:
+public class HashMap<K,V> extends AbstractMap<K,V> implements map<K,V>, Cloneable, Serializable
+
+XI)Enum Map
+=It extends Abstract Map and implements the Map Interface in Java
+Syntax:
+public class EnumMap<K extends enum<K>, <V> extends AbstractMap<K,V> implements Serializable, Cloneable
+
+XII)Abstract Map
+=It is part of the Java Collection Framework. It implements the map interface to provide structure to it making
+further implementations
+Syntax:
+public abstract class AbstractMap<K,V> implements Map<K,V>
+
+XIII)Tree Map
+=It is implemented using a Red-Black Tree. It is a kind of map that puts the key in order
+The keys are usually sorted in their usual order or by their custom rule
+Syntax: SortedMap<K,V> m = Collections.synchronizedSortedMap(New treeMap<>());
+
+JAVA COLLECTION CLASS FIELDS
+=The fields are used to return immutable entities
+i)EMPTY_LIST to get an immutable empty list
+ii)EMPTY_SET to get an immutable empty set
+iii)EMPTY_MAP to get an immutable empty map
+
+Examples of Collection Classes
+i)Adding elements to the collection
+ii)Sorting a collection
+iii)Searching in a collection
+iv)Copying Elements
+v)Disjoint Collection
+
+Methods Used in Java Collections

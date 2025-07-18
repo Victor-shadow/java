@@ -1,0 +1,57 @@
+=In Java, it is possible to define a class within another class, such classes are known as nested classes.
+=They enable one to logically group classes that are only used in one place, thus this increases the use of encapsulation,
+and creates more readable and maintainable code
+i)The scope of a nested class is bounded by the scope of its enclosing class. The class NestedClass does not
+exist independently of the class OuterClass
+ii)A nested class has access to its members, including private members of the class which it is nested
+But the enclosing class does not have access to members of the nested class
+iii)A nested class is also a member of its enclosing class
+=As a member of its enclosing class, a nested class can be declared public, private, protected or package-private(default)
+Nested classes are divided into two:
+1)static nested class = Nested classes declared static
+2)inner class = An inner-class is a non-static nested class
+
+Syntax:
+class OuterClass{
+    ....
+    ....
+    class InnerClass{
+
+
+   }
+ }
+
+//Static Nested Classes
+=In the case of normal regular inner classes, without an outer class object existing, there cannot be an inner class
+object. The object of an inner class is strongly associated with an outer class object
+=In static nested classes, without an outer object existing, there may be a static nested class object
+An Object of the static nested class is not strongly associated with the outer class object
+-A static nested class is associated with the Outer class as with Class methods and variables. It cannot also
+refer directly to an instance variable or method defined in its enclosing class. It can only use them
+through object reference
+-They are only accessed using the enclosing class name
+OuterClass.StaticNestedClass
+=To Create an object of the Static Nested Class:
+OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+
+INNER CLASS
+=To instantiate an inner class, you must first instantiate an outer class, Then create an inner object within an outer object
+Syntax:
+OuterClass.InnerClass innerObject = outerObject.new Inner Class();
+
+Comparison between a normal class and a static nested class
+Normal/Regular inner class                              Static Nested Class
+-Without an outer class object                          Without an outer class object
+existing, there cannot be an                            existing, there can be a
+inner class object.(The Inner class                     static nested class object(The Static
+object is always associated with                        nested class object is not associated
+outer class object)                                     with outer class object
+
+-As the main() method cannot                            As the main method can be declared
+be declared, the regular inner                          the static nested class can be invoked
+class cannot be invoked directly                        directly from the command
+from the command prompt                                 prompt
+
+-Both static and non-static members                     Only a static member of the outer class
+of the outer class can be accessed                      can be accessed directly
+directly

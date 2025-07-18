@@ -1,0 +1,116 @@
+=It is an inner class without a name and for which only a single object can be created
+=An Anonymous inner class can be useful when making an instance of an object including overriding methods
+of a class or an interface without actually creating a subclass
+
+Syntax of an Anonymous Inner Class(Invocation of a constructor, except that there is a class definition in a block of code
+//Test can be Interface, abstract/concrete class
+Test object = new Test();
+{
+ //data members and methods
+ public void test_method(){
+
+   }
+ };
+ =Anonymous inner classes are useful when writing implementation classes for listener interfaces
+
+Difference between a Regular Class and Anonymous Inner Class
+=A normal class can implement any number of Interfaces but the anonymous inner class can only implement
+only one interface at a time.
+=A regular class can extend a class and implement any number of interfaces simultaneously. But an anonymous inner class
+can extend a class and implement interfaces but not both at the same time
+=For a regular/normal class one can write any number of constructors but a constructor cannot be written for an anonymous inner class
+since the anonymous class does not have a name and while defining Constructor class name and constructor name must be same
+
+Accessing Local Variables of the Enclosing Scope and Declaring and accessing members of an anonymous class
+=Like local classes, anonymous classes can capture variables; they have the same access to local variables of the
+enclosing scope
+i)An Anonymous inner class has access to its members of its enclosing class
+ii)An Anonymous class cannot access local variables in  its enclosing scope that are not declared final or effectively final
+iii)Like a nested class, a declaration of a type(such as a variable) in anonymous class shadows any other declarations
+in the enclosing scope that have the same name
+
+Anonymous classes also have the same restrictions as local classes with respect to members:
+=We cannot declare static initializers or member interfaces in an anonymous inner class
+=An anonymous class can have static members provided that they are constant variables
+
+=One can declare the following in anonymous inner classes:
+i)Fields
+ii)Extra methods
+iii)instance initializers
+iv)Local classes
+=Anonymous inner classes are generic created via the listed two ways:
+i)Class(may be abstract or concrete)
+ii)Interfaces
+
+Types of Anonymous Inner Classes
+=Anonymous inner classes that extend a class
+=Anonymous Inner Class that implement an interface
+=Anonymous Inner Class that defines inside method/constructor argument
+
+1)ANONYMOUS INNER CLASS THAT EXTENDS A CLASS
+// 📦 Package Declaration (optional)
+package [YourPackage];
+
+// 🚀 Main Class
+public class [MainClassName] {
+    public static void main(String[] args) {
+        // ✨ Creating an anonymous class by extending a base class
+        [BaseClassName] [objectName] = new [BaseClassName]() {
+            // 🔄 Override method(s) from the base class
+            @Override
+            public void [overriddenMethod]() {
+                // 🖨️ Custom logic for the overridden method
+                System.out.println("[Custom Output for Extended Class]");
+            }
+        };
+
+        // 🏁 Use the object
+        [objectName].[methodToInvoke]();
+        System.out.println("[Main Thread Output]");
+    }
+}
+
+//ANONYMOUS INNER CLASS THAT IMPLEMENTS AN INTERFACE
+package [YourPackage];
+
+public class [MainClassName] {
+    public static void main(String[] args) {
+        // 🧩 Create anonymous inner class implementing an interface
+        [InterfaceName] [interfaceRef] = new [InterfaceName]() {
+            @Override
+            public void [interfaceMethod]() {
+                System.out.println("[Custom Output from Interface Implementation]");
+            }
+        };
+
+        // 🧵 Using it with another class, like Thread
+        [WrapperClass] [wrapperObject] = new [WrapperClass]([interfaceRef]);
+        [wrapperObject].[startOrRun]();
+        System.out.println("[Main Thread Output]");
+    }
+}
+
+Anonymous Inner Class as a Method/Constructor Argument
+package [YourPackage];
+
+public class [MainClassName] {
+    public static void main(String[] args) {
+        // 🛠️ Passing anonymous class directly as an argument
+        [WrapperClass] [object] = new [WrapperClass](new [InterfaceOrClassName]() {
+            @Override
+            public void [methodName]() {
+                System.out.println("[Custom Output from Argument-based Anonymous Class]");
+            }
+        });
+
+        [object].[methodToInvoke]();
+        System.out.println("[Main Thread Output]");
+    }
+}
+//NOTE: A constructor cannot be declared in an anonymous class
+
+
+
+
+
+

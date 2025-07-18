@@ -1,0 +1,13 @@
+Thread.start                                                      Thread.run
+=Creates a new Thread and the                                     No new thread is created and
+run method is executed on the                                     the run method is executed on calling
+newly created thread                                              the thread itself
+=It cannot be invoked more                                        Multiple invocations are possible
+than one time otherwise throws
+java.lang.IllegalStateException
+=Defined in java.lang.Thread class                               Defined in java.lang.Runnable Interface and must be overridden in the implementing class
+
+New Thread Creation
+=When a program calls the start() method a new thread is created and then the run() method is executed
+But if we directly call the run() method then no new thread will be created and run() method will be executed as a normal method
+call on the current calling thread itself and no multi-threading will take place

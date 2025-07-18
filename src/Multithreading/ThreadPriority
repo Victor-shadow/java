@@ -1,0 +1,19 @@
+//Java being Object Oriented works in multi-threaded environments in which the thread scheduler assigns the processor to a thread based on the priority of the thread
+//Whenever a thread is created in Java, it always has a priority assigned to it
+//Priority can either be given by the Java Virtual machine while creating the thread or it can be given by the programmer explicitly
+
+
+//Priorities in Threads
+//It is where each thread has a priority
+//every object has a priority which is represented by numbers ranging from 1 - 10
+
+CONSTANT                                                        Priority
+public static int NORM_PRIORITY                                 Sets the default priority for the thread(Priority:5)
+public static int MIN_PRIORITY                                  Sets the minimum priority for the thread(Priority:1)
+public static int MAX_PRIORITY                                  Sets the maximum priority for the thread(Priority:10)
+
+public final int getPriority():java.lang.Thread.getPriority() method returns the priority of
+the given thread
+public final void setPriority(int newPriority): java.lang.Thread.setPriority() = method changes the priority of the thread to the value of the new priority
+This method throws IllegalArgumentException if the value of the parameter newPriority goes beyond the minimum(1) and maximum(10) limit
+

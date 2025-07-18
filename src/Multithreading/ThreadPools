@@ -1,0 +1,59 @@
+=Server programs such as a database and web servers repeatedly execute  requests from
+multiple clients and these are oriented around processing a large number of short tasks
+=A server that creates a new thread for every request would spend more time and consume more system resources
+in creating and destroying threads than processing actual requests
+=Since active threads consume system resources a JVM creating too many threads at the same time can cause the system to run out of memory
+This necessitates the need to reduce the number of threads being created
+
+THREAD POOL
+=A thread pool in java is a managed group of worker threads that are reused to execute multiple tasks efficiently
+=It reuses previously created threads to execute current tasks and solves the problem of thread cycle overhead and resource thrashing
+=Since the thread is already existing when a request arrives, the delay introduced by thread creation is limited
+i)Java provides the Executor framework which is centered around the Executor Interface, its sub-interface Executor Service and the class ThreadPoolExecutor, which implements both of these interfaces
+By using the executor, one has to implement the Runnable Objects and send them to the executor to execute
+ii)They allow one to take advantage of threading, but focus on tasks that one wants the thread to perform, instead of thread mechanics
+iii)To use thread pools, Create an Object of ExecutorService and pass a set of tasks to it
+ThreadPoolExecutorClass allows to set the core and maximum pool size
+The runnable that are run by a particular thread are executed sequentially
+
+Executor ThreadPool Methods
+1)newFixedThreadPool(int) pool. = Creates a thread pool with a fixed number of threads(n) Tasks beyond the limit wait in a queue until a thread becomes available
+2)newCachedThreadPool() = creates a thread pool that dynamically creates new Threads as needed ,but reuses previously constructed threads when they are free
+3)newSingleThreadExecutor() = Creates a thread pool with only one thread. All tasks are executed sequentially in the order they are submitted
+
+In case of a fixed thread pool, if all the threads are currently being run by the executor then the pending tasks are placed in a queue and
+are executed when the thread becomes idle
+
+Thread Pool Execution
+1)Create a task(Runnable Object) to execute
+2)Create Executor Pool using Executors
+3)Pass tasks to executor Pool
+4)Shutdown ExecutorPool
+
+
+//RISKS IN USING THREAD POOLS
+=Deadlock: While deadlock can occur in any multi-threaded program, thread pools introduce another case of deadlock, one in which all the executing threads
+are waiting for the results from the blocked threads waiting in queue due to the unavailability of threads for execution
+=Thread Leakage: Thread Leakage occurs if a thread is removed from a pool to execute a task but not returned  to it when the task is completed
+If A thread throws an exception and pool class does not catch this exception, then the thread will simply exit reducing the sie of thread pool by one.If this repeats
+many times then the pool will eventually become empty and no threads will be available to execute other requests
+=Resource Thrashing: If the thread pool size is very large then time is wasted in context switching between threads. Having more threads than the optimal number may cause starvation problem leading to resource thrashing
+
+
+NOTE:
+1)Don't queue tasks that concurrently wait for results from other tasks.This can lead to a situation of dead lock
+2)Be careful when using threads for a long lived operation. IT may result in thread waiting forever and would eventually
+lead to resource leakage
+3)The thread pool has to be ended explicitly at the end. If this is not done, then the program goes on executing and never ends
+Call shutdown on the pool to end the executor. If you try to send another task to the executor after shutdown, It will throw a RejectedExecutionException
+4)One needs to understand for tasks to effectively tune the thread pool. if the tasks are very contrasting then it is necessary to use different thread pools
+for different types of tasks so as to tune them properly
+5)You can restrict maximum number of threads that run in JVM, reducing chances of JVM running out of memory
+6)If you need to implement loops to create new threads for processing using ThreadPool will help to process faster
+as ThreadPool does not create new threads after it has reached its maximum limit
+7)After completion of thread processing, ThreadPool can use the same thread to do another process(so saving time and resources to create another Thread)
+
+Tuning ThreadPool
+=The Optimum size of the thread pool depends on the number of processors available and the nature of tasks
+On a N Processor system for a queue of only computation type processes a maximum thread pool size of N or N + 1 will achieve the maximum efficiency
+But tasks may wait for IO and in such a case we take into account the ratio of waiting time(W) and service Time(S) for a request resulting in a maximum pool size of N*(1+W/S) for maximum efficiency

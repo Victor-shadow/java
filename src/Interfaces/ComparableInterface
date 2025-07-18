@@ -1,0 +1,21 @@
+=The Comparable Interface in Java is used to  define the natural ordering of objects for a user-defined class.
+=It is part of the java.lang package and it provides a compareTo() method to compare instances of the classes
+=A class has to implement a ComparableInterface to define its natural ordering
+
+=Declaration Of A comparable Interface
+public interface Comparable<T>{
+int compareTo(T obj);
+}
+
+where T is the type of object to be compared
+=It compares the current object with the specified object
+=It returns:
+Negative: if currentObject < specifiedObject
+Positive: if currentObject > specifiedObject
+Zero: If currentObject == specifiedObject
+
+Use of Comparable Interface
+=The Comparable interface contains the method compareTo() to decide order of elements
+=Override the compareTo() method in the pair class
+=Create an array of Pairs and populate the array
+=Use Arrays.sort() function to sort the array

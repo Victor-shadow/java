@@ -1,0 +1,77 @@
+//The CollectionInterface in java is a core member of the Java Collection Framework located
+in the java.util.package
+//It is one of the Root interfaces of the java collection hierarchy
+//The Collection interface is not directly implemented by any class, Instead it is indirectly implemented
+by its sub interfaces like Queue List and Sets
+
+//The ArrayList class implements the ListInterface, a sub interface of the collection interface
+
+//Collection Interface Declaration
+//public interface Collection<E> extends iterable <E>
+
+//Here, E represents the type of elements stored in the collection
+//NOTE: In the syntax we can replace any class with an array list if that class implements Collection Interfaces
+
+//Hierarchy of The Collection Interface
+//The Collection interface is part of the hierarchy that extends Iterable , means that the collection can be traversed
+
+//The Hierarchy includes the following
+                               Collection
+  List          Set          Dequeue          Queue           SortedSet       NavigableSet
+
+
+//Sub-Interfaces of the Collection Interface
+//1)List
+=The list Interface represents an ordered collection that allows duplicates
+=It is implemented by classes like ArrayList, LinkedList and Vector
+=Lists allow elements to be accessed by their index  position
+
+//Syntax:
+public interface List<E> extends Collection<E>
+
+
+//2)Set
+//A set is an unordered collection of elements in which duplicate values cannot be stored
+//This set interface is implemented by various classes like HashSet, TreeSet, LinkedHashSet
+
+//syntax
+public interface Set<E> extends Collection<E>
+
+
+//3)SortedSet
+//This interface has extra methods for maintenance of  the ordered elements
+//The sorted set interface extends the set interface and is used to handle data that needs to be sorted
+//The class which implements this interface is the TreeSet
+
+//Syntax:
+//public interface SortedSet<E> extends Set<E>
+
+
+//4)Queue
+//The Queue interface represents a collection that follows FirstInFirstOut(FIFO) order
+//It is implemented by classes like PriorityQueue, Deque, ArrayDequeue
+
+//Syntax
+public interface Queue<E> extends Collection<E>
+
+
+//5)Deque
+//The Deque interface extends Queue and allows elements to be added or removed from both ends of the Queue
+//It is implemented by the ArrayDeque and LinkedList
+
+//Syntax:
+public interface Deque<E> extends Queue<E>
+
+//6)NavigableSet
+//The NavigableSet interface extends SortedSet and provides additional methods for navigation such as finding the closest element
+
+//public interface NavigableSet<E> extends SortedSet<E>
+
+//Methods of Collection Interface
+//equals(Object o ) =Compares the specified object with this collection for equality
+//hashCode() = Returns the hashCode for the collection
+//iterator() = Returns an iterator over the elements in the collection
+//parallelStream = Returns a possibly parallel stream with this collection as its source
+//remove(Object O) = Removes a single instance of the specified element from the collection.if it is present(Optional operation)
+//size = Returns the number of elements in the collection
+//stream = Returns a sequential stream with this collection as its source

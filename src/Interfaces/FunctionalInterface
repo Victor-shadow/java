@@ -1,0 +1,124 @@
+=A functional interface in java is one which contains only one abstract method
+=Functional Interfaces can have multiple default or static methods but only one abstract method
+Functional Interfaces in Java include:
+:Runnable
+:ActionListener
+:Comparator
+
+=Functional Interfaces is additionally recognized as Single Abstract Method Interfaces
+NOTE: A functional Interface can also extend another functional interface
+=The @FunctionalInterface annotation is used to indicate that an interface is intended to be
+a functional interface
+=If an interface has more than one abstract method then it cannot be a functional interface
+
+@FunctionalInterface Annotation
+@FunctionalInterfaceAnnotation is used to ensure that the functional interface cannot have more than one abstract method
+=In case more than one abstract method is present the compiler flags an "Unexpected @FunctionalInterface Annotation" message.
+
+BUILT IN JAVA FUNCTIONAL INTERFACES
+=All these interfaces ae annotated with @FunctionalInterfaces.
+=They are as follows
+Runnable: This interface only contains the run() method.
+Comparable: This interface only contains compareTo() method.
+ActionListener: This interface only contains the actionPerformed() method
+Callable: This interface only contains the call() method
+
+TYPES OF FUNCTIONAL INTERFACES IN JAVA
+1)Consumer
+2)Predicate
+3)Function
+4)Supplier
+
+Consumer Interfaces
+The consumer interface of the functional interface is the one that accepts only one argument or a gentrified argument
+=It has no return value
+=There are functional variants of a Consumer Interface
+:Double Consumer
+:Int Consumer
+:Long Consumer
+:Bi Consumer
+These variants accept primitive values as arguments
+
+Syntax/Prototype of a Consumer Functional Interface
+Consumer<Integer> consumer = (value) -> System.out.println(value);
+This implementation of the Java Consumer Functional Interface prints the value passed as a parameter to the print statement
+It uses the Lambda function of java
+
+
+Predicate Interface
+=The Predicate Interface represents a boolean-valued function of one argument
+=It is commonly used in filtering operations in streams
+=It also has some extensions such as:
+:IntPredicate
+:DoublePredicate
+:LongPredicate
+=It only accepts primitive data types as arguments
+
+Syntax:
+public interface Predicate<T>{
+  boolean test(T t);
+
+=The Java predicate functional interface can also be implemented using lambda functions
+Predicate predicate = (value) -> value != null;
+
+Function
+=A function is a type of functional interface in java that receives only a single argument and returns a value
+after the required processing
+=Many different versions of the functional interface are instrumental and are used in primitive data types: double, int, long
+
+Syntax:
+Function<Integer, Integer> function = (value) -> value * value;
+Bi-Function = The Bi-Function is substantially related to a Function(Besides it takes two arguments, whereas a Function takes one argument)
+Unary Operator and Binary Operator: There are also two functional Interfaces
+They both extend the Function and Bi-function respectively where the input type and output type are the same
+
+
+Supplier
+=The Supplier functional interface is also a type of functional interface that does not take any
+input or argument and yet returns a single output
+=The different extensions of the supplier function include;
+:BooleanSupplier
+:DoubleSupplier
+:LongSupplier
+:IntSupplier
+The return type of these further specializations is their corresponding primitives only
+
+Syntax:
+Supplier<String> supplier = () -> "Hello, world";
+
+FunctionalInterface                        Description                                          Method
+Runnable                                   It represents a task that can be executed             void run()
+                                           by a thread
+Comparable                                 It compares two objects for ordering                  int compareTo(T o)
+ActionListener                             It handles an action in event-driven                  void actionPerformed(ActionEvent e)
+                                           programming
+Callable                                   It represents a task that can return a result         V call() throws Exception
+                                           or throw an exception
+Consumer                                   It accepts a single input argument and returns        void accept(T t)
+                                           no result
+Predicate                                  It accepts a single argument and returns a            boolean test(T t)
+                                           boolean result
+Function                                   It accepts a single argument and returns a            R apply(T t)
+                                           single result
+Supplier                                   It does not take any argument but returns a           T get()
+                                           single result
+BiConsumer                                 It accepts two arguments and returns no               Void accept(T t, U u)
+                                           result
+BiPredicate                                It accepts two arguments and returns a                boolean test(T t, U u)
+                                           boolean result
+BiFunction                                 It accepts two arguments and returns                  R apply(T t, U u)
+                                           a result
+UnaryOperator                              It is a special case function where input             T apply(T t)
+                                           and output types are similar
+BinaryOperator                             This is a special case of BiFunction where            T apply(Tt1, Tt2)
+                                           input and output types are the same
+
+NOTE:
+=In functional interfaces, there is only one abstract method supported. If the annotation @FunctionalInterface is not implemented
+or written with a functional interface more than one abstract method can be declared inside it.
+With more than one function it will be a non-functional interface
+=An infinite number of methods(whether static or default) can be added to the functional interface
+=Overriding methods from a parent class do not violate the rules of a functional interface in java
+In a functional Interface overriding methods from the parent class does not count as an abstract method
+=The java.util.function package contains many built-in functional interfaces in Java 8
+

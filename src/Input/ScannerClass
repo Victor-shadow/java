@@ -93,3 +93,58 @@ IllegalStateException: if this scanner is closed
 InputMismatchException:If the next token does not match the Float regular expression, or is out of range
 
 
+IV)nextInt() method
+=The nextInt(radix) method of java.util.Scanner class scans the next token of the input as int
+If the translation is successful, the scanner advances past the input that matched.If the parameter radix is
+not passed, then it behaves similarly as nextInt(radix) where radix is assumed to be a default one
+Syntax: public int nextInt();
+Parameters: The function accepts a parameter radix which is used to interpret the token as a int value
+Return Value:This function returns the Int scanned from the input
+Exception: The function throws the following exceptions:
+InputMismatchException: If the nex token does not match the Integer regular expression, or is out of range
+NoSuchElementException:throws if input is exhausted
+IllegalStateException: throws if scanner is closed
+
+V)nextLine() method
+=The nextLine() method of java.util.Scanner class advances the scanner past the current line and returns the
+input that was skipped. The function prints the rest of the current line, leaving out the line separator at the end
+The next is set after the line separator. Since this method continues to search through the input looking
+for a line separator, it may search for all the input searching for the line to skip  if no line separators are present
+
+Syntax:
+public String nextLine();
+
+Parameters: The function does not accept any parameters
+Return value: This method returns the line that was skipped
+Exceptions: The function throws two exceptions as follows:
+NoSuchElementException: throws if no line was found
+IllegalStateException: throws if this scanner was closed
+
+
+VI)nextLong() method
+=The nextLong(radix) method of java.util.Scanner class scans the next token of the input as a long
+If the translation is successful, the scanner advances past the input that matched.
+If the parameter radix is not passed, then it behaves similarly as nextLong(radix) where the radix is assumed
+to be default
+=Syntax: public long nextLong()
+
+Parameters:The function accepts a parameter radix which is used to interpret the token as a long value
+Return value: This function returns the long scanned from the input
+Exceptions:The function throws three exceptions as follows:
+i)InputMismatchException: If the next token does not match the integer regular expression or is out of range
+ii)NoSuchElementException: throws if input is exhausted
+iii)IllegalStateException: throws if scanner is closed
+
+VII)nextShort() method
+=The nextShort() radix method of java.util.Scanner class scans the next token of the input as a short.
+If the translation is successful, the scanner advances past the input that matched. If the parameter radix is not passed,
+then it behaves similarly as nextShort(radix) where radix is assumed to be default
+Syntax:
+public short nextShort();
+
+Parameters: The function accepts a parameter radix which is used to interpret the token as a short value
+Return value: The function returns the short scanned from the input
+Exceptions: The function throws the following exceptions:
+i)InputMismatchException: If the next token does not match the integer regular expression, or is out of range
+ii)NoSuchElementException: throws if input is exhausted
+iii)IllegalStateException: Throws if scanner is closed

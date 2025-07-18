@@ -1,0 +1,513 @@
+=An interface in java programming language is defined as an abstract type used to specify
+the behaviour of a class.
+=An interface in Java is a blueprint of a class.
+=The interface can have methods and variables but the methods declared in an interface are by default abstract
+=Interfaces specify what a class should do
+=It includes default and static methods with implementations
+=If a class implements an interface and does not provide method bodies for all functions specified in the interface,
+then the class must be declared abstract
+
+PROPERTIES OF AN INTERFACE
+1)The interface in java is a mechanism to achieve abstraction.
+2)By default, variables in an interface are public, static or final.
+3)Interfaces are used to achieve abstraction and multiple inheritance in java.
+4)Interfaces support loose coupling.(Classes depend on behaviour and not implementation)
+5)Interfaces primarily define methods that other classes must implement.
+6)An Interface in java defines a set of behaviours that a class can implement, usually represents
+IS-A relationship
+
+General Syntax for Interfaces:
+// Define interface with abstract methods
+interface [InterfaceName] {
+    void [method1]([DataType] [param1]);
+    void [method2]([DataType] [param2]);
+    void [method3]([DataType] [param3]);
+}
+
+// Class implementing the interface
+class [ClassName1] implements [InterfaceName] {
+
+    [DataType] [attribute1];
+    [DataType] [attribute2];
+
+    @Override
+    public void [method1]([DataType] [param1]) {
+        // update [attribute2] based on [param1]
+    }
+
+    @Override
+    public void [method2]([DataType] [param2]) {
+        // modify [attribute1] using [param2]
+    }
+
+    @Override
+    public void [method3]([DataType] [param3]) {
+        // update [attribute1] based on [param3]
+    }
+
+    public void [printMethod]() {
+        System.out.println("[attribute1]: " + [attribute1] + " [attribute2]: " + [attribute2]);
+    }
+}
+
+// Another class implementing the same interface
+class [ClassName2] implements [InterfaceName] {
+
+    [DataType] [attribute1];
+    [DataType] [attribute2];
+
+    @Override
+    public void [method1]([DataType] [param1]) {
+        // similar logic as ClassName1
+    }
+
+    @Override
+    public void [method2]([DataType] [param2]) {
+        // similar logic as ClassName1
+    }
+
+    @Override
+    public void [method3]([DataType] [param3]) {
+        // similar logic as ClassName1
+    }
+
+    public void [printMethod]() {
+        System.out.println("[attribute1]: " + [attribute1] + " [attribute2]: " + [attribute2]);
+    }
+}
+
+// Main class with entry point
+class [MainClass] {
+    public static void main(String[] args) {
+        // Create instance of first class
+        [ClassName1] obj1 = new [ClassName1]();
+        obj1.[method1](...);
+        obj1.[method2](...);
+        obj1.[method3](...);
+        obj1.[printMethod]();
+
+        // Create instance of second class
+        [ClassName2] obj2 = new [ClassName2]();
+        obj2.[method1](...);
+        obj2.[method2](...);
+        obj2.[method3](...);
+        obj2.[printMethod]();
+    }
+}
+
+Syntax:
+interface interfaceName{
+    //Constant fields(public, static, final by default)
+    int CONSTANT = 1;
+    //Abstract Method(public abstract by default)
+    void methodName();
+    //DEFAULT METHOD(JDK 8+)
+    default void defaultMethod(){
+    System.out.println("Default Implementation");
+    }
+    //Static Method(JDK 8+)
+    static void staticMethod(){
+    System.out.println("Static method in interface");
+    }
+    //Private Method(JDK 9+)
+    private void privateMethod(){
+    System.out.println("Private helper method.");
+    }
+
+NOTE:
+=Private methods can only be called inside default or static methods in the interface not
+by implementing classes
+=Static methods are accessible via the interface itself and not through  objects
+
+=To declare an interface use the interface keyword.It is used to provide total abstraction
+=All methods in an interface are declared within an empty body and are public
+=All fields are public, static or final by default
+=A class that implements an interface must implement all the methods declared inside the interface
+To implement the interface use the implements keyword
+
+RELATIONSHIP BETWEEN A CLASS AND AN INTERFACE
+=A class can extend another class and similarly an interface can extend another interface
+=A class can only implement an interface
+
+DIFFERENCE BETWEEN A CLASS AND AN INTERFACE
+Features                            Class                                  Interface
+Instantiation                       In a class you can create objects        Objects can not be created in an interface
+Variables                           Classes have instance variables          Variables are public, static, final only(constants)
+Methods                             Classes can have concrete methods        Interfaces methods are abstract by default
+Inheritance                         Supports single inheritance              Allows multiple inheritance
+Constructors                        Can have constructors                    No constructors allowed
+Access Modifiers                    Supports private, protected, public      In an interface all members are public
+                                    default                                  by default
+Keyword                             Defined using class                      Defined using interface
+Default Methods                     Does not support default methods         It supports default methods(JDK8)
+Static Methods                      Can have static methods                  Supports static methods
+Private Methods                     Can have private methods                 Supports private methods
+Main Method                         Can have main() for execution            Can have main() since JDK 8 as static methods are allowed
+
+
+
+//Multiple Inheritance in Java using interface
+=Multiple inheritance is an OOP concept that can be implemented in java using classes
+=One can use multiple inheritance using interfaces in Java
+
+//Features added in Interfaces
+1)Default Methods
+=Interfaces can define methods with default implementations
+=Useful for adding methods in interfaces without breaking existing implementations
+
+2)Static Methods
+=Interfaces can now include static methods
+=These methods are called directly using the interface name and not inherited by implementing classes
+
+3)Private Methods
+=Interfaces can now include private methods
+=Private methods are defined within an interface but it can not be accessed by the implementing classes
+=Private methods cannot be overridden by the implementing classes as they are not inherited
+
+Syntax:
+// Define interface with private and default method
+interface [InterfaceName] {
+
+    // Private method for internal logic, only accessible within the interface
+    private void [privateMethodName]() {
+        System.out.println("[Private method message]");
+    }
+
+    // Default method shared across implementors
+    default void [defaultMethodName]() {
+        [privateMethodName]();  // Invoke internal helper logic
+        System.out.println("[Default method message]");
+    }
+}
+
+// Class implementing the interface
+class [ClassName] implements [InterfaceName] {
+    // Optional: class-specific attributes or overridden behavior
+}
+
+// Main class with entry point
+public class [MainClassName] {
+    public static void main(String[] args) {
+        [ClassName] [objectName] = new [ClassName]();
+        [objectName].[defaultMethodName]();  // Calls default and private method chain
+    }
+}
+
+
+//Functional Interface
+=Functional Interfaces can be used with lambda expressions or method references.
+=The @FunctionalInterface annotation can be used to indicate an interface is a functional interface
+
+@FunctionalInterface
+interface myFunctionalInterface{
+ void singleAbstractMethod();
+}
+
+//Extending Interfaces
+=One interface can inherit another using the keyword extends
+=When a class implements an interface that inherits another interface, it must provide an implementation
+for all the methods required by the interface inheritance chain
+
+interface A{
+  void method1();
+  void method2();
+}
+//B now includes method 1 and 2
+interface B extends A {
+void method3();
+}
+//The class must implement all methods of A and B
+class Main implements  B{
+  public void method1(){
+   System.out.println("Method 1");
+     }
+  public void method2(){
+  System.out.println("Method 2");
+  }
+  public void method3(){
+  System.out.println("Method 3");
+  }
+  public static void main(String[]args){
+  //Instance of main class is created
+  Main object = new Main();
+  //All Methods Invoked
+  object.method1();
+  object.method2();
+  object.method3();
+  }
+}
+
+=In a simple way, the interface contains multiple abstract methods. So write the implementation in
+implementation classes. If the implementation is unable to provide an implementation of all abstract methods
+then declare the implementation class with an abstract modifier and complete the remaining method implementation
+in the next created child classes
+
+Advantages of interfaces
+1)Without bothering about the implementation part, we can achieve the security of the implementation
+2)Interfaces make use of multiple inheritance through implementation of more than one interface
+
+
+//INTERFACES AND INHERITANCE
+=Java supports multiple inheritance through interfaces
+//Multiple interfaces(Interface Implementation by classes)
+In Java, a class can implement one or more interfaces with the use of implements keyword
+//A class can implement one or more interfaces
+interface interfaceA{
+void methodA();
+}
+interface interfaceB{
+void methodB();
+}
+//Class implements both interfaces and provides implementation to both methods
+class Sample implements InterfaceA, interfaceB{
+@Override
+public void methodA(){
+System.out.println("Inside methodA");
+}
+@Override
+public void methodB(){
+System.out.println("Inside method B");
+}
+}
+public classMain{
+public static void main(String[]args){
+Sample object = new Sample();
+object.methodA();
+object.methodB();
+}
+}
+
+//Interface Inheritance
+An Interface can extend another interface
+Inheritance is  inheriting of properties of the parent class into the child class
+=Inheritance is a mechanism in which one object acquires all the properties and behaviour
+of the parent object
+=One can create new classes that are build based on existing classes. When you inherit from an existing class
+you can reuse methods and fields of the parent class
+=One can also add new methods and fields in the child class
+=Inheritance represents parent-child relationship(IS-A relationship)
+NOTE: One cannot implement a class from an interface
+
+//DECLARATION OF JAVA INHERITANCE
+class <Subclass-name> extends <Superclass-name>{
+//Methods and fields
+}
+
+//Parent Class
+class Parent{
+int attribute1;
+String attribute2;
+
+void setParent(int attribute1, String attribute2){
+this.attribute1 = attribute1;
+this.attribute2 = attribute2;
+}
+void displayParent(){
+System.out.println(attribute1);
+System.out.println(attribute2);
+}
+}
+class Child extends Parent{
+int attribute3;
+String attribute4;
+
+void setChild(int attribute1, String attribute2, int attribute3, String attribute4){
+setParent(attribute1, attribute2);
+this.attribute3 = attribute3;
+this.attribute4 = attribute4;
+}
+
+void displayChild(){
+displayParent();
+System.out.println(attribute3);
+System.out.println(attribute4);
+}
+
+public static void main(String[]args){
+Child object = new Child();
+object.setChild(1000, "Name", "Ap", "200000");
+object.displayChild();
+
+}
+}
+
+//TYPES OF INHERITANCE IN JAVA
+Single-level inheritance
+Multi-level inheritance
+hierarchical inheritance
+
+=In Java programming, multiple and hybrid inheritance is supported only through interfaces
+
+Single Inheritance
+=When a class inherits another class, it is known as Single Inheritance
+
+class Parent{
+ int value;
+
+ void setValue(int value){
+ this.value = value;
+ }
+}
+
+class Child extends Parent{
+int multiplier;
+int product;
+
+void setMultiplier(int multiplier){
+this.multiplier = multiplier;
+}
+void calculateProduct(){
+product = value * multiplier;
+System.out.println("Product " + product);
+}
+
+public static void main(String[]args){
+Child object = new Child();
+object.setValue(5);
+object.setMultiplier(5);
+object.calculateProduct();
+}
+}
+
+
+=Multilevel Inheritance
+=When there is a chain of inheritance it is known as multi-level inheritance
+class A{
+  int valueA;
+
+  void setValueA(int value){
+     this.valueA = value;
+  }
+}
+
+class B extends A{
+int valueB;
+
+void setValueB(int value){
+this.valueB = value;
+}
+}
+
+class C extends B{
+int product;
+
+void calculateProduct(){
+product = valueA * valueB;
+System.out.println("Product " + product)
+}
+
+public static void main(String[]args){
+ C object = new C();
+ object.setValueA(5);
+ object.setValueB(5);
+ object.calculateProduct();
+}
+}
+
+//Hierarchical Inheritance
+=When two or more classes inherit a single class it is known as hierarchical inheritance
+class A{
+  int a;
+
+  void setValueA(int x){
+  a = x;
+  System.out.println("Setting A value to = " + x);
+  }
+}
+
+class B extends A{
+int b;
+
+void setValueB(int x);
+ b = x;
+ System.out.println("Setting B value to = " + x);
+}
+}
+
+class C extends A{
+int c;
+
+void setValueC(int x);
+c = x;
+System.out.println("Setting C value to = " + x);
+}
+}
+
+public class Main{
+  public static void main(String[]args){
+   C object = new C();
+   object.setValueC(5);
+   object.setValueA(10);
+
+   B object = new B();
+   object.setValueB(100);
+   object.setValueA(50);
+  }
+}
+
+//Inheritance In Interfaces
+import java.io.*;
+
+interface interfaceA{
+void MethodString();
+}
+
+interface interfaceB extends interfaceA{
+void MethodFloat();
+}
+
+class sample implements interfaceB{
+@Override
+public void MethodString(){
+System.out.println("String");
+}
+
+@Override
+public void MethodFloat(){
+System.out.println("Float");
+}
+
+public static void main(String[]args){
+sample object = new sample();
+object.MethodString();
+object.MethodFloat();
+}
+}
+
+//An Interface can also extend multiple Interfaces
+import java.io.*;
+
+interface interfaceA{
+void methodString();
+}
+
+interface interfaceB{
+void methodFloat();
+}
+
+//A class always implements an interface
+//An interface can extend multiple interfaces
+interface interfaceC extends interfaceA, interfaceB{
+  void methodBoolean();
+}
+
+class sample implements interfaceC{
+  public void methodString(){
+  System.out.println("String");
+  }
+
+  public void methodFloat(){
+  System.out.println("Float");
+  }
+  public void methodBoolean(){
+  System.out.println("Boolean");
+  }
+
+  public static void main(String[]args){
+  sample object = new sample();
+
+  object.methodFloat();
+  object.methodBoolean();
+  object.methodString();
+  }
+}
