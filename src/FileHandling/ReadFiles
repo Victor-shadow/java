@@ -1,0 +1,56 @@
+=There are multiple ways of writing and reading a text file in Java, this is required when dealing with many applications
+
+METHODS FOR READING A TEXT FILE
+1)Using BufferedReaderClass = BufferedReader provides buffering of data for faster reading
+2)Using Scanner class = provides parsing ability
+3)Using FileReader class
+4)Reading the whole file in a list
+5)Read a text file as a String
+
+NOTE:We can also use both BufferReader and Scanner to read a text file line by line in Java
+Then Java SE 8 introduces another Stream class java.util.stream.Stream which provides a lazy and
+efficient way to read a file
+
+1)Buffered Reader Class For Reading Text File
+=This method reads text from a character-input stream.
+=It does buffer for efficient reading of characters, arrays and lines
+=The buffer size may be specified or the default buffer size may be used. The default is large enough for most purposes
+=In general, each read request made of a reader causes a corresponding Read request
+to made of the underlying character or byte stream
+=It is therefore advisable, to wrap a BufferedReader around any Reader whose read() operations may be costly
+such as FileReaders, InputStreamReaders
+
+Syntax
+=BufferedReader in = new BufferedReader(Reader in, int size)
+
+
+2)File Reader class for Text file
+=Convenience class for reading character files
+=The constructor of this class assume that the default character encoding and the default byte-buffer size
+are appropriate
+
+Constructors defined in this class are as follows:
+i)FileReader(File file) = Creates a new FileReader, given the File to read from
+ii)FileReader(FileDescriptor fd) = Creates a new FileReader, given the FileDescriptor to read from
+iii)FileReader(String fileName) = Creates a new FileReader, given the name of the file to read from
+
+
+3)Scanner class for reading text file
+A simple text scanner that can parse primitive types and strings using regular expressions
+A scanner breaks input into tokens using a delimiter pattern, which by default matches whitespace
+The resulting tokens are then converted into values of different types using the various next methods
+
+
+4)Reading the whole file in a list
+=Read all lines from a file
+=This method ensures that the file is closed when all the bytes have been read or an IO error or other
+runtime exception is thrown
+=Bytes from the file are decoded into characters using the specified charset
+
+Syntax:
+public static List readAllLines(Path path, Charset cs) throws IOException
+
+This method recognizes the following as Line terminators
+\u000D followed by \u000A, CARRIAGE RETURN followed by LINE FEED
+\u000A, LINE FEED
+\u000D, CARRIAGE RETURN

@@ -1,0 +1,105 @@
+-In Java, the FileOutputStream class is the subclass of OutputStream
+-It is used to write data to a file as a stream of bytes
+-FileOutputStream is commonly employed for writing primitive values into a file
+FileOutputStream supports writing both byte-oriented and character-oriented data
+
+NOTE:FileWriter  is generally preferred for character-oriented data
+
+-When we run a java program, data is stored in the RAM. To save the data to a file on the hard disk,
+we create a OutputStream Object in RAM. , which references target file on the hard disk
+The data flows from the variable in RAM to the OutputStream and then written to the file on the
+hard disk
+
+Hierarchy of FileOutputStream
+AutoClosable(Interface)
+
+Closable(Interface)
+
+OutputStream
+
+FileOutputStream
+
+Declaration of FileOutputStream
+public class FileOutputStream extends OutputStream
+NOTE:
+-FileOutputStream is a subclass of OutputStream
+-Implements the Closable and Flushable Interfaces
+
+
+Constructors of FileOutputStream
+1.FileOutputStream(String name)
+-Creates an Object of file output stream to write to the file with the particular name mentioned
+i.e FileOutputStream fos = new FileOutputStream("output.txt");
+
+
+2.FileOutputStream(File file)
+Creates a file Output Stream to write to the file represented by the specified File Object
+The file is overwritten if it already exists
+
+File f = new File("output.txt");
+FileOutputStream fos = new FileOutputStream(fi)
+
+3.FileOutputStream(File file, boolean append)
+-Creates an object of FileOutputStream to write to the file with the specified name
+-If append is true, data is appended to the file instead of overwriting it
+File f = new File("output.txt")
+FileOutputStream fos = new FileOutputStream(fi, true);
+
+4.FileOutputStream(String name, boolean append)
+-Creates an object of file output stream to write to the file with the specified name
+-If append is true, then data is appended to the file instead of overwriting it
+FileOutputStream fos = new FileOutputStream("output.txt", true)
+
+5.FileOutputStream(FileDescriptor fdobj)
+-Creates a file output stream for writing to the specified file descriptor
+-which represents an existing connection with the actual file in the file system
+Example:
+FileOutputStream out = new FileOutputStream(FileDescriptor fdobj)
+
+
+Write data to a file using FileOutputStream
+Step 1: Attach a FilePath to a FileOutputStream
+-First, attach a file path to the FileOutputStream
+FileOutputStream f = new FileOutputStream("file.txt")
+
+Step 2: Write Data to a file
+-Use the write() method of FileOutputStream to write data
+f.write(data.getBytes())
+
+Step 3: Close the Stream
+Use close() to close the stream after doing writing to a file
+
+Some Important Methods:
+i)Write() method
+-write(): this writes the single byte to the file output stream
+-write(byte[]array): This writes the specified array's bytes to the output stream
+-write(byte[]array, int start, int length): this writes the number of bytes equal to the length
+to the output stream from an array starting from the position start
+
+ii)flush()
+-For clearing the OutputStream we use flush() method
+-This method forces all the data to get stored in its destination
+
+iii)close()
+-This method closes the FileOutputStream. Once it is called we cannot use other methods
+
+Methods of fileOutputStream class
+i)void close() = It closes the file output stream
+ii)protected void finalize() = It is used to cleanup the connection with the file output stream and
+finalize the data
+iii)FileChannel getChannel() = Returns the unique FileChannel object associated with this FileOutputStream
+object
+iv)FileDescriptor getFD() = It returns the file descriptor associated with the stream
+v)void write(int b) = It is used to write the specified byte to the file output stream
+vi)void write(byte[]array) = It is used to write data in bytes of arr[] to file output stream
+vii)void write(byte[]array, int off, int len) = It is used to write the number of bytes equal to the length of the output
+stream from an array starting from the position start
+
+
+Methods declared in OutputStream Class
+a) flush() = this method forces to write all the data present in the output stream to the destination
+(hard disk)
+b) nullOutputStream() = this method returns a new OutputStream which discards all bytes. The stream returned is initially open
+
+
+

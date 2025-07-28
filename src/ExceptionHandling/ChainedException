@@ -1,0 +1,23 @@
+-Chained Exceptions in Java allows associating one Exception with another, i.e one exception
+describes the cause of another Exception
+-Chained Exceptions are also known as Nested Exceptions, allows one to associate a cause with an Exception in Java
+-This is useful when propagating information about the original cause of the exception
+
+Constructors
+Throwable(Throwable cause)  = Where cause is the exception that causes the current Exception
+Throwable(String msg, Throwable cause) = Where msg is the exception message and cause  is the exception
+that causes the Current Exception
+
+Methods of Throwing Supporting Chained Exceptions
+1)getCause() = This method returns the actual cause of the Exception
+2)intCause(Throwable cause): = This method sets the cause for calling the Exception
+
+Advantages of Chained Exceptions
+1)This exception helps in debugging by providing details about both primary and root causes
+2)It simplifies error handling by enabling propagation of complete exception context
+3)This improves traceability of errors in complex Applications
+
+Disadvantages of Chained Exceptions
+1)If not used properly, it can make the stack trace longer and harder to read
+2)Overuse can cause confusing error messages if exceptions are chained unnecessarily
+3)Developers must ensure meaningful causes are linked; otherwise misleads during debugging

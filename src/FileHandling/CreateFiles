@@ -1,0 +1,17 @@
+=There are two standard methods to create a new file in java, either directly with the help of file class
+or indirectly with the help of FileOutputStream class by creating an object of both files in both approaches
+
+METHODS TO CREATE FILES IN JAVA
+1)Using the File class
+2)Using the FileOutputStream class
+
+=Both classes provide some methods that are mainly used for operations regarding files i.e
+create files
+write files
+compare two path names
+check whether a specific file is present
+NOTE: To specify a directory is different in various operating systems; i.e
+In Linux and Mac
+=/Users/Folder/
+In Windows: '\\' is used instead of '/' to escape '\' character
+=\\Users\\Folder\\

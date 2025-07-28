@@ -1,0 +1,58 @@
+1. yield() method
+=The yield() basically means the thread is not doing anything particularly important and if any other threads
+or processes need to run, they should run. Otherwise, the current thread will continue to run
+Use of yield() method
+i) Whenever a thread calls java.lang.Thread.yield method it gives hint to the Thread Scheduler
+that it is ready to pause its execution
+The thread scheduler is free to ignore this hint
+ii)If any thread executes the yield method, the thread scheduler checks if there is any thread
+with the same or high priority as this thread.If the processor finds any thread with a higher or the same
+priority then it will move the current thread to Ready/Runnable state and give the processor
+to another thread and if not- the current thread will keep executing
+iii)Once a thread has executed the yield method and there are many threads with the same priority
+is waiting for the processor, then we cannot specify the thread which will get the execution first
+iv)The thread which executes the yield method will enter the Runnable state from the running state
+v)Once a thread pauses its execution, we can't specify when it will get a chance again it depends on the thread
+scheduler
+vi)The underlying platform must provide support for preemptive scheduling if we use the yield method
+
+
+sleep() method
+=This method causes the currently executing thread to sleep for the specified number of milliseconds
+subject to the precision and accuracy of the system timers and thread schedulers
+
+syntax
+//sleep for the specified number of milliseconds
+public static void sleep(long millis) throws InterruptedException
+//sleep for the specified number of milliseconds plus nanoseconds
+public static void sleep(long millis int nanos) throws InterruptedException
+
+join() method
+=The join() method of a thread instance is used to join the start of a thread's execution to the end
+of the others thread execution such that a thread does not start running until the other thread ends
+If join() is called on a Thread instance, the current running thread will block until the Thread instance has finished execution
+=The join() method waits at most this many milliseconds for this thread to die
+
+//syntax:
+//waits for this thread to die
+public final void join() throws InterruptedException
+
+//waits at most this much milliseconds for this thread to die
+public final void join(long millis) throws InterruptedException
+
+//waits at most this milliseconds plus nanoseconds for this thread to die
+The java.lang.Thread.join(long millis, int nanos)
+
+
+Property                   yield()                    join()                      sleep()
+Purpose                    if a thread wants          if a thread wants            If a thread does                  thread
+                           to pass its                to wait until                 not want to perform
+                           execution to give          completing                   some operation for a
+                           chance to the              of some other thread         particular amount of time
+                           remaining threads
+                           of the same priority
+Is it overloaded           NO                         YES                          YES
+Is it final                NO                         YES                          NO
+Is it throws               NO                         YES                          YES
+IS it native               YES                        NO                           sleep(long ms)->native & sleep(long ms, int ns) -> non native
+Is it static               YES                        NO                           YES

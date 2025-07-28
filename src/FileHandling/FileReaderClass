@@ -1,0 +1,34 @@
+=FileReader in java is a class in the java.io package which can be used to read a stream of characters from the files
+=Java IOFileReader class uses either specific charset or the platform default charset for decoding
+from bytes to characters
+
+1: Charset = The Charset class is used to define methods for producing encoders and decoders and for recovering
+several names combined with the charset
+2: Default charset = The default charset is defined during implicit computer start-up and it depends on the locale
+and charset of the underlying operating systems
+
+Constructors of java FileReaderClass
+Constructor                                       Description
+FileReader(File file)                             Creates a new FileReader with the given File
+                                                  to read(using default charset)
+FileReader(FileDescriptor id)                     Creates a new FileReader with the given
+                                                  FileDescriptor to read(default charset)
+FileReader(File file, Charset charset)            Creates a new FileReader with a given file
+                                                  to read(usually the given charset)
+FileReader(String filename)                       Creates a new FileReader with a given FileName
+                                                  to read(default charset)
+FileReader(String filename, Charset charset)      Creates a new FileReader with given file to read
+                                                  (usually the given charset)
+
+
+METHODS OF JAVA FILE READER CLASS
+I)read() = The read() method reads and passes a single character or -1 if the stream is ended
+II)read(char[]charBuffer, int offset, int length) =It reads a stream of characters and stores them in the given Character Buffer
+Offset is the position at which it starts reading and Length is the total number of characters to be read
+It passes plenty of characters read or -1 if the stream is ended
+III)ready() = It tells whether the stream is ready to be read.
+A stream is said to be ready if its input buffer is not empty or blank
+IV)getEncoding() = The getEncoding() is used to return the Title of the character encoding which is
+being used by the stream
+V)close() = it closes the stream and releases the system resources being associated with it
+

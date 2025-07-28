@@ -1,7 +1,7 @@
 package Methods;
 
 //The Test Class is a constructor and has two methods m1, m2
-class Test {
+public class Test {
     //A static variable shared by all instances of the Test class initialized to zero
     public static int i = 0;
     //Constructor to count objects

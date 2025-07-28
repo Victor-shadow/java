@@ -1,0 +1,63 @@
+-FileInputStream class in Java is useful for reading data from a file in the form of java
+sequence of bytes
+-FileInputStream  is meant for reading streams  of raw bytes such as image data
+-For reading streams of characters, use FileReader
+
+-Class Declaration of FileInputStream
+->public class FileInputStream extends InputStream
+NOTE: FileInputStream is a subclass of InputStream, which is used for reading bytes in a file
+
+Constructors of FileInputStream class
+1.FileInputStream(String name)
+-Creates an input file stream to read from a file with the specified name
+FileInputStream fi = new FileInputStream("input.txt");
+
+2.FileInputStream(File file)
+-Creates an input file stream to read from the specified File object
+File f = new File("file.txt");
+FileInputStream fi = new FileInputStream(f);
+
+3.FileInputStream(FileDescriptor fdobj)
+-Creates an input file stream to read from the specified file descriptor
+FileDescriptor fd = FileDescriptor.in;
+FileInputStream fi = new FileInputStream(fd);
+
+Methods of Java FileInputStream
+i)available() = Returns an estimate of the number of the remaining bytes that can be read(or skipped over) from this
+input stream
+ii)close() = Closes the file input stream and releases any system resources associated with the stream
+iii)finalize() = Ensures that the close method of the file input stream is called when there are no more references
+to it
+iv)getChannel() = Returns the unique FileChannel object associated with the file input
+stream
+v)getFD() =Returns the FileDescriptor Object that represents the connection to the actual file in the file system
+being used by this FileInputStream
+vi)read() = Reads a byte of data from this input stream
+vii)read(byte[]b) = Reads up to b.length bytes of data from the input stream into an array of bytes
+viii)read(byte[] b, int off, int len) = Reads up to len bytes of data from this input stream into an array of
+bytes
+ix)skip() = Skips over and discards n bytes of data from the input stream
+
+
+Steps to Read Data from the FileInputStream Class
+Step 1: Attach file to FileInputStream
+-This step enables us to read data from the file
+:FileInputStream fi = new FileInputStream("file.txt");
+
+Step 2: Use read() method to read data
+-Use the read() method of FileInputStream to read bytes of data from the file
+int ch = fileInputStream.read()
+
+Step 3: Check for End of file
+-When there is no more data available to read further, the read() method returns -1
+
+Step 3 B: print The Data
+-Convert the integer value returned by the read() into character (using (char)) and then
+print it
+
+System.out.print((char)ch);
+
+Key Features of FileInputStream
+-Byte Oriented Stream: It reads data in form of bytes
+-Direct access: It directly reads the file contents from the disk without buffering
+-Platform Independent: It can work on any operating system

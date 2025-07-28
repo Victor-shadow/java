@@ -1,0 +1,144 @@
+=Java Threads are lightweight subprocesses, representing the smallest unit of execution with separate paths
+=The main advantage of multiple threads is efficiency allowing multiple things at the same time
+=Multi-threading ensures quick response as other threads can continue execution even if one gets stuck, keeping the application
+responsive
+=A thread runs inside a process, and there will be context based switching between threads
+=There can be multiple processes running in the OS, and each process can have multiple threads running simultaneously
+
+Multitasking
+=To help users, the operating system provides users with the privilege of multitasking
+where users can perform multiple actions simultaneously on the machine
+=Thus multitasking can be enabled in two ways:
+i: Process-Based Multitasking
+ii: Thread-Based Multitasking
+
+PROCESS-BASED MULTITASKING
+=In this type of multitasking, processes are heavyweight, and each process is allocated a separate memory area
+and as the process is heavyweight the cost of communication between the processes is high and takes a long time for switching between
+processes as it involves actions such as loading, saving in registers, updating maps, lists
+
+THREAD-BASED MULTITASKING
+=Threads are provided with lightweight nature and share the same address space and the cost of communication between threads is low
+
+
+Lifecycle of Threads
+1: New State
+2: Active State
+3: Waiting/Blocked State
+4: Timed Waiting State
+5: Terminated State
+
+
+Working of Thread States
+1: New State: By default, a thread will be in the new state, In this state code has not yet
+started execution
+
+2: Active State: A thread that is in new state by default, gets transferred to Active state when it invokes
+start() method. This Active state contains the following sub-states:
+Runnable State: In this state, the thread is ready to run at any given time and it is the job of the Thread Scheduler
+to provide the thread time for the runnable state preserved thread. A program that has obtained Multithreading shares slices
+of time intervals which are shared between threads hence, these threads run for some short span of time and wait in the
+runnable state to get their schedule slice of a time interval
+Running state: When the thread receives CPU allocated by thread scheduler, it transfers from the "Runnable state" to the "Running state"
+and after the expiry of its given time slice session, it again moves to the "Runnable" state and it waits for its next time slice
+
+3:Waiting/Blocked State
+=If a thread is inactive but on temporary time, then either it is in waiting state or blocked state
+=If there are two threads, T1 and T2 where T1 needs to communicate to the camera and the other thread T2 is already using the
+camera to scan then T1 waits until T2 completes its work, at this state T1 is parked in waiting
+for the state, and in another scenario the user calls two threads T2 and T3 with the same functionality
+and both had the same time slice given by the thread scheduler then both threads T1 and T2 is in blocked state
+When there are multiple threads parked in a Blocked/Waiting state thread scheduler clears the queue by rejecting unwanted
+threads and allocating CPU on a priority basis
+
+4: Timed Waiting state
+Sometimes the longer the duration of waiting for threads can cause starvation
+i.e There are two threads T1 and T2 waiting for CPU, and T1 is undergoing a critical coding operation and if it does not exit the CPU
+until its operation gets executed, then T2 will be exposed to longer waiting with undetermined certainty, In order to avoid this starvation
+situation, we had timed waiting for the state to avoid that kind of scenario as in timed waiting
+each thread has a time period for which sleep() method is invoked and after the time expires the threads start execution of their tasks
+
+5:Terminated State
+=A thread will be in the terminated state due to the following reasons
+i: Termination is achieved by a thread when it finishes its task normally
+ii: A terminated thread means it is dead and no longer available
+iii: Sometimes threads can be terminated due to unusual events like: segmentation faults, exceptions
+such kind of termination is termed as abnormal termination
+
+
+Java Main Thread
+=In multithreading, each program has one main thread which is provided by default by the JVM, hence whenever a program
+is created in java, the Java Virtual Machine provides the main thread for execution
+
+Ways to Create threads in Java
+i: By Extending thread class
+=We can run threads in Java using thread class, which provides constructors and methods for creating and perform operations
+on a thread, which extends a thread class that can implement Runnable interface
+
+Example;
+class MyThread extends Thread{
+   //Initiate run() method for thread
+   public void run(){
+   String str = "Thread starts running...";
+   System.out.println(str);
+   }
+  }
+
+public class Main{
+  public static void main(){
+    MyThread thread = new MyThread();
+    thread.start();
+  }
+}
+
+ii:Runnable Interface
+Example;
+import java.io.*;
+import java.util.*;
+class MyThread implements Runnable{
+     //Method to start the thread
+     public void run(){
+     String str = "Thread started running...";
+     System.out.println(str);
+     }
+ }
+
+public class Main{
+   public static void main(){
+    MyThread thread = new MyThread();
+    //Initialize thread object
+    Thread t1 = new Thread(thread);
+    //Running thread
+    t1.start();
+   }
+  }
+
+
+RUNNING THREADS IN JAVA
+=There are two methods used for running threads in java
+i:run() Method in java
+ii: start() Method in java
+
+//The common mistake is starting a thread using run() method instead of start() method
+Thread myThread = new Thread(MyRunnable())
+myThread.run();//should be start
+
+//The run() method is not called by the thread created, Instead it is called by the thread that created myThread
+
+CONCURRENCY PROBLEMS
+i: Race-Condition = occurs when multiple threads access shared data simultaneously, leading to inconsistent results
+It happens when the code is not thread safe
+ii: Deadlock = Happens when two or more threads are blocked forever, each waiting for each other
+to release the lock
+iii: Livelock = Threads are active but unable to make progress because they keep responding to each other
+in an endless loop
+iv: Thread Starvation = A thread is perpetually denied access to resources because other threads are given priority
+v: Priority Inversion = Occurs when a low-priority thread holds a lock that is needed by a high-priority thread, blocking its progress
+
+Advantages of Creating Threads
+i: When compared to processes, Java threads are more lightweight, it takes less time and resources to create a thread
+ii: Threads share the data and code of their parent process
+iii: Thread communication is simpler than process communication
+iv: Context switching between threads is usually cheaper than switching between processes
+
+

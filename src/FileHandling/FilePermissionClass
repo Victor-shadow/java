@@ -1,0 +1,45 @@
+=java.io.FilePermission class represents access to a file or directory
+=These accesses  are in the form of a path name and a set of actions associated with the path name(specifies which file to open along with the extension and path)
+
+Supported Actions
+read: Grants permission to read a file
+write: Grants permission to write a file
+delete: Grant permission to delete the file by calling File.delete
+readlink: Grants permission to read symbolic links
+execute: Grants permission to execute the file
+
+Class Declaration of File Permission Class
+public final class FilePermission extends Permission implements Serializable
+
+Constructor of FilePermission class
+FilePermission(String p, String a): Creates a new File Permission object with "a" action
+
+METHODS OF FILE PERMISSION CLASS
+i)equals(Object FP_obj)
+Syntax
+public boolean equals(Object FP_obj);
+
+Parameters: FP_obj: The FilePermission Object to be verified with this object
+Returns true if both objects are equal or else false
+
+ii)getActions()
+Syntax
+public String getActions();
+Returns canonical string representing actions associated with the object
+
+iii)hashCode()
+Syntax
+public int hashCode()
+Returns hash code value for the argumented object
+
+iv)implies(Permission arg)
+Syntax
+public boolean implies(Permission arg)
+Parameters: arg: Permission to be checked
+Returns true if the File object has the argumented permission or else false
+
+v)newPermissionCollection()
+syntax
+public PermissionCollection newPermissionCollection()
+Parameters: arg: Permission to be checked
+Returns new PermissionCollection object having the FilePermission objects

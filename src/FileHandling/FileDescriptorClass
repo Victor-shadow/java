@@ -1,0 +1,33 @@
+=java.io.FileDescriptor class in Java works for opening a file having a specific name
+=If there is any content present in that file it will first erase all that content and put "Beginning of process" as the first line
+=Instances of FileDescriptor class serve as an opaque handle to the machine-specific structure representing an open file
+an open socket, or another source or sink of bytes
+:The main practical use for a file descriptor class is to create a FileInputStream or FileOutputStream to
+contain it
+:Applications should not create their own file descriptors
+
+There are three major fields in this class
+i)err: A handle to the standard error stream
+ii)in: A handle to the standard input stream
+iii)out: A handle to the standard output stream
+
+
+Declaration of FileDescriptor
+public final class FileDescriptor extends Object
+constructor = FileDescriptor(): creates a FileDescriptor object
+
+Methods Associated with FileDescriptor
+1)sync() method
+java.io.File.sync() = synchronizes all the buffers with the underlying device
+When all the modified data of the FileDescriptor have been written to the underlying device, the method returns
+Syntax:
+public void sync()
+Return: void
+Exception: SyncFailedException = This exception is thrown if there is no guarantee of synchronization
+of buffers with the device
+
+2)valid() method
+java.io.File.valid() checks  whether the FileDescriptor object is valid or not
+Syntax
+public boolean valid()
+Return true if the FileDescriptor object is valid else false

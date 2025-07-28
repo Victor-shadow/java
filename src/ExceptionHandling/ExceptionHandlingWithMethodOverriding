@@ -1,0 +1,74 @@
+-In Java an Exception is an unwanted or unexpected event that occurs during program execution
+i.e at runtime and disrupts the normal flow of the programs instructions
+-Exception handling in Java handles runtime errors and helps to maintain the program's normal flow
+by using constructs like try, catch and throw
+-In any ObjectOrientedProgramming Language, method overriding allows a subclass to redefine a method
+from its superclass
+
+Rules for Exception Handling with Method Overriding
+-The subclass can throw the same or smaller exception as the super class methods
+-The subclass can choose not to throw any exceptions
+-The subclass cannot throw new checked exceptions not in the parent method
+
+Method Overriding with Checked Exception Rules
+=When exception handling is involved with method overriding, ambiguity occurs
+=The compiler gets confused as to which definition is to be followed
+
+Types of problems associated with Method Overriding with Checked Exception
+i)The superclass does not declare the exception
+ii)if the superclass declares an exception
+
+The superclass does not declare the Exception
+import java.io.*;
+
+class SuperClass{
+   //Superclass does not declare any exception
+   void method(){
+   System.out.println("Superclass");
+   }
+}
+
+//Superclass inherited by the Subclass
+class SubClass extends SuperClass{
+//method() declares checked Exception IOException
+void method() throws IOException{
+   //IOException is of type CheckedException
+   //so compiler gives an Error
+   System.out.println("Subclass");
+   }
+
+public static void main(String[]args){
+SuperClass s = new SubClass();
+s.method();
+}
+}
+
+The superclass declares an exception
+Case 1: If the superclass declares an exception and Subclass declares an Exception other than the child exception
+of the Superclass declared exception
+//Superclass declares an Exception
+class SuperClass{
+  void method() throws RuntimeException{
+  System.out.println("SuperClass");
+  }
+}
+//Subclass declares unrelated Exception
+class SubClass extends SuperClass{
+  @Override
+  void method() throws Exception{
+   //Exception is not a child of RuntimeException
+   System.out.println("Child class");
+   }
+
+   public static void main(String[]args){
+   SuperClass o = new SubClass();
+   o.method();
+   }
+ }
+
+Case 1:
+The subclass cannot declare an exception unrelated to the superclass exception
+Case 2:
+The subclass can declare a child exception of the superclass exception
+Case 3:
+The subclass can choose to not declare an exception

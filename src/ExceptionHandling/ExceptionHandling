@@ -1,0 +1,233 @@
+Exception Handling in Java allows developers to manage runtime errors effectively by using mechanisms like
+try-catch block, finally block, throwing Exceptions, Custom Exception Handling
+-An Exception is an unwanted or unexpected event that occurs during the execution of the program
+i.e at runtime and disrupts the normal flow of the programs instructions
+-An exception in Java is an error condition that occurs when something goes wrong during program
+execution
+
+Exception Handling In Java
+=Exception Handling in Java is an effective mechanism for managing runtime errors to ensure the application
+regular flow is maintained
+Examples of Exceptions:
+i)ClassNotFoundException
+ii)IOException
+iii)SQLException
+iv)RemoteException
+
+NOTE: With the help of ExceptionHandling we can detect and handle exceptions gracefully, so that the normal flow
+of the program can be maintained
+=The final block always gets executed, even if no exception occurs, making it a reliable place for
+cleanup operations
+
+Java Exception Hierarchy
+=All exceptions and error types are subclasses of the class Throwable, which is the base class of the hierarchy
+=One branch is headed by Exception
+This class is used for Exceptional conditions that user programs should catch. NullPointerException is such an example of an exception
+Another branch, Error is used by the Java run-time system(JVM) t indicate errors having to do with run-time environment itself(JRE)
+StackOverflow Error is an example of such an error
+
+                       Object
+
+                       Throwable
+
+Exceptions                                                        Errors
+CheckedException:                                                 Virtual Machine Error
+IO, compile Time Exception
+Unchecked Exception:                                              Assertion Error
+Runtime, NullPointerException
+
+
+Exceptions can occur due to the following reasons:
+Invalid user input
+Device Failure
+Loss of network connection
+Physical limitations(out-of-disk) memory
+Code errors
+Out of Bound
+Null reference
+Type Mismatch
+Opening an unavailable file
+Database errors
+Arithmetic errors
+
+Errors represent irrecoverable conditions such as Java Virtual Machine running out of memory, memory leaks
+stack overflow errors, library incompatibility, infinite recursion
+Errors are usually beyond the control of the programmer, and we should not try to handle errors
+
+DIFFERENCE BETWEEN EXCEPTION AND ERROR
+Exception                                                                     Error
+-Exception indicates conditions                                               An Error indicates a serious problem
+that a reasonable application                                                 that a reasonable application should not
+might try to catch                                                            try to catch
+-This is caused by issues with                                                This is caused by conditions in the
+JVM or Hardware                                                               program; invalid input, logic errors
+-Examples: OutOfMemoryErrors                                                  Example: NullPointerException
+StackOverflowErrors                                                           IOException
+
+
+Types of Java Exceptions
+=Java defines several types of Exceptions that relate to its various class libraries
+=Java also allows users to define their exceptions
+
+                                Types of Exceptions
+User-Defined Exceptions                                                    Built In Exceptions
+                                                   CheckedException                                               UncheckedException
+                                                   ClassNotFoundException                                         ArithmeticException
+                                                   InterruptedException                                           ClassCastException
+                                                   IOException                                                    NullPointerException
+                                                   InstantiationException                                         ArrayIndexOutOfBoundsException
+                                                   SQLException                                                   ArrayStoreException
+                                                   FileNotFoundException                                          IllegalThreadStateException
+
+Exceptions can be categorized in two ways
+1.Built-in Exception
+Checked Exception
+Unchecked Exception
+
+2.User-Defined Exception
+
+Built-in Exception
+=Built-in Exception are predefined exception classes provided by Java to handle common
+errors during program execution
+
+1.1)Checked Exception
+Checked Exceptions are called Compile time exceptions because these exceptions are checked at compile time
+by the compiler
+Examples of Checked Exceptions:
+1)ClassNotFoundException: Throws when a program tries to load a class at runtime but that class is not found because it is
+missing in the project or it belongs/not present  in the correct location
+2)InterruptedException: Thrown when a thread is paused or another thread interrupts it
+3)IOException: Thrown when Input/Output Operation fails
+4)Instantiation Exception: Throws when the program tries to create an object of the class but fails because the
+class is abstract, an interface or a default constructor
+5)SQLException: Throws when there is an error with the database
+6)FileNotFoundException: Throws when a program tries to open a file that does not exist
+
+1.2)Unchecked Exception
+The UncheckedExceptions are just the opposite of the CheckedExceptions
+=The compiler will not check these exceptions at runtime. In simple words, a program throws an unchecked Exceptions
+and even if we did not handle or declare it , the program would not give a compilation time error
+Examples of UncheckedExceptions:
+1)ArithmeticException: It is thrown where there is an illegal math operation
+2)ClassCastException: It is thrown when we try to cast an object to a class that it does not belong to
+3)NullPointerException: It is thrown when we try to use a null object(i.e accessing its methods and fields)
+4)ArrayIndexOutOfBoundsExceptions: It is thrown when we try to access an array element with an invalid index
+5)ArrayStoreException: It is thrown when we store an object of the wrong type in an array
+6)IllegalThreadStateException: It is thrown when a thread operation is not allowed in its current state
+
+User-Defined Exceptions
+=A user can also create Exceptions which are "user-defined Exceptions"
+
+Methods
+printStackTrace() = Prints the full stack trace of the Exception including the name, message and location of the error
+toString() = Prints exception information in the format of the Name of the exception
+getMessage() = Prints the description of the exception
+
+Try-Catch Block
+=A try-catch block in Java is a mechanism to handle  exception.
+=The try block contains code that might throw an exception and the catch block is used to handle the
+exception that might occur
+
+try{
+//Code that might throw the Exception
+} catch(Exception e) {
+ //Code to Handle Exception
+ }
+
+
+Finally Block
+The final block is used to execute important code regardless of whether an exception occurs or not
+NOTE: finally always executes after the try-catch block
+It is also used for resource cleanup
+try{
+//Code that might throw Exception
+} catch(Exception e){
+//Code to handle Exception
+}
+finally{
+//Cleanup code
+}
+
+Handling Multiple Exceptions
+We can handle multiple type of exceptions in Java by using multiple catch blocks, each catching a different
+kind of exception
+try{
+//Code that may throw an Exception
+} catch(ArithmeticException e){
+//Code to handle Exception
+} catch(ArrayIndexOutOfBoundsException e){
+//code to handle another exception
+} catch(NumberFormatException e){
+//code to handle another exception
+}
+
+HOW DOES THE JVM HANDLE EXCEPTIONS
+=When an exception occurs, The JVM creates an Exception object containing the error name, description and program state
+creating the Exception object and handling it in the run-time system is called throwing an exception
+There might be a list of methods that had been called to get to the methods where an exception has occurred
+This ordered list of methods is called a  call stack
+Procedures that happens:
+i)The run-time system searches the call stack for an exception handler
+ii)It starts searching for the method where the exception occurred and proceeds backwards towards through the call stack
+iii)If a handler is found, the exception is passed to it
+iv)If no handler is found, the default exception handler terminates the program and prints the stack trace
+
+How the programmer handles the Exception
+:Java Exception handling uses five keywords: try, catch, throw, throws and finally
+=Code that might cause an exception goes in the try block
+=If an exception occurs it is caught using catch
+=We can throw exceptions manually using throw keyword, and methods must declare exceptions they can throw using throws
+=The finally block is used for code that must run after try, whether an exception occurs or not
+
+package ExceptionHandling;
+
+class arithmeticException {
+    //it throws ArithmeticException
+    //appropriate Exception Handler is not found within this method
+    static int divideByZero(int a, int b){
+        //This statement causes ArithmeticException
+        int i = a / b;
+        return i;
+    }
+    //The run-time System searches the appropriate Exception handler
+    //in method also
+    static int computeDivision(int a, int b){
+        int res  = 0;
+        //Try block to check for Exception
+        try{
+            res = divideByZero(a, b);
+        }
+        //Catch block to handle NumberFormatException
+        //exception does not match ArithmeticException
+        catch (NumberFormatException ex){
+            System.out.println("NumberFormatException occurred");
+        }
+        return res;
+    }
+    //Found Appropriate Exception Handler
+   // i.e matching catch block
+    public static void main(String[]args){
+        int a = 1;
+        int b = 0;
+        //Try-block to check for Exceptions
+        try {
+            int i = computeDivision(a, b);
+        }
+        //catch block to handle ArithmeticException
+        catch (ArithmeticException ex){
+            //getMessage() will print description of Exception(here / by zero)
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+
+
+Advantages of Exception Handling
+1)Provision to complete program execution
+2)Easy Identification of program code and error-handling code
+3)Propagation of errors
+4)Meaningful error reporting
+5)Identifying error types
+
+
+

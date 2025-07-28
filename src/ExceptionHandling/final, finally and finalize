@@ -1,0 +1,99 @@
+In Java, the final, finally and finalize keywords play an important role in Exception handling
+final: It is the keyword that can be used for immutability and restrictions in variables, methods and classes
+finally: The finally block is used in Exception handling to ensure a certain piece of code is always executed
+whether an exception occurs or not
+finalize: finalize is a method of object class, used for cleanup before garbage collection
+
+
+final                                   finally                                finalize
+i)final keyword applies                 The finally block in exception         finalize is a method
+restrictions to variables               handling is used within                of object class
+methods and classes                     try-catch block
+
+ii)Prevent modification                 The code that is written inside         finalize method in java
+of variables, inheritance               finally block is always executed        is used to perform cleanup
+of classes, overriding                  after the try-catch block whether       operations before an object
+methods                                 an exception occurs or not              in the garbage is collected
+
+iii)Variables, methods                  Only within a try-catch                 Objects by specifically overriding
+and classes                             block                                   the method in a class
+
+iv)Executes when                        Always executes after try-catch         Called by the garbage collector
+declared                                block                                   when an object is about to be
+                                                                                deleted, but it is not guaranteed to run
+
+final Keyword
+The final keyword in Java is used to variables, methods and also with classes to restrict modifications
+Syntax:
+//Constant value
+final int a = 100;
+
+=If we declare a variable as final, we can't modify its contents since it is final
+=and if we modify it we get a compile time error
+Example:
+
+//Java Program
+class A{
+  public static void main(String[]args){
+     //Non final variable
+     int a = 5;
+     //final variable
+     final int b = 10;
+     //modify the non-final variable
+     a++;
+     //modify the final variable
+     //gives a compile time error
+     b++;
+ }
+}
+
+finally keyword
+=The finally keyword in Java is used to create a block of code that always executes after a try block
+regardless whether an exception occurs or not
+
+Syntax
+try{
+  //Code that might throw an Exception
+}catch(ExceptionType e){
+//Code to handle Exception
+}finally{
+//Code that will always execute
+}
+
+finalize() method
+=The finalize() method is called by the Garbage Collector just before an object is removed from memory
+=It allows one to perform a cleanup activity
+=Once finalized method completes, Garbage Collector destroys that object
+finalize method is present in the Object class
+
+syntax
+protected void finalize throws Throwable{
+}
+
+//finalize() method is deprecated in Java 9  and should not be used in modern applications
+It is better to use try with resources or other cleanup mechanisms
+
+package ExceptionHandling;
+import java.util.*;
+public class finalizeMethod {
+    public static void main(String[]args){
+        finalizeMethod f = new finalizeMethod();
+        System.out.println("Hashcode is: " + f.hashCode());
+        //Making an object eligible for garbage collection
+        f = null;
+        System.gc();
+        //Allow a short delay to allow GC to act
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        System.out.println("End of garbage collection.");
+    }
+    //Define the finalize method
+    @Override protected void finalize(){
+        System.out.println("Called the finalize() method");
+    }
+
+}

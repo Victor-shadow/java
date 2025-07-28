@@ -1,0 +1,99 @@
+=Java FileWriter class of the java.io package is used to write data in character form to a file
+The FileWriter class in Java, is used to write character oriented data to a file
+It is a character-oriented class that is used for file handling in Java
+:This class inherits from OutputStreamWriter class which in turn inherits from the Writer class
+:The Constructors of this class assume that the default character encoding and the default byte-buffer size are acceptable
+To specify values, construct an OutputStreamWriter on a FileOutputStream
+:FileWriter is meant for writing Streams of characters. For writing streams of raw bytes, consider using
+FileOutputStream
+:FileWriter creates the output file if it is present already
+
+=FileWriter extends OutputStreamWriter and Writer classes
+=It implements the following interfaces:
+1)Closeable
+2)Flushable
+3)Appendable
+4)AutoClosable
+
+FileWriter Class Declaration
+=public class FileWriter extends OutputStreamWriter
+
+Constructors of FileWriter class
+1)FileWriter(File file) = It constructs a FileWriter object given a File object. It throws an IOException
+if the file exists but it is a directory rather than a regular file that does not exist but cannot be created
+or cannot be opened for any other reason
+2)FileWriter(File file, boolean append) = It constructs a FileWriter object given a File Object.If the second argument is true
+then the bytes will be written to the end of the file, rather than the beginning. It throws an IOException, if the file exists
+but is a directory rather than a regular file or does not exist but cannot be created, cannot be opened for any other reason
+3)FileWriter(FileDescriptor fd) = it constructs a FileWriter Object associated with a FileDescriptor
+4)FileWriter(File file, Charset charset) = it constructs the FileWriter Object when file and charset are given
+5)FileWriter(File file, Charset charset, boolean append)  = It constructs the fileWriter when file and charset are given,
+and a boolean indicating whether to append the data written or not
+6)FileWriter(String fileName) = It constructs the fileWriter object given the file name
+7)FileWriter(String fileName,Boolean append) = it constructs a FileWriter Object given a file name with a Boolean indicating
+whether or not to append the data written
+8)FileWriter(String fileName, Charset charset) = It constructs a FileWriter when a file name and charset are given
+9)FileWriter(String fileName, Charset charset, boolean append) = It constructs a FileWriter when a filename and a charset is given and
+and a boolean variable indicates whether to append data or not
+
+METHODS OF FILE WRITER CLASS
+Method                                                         Description
+void write(int a)                                              writes a single character specified
+                                                               by an integer value
+void write(String text)                                        Write the string into FileWriter
+void write(char c)                                             Write the char into FileWriter
+void write(char[]c)                                            Write the char array into FileWriter
+void write(String str, int pos,                                Writes a portion of a string from position pos
+int length)                                                    until the length number of characters
+void write(char ch[],int pos,                                  Writes the position of characters from array ch[]
+int length)                                                    from position pos till length number of characters
+void flush()                                                   Flushes the data of FileWriter
+void close()                                                   Closes the file Writer
+int getEncoding()                                              Returns the character encoding used by FileWriter
+
+METHODS OF WRITER CLASS
+append(char c) = Appends the specified character to this writer
+append(char Sequence csq) = Appends the specified character sequence to this writer
+append(char Sequence csq, int start, int end) = Appends a subsequence of the specified character sequence to the writer
+close() = Closes the stream, flushing it first
+nullWriter() = Returns a new Writer which discards all characters
+write(char[]cbuf) = Writes an array of characters
+write(String str) = Writes a String
+
+OVERWRITING & APPENDING THE FILE
+Overwriting a file: When creating a java FileWriter, we can decide whether to append the file to an existing file, or to overwrite any
+existing file
+This can be done by choosing the appropriate constructor
+The constructor for overwriting any existing file takes only one parameter that is a file name
+
+Writer fileWriter = new FileWriter(pathname);
+
+Appending to a file: The constructor for appending a file or overwriting the file takes two parameters, the file name
+and a boolean variable which decides whether to append or overwrite the file
+
+Writer fileWriter = new FileWriter(pathname , true)//appends to a file
+Writer fileWriter = new FileWriter(pathname, false)//overwrites the file
+
+Appending data to a file
+import java.io.*;
+class AppendingFile{
+  public static void main(String[]args){
+    //Appending data in the file
+    try(FileWriter writer = new FileWriter(fileName, true)){
+    //true for append mode
+    writer.write("\nAppend this line to the file");
+    System.out.println("Data Appended to the file successfully");
+    }
+    catch(IOException e){
+    System.out.println("An error occurred while appending" + " to the file: " + e.getMessage());
+    }
+  }
+}
+
+FILE WRITER & FILEOUTPUTSTREAM
+=FileWriter writes a stream of characters while FileOutputStream is meant for writing streams in
+raw bytes
+=FileWriter deals with the character of 16 bits while on the other hand, FileOutputStream deals with 8-bit bytes
+=FileWriter handles Unicode strings while FileOutputStream writes bytes to a file and it does not accept any characters or strings
+and therefore for accepting strings it needs to be wrapped up with an OutputStreamWriter. string
+

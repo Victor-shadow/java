@@ -1,0 +1,27 @@
+=In Java exception is an issue(run-time) error that occurs during the execution of a program
+=When an exception occurs, the program terminates abruptly and the code beyond the exception never gets executed
+Java provides the facility to create our own exceptions by extending the Exception class
+Creating our own Exception is known as a CustomException in java or a user-defined exception in Java
+A User-Defined Custom exception or custom exception is creating one's exception class and throwing that exception
+using "throw" keyword
+
+Java Custom Exception
+A custom exception in Java is an exception defined by the user to handle specific application requirements
+-These exceptions extend either the Exception class(for checked Exceptions) or the RuntimeException class
+for unchecked Exceptions
+
+We use Java custom exception,
+i)To represent application specific errors
+ii)To add clear, descriptive error messages for better debugging
+iii)To encapsulate business logic errors in a meaningful way
+
+Types of Custom Exceptions
+i)Checked Exceptions: It extends the Exception class and it must be declared in a throws clause
+of the method signature
+ii)Unchecked Exception: It extends the RuntimeException class
+
+Create a User-Defined Custom Exception
+1)Create a new class that extends Exception class(for checked Exceptions) and RuntimeExceptions(UncheckedException)
+2)Provide constructors to initialize the exceptions with custom messages
+3)Add methods that provide additional details about the exception(this is optional)
+

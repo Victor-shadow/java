@@ -1,0 +1,82 @@
+=In Java , exception handling is one of the effective means to handle runtime errors so that the
+regular flow of the application ca be preserved
+=It handles runtime errors such as NullPointerException, ArrayIndexOutOfBoundsException
+To handle these errors effectively, Java provides two keywords, throw and throws
+
+DIFFERENCE BETWEEN THROW AND THROWS
+THROW                                                                         THROWS
+i)It is used to explicitly throw                                              It is used to declare that a method
+an exception                                                                  might throw one or more exceptions
+ii)It is used inside a method or a                                            It is used in the method
+block of code                                                                 signature
+iii)It can throw both checked                                                 It is only used for checked exceptions
+and unchecked exceptions                                                      Unchecked exceptions do not require throws
+iv)The method or block throws                                                 The method's caller is responsible for handling
+the exception                                                                 the exception
+v)Stops the current flow of execution                                         It forces the caller to handle declared
+immediately                                                                   exception
+vi)throw new ArithmeticException("Error")                                     public void myMethod() throws IOException{}
+
+Java Throw
+-The throw keyword in Java is used to explicitly throw an exception from a method or any block of code
+We can throw either checked or unchecked exception
+-The throw keyword is mainly used to throw custom exceptions
+
+Syntax
+throw instance
+
+Where instance is an object of type Throwable(or its subclasses such as Exception)
+Example: throw new ArithmeticException("/by zero")
+But this exception i.e; instance must be of type Throwable or a subclass of Throwable
+The flow of the execution of the program stops immediately after the throw statement is executed and the nearest enclosing
+try block is checked to see if it has a catch statement that matches the type of exception
+If it finds a match, the control is transferred to the statement, otherwise next enclosing try block is checked and so on.
+If no matching catch is found, then the default exception handler will handle the program
+
+Arithmetic Exception
+class Main{
+  public static void main(String[]args){
+     System.out.println(1 / 0);
+     }
+ }
+//The Arithmetic Exception is explicitly thrown due to division by zero
+
+JAVA THROWS
+=throws is a keyword in Java that is used in the signature of a method to indicate that this method might throw one of the
+listed type exceptions
+The caller to these methods has to handle the exception using the try-catch block
+
+Syntax:
+type method_name(parameters) throws exception_list
+where, exception_list is a comma-separated list of all the exceptions which a method might throw
+In a program, if there is a chance of raising an exception then the compiler always warns one about it
+and compulsorily we should handle that checked Exception, otherwise we get Compile-time error saying unreported exception
+XXX must be caught or declared to be thrown
+To prevent this compile time error we can handle the exception in two ways:
+i)By using try catch
+ii)By using throws keyword
+
+Unhandled Exceptions
+package ExceptionHandling;
+
+class unhandledException {
+    public static void main(String[]args){
+        Thread.sleep(1000);
+        System.out.println("Thread started");
+    }
+
+}
+//in the program we get compile time error because there is a chance if an exception if the main
+//thread is going to sleep, other threads get the chance to execute the main method which will cause InterruptedException
+
+
+We can use the throws keyword, to delegate the responsibility of the exception handling to the caller
+(it may be a method or JVM) then the caller method is responsible to handle that exception
+
+Important points:
+i)throws keyword is only required for checked exceptions and usage of throws keyword for unchecked exceptions
+is meaningless
+ii)throws keyword is only required to convince the compiler and the usage of the throws keyword
+does not prevent abnormal termination of the program
+iii)With the help of the throws keyword,  we provide information to the caller of the method about the exception
+

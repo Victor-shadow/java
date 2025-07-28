@@ -1,0 +1,1 @@
+FileOutputStream is a subclass of OutputStream

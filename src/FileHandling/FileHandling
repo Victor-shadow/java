@@ -1,0 +1,210 @@
+=In Java, with the help of FileClass we can work with files
+=The File Class is inside the java.io package
+The File class can be used to create an object of the class, and then specifying the name of the file
+
+Reasons why FileHandling is required
+1)It enables one to store the output of a particular program in a file and allows one to
+perform certain operations on it
+2)File handling means reading and writing data into a file
+
+CREATING A FILE
+import java.io.File;
+class File{
+   public static void main(String[]args){
+      //File name specified
+      File obj = new File("file.txt");
+      System.out.println("File Created!")
+      }
+    }
+=Stream is used to perform I/O operations on a file
+
+STREAMS IN JAVA
+=In Java, a sequence of data is known as a Stream
+=It is used to perform I/O operations on a file
+
+Input Stream
+=The java InputStream class is the superclass of all input streams
+=The input stream is used to read data from numerous input devices like keyboard, network
+=InputStream is an abstract class, and because of this, it is useful by itself. However, its subclasses are used to read data
+=subclasses of Input Stream:
+1)AudioInput Stream
+2)ByteArrayInput Stream
+3)FileInput Stream
+4)FilterInput Stream
+5)StringBufferInput Stream
+6)ObjectInput Stream
+
+//Creating an InputStream
+InputStream obj = new FileInputStream();
+
+An input stream is created using FileInputStream
+NOTE:We can create input stream from other subclasses as well as InputStream
+
+METHODS OF INPUT STREAM
+1)read() = Reads one byte of data from the input stream
+2)read(byte[]array)() = Reads byte from the stream and stores that byte in a specified array
+3)mark() = it marks the position in the input stream until the data has been read
+4)available() = Returns the number of bytes available in the input stream
+5)markSupported() = it checks if the mark() method and the reset() method is supported in the stream
+6)reset() = Returns the control to the point where the mark is set inside the stream
+7)skips() = Skips and removes a particular number of bytes from the input streams
+8)close() = closes the input stream
+
+OUTPUT STREAM
+=The Output stream is used to write data to  numerous output devices like monitor, file
+OutputStream is an abstract superclass that represents an output stream. It is not useful by itself
+However its subclasses are used to write data
+
+Subclasses of OutputStream
+1)ByteArrayOutputStream
+2)FileOutputStream
+3)StringBufferOutputStream
+4)ObjectOutputStream
+5)DataOutputStream
+6)PrintStream
+
+Creating an Output Stream
+OutputStream obj = new FileOutputStream();
+//An OutputStream is created using a FileOutputStream
+NOTE: We can create an OutputStream from other subclasses as well as OutputStream
+
+Methods of Output Stream
+1)write() = Writes the specified byte to the output stream
+2)write(byte[]array)() = Writes the bytes which are inside the specified array to the output stream
+3)close() = closes the output stream
+4)flush() = Forces to write all the data present in the output stream to the destination
+
+Based on the data types there are two types of Streams:
+1)Byte Stream
+=This stream is used to read and write byte data
+=The Byte Stream is subdivided into two types:
+i)Byte Input Stream: Used to read byte data from different devices
+ii)Byte Output Stream: Used to write byte data from different devices
+
+2)Character Stream
+=This stream is used to read and write character data
+=The Character Stream is subdivided into two types:
+i)Character Input Stream:Used to read character data from different devices
+ii)Character Output Stream:Used to write character data from different devices
+
+FILE CLASS METHODS
+Method Name                             Description                               Return Type
+canRead()                               it tests whether the file is              Boolean
+                                        readable or not
+canWrite()                              it tests whether the file is              Boolean
+                                        writable or not
+createNewFile()                         it creates an empty file                  Boolean
+delete()                                it deletes a file                         Boolean
+exists()                                it tests whether the file exists          Boolean
+                                        or not
+length()                                Returns the sie of the file               Boolean
+                                        in bytes
+getName()                               Returns the name of the file              Boolean
+list()                                  Returns the array of the files            Boolean
+                                        in the directory
+mkdir()                                 Creates a new directory                   Boolean
+getAbsolutePath()                       Returns the absolute pathname             Boolean
+                                        of the file
+
+
+File Operations
+Operations performed on a file:
+i)Create a File
+=In order to create a file in Java, use the createNewFile() method
+=If the file is successfully created, it will return a Boolean value true, and false if
+the file already exists
+
+import java.io.File;
+import java.io.IOException;
+
+public class CreateFile{
+  public static void main(String[]args){
+      //Create the File and also handle the Exception
+      try{
+        File obj = new File("file.txt");
+        //Create the File
+        if(Obj.createNewFile()){
+            System.out.println("File created: " + Obj.getName());
+          }
+          else{
+            System.out.println("File already exists")
+           }
+           }
+           //Exception thrown
+           catch(IOException e){
+           System.out.println("An Error has Occurred");
+           e.printStackTrace();
+           }
+         }
+       }
+
+ii)Write a File
+We use the FileWriter class along with its write() method in order to write some text to the file
+//Import File Writer class
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteFile{
+   public static void main(String[]args){
+   //write Text File
+   try{
+     FileWriter writer = new FileWriter("file.txt");
+     //Writing File
+     Writer.write("File written successfully");
+     Writer.close();
+
+     System.out.println("File written successfully");
+     }
+   //Exception thrown
+   catch(IOException e){
+     System.out.println("An error has occurred");
+     e.printStackTrace();
+     }
+  }
+ }
+
+Read from a File
+We use the Scanner class in order to read contents from a file
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ReadFile{
+  public static void main(String[]args){
+     //Read File also handle Exception
+     try{
+       File obj = new File("file.txt");
+       Scanner Reader = new Scanner(obj);
+       //Traverse File Data
+       while(Reader.hasNextLine()){
+          String data = Reader.nextLine();
+          System.out.println(data);
+          }
+          Reader.close()
+          }
+
+          //Exception caught
+          catch(FileNotFoundException e){
+          System.out.println("An Error occurred");
+          e.printStackTrace();
+          }
+       }
+    }
+
+
+DELETE A FILE
+=Use the delete() method to delete a file
+import java.io.*;
+public class DeleteFile{
+   public static void main(String[]args){
+      File Obj = new File("file.txt");
+      //Delete a file
+      if(Obj.delete()){
+         System.out.println("The deleted file is: " + Obj.getName());
+         }
+       else{
+        System.out.println("Failed in deleting the file");
+        }
+      }
+    }
+

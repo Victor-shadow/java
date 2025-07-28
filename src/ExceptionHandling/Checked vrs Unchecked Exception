@@ -1,0 +1,57 @@
+=In Java, an exception is an unwanted or unexpected event that occurs during the execution of a program. i.e
+at runtime that disrupts the normal flow of the program's instructions
+=In Java there are two types of exceptions:
+Checked Exception = These exceptions are checked at compile time forcing the programmer to handle them
+explicitly
+Unchecked Exception = These exceptions are checked at runtime and do not require explicit handling at compile time
+
+Difference between a Checked  and Unchecked Exception
+CHECKED EXCEPTION                                                               UNCHECKED EXCEPTION
+I)Checked Exceptions                                                            Unchecked exceptions are
+are checked at compile time                                                     checked at runtime
+II)Derived from Exception                                                       Derived from Runtime Exception
+III)Caused by external factors:                                                 Caused by programming bugs:
+file I/O, database connection                                                   logical errors cause unchecked
+cause CheckedException                                                          Exceptions
+IV)Checked Exceptions must be                                                   No handling is required
+handled using try-catch block
+or must be declared using throws
+keyword
+V)Examples: IOException, SQLException                                           Example: NullPointerException,                                                                                ArrayIndexOutOfBoundsException
+FileNotFound Exception                                                          ArrayIndexOutOfBoundsException
+
+
+Checked Exceptions in Java
+=Checked Exceptions are exceptions are checked at compile-time
+If a method throws CheckedException, then the exception must be handled using a try-catch block
+and declared the exception in the method signature using the throw keyword
+
+Types of Checked Exception
+Fully Checked Exception: A checked exception where all its child classes are also checked: IOException, InterruptedException
+Partially Checked Exception: A checked exception where some of its child classes are unchecked
+Exception
+
+Checked Exceptions represent invalid conditions in areas outside the immediate control of the program like memory,
+network, file system
+Any checked Exception is a subclass of exception
+Unlike unchecked exceptions, checked exceptions must be either caught by the caller or listed as part of the method
+signature using the throws keyword
+
+Unchecked Exceptions in Java
+Unchecked exceptions are exceptions that are not checked at the compile time .
+In Java, exceptions under Error and RuntimeException classes are unchecked Exceptions, everything else under throwable
+is checked
+
+NOTE:
+=Unchecked exceptions are runtime exceptions that are not required to be caught or declared in a throws
+clause
+=These exceptions are caused by programming errors, such as attempting to access an index out of bounds in an array
+or attempting to divide by zero
+=Unchecked Exceptions include all subclasses of Runtime Exceptions class, as well as the Error class and its subclasses
+
+Example:
+try{
+//Some I/O operation here
+} catch(final IOException ex){
+throw new RuntimeException("I/O operation failed", ex);
+}

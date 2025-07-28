@@ -1,0 +1,33 @@
+=FileWriter class in java is used to write character-oriented data to a file as this class is character-oriented
+because it is used in file handling in java
+=There are many classes and methods used to write into a file in Java:
+I)writeString() method
+II)FileWriter class
+III)BufferedWriter class
+IV)FileOutputStreamClass
+
+writeString()method
+=This method can take four parameters
+=These are file path, character sequence, charset and options
+=The first two parameters are mandatory for this method to write into a file
+=It writes the characters as content of the file
+=It returns the file path and throws four exceptions
+:It is better to use when the content of the file is short
+
+FileWriter class
+=If the content of the file is short, then using FileWriter class to write in the file is another better option
+=It also writes the stream of characters as the contents of the file like writeString() method
+=The constructor of this class defines the default character encoding and the default
+buffer size in bytes
+
+BufferedWriter class
+It is used to write text to a character-output stream
+=It has a default buffer size, but a larger buffer size can be assigned
+=It is useful for writing characters, strings and arrays
+=It is better to wrap this class with any writer class for writing data into a file if no prompt output is required
+
+
+FileOutputStream Class
+=It is used to write raw stream data into a file
+FileWriter and BufferedWriter classes are used to write only the text to a file, but the binary data
+can be written by using the FileOutputStream class

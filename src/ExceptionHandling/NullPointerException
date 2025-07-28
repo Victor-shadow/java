@@ -1,0 +1,81 @@
+=A NullPointerException in java is a RuntimeException. It occurs when a program attempts to use an object reference that has
+a null value
+=In Java, "null" is a special value that can be assigned to object references to indicate absence
+of values
+
+Reasons for a NullPointerException
+1)Invoking a method from a null object
+2)Accessing or modifying a null object's field
+3)Taking the length of null, as if it was an array
+4)Accessing and modifying the slots of null objects, as if it were an array
+5)Throwing null, as if it were a Throwable value
+6)When you try to synchronize over a null object
+
+//NullPointerException
+public class Null{
+   public static void main(String[]args){
+      //Reference set to null
+      String s  = null;
+      //Throws NullPointerException
+      System.out.println(s.length())
+      }
+ }
+
+the string reference "s" is null. When the program tries to invoke the length() method, it throws a
+NullPointerException because there is no actual object
+
+Why is Null used in Java
+=The null value serves as a placeholder and indicates that no value is assigned to a reference variable
+Common applications include:
+1)Linked Data Structures: it represents the end of a list or tree branch
+2)Design Patterns: This is used in patterns like NullObjectPattern or Singleton Pattern
+
+How to Avoid NullPointerException
+To avoid the NullPointerException, we must ensure that all the objects are initialized properly, before we use them
+=When we declare a reference variable, we must verify that the object is not null, before we request a method or a field
+from the objects
+
+i)Using String Literals in equals()
+=A very common case problem involves the comparison between a String variable and a literal
+The literal may be a String or an element of an Enum, Instead of invoking the method from the null object
+consider invoking it from the literal
+
+ii)Checking Method Arguments
+=Before executing the body of a new method, we should first check its arguments for null values and continue with
+execution of the method, only when the arguments are properly checked. Otherwise, it will throw an IllegalArgumentException and notify the
+calling method that something is wrong with the passed arguments
+
+iii)use Ternary Operator
+=The ternary operator can be used to avoid NullPointerException
+First, the boolean expression is Evaluated. If the expression is true, then value1 is returned, otherwise
+value2 is returned.
+We can use ternary operators for handling null pointers
+
+//NULL POINTER EXCEPTION
+// Invoking a method on null
+// causes NullPointerException
+import java.io.*;
+
+class Null {
+    public static void main (String[] args) {
+
+        // Initializing String variable
+        // with null value
+        String s = null;
+
+        // Checking if s.equals null
+        try
+        {
+            // This line of code throws NullPointerException
+            // because s is null
+            if (s.equals("string"))
+                System.out.print("Same");
+            else
+                System.out.print("Not Same");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.print("NullPointerException Caught");
+        }
+    }
+}

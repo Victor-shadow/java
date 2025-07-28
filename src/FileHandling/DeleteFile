@@ -1,0 +1,27 @@
+=Java provides methods to delete files programmatically
+=Files being deleted by the java program are deleted permanently without being moved to the trash/recycle bin
+
+Methods to Delete Files in Java
+i) java.io.File.delete() method
+ii)java.nio.file.files.deleteifexists(Path p) Method
+
+I)java.io.File.delete() method
+=This method deletes the file or directory denoted by this abstract path name
+=Syntax:
+public boolean delete()
+=It returns true, if and only if the file or the directory is successfully deleted
+
+II) java.nio.file.files.deleteifexists(Path p) method
+This method deletes a file if it exists
+=It deletes a directory mentioned in the path only if the directory is empty
+
+Syntax
+public static boolean deleteIfExists(Path path) throws IOException
+
+Parameters: path - the path to the file to delete
+It returns true if the file was deleted by this method; false if it could not be deleted because it does not exist
+
+Throws:
+DirectoryNotEmptyException: if the file is a directory and could not otherwise be deleted
+because the directory is not empty. Optional Specific exception
+IOException - if an I/O error happens

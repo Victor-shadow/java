@@ -1,0 +1,47 @@
+=Lambda Expressions in Java, introduced in Java SE 8. It represents instances of functional interfaces(interfaces with a single abstract method)
+=They provide a concise way of expressing instances of single-method interfaces using a block of code
+
+Functionalities of Lambda Interfaces
+Lambda expressions implement the only abstract function and therefore implement functional interfaces
+-Lambda expressions were added in Java 8 and provide the following functionalities
+i)Functional interfaces = A functional interface is an interface  that contains only one abstract method
+ii)Code as Data: Treat functionality as a method argument
+iii)Class Independence: Create functions without defining a class
+iv)Pass and Execute: Pass Lambda expressions as objects and execute on demand
+
+Structure of a Lambda Expression
+(int arg1, String arg2) -> System.out.println("Two arguments" + arg1 + "and" + arg2)
+
+Syntax of lambda Expressions
+(argument list) -> {body of the expression}
+
+Components:
+i)Argument List: Parameters for the lambda expressions
+ii)Arrow Token(->): Separates the parameter list and the body
+iii)Body: Logic to be executed
+
+Types of Lambda Parameters
+i) Lambda with zero parameters
+ii)Lambda with a single parameter
+iii)Lambda with multiple parameter
+
+Lambda with zero Parameters
+Syntax: () -> System.out.println("Zero Parameter Lambda");
+
+Lambda with A Single Parameter
+Syntax: (p) -> System.out.println("One Parameter: " + p)
+It is not mandatory to use parenthesis if the type of that variable can be inferred from the context
+
+Lambda Expressions with Multiple parameters
+Syntax:
+(p1, p2) -> System.out.println("Multiple parameters: " + p1 + "," + p2);
+
+Built-In Functional Interfaces
+Comparable<T>: int compareTo(T, o)
+Comparator<T>: int compare(T o1, T o2)
+
+These are commonly used in sorting and comparisons
+NOTE: Other commonly used interface include Predicate<T>, it is used to test conditions
+Function<T, R> it represents a function that takes the argument of type T and return a result of type R
+//Supplier<T> it represents a function that supplies results
+

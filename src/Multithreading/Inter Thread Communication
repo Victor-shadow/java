@@ -1,0 +1,118 @@
+=Inter-thread communication is a mechanism in which a thread is paused from running in its critical section
+and another thread is allowed to enter (or lock) the same critical session to be executed
+=Inter-thread communication is also known as cooperation in Java
+
+-The process of testing a condition repeatedly till it becomes true is known as polling
+-Polling is usually implemented with the help of loops to check whether a particular condition is true or not
+-If it is true a certain action is taken
+i.e in a classic queueing problem where one thread is producing data the other one is consuming it
+
+Problems with Polling
+=This wastes many CPU cycles and makes implementation inefficient
+=This slows down execution, and it keeps on checking the condition repeatedly
+
+-To avoid polling, Java uses three methods namely wait(), notify(), notifyAll()
+-All these methods belong to the object class, so all these classes have them
+They must be used within a synchronized block only
+-wait() = it tells the calling thread to give up the lock and go to sleep until some other thread
+enters the same monitor and calls notify()
+-notify() = it wakes up a single thread called wait() on the same object.It should be noted that calling notify()
+does not give up the lock on a resource
+-notifyAll() = it wakes up all the threads called wait() on the same object
+
+//Queue Initialization
+private static final Queue<Integer> queue = new LinkedList<>();
+private static final int CAPACITY = 10;
+
+//A shared queue(Linked List implementation) is defined with a capacity of 10;
+This queue will be usd by both the producer and the consumer threads to add and remove items
+
+Producer Runnable:
+private static final Runnable producer = new Runnable(){
+  public void run(){
+    while(true){
+      synchronized(queue){
+        while(queue.size() == CAPACITY){
+        try{
+        System.out.println("Queue is at maximum capacity");
+        queue.wait(); //Release the lock and wait
+        } catch(InterruptedException e){
+        e.printStackTrace();
+        }
+        }
+        queue.add(10);
+        System.out.println("Added 10 to the queue");
+        queue.notifyAll(); //notify all waiting consumers
+        try{
+        Thread.sleep(2000);
+        }
+        catch(Interrupted Exception e){
+        e.printStackTrace();
+        }
+    }
+  }
+ }
+};
+
+Infinite loop: The producer runs in an infinite loop continuously producing items
+Synchronization: The block is synchronized on the shared queue to ensure thread safety
+Capacity Check: If the queue is full(queue.size() == CAPACITY), the producer waits queue.wait() until
+notified by a consumer
+Add Item: If there is a space in the queue, the producer adds an item queue.add(10);
+Notify Consumers: After adding an item, it notifies all waiting consumers queue.notifyAll()
+Simulate Delay: The producer sleeps for 2 seconds to simulate the production time Thread.sleep(2000)
+
+Consumer Runnable:
+private static final Runnable consumer = new Runnable(){
+   public void run(){
+     while(true){
+      synchronized(queue){
+      while(queue.isEmpty()){
+      try{
+      System.out.println("Queue is empty, waiting");
+      queue.wait();//Release the lock
+      }catch(InterruptedException e){
+      e.printStackTrace();
+      }
+      }
+      System.out.println("Removed" + queue.remove() + " from the queue");
+      queue.notifyAll();//Notify all waiting producers
+      try{
+      Thread.sleep(); //Simulate some delay in consumption
+      } catch(InterruptedException e){
+      e.printStackTrace();
+      }
+      }
+      }
+      }
+      };
+
+ Infinite loop: = The consumer runs in an infinite loop, continuously consuming items
+ Synchronization: = The block is synchronized on the shared queue to ensure thread safety
+ Empty Check: = If the queue is empty queue.isEmpty(), the consumer waits until notified by the producer
+ Remove Item: If there are items in the queue, the consumer removes the items queue.remove()
+ Notify Producer: = After removing an item, it notifies all waiting producers queue.notifyAll()
+ Simulate Delay: = The consumer delays for  2 seconds to simulate the consumption time(Thread.sleep(2000))
+
+
+ Main Method
+ public static void main(String[]args){
+ //MainThreadStart: The main method starts by printing a message
+    System.out.println("Main Thread Started");
+    //Create threads: TWO THREADS ARE CREATED
+    //Create and start the producer Thread
+    Thread producerThread = new Thread(producer, "Producer");
+    //Create and start the consumer thread
+    Thread consumerThread = new Thread(consumer, "Consumer");
+
+    //Start Threads: Now both threads are start
+    producerThread.start();
+    consumerThread.start();
+    //Main Thread Exits: The main method prints an exit message and terminates
+    System.out.println("Main thread exiting");
+    }
+ =The producer adds items to the queue, and the consumer removes the items from the queue
+ If the queue is full, the producer waits and if the queue is empty, the consumer waits
+ =This is how two threads communicate with each other without wasting time using wait() and notifyAll()
+
+

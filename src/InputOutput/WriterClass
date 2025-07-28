@@ -1,0 +1,103 @@
+-Java writer class is an abstract class in the java.io.package
+-It is designed for writing character streams. Writer class in java provides methods for writing
+characters and strings
+-Since it is an abstract class, we cannot create an instance of it directly. Instead we use one of its
+concrete subclasses FileWriter, BufferedWriter, PrintWriter
+
+Declaration of Writer Class
+-public abstract class Writer extends Object implements Appendable, Closable, Flushable
+
+Constructors of the Writer Class
+-The Writer class in Java has two protected constructors that allow for the creation of character streams
+with synchronization capabilities
+i)protected Writer(): Creates a new character stream that can  itself synchronize on the writer
+ii)protected Writer(Object obj): Creates a new character stream that can itself synchronize on the given object
+
+Java Writer class Methods
+i)write(int char)
+-It writes a single character to the character stream
+-Characters being written are contained in 16 lower bits of the 'char' integer value the rest of the
+16 higher bits are ignored by this method
+Syntax: public void write(int char)
+Parameter - The integer value of the character to be written
+Return value - This method does not return any value
+Exception - Throws IOException if an I/O error occurs during writing
+
+ii)write(String str)
+-It writes a string to the character stream
+-Syntax: public void write(String str)
+-Parameter: String to be written to the character stream
+-Return Type: This method does not return anything
+-Exception: Throws IOException if an I/O error occurs during writing
+
+
+iii)write(String str, int offset, int maxlen)
+-It writes some parts of the string to the character stream
+-Syntax: public void write(String str, int offset, int maxlen)
+Parameter:
+str: string to be written to the character stream
+offset: start position of the String
+maxlen: The maximum length upto which the string has to be written
+Return type: This method does not return anything
+Exception: Throws an IndexOutOfBoundsException if the offset or maxlen is invalid, IOException
+if an I/O Error occurs
+
+iv)write(char[]carray)
+-It writes character array to the character stream
+-Syntax: public void write(char[]carray)
+Parameter: The character array  to be written in the character stream
+Return type: This method does not return any value
+Exception: Throws IOException if an I/O error occurs during writing
+
+v)write(char[]carray, int offset, int maxlen)
+-It writes some parts of the character array to the character stream
+-Syntax: public abstract void write(char[]carray, int offset, int maxlen)
+-Parameter: caaray: The character to be written to the character stream
+offset: start position of the character array
+maxlen: maximum no of the character of the carray has to be written
+Return Type: The method does not return any value
+Exception: Throws IndexOutOfBoundsException if the offset or maxlen is invalid, IOException
+if an I/O error occurs
+
+vi)close()
+It closes the character stream, flushing it first
+-Syntax: public abstract void close()
+-Parameter: This method does not take any parameter
+-Return type: This method does not return any value
+-Exception: Throws IOException if an I/O error occurs during close
+
+vii)flush()
+-It flushes the Writer stream
+-Flushing one stream invocation will flush all other buffer in chain
+Syntax: public void flush()
+Parameter: This method does not take any parameter
+Return type: This method does not return any value
+Exception: Throws IOException if any I/O error occurs while flushing
+
+viii)append(char Sw)
+-It appends a single character to the writer
+-Syntax: public Writer append(char Sw)
+
+Parameter: character to be appended
+Return type: This method returns a writer
+Exception: Throws IOException if I/O error occurs during appending
+
+ix)append(CharSequence char_sq)
+-It appends specified character sequence to the Writer
+Syntax: public Writer append(CharSequence char_sq)
+-Parameter: Character sequence to append
+-Return type: This method returns a writer, if char sequence is null, then NULL appends to the Writer
+-Exception: Throws NullPointerException if char_sq is null, and IOException if an I/O error occurs during
+appending
+
+x)append(CharSequence char_sq, int start, int end)
+-It appends a specified part of a character sequence to a writer
+Syntax: public Writer append(CharSequence char_sq, int start, int end)
+Parameter:
+char_sq: Character Sequence to append
+start: start of the character in the Char sequence
+end: end of the character in the Char sequence
+Return type: This method does not return any value
+Exception: Throws IndexOutOfBoundsException if the start or end values are invalid,
+and IOException if an I/O error occurs
+

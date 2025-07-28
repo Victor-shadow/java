@@ -1,0 +1,34 @@
+-Java file class is a representation of a file or a directory pathname.
+-A simple string is not adequate to name files since files and directory names have different formats
+on different platforms
+-Java File class contains several methods for working with the pathname, deleting and renaming files, creating new directories
+listing the contents of the directory and determining several common attributes of files and directories
+
+Features
+1:It is an abstract representation of file and directory pathname.
+2:A pathname, whether abstract or in string form can be either absolute or relative. The parent of the
+abstract pathname may be obtained by invoking the getParent() method of this class
+3:First of all, we should create the File class Object by passing the filename or directory name to it.
+A file system may implement restrictions to certain operations on the actual file-system object, such as
+reading writing and executing.These restrictions are collectively known as access permissions
+4:Instances of the file class are immutable, that is once created, the abstract pathname represented by the File Object will never
+change
+
+CREATE A FILE OBJECT
+=A file object is created by passing in a string that represents the name of a file, a String or another file object
+i.e File a = new File("usr/local/bin/example");
+//This defines an abstract file name for the example file in the directory /usr/local/bin
+//This is an absolute abstract file name
+
+Fields in File class
+pathSeparator(String) = the character or string used to separate individual paths in a list of file system paths
+pathSeparator(Char) = the character used to separate individual paths in a list of file system paths
+separator(String) = default name separator character represented as a string
+separator(Char) = default name separator character
+
+Constructors of Java File Class
+=File(File parent, String Child) = creates a new file instance from a parent abstract pathname
+and a child pathname string
+=File(String pathname) = creates a new File Instance by converting the given pathname string into an abstract pathname
+=File(String parent, String Child) = creates a new File Instance from a parent pathname string and a child pathname string
+=File(URI uri) = Creates a new File Instance by converting the given file:URI into an abstract pathname
