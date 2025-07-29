@@ -1,0 +1,35 @@
+-Java Provides several classes for reading input, but the two commonly used are Scanner and BufferedReader
+-The main difference between scanner and BufferedReader is:
+:Scanner class provides parsing and input reading capabilities with built-in methods for different data
+types
+:BufferedReader class  reads text efficiently  from a character input stream
+
+Scanner                                                                   BufferedReader
+i)It is part of the java.util.package                                     it is part of java.io.package
+ii)Simple parsing of primitive                                            High performance and text reading
+types and Strings
+iii)Performance is slow due to parsing                                    Performance is faster due to
+overhead and tokenization                                                 efficient buffering
+iv)Buffer size is smaller                                                 Buffer size is larger
+v)It is not thread safe                                                   It is thread safe
+vi)Throws an exception like                                               Throws an exception like
+InputMismatchException                                                    IOException
+
+Note:Both Scanner and BufferedReader can read from files
+Example
+new Scanner(new File("input.txt"))
+new BufferedReader(new FileReader("input.txt"))
+
+Scanner class
+-We use the scanner class when we need to read and parse input directly  into primitive data types or strings,  especially in small console
+based applications or when performance is not a major concern
+Note: Scanner class uses whitespace as the default delimiter. If users input multiple values on the same line
+Scanner will read them sequentially.
+You can change the delimiter using scanner.useDelimiter() if needed
+
+BufferedReader class
+-We use BufferedReader when performance is important, especially efficient for reading large volumes of data and files
+BufferedReader reads large chunks of data at once, making it ideal for reading from files or processing large amounts
+of input
+-BufferedReader.readLine()  throws a checked IOException, so it must be handled using a try-catch block
+or declared using throws IOException

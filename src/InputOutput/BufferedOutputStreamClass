@@ -1,0 +1,18 @@
+-BufferedOutputStream class in java is part of the java.io package
+-It improves the efficiency of writing data to an output stream by buffering the data
+-This reduces the number of direct writes to the underlying output streams, making the process
+more faster and efficient
+
+Declaration of BufferedOutputStream Class
+public class BufferedOutputStream  extends FilterOutputStream
+
+Constructors of BufferedOutputStream class
+i)BufferedOutputStream(OutputStream out): Creates a buffered output stream with a default buffer size of
+8192 bytes
+ii)BufferedOutputStream(OutputStream out, int size): Creates a buffered output  stream with the specified buffer size
+
+Methods of BufferedOutputStream class
+-write(int b): Writes the specified bytes to this buffered output stream
+-flush():Forces any buffered output bytes to be written out
+-write(byte [] b, int off, int len): Writes len bytes from the specified byte array starting  at offset off
+to the buffered output stream

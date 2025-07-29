@@ -1,0 +1,114 @@
+-Java provides various Streams with its I/O package that helps the user to perform
+all the input-output operations
+-These Streams supports all the types of objects, data-types, characters, files, e.t.c, to fully
+execute the I/O Operations
+
+Standard or Default Streams in Java
+                               System.in
+
+                               Program
+
+System.out                                                         System.in
+
+-System.in: This is the standard input stream(System.in) that is used to read characters from the keyboard
+or any standard input device
+-System.out: This is the standard output stream(System.out) that is used to produce the result of a program
+on an output device
+
+Java Print Functions
+print() -This method in Java is used to display a text on the console
+This text is passed as the parameter to this method in form of String.
+This method prints the text on the console and the cursor remains at the end of the text at the
+console
+Syntax: System.out.print(parameter);
+
+println() - This method in Java is always used to display a text on the console
+-It prints a text on the console and the cursor moves to the start of the next line at the console
+-The next printing takes place from the next line
+Syntax: System.out.println(parameter);
+
+
+printf() - It is similar to println() and print() but printf() takes multiple arguments
+This is used to format the output in Java
+
+System.err: It is used to display the error messages. It works similarly to System.out with print(), println(),
+printf() methods
+
+Types of Streams
+-Depending on types of Operations, streams can be divided into two primary classes:
+1. Input stream: These streams are used to read data that must be taken as an input from a source array
+or file or any peripheral device
+e.g FileInputStream, BufferedInputStream, ByteArrayInputStream
+
+FileInputStream           ByteArrayInputStream               PipedInputStream                      ObjectInputStream
+
+                          InputStream
+
+DataInputStream           FilterInputStream                 BufferedInputStream
+
+                          PushBackInputStream
+
+
+2. Output stream: These streams are used to write data as outputs into an array or file or any output peripheral devices
+
+FileOutputStream         ByteArrayOutputStream           PipedOutputStream            ObjectOutputStream
+
+                         OutputStream
+
+DataOutputStream         FilterOutputStream               BufferedOutputStream
+
+                         PushBackOutputStream
+
+
+Types of Streams Depending on the Types of File
+-Depending on the types of file, Streams can be divided into two primary classes which can be further divided
+into other classes
+
+                                 Streams
+ByteStream                                                         CharacterStream
+-BufferedInputStream                                               -BufferedReader
+-DataInputStream                                                   -FileReader
+-FileInputStream                                                   -InputStreamReader
+-InputStream                                                       -OutputStreamReader
+-PrintStream                                                       -Reader
+-BufferedOutputStream                                              -PrintWriter
+-DataOutputStream                                                  -Writer
+-FileOutputStream                                                  -BufferedWriter
+-OutputStream                                                      -FileWriter
+
+-Byte Stream
+:This is used to process data byte by byte(8 bits).
+Though it has many classes, the FileInputStream and the FileOutputStream are the most popular ones
+-The FileInputStream is used to read from the source and the FileOutputStream is used to write to the
+destination
+
+i)BufferedInputStream - It is used for Buffered Input Stream
+ii)DataInputStream - It contains methods for reading java standard datatypes
+iii)FileInputStream - This is used to read from a file
+iv)InputStream - This is an abstract class that describes stream input
+v)PrintStream - This contains the most used print() and println() method
+vi)BufferedOutputStream - This is used for Buffered Output Stream
+vii)DataOutputStream - This contains methods for writing java standard datatypes
+viii)FileOutputStream - This is used to write a file
+ix)OutputStream - This is an abstract class that describes stream output
+
+2.Character Stream
+-In Java characters are stored using unicode conventions
+Character streams automatically allow one to read/write data character by character
+Though it has many classes, the FileReader and FileWriter are the most popular ones
+-FileReader and FileWriter are character streams used to read from a source and write to the
+destination respectively
+
+i)BufferedReader - It is used to handle buffered input stream
+ii)FileReader - This is an input stream that reads from a file
+iii)InputStreamReader - The input stream is used to translate  byte to character
+iv)OutputStreamReader - This output stream is used to translate character to byte
+v)Reader - This is an abstract class that define character stream input
+vi)PrintWriter - This contains the most used print() and println() method
+vii)Writer - This is an abstract class that defines character stream output
+viii)BufferedWriter - This is used to handle buffered output stream
+ix)FileWriter - This is used to output stream that writes a file
+
+
+
+

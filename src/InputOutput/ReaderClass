@@ -1,0 +1,156 @@
+-Reader class in Java is an abstract class used for reading character streams
+-It serves as the base class  for various subclasses such as FileReader, BufferedReader,
+CharArrayReader, and others which provide more efficient implementations of the read() method
+To work with the Reader class, we must extend it and implement its methods
+-The read() is the key method for reading characters
+
+Declaration of Reader Class
+-public abstract class Reader implements Readable, Closeable
+
+NOTE:
+I)abstract class
+-The Reader class is an abstract class means it cannot be instantiated directly
+-It is designed to be extended by either classes FileReader , BufferedReader
+
+II)Implements Readable
+-The Reader class implements Readable Interface
+int read(CharBuffer cb) throws IOException
+
+iii)Implements Closeable
+-The Reader class implements Closeable Interface
+void close() throws IOException
+
+Constructors of Reader Class
+protected Reader()
+-Creates a new character-stream  reader whose critical sections will synchronize on the reader itself
+
+protected Reader(Object lock)
+-Creates a new character-stream reader whose critical sections will synchronize on the given object
+-Parameter: The object used to synchronize operations of the reader
+
+Methods of Java Reader class
+I)abstract void close()
+-Closes the stream and releases any system resources associated with it
+-Once the stream has been closed, further read(), ready(), mark(), reset(), or skip()
+invocations will throw an IOException
+-Closing a previous closed stream has no effect
+
+Syntax: public abstract void close() throws IOException
+Throws IOException
+
+II)void mark(int readAheadLimit)
+Marks the present position in the Stream. Subsequent calls to reset() will attempt to reposition
+the stream to this point
+-Not all character-input streams support the mark() operation
+Syntax: public void mark(int readAheadLimit) throws IOException
+-Parameter: readAheadLimit() = Limit on the number of characters that may be read while still preserving
+the mark. After reading, this many characters, attempting to reset the stream may fail
+-Throws IOException
+
+III)boolean markSupported()
+Tells whether this stream supports the mark() operation. The default implementation always returns false
+Subclasses should always override this method
+Syntax: public boolean markSupported()
+
+Return Type: Returns true if the input stream supports mark() and read() methods
+Returns False if the input stream does not support these methods
+
+IV)int read()
+-Reads a single character. This method will block until a character is available, an I/O error occurs
+or the end of the stream is reached
+-Subclasses that intend to support efficient single-character input should override this method
+Syntax:
+public int read() throws IOException
+
+Return Type
+i)Return the next byte of data as an integer in the range 0 - 255
+ii)Return -1 if the end of the stream is reached
+Throws IOException
+
+V)int read(char[]cbuf)
+-Reads characters into an array. This method will block until some input is available, an I/O error occurs
+or the end of the stream is reached
+-Syntax public int read(char[]cbuf)
+-Parameter: char[]cbuf - A character array provided by the caller where the characters read from the stream will be stored
+Return Type
+-Return the number of character actually read
+-return -1 if the end of the stream is reached
+-Throws IOException
+
+VI)abstract int read(char[]cbuf, int off, int len)
+-Reads characters into a portion of an array
+-This method will block until some input is available, an I/O error occurs, or the end of the stream
+is reached
+Syntax
+public abstract int read(char[]cbuf,int off, int len) throws IOException
+Parameter:
+char[]cbuf - The character array where the characters will be stored
+-int off: The starting index in the array where the first character will be stored
+-int len: Maximum number of characters to read
+
+Return Type:
+i)Return the number of character actually read and stored in the buffer
+-Return -1 if the end of the stream is reached
+
+Throws IOException
+
+VII)int read(CharBuffer target)
+-Attempts to read characters into the specified character buffer. The buffer is used as a repository of characters
+as-is: the only changes made are the results of a put operations
+-No flipping or rewinding of the buffer is performed
+
+Syntax: public int read(CharBuffer target) throws IOException
+Parameter: CharBuffer target: A char Buffer into which characters are read
+
+Return type:
+The number of characters read in a buffer
+Return -1 if the end of the stream is reached
+
+Throws:
+-NullPointerException
+-IOException
+-ReadOnlyBufferException
+
+VIII)boolean ready()
+-Tells whether this stream is ready to be read
+Syntax: public boolean ready() throws IOException
+
+Return Type:
+Returns True if the stream is ready to be read
+Returns False if the stream is not ready
+
+IX)void reset()
+-resets the Stream. If the stream has been marked, then the attempt to reposition it at the mark
+If the stream has not been marked, then attempt to reset it in some way appropriate  to the particular stream
+-Not all character-input streams support this reset() operation, and some support reset() operation without supporting mark()
+
+Syntax: public void reset() throws IOException
+
+Throws IOException
+
+X)long skip(long n)
+-Skips characters; This method will block until some characters are available, an I/O error occurs
+or the end of the stream is reached
+-Syntax
+public long skip(long n) throws IOException
+
+Parameter: long n The number of bytes or characters to skip in the stream
+If it is negative, the method does nothing
+Return Type: The number of characters actually skipped
+
+Throws:
+IOException
+IllegalArgumentException(if n is negative)
+
+Key Features of Reader Class
+-Character-Based Reading: Reader class is used for reading which handles binary data
+-Abstract class: we cannot create a Reader object directly, we need to use subclasses like BufferedReader or FileReader
+-Unicode Support: It can read and process unicode
+
+Implementation of reader Classes
+I)BufferedReader
+II)CharArrayReader
+III)FilterReader
+IV)InputStreamReader
+V)PipedReader
+VI)StringReader

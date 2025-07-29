@@ -1,0 +1,26 @@
+Different Ways to Achieve Faster I/O in Java
+i)Scanner class
+ii)BufferedReader
+iii)User-defined FastReader class
+iv)Using Reader class
+
+A.Scanner Class
+-The scanner class in Java is slower for competitive programming because it uses in-built methods like
+nextInt(), nextLong(), nextDouble(), etc which come with additional overhead for parsing and input
+handling
+-The scanner class is easy to use and requires less typing, but it is slower and not recommended for performance
+critical tasks
+
+B.BufferedReader
+The BufferedReader class in Java is faster but requires more code  and manual parsing
+Integer.parseInt, If you want to read multiple words from a line  you might need to use tools like
+StringTokenizer
+
+C.user-Defined FastReader Class
+-The FastReader class combines the speed of the BufferedReader and StringTokenizer with the simplicity of
+user-defined methods resulting in fast input
+Note: This approach is more flexible and faster for handling multiple types of data
+
+D.Using ReaderClass
+-This method is the fastest but it is not recommended because it is more complex and advanced
+-It uses InputStream and read() or nextInt()
