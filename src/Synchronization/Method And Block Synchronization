@@ -1,0 +1,58 @@
+-In Java, synchronization is very important in concurrent programming when multiple threads need to access
+shared resources
+-Java synchronization can be applied to methods and blocks
+-Method synchronization in Java locks the entire method and Block synchronization locks only a
+specific section of the method
+
+Method Synchronization                                                   Block synchronization
+i)It synchronizes the entire method                                      It synchronizes  only block of code
+ii)This may lead to unnecessary synchronization                          More efficiently synchronizes
+for non-critical sections                                                only critical sections
+iii)Locks the method object                                              Locks the object or class specified in the block
+iv)Less flexible, synchronizes                                           More flexible, allows partial
+the entire method                                                        synchronization
+
+Types of Synchronization
+-Java is a multi-threaded language where threads run in parallel, and synchronization is required
+for shared resources to ensure only one thread access a resource at a time
+-Synchronization prevents corruption of a mutable object's state when shared by multiple threads
+Synchronization is needed when the object is mutable
+-If the object is immutable or read only by threads , synchronization is unnecessary
+Java provides two synchronization idiom:
+i)Methods synchronization
+ii)Statement synchronization
+
+Method synchronization
+-In java, method synchronization is achieved by adding the synchronized keyword. Then, the entire
+method is treated as a critical section
+-Ensuring that only one thread can execute that method at a given time
+-This approach locks an entire method, preventing other threads from accessing it, until the first thread
+finishes its execution
+
+Block Synchronization
+-If we only need to execute some subsequent lines of code not all lines(instructions) of code within a method,
+then we should synchronize only, block of the code within which instructions are exists
+
+Note:
+i)When a thread enters into a synchronized method or block, it acquires the lock and once it completes its
+tasks and exits from the synchronized method, it releases the lock
+ii)When the thread enters into a synchronized instance method or block, it acquires Object level lock
+and when it enters into the synchronized static method or block it acquires class level lock
+iii)Java synchronization will throw a null pointer exception if the Object used in the synchronized block is null
+if in synchronized(instance) the instance is null, then it will throw a null pointer exception
+iv)In java, wait() and notify() and notifyAll() are the important methods in synchronization
+v)You can not apply the Java synchronized keyword with the variables
+vi)Don't synchronize on the non-final field on the synchronized block because the reference to the non-final field may change
+anytime and then different threads might synchronize on different objects i.e no synchronization at all
+
+ADVANTAGES
+I)Multithreading: Since java is a multithreaded language  synchronization is a good way to achieve mutual exclusion
+on a shared resource(s)
+II)Instance and Static Methods: Both synchronized instance method and synchronized static method can be executed concurrently
+because they are used to lock different objects
+
+LIMITATIONS
+I)Decreases Efficiency: The Java synchronized method runs very slowly and can degrade the performance
+so you should synchronize the method when it is absolutely necessary otherwise not synchronize the block
+only for critical sections of the code
+II)Concurrency Limitations: Java synchronization does not allow concurrent reads

@@ -1,0 +1,40 @@
+-In Java, there are four different ways to read input from the user in the command line environment
+
+Using BufferedReader class
+-Buffered reader class is the classical method to take input,
+-This method is used  by wrapping the System.in(Standard input stream) in an InputStreamReader which is
+wrapped in a BufferedReader, we can read input from the user in the command line
+:The input is buffered for efficient reading
+:The wrapped code is hard to remember
+
+Using Scanner class
+-Scanner class  is the most probably preferred method  to take input
+:The main purpose of the Scanner class is to parse primitive types and strings using regular
+expressions; however, it can also be used to read input from the user in the command line
+i)Convenient methods for parsing primitives nextInt(), nextFloat() from the tokenized
+input
+ii)Regular expressions can be used to find tokens
+iii)The reading methods are not synchronized
+
+Using console class
+-Console class has been becoming a preferred way for reading users input from the command line
+In addition, it can be used for reading password-like  input without echoing  the characters entered
+by the user
+-The format string syntax can also be used System.out.printf("")
+
+Advantages
+-Reading password without echoing the entered characters
+-Reading methods are synchronized
+-Format string syntax can be used
+-Does not work in a non-interactive environment
+
+Using Command line argument
+-Inputs are passed to the program during execution and are stored as strings in the args[] array
+-If we need numeric values, we can convert the strings using methods like Integer.parseInt(),
+Float.parseFloat()
+
+Using DataInputStream Class
+-DataInputStream class In Java is used to read primitive data types like int, float, boolean and strings
+from an input stream in a way that works across different machines
+-It is part of the java.io package and wraps an existing input stream
+It is commonly used in DataOutputStream or similar sources to ensure data is read correctly

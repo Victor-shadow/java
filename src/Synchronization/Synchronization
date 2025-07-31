@@ -1,0 +1,54 @@
+-In multithreading, synchronization is important to make sure that multiple threads safely work
+on shared resources
+-Without synchronization, data can become inconsistent or corrupted if multiple threads access
+and modify shared variables at the same time
+In Java, it is a mechanism that ensures that only one thread, can access a resource at a given time
+This helps to prevent issues such as data inconsistency and race conditions when multiple threads
+interact with shared resources
+
+Need For Synchronization
+-When multiple threads share resources, synchronization makes sure that only one thread accesses the resource
+at a time.
+-This prevents problems like data getting mixed up or broken because of multiple threads changing it together
+
+Synchronized block
+-Java provides a way to create threads and synchronize their tasks using synchronized block
+
+-A synchronized block in Java is synchronized on some object
+-Synchronized blocks in Java are marked using the synchronized keyword
+-All synchronized blocks synchronize on the same object and can have only one thread executed inside them
+one at a time. All the other threads attempting to enter the synchronized block are blocked until  the thread inside
+the synchronized block exits the block
+
+General form of a Synchronized Block
+synchronized(sync_object){
+//access shared variables and other shared resources
+}
+This synchronization is implemented in Java with a concept called monitors or locks
+-Only one thread can own a monitor at a given time. When a thread acquires a lock, it is said to have entered the
+monitor. All the other threads attempting to enter the locked monitor will be suspended until
+the first thread exits the monitor
+
+Types of Synchronization
+i)Process Synchronization
+ii)Thread Synchronization
+
+
+Process Synchronization
+-It is a technique used to coordinate the execution of multiple processes
+-It ensures that the shared resources are safe and in order
+
+Thread Synchronization
+-Thread Synchronization is used to coordinate and ordering of the execution of the threads in a
+multi-threaded program
+-There are two types of thread synchronization
+i)Mutual Exclusive
+ii)Cooperation(Inter-thread communication)
+
+MutualExclusion
+-It helps to keep the threads from interfering with one another while sharing data
+-There are types of Mutual Exclusive mentioned:
+i)Synchronized method
+ii)Synchronized block
+iii)Static synchronization
+

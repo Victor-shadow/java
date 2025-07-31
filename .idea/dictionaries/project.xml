@@ -1,22 +1,29 @@
 <component name="ProjectDictionaryState">
   <dictionary name="project">
     <words>
+      <w>annos</w>
       <w>argumented</w>
       <w>arrlist</w>
       <w>caaray</w>
       <w>cbuf</w>
       <w>deleteifexists</w>
       <w>dname</w>
+      <w>ename</w>
+      <w>esal</w>
       <w>fdobj</w>
       <w>fileoutputstream</w>
       <w>finallist</w>
       <w>finalset</w>
       <w>fname</w>
       <w>fout</w>
+      <w>interruptibly</w>
+      <w>islocked</w>
       <w>iteratorlist</w>
+      <w>jcmd</w>
       <w>lesshst</w>
       <w>maxlen</w>
       <w>newlist</w>
+      <w>parametertype</w>
       <w>readlink</w>
       <w>rollno</w>
       <w>serialver</w>

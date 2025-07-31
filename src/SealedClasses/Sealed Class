@@ -1,0 +1,11 @@
+-A sealed class is a technique that limits the number of classes that can inherit the given
+classes
+-This means that only the classes designated by the programmer can inherit from that particular class
+thereby restricting access to it
+When a class is declared sealed, the programmer must specify the list of classes that can inherit it
+
+Steps to create a Sealed class
+-Define the class that you want to make a seal
+-Add the "sealed" keyword to the class and specify which classes are permitted to inherit  it using
+the "permits" keyword
+

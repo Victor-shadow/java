@@ -1,0 +1,51 @@
+-Reentrant lock in Java is part of the java.util.concurrent package that helps to achieve synchronization more
+effectively and optimally compared to the traditional Synchronized keyword
+-It offers features like:
+i)Timeouts
+ii)Interruptible locks
+iii)More control over Thread scheduling
+
+-These features make it a valuable tool for managing concurrent access to shared resources with greater precision
+and adaptability
+-A Reentrant lock allows a thread to acquire the same lock multiple times, which is particularly useful
+when a thread needs to access a shared resource repeatedly with its execution
+-It implements the Lock interface , providing greater control over locking compared to  synchronized blocks
+
+i)Reentrant lock tracks a "hold count" , which:
+-Starts at 1  when a thread first locks a resource
+-Each time a thread re-enters the lock the count is incremented
+-The count is decremented when the lock is released
+-Once the hold count reaches zero, the lock is fully released
+
+Reentrant Lock() methods:
+i)lock() - Increments the hold count by 1 and gives the thread the lock if the shared resource is initially
+free
+ii)unlock() - Decrements the hold count by 1 and When this count reaches zero, the resource is
+released
+iii)tryLock() - If no other thread holds the resource, it returns true and increments the hold count
+If busy, it returns false without blocking the thread
+iv)tryLock(long timeout, TimeUnit unit) - The thread waits for a certain period  as defined by the arguments
+of the methods to acquire the lock of the resource before exiting
+v)lockInterruptibly() - Make thread wait for a resource lock for a set time, interrupting if it times out
+or if the thread is interrupted
+vi)getHoldCount() -Returns the count of the number of locks held on the resource
+vii)isHeldByCurrentThread() - Returns true if the lock on the resource is held by the current thread
+viii)hasQueuedThread() - Checks if there are any threads waiting to acquire the locks
+ix)Islocked() - Queries if this lock is held by any thread
+x)newCondition() - Returns a condition instance for use with this Lock instance
+
+Reentrant Lock
+General Steps:
+i)Create a Object of Reentrant lock
+ii)Create a worker(Runnable object ) and pass the lock to it
+iii)Use the lock() method to acquire the lock on the shared resource
+iv)call the unlock() method to release the lock
+
+Important Points:
+-A thread waiting on a condition(evenCondition.await()) should not signal using the same condition
+(evenCondition.signal())
+-The await() and signal() methods in Condition behave similarly to wait() and notify() in synchronized
+blocks but provide finer grained control
+
+-Note: One can forget to call the unlock method in the final leading to bugs in the program
+-Ensure that the lock is released before the thread exits

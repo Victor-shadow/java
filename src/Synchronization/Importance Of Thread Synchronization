@@ -1,0 +1,57 @@
+-Thread synchronization in Java is important for managing shared resources in a multithreaded environment
+-It ensures that only one thread can access a shared resource at a time, which enhances overall system
+performance and prevent race conditions and data corruption
+
+Importance of Thread Synchronization
+-In a multithreaded environment, threads may compete for shared resources i.e files, memory e.t.c without
+synchronization, simultaneous access can lead:
+I)Race Condition: Multiple threads interchanging shared data at the same time  and it results in an unpredictable
+output
+II)Data Corruption: Incomplete or corrupted data when multiple threads modify the same resource
+simultaneously
+
+Thread Priorities
+-In Java, thread priorities determine the execution order, allowing higher priority threads to preempt lower ones
+and access resources first
+-However, when threads of equal priority compete for the same resources conflicts can lead to
+inconsistent or erroneous outcomes
+
+Mechanisms of Thread Synchronization
+-Thread Synchronization basically, refers to the concept of one Thread execute at a time and the rest of the
+threads are in waiting state. This process is known as Thread Synchronization
+-It prevents the thread interference and inconsistency problem
+
+Synchronization is built using locks or monitor. In Java, a monitor is an object that is used as a mutually exclusive lock
+Only a single thread at a time has the right to own a monitor
+-When a thread gets a lock then all other threads will get suspended which are trying to acquire the locked monitor
+-So other threads are said to be waiting for the monitor, until the first thread exits the monitor
+In a simple way, when a thread request a resource then that resource gets locked so that no other thread can work
+or do any modification until the resource gets released
+
+Types of Thread Synchronization
+Mutual Exclusion
+Inter-Thread communication
+
+Mutual Exclusion
+-While sharing any resource, this will keep the thread interfering with another one i.e mutual exclusive
+We can achieve this through:
+i)Synchronized method
+ii)Synchronized Block
+iii)Static Synchronization
+
+
+1)Synchronized method
+-We can declare the method as synchronized using the synchronized keyword
+-This will make the code inside the method thread-safe so that no other thread will execute
+while the resource is being shared
+
+Synchronized Block
+-If we declare a block as synchronized, only the code which is written inside that block is executed sequentially
+not the complete code
+-This is used when we want sequential access to some part of code or synchronize some part of code
+
+Syntax:
+synchronize(object reference){
+//Insert code
+}
+

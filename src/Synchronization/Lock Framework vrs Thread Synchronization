@@ -1,0 +1,38 @@
+-In Java, thread synchronization is achieved using the Lock Framework which is present in the
+java.util.concurrent package
+-Synchronization ensures that only one thread can access a resource at  a time by preventing issues like
+data corruption or inconsistency
+-Java offers two primary mechanisms to achieve synchronization
+i)Lock framework
+ii)synchronized block
+-Both serve similar purposes and they offer different levels of flexibility and control
+The lock framework provides a more sophisticated approach when dealing with multiple threads and
+shared resources
+
+Difference through Lock Framework and Thread Synchronization
+Lock Framework                                                    Thread Synchronization
+i)More Flexible. Allows multiple                                  Limited flexibility.Only one
+locks for different methods                                       can be applied per method or class
+ii)Allows higher concurrency by                                   Less concurrency due to locking
+using different locks for                                         entire method or
+different tasks                                                   class
+iii)Provides explicit control                                     Implicit locking with no control over
+over when to lock or unlock                                       exact limit
+iv)The list of waiting threads                                    Not possible with
+can be seen using Lock framework                                  synchronized
+v)Offers better strategies to                                     Less control over
+avoid deadlocks using try-lock                                    deadlock
+mechanisms                                                        prevention
+vi)Supports interruptible                                         Synchronized blocks are
+acquisition(lock.tryLock())                                       non-interruptible
+
+Lock Framework
+-The Lock framework is primarily based on the Lock interface with Reentrant lock being the most commonly
+used implementation
+-The Lock framework allows explicit locking and unlocking of resources, providing greater control over thread access
+It supports features such as non-blocking locking with tryLock()
+
+Thread Synchronization
+-It is the process of controlling the order of access to shared resources among multiple threads to prevent
+data corruption and ensure correct program execution
+In the present time we use Locks to achieve thread synchronization

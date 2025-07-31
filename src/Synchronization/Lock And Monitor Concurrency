@@ -1,0 +1,58 @@
+-Java concurrency deals with concepts like Multithreading and other concurrent operations
+-To manage shared resources effectively, tools like Lock(Mutex) and Monitors are used to ensure
+thread synchronization and avoid race conditions
+-Locks represent a low-level synchronization  mechanism and Monitors provide a high-level abstraction
+to manage thread coordination effectively
+-A lock is a mechanism used to control access to shared resources in a multithreaded environment
+
+Lock                                                                   Monitor
+i)It is an early synchronization tool                                  It came into existence with advancements in thread synchronization
+used                                                                   mechanisms
+
+ii)It is implemented as a flag or field                                Synchronization is implemented as part of
+to coordinate thread access to shared                                  an object's behaviour, typically
+resources                                                              using synchronized
+
+iii)Handled explicitly in the thread                                   Managed implicitly by the shared resources
+itself using methods like lock()                                       using synchronized blocks or
+and unlock()                                                           methods
+
+iv)Threads manage synchronization                                      The shared resource handles synchronization
+explicitly implementing mutual                                         ensuring mutual exclusion
+exclusion and cooperation                                              automatically
+
+v)Loosely coupled mechanism,                                           Tightly coupled mechanism where the
+with threads independently                                             shared resources manage all synchronization
+managing access control                                                responsibilities
+
+vi)More prone to errors                                                Efficient for smaller thread pools, though
+especially when lock                                                   complex inter-thread communication may reduce
+handling overlaps with                                                 performance
+thread time slices
+
+vii)Threads are managed by the                                        Threads are queued and managed by the monitor
+operating system or explicitly                                        within a shared resource
+in the program
+
+viii)Used less frequently in                                          Widely used due to implicit synchronization
+modern applications;                                                  and ease of implementation
+explicit locks are implemented through
+Java's concurrency API's
+
+Note: As monitors themselves are implemented with the necessary support of locks, it is often said that
+they are nt different but complementary in their existence
+
+
+Locks in Java
+-Locks provide an explicit synchronization mechanism for threads to access shared resources safely
+-The java concurrency API includes the lock interface; which offers finer control compared to implicit
+locks provided by synchronization blocks or methods
+
+Monitors In Java
+-Monitor in Java concurrency is a synchronization mechanism that provides the fundamental
+mutual exclusion between various threads and cooperation among threads working at common
+tasks.
+-Monitors basically 'monitor' the access control of shared resources and objects among threads
+-Using this construct only one thread at a time gets access control over the critical section
+at the resource while other threads are blocked and made to wait until certain conditions
+

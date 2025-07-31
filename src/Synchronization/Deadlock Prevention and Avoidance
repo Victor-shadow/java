@@ -1,0 +1,90 @@
+-Deadlock prevention and avoidance are strategies used in computer systems  to ensure that
+different processes can run smoothly  without getting stuck waiting for each other forever
+
+Necessary conditions for Deadlock
+1)Mutual Exclusion
+2)Hold and Wait
+3)No Preemption
+4)Circular wait
+
+Deadlock prevention
+-We can prevent deadlocks by eliminating any of the above four conditions
+
+Eliminate Mutual Exclusion
+-It is not possible to violate mutual exclusion because some resources such as the tape drive, are
+inherently non-shareable
+-For other resources like printers we use a technique called Spooling(Simultaneous Peripheral Operations Online)
+In spooling, where multiple processes request the printer, their jobs(instructions of the processes that require printer access)
+are added to the queue in the spooler directory
+-The printer is allocated to jobs on a First-Come FirstServed basis
+In this way a process does not have to wait for the printer and can continue its work after adding
+its job to the queue
+
+Eliminate Hold and Wait
+-Hold and wait is a condition in which a process holds one resource while simultaneously waiting for another
+resource that is being held by a different process
+-The process cannot continue until it gets all the required resources
+
+There are two ways to eliminate hold and wait
+By eliminating wait: The process specifies the resources it requires in advance so that it does not have
+to wait for allocation of resources after execution starts
+Process1 declares in advance that it requires both Resource1 and Resource2
+
+By eliminating hold: The process has to release all the resources it is currently holding before making a new request
+Process1 must release Resource2  and Resource3 before requesting Resource1
+
+Eliminate No Preemption
+-Preemption is temporarily interrupting an executing task and later resuming it
+-Two ways to eliminate No Preemption
+-Processes must release resources voluntarily: A process should only give up a resource it holds
+when it completes its tasks or no longer needs them
+-Avoid partial allocation: Allocate all required resources to a process once before it begins its execution
+If not all resources are available the process must wait
+
+Eliminate Circular Wait
+-To eliminate circular wait for deadlock prevention , we can use order on resource allocation
+: Assign a unique number to each resource
+: Processes can only request resources  in an increasing order of their numbers
+
+This prevents circular chains of processes waiting for resources as no process can request a resource
+lower than what it already holds
+
+Detection and Recovery
+-Detect and Recover from them when deadlocks occur
+-This can involve killing one or more processes involved in a deadlock  or release some of resources that
+ they hold
+
+Deadlock Avoidance
+-Deadlock avoidance ensures that a resource request is only granted if it will not lead to a
+deadlock, either immediately or in  the future
+-Since the kernel cannot predict future behaviour,it uses a conservative approach
+-Each process declares the maximum number of resources it needs
+-The kernel allows requests in stages, checking for potential deadlocks before granting them
+-A request is granted only if no deadlock is possible; otherwise, it stays pending
+-This approach is conservative, as a process may finish without using the maximum resources it declared
+Bankers algorithm is the technique used for deadlock avoidance
+
+Bankers Algorithm
+-Banker's algorithm is a resource allocation and deadlock avoidance  algorithm that tests
+all resource requests made by processes
+-It checks for the safe state, and if granting a request keeps the system in a safe state, the request is
+allowed
+However if no safe state exists, the request is denied
+
+Inputs to Bankers Algorithm
+-Max needs of resources by each processes
+-Currently, allocated resources by each processes
+-Max free available resources in the system
+
+The request will be granted under the following conditions:
+i)If the request made by the process is less than equal to the max needed for
+that process
+ii)If the request made by that process, is less than equal to the freely available resource in the
+system
+
+Timeouts
+-To avoid deadlocks caused by indefinite waiting, a timeout mechanism can be used to limit the amount of time
+a process can wait for a resource
+-If the help is unavailable within the timeout period, the process can be forced  to release its current
+resources and try again later
+

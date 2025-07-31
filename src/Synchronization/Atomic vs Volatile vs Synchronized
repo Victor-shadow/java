@@ -1,0 +1,61 @@
+-In Java, multithreading can lead to challenges related to thread safety and data consistency
+-Java provides concurrency mechanisms like Atomic, Volatile  and Synchronized to address the issue
+and ensure thread safety
+
+Synchronized                                         Atomic                                                 Volatile
+-It applies to only                                  It is applicable                                       It is applicable
+blocks and methods                                   to variables only                                      to variables only
+
+-It ensures mutual                                   it provides atomic                                     It ensures the visibility of
+exclusion and data                                   operations/variables                                   variables across threads but
+consistency by                                       without needing                                        does not guarantee
+acquiring locks                                      locks                                                  atomicity
+
+-Performance is relatively                          Because of its non-locking nature                       Because of its non-locking nature
+low compared to volatile                            it is immune to concurrency hazards                     it is immune to concurrency hazards
+and atomic keyword because                          such as deadlock or livelock                            like deadlocks and livelocks
+of the acquisition and release
+of the lock
+
+
+Synchronized Modifier
+-The synchronized keyword in Java is used to control access to shared resources among multiple
+threads
+-It can be applied to methods or blocks of code
+-When a method or block is declared as synchronized, only one thread can execute the given object at a time
+-This ensures consistency and prevents race conditions
+
+Working of a Synchronized modifier
+-It can be applied to methods or blocks of code
+-When a method or block is synchronized only one thread can execute it on a given object at a time
+-Every object in Java has an intrinsic lock associated with it. A thread must acquire this lock  before entering a
+synchronized block or method
+-Synchronized code blocks may lead to thread contention, which can negatively impact
+performance, especially with excessive synchronization
+
+
+Volatile Keyword
+-The volatile keyword in Java ensures that all threads have a consistent view  of a variables value
+-It prevents caching of the variables value by threads
+-ensuring that updates to the variable are immediately visible to the other threads
+
+Working of the volatile modifier
+i)It applies only to variables
+ii)volatile guarantees visibility i.e to write to a volatile variable is immediately visible to
+other threads
+iii)It does not guarantee atomicity , meaning operations like count++; (read-modify operations) can still
+result in inconsistent values
+
+
+Atomic Modifier
+-Atomic classes such as AtomicInteger, are part of the java.util.concurrent.atomic package
+-These classes provide thread safe operations on variables without the need for synchronization
+-They use low level atomic operations like compare-and-swap(CAS) to ensure thread safety
+
+Working of an atomic modifier
+i)Atomic operations ensure atomicity of the read-modify-write actions on
+variables
+ii)These classes are lock free and more efficient than synchronized blocks because they avoid
+the overhead of acquiring locks
+iii)Atomic operations are performed using methods like incrementAndGet(), compareAndSet(), getAndSet()
+

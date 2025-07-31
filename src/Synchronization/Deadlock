@@ -1,0 +1,34 @@
+-Deadlock occurs in Java when multiple threads  block each other while waiting for locks held
+by one another
+-To prevent deadlocks, we use synchronized keyword to make methods or blocks thread safe which means
+only one thread can have the lock of the synchronized method and use it, other threads have to wait
+till the lock releases other one acquires the lock
+
+Locks in Java
+Detecting Locks in Java
+i)List the active java processes
+jps -L
+-This will list running Java processes and also mention that there is a deadlock
+if we want to generate a thread dumps
+
+ii)identify the process ID(PID) of the target program and Run
+jcmd<PID> Thread.print
+Replace <PID> with the process ID from the list provided by jps-l
+This command outputs the state of the thread, which you can then analyze deadlocks
+
+Prevent Deadlocks
+We can avoid deadlock conditions by knowing its possibilities. It is a very complex process and
+not very easy to catch
+i)Avoiding nested Locks: This is the main reason for deadlock, Mainly happens when we give locks
+to multiple threads. Avoid giving locks to multiple threads if we have already given one
+ii)Avoid unnecessary locks: We should have lock only those members who are required
+Having a lock unnecessarily can lead to deadlock
+iii)Using thread join: Deadlock condition appears when one thread is waiting for the other to finish
+If this condition occurs, we ca use Thread.join() with the maximum time you think
+the execution will take
+
+NOTE
+-If threads are waiting for each other to finish, this condition is known as
+deadlock
+-Deadlock condition is a complex condition which occurs in the case of multiple threads
+-Deadlock conditions can break the code at runtime  and can destroy business logic
