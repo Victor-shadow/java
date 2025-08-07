@@ -1,0 +1,51 @@
+=The if-else statement in java is a powerful decision-making tool used to control the program flow
+based on conditions
+=It executes the one block of code  if a condition is true and another block if the
+condition is false
+
+Syntax of if else
+if(condition){
+  //Execute this block
+  //if the condition is true
+  }
+ else {
+   //Executes  this block if
+   //condition is false
+   }
+
+Working of a if-else Statement
+i)Control falls into the if block
+ii)The flow jumps into the condition
+iii)The condition is tested:
+*If the condition yields true, go to step 4
+*If the condition yields false, go to step 5
+iv)The if block or the body inside the if is executed
+v)If the condition is false, the else block is executed instead
+vi)Control exits the if-else block
+
+Nested if statement
+-In Java, we can use nested if statement to create more complex conditional logic
+//Nested if statements are if statements inside other if statements
+
+public class NestedIf{
+    public static void main(String[]args){
+       int a = 25;
+       double w = 65.5;
+
+       if(a >= 18){
+          if(w >= 50.0){
+          System.out.println("You are eligible to donate blood");
+          } else {
+           System.out.println("You must weigh at least 50 kilograms to donate blood.");
+           }
+          } else {
+          System.out.println("You must be at least 18 years to donate blood");
+          }
+       }
+   }
+
+
+//The first print statement is in a block of "if"  so the second statement is not in the block
+of "if"
+//The third print statement is in else but that else has no corresponding if
+//That means an "else" statement cannot exist without an "if" statement

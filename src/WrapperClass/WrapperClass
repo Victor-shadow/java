@@ -1,0 +1,45 @@
+-A wrapper class in Java is one whose Object wraps or contains primitive data types
+-When we create an object in a wrapper class, it contains a field and this field, we can stor
+primitive data types
+-We ca wrap a primitive value into a wrapper object
+
+Need of Wrapper classes
+I)They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method
+(because primitive types are passed by value)
+II)The classes in java.util.package handle only objects and hence wrapper classes are useful in these
+cases
+III)An object is needed to support synchronization in multithreading
+IV)Data structures in the Collection framework, store only objects(reference types) and not primitive
+types
+
+Autoboxing
+-The automatic conversion of primitive types to the object of their corresponding wrapper classes is known as
+autoboxing
+-int to Integer, long to Long, char to Character
+
+Unboxing
+-It is the reverse process of autoboxing. Automatically converting an object of a wrapper class
+to its corresponding primitive types
+Integer to int, Double to double, Character to char
+
+Custom Wrapper Classes In Java
+-Java wrapper classes wrap the primitive data types
+-We can create a class that wraps data inside it
+
+Advantages of Wrapper Classes
+-Collections only allow object data
+-On object data we can invoke multiple methods compareTo(), equals(), toString()
+-The cloning process can only work on Objects
+-Object data allow null values
+-Serialization only allows object data
+
+Primitive Data Type                                                                Wrapper class
+i)char                                                                             Character
+ii)byte                                                                            Byte
+iii)short                                                                          Short
+iv)int                                                                             Integer
+v)long                                                                             Long
+vi)float                                                                           Float
+vii)double                                                                         Double
+viii)boolean                                                                       Boolean
+

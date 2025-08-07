@@ -1,0 +1,48 @@
+-In Java, matcher is a class that is implemented by the MatchResultInterface that performs match
+operations on a character sequence by interpreting a Pattern
+
+*public final class Matcher extends Object implements MatchResult
+By invoking the pattern matcher method, a matcher is created from the pattern
+If a matcher is created once, we perform three different kinds of operations on it:
+i)matches() - Try to match the total input sequence against the pattern
+ii)lookingAt() - Try to match the input sequence, against the pattern starting at the beginning
+iii)find() - This scans the input sequence and looks for the next subsequence especially matches the pattern
+
+Methods of Matcher class
+I)Index Methods
+-It provides useful index values. It shows precisely whether the match was found in the input
+string or not
+
+1)public int start(): This methods returns the start index of the previous match
+2)public int start(int group): This method returns the start index of the subsequence captured
+by the given group during the previous match operation
+3)public int end(): This methods returns the offset after the last character is matched
+4)public int end(int group): This method returns the offset after the last character of the subsequence
+captured by the given group during the previous match operations
+
+II)Study Method
+-It reviews the input string and returns a boolean indicating whether the pattern is found
+or not
+
+1)public boolean lookingAt(): This method aims to match the input sequence, starting at the beginning of the
+region, against the pattern
+2)public boolean find(): This method aims to find the next subsequence of the input sequence
+that matches the pattern
+3)public boolean find(int start): Resets this matcher and then tries to find the next subsequence
+of the input sequence which matches the pattern, starting at the specified index
+4)public boolean matches(): This method aims to match the entire region against the pattern
+
+
+III)Replacement Methods
+-These are useful methods for replacing text in an input String
+
+1)public Matcher append Replacement(StringBuffer sb, String replacement): This method implements a non-terminal
+append and replace step
+2)public StringBuffer appendTail(StringBuffer sb);  This method implements a terminal append-and-replace step
+3)public String replaceAll(String replacement): This method replaces every subsequence of the input sequence that matches
+the pattern with the given replacement string
+4)public String replaceFirst(String replacement): This method replaces the first subsequence of the input
+sequence that matches the pattern with the given replacement string
+5)public static String quoteReplacement(String s): This method returns a literal replacement String  for the Specified String
+this method also produces a String which will work the appendReplacement method as a literal replacement of the
+Matcher class

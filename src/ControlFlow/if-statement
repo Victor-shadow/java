@@ -1,0 +1,72 @@
+-The if statement is used to decide whether a certain statement or block of statements
+will be executed or not
+-If a certain condition is true, then a block of statements is executed otherwise not
+
+Syntax
+if(condition){
+ //statement to execute
+ //if condition is true
+ }
+
+Working of if statement
+i)Control falls into the if block
+ii)The flow jumps to Condition
+iii)Condition is tested
+-If condition yields to true, go to Step 4
+-if condition yields to false, go to Step 5
+iv)The if-block or the block inside the if is executed
+v)Flow steps out of the if block
+
+Operation: The condition after evaluation of if-statement will either be true or false
+The if statement in Java accepts a boolean value and if the value is true then it will execute
+the block of statements under it
+Note: If we don't provide the curly braces '{' and '}' after if(condition) then by default the
+if statement will consider the immediate one statement to be inside its block
+
+Example
+if(condition){
+   statement1;
+   statement2;
+   //Here if the condition is true, if block will consider the statement
+   //under it, i.e statement1 and statement2 will not be considered in the if block
+   //it will still be executed
+   //as it is not affected by any if condition
+
+   If else for boolean values
+   Input:
+   boolean a = true;
+   boolean b = false;
+
+
+class If{
+   public static void main(String[]args){
+       String str = "If statement";
+       int i = 4;
+       //if block
+       if(i == 4){
+       i++;
+       System.out.println(str);
+       }
+       //executed by default
+       System.out.println("i = " + i);
+  }
+}
+
+
+
+
+Advantages of if-else statement
+i. Conditional execution: The if-statement allows code to be executed conditionally based on the result
+of a Boolean expression. This provides a way to make decisions and control the flow of a program based o different
+inputs and conditions
+ii. Readability: The if-else statement makes code more readable by clearly indicating when a particular block of code
+should be executed.This makes it easier for others to understand and maintain code
+iii. Reusability: By using if-else statements, developers can write code that can be reused in
+different parts of the program. This reduces the amount of code that has to be written and maintained
+making the development process more efficient
+iv.Debugging:The if-else statement can help simplify the debugging process by making it easier to trace problems
+in the code.By clearly indicating, when a particular block of code should be executed, it is easier to determine why a particular piece of code
+is not working as expected
+v. Flexibility: The if-else statement provides a flexible way to control the flow of a program
+It allows developers to handle different scenarios and respond dynamically to changes in the program's
+input

@@ -1,0 +1,37 @@
+-Quantifiers  in Java allows users to specify  the number of occurrences to match against
+-These are used with regular expressions to specify the number of times a particular pattern
+or character can appear in an input
+
+Quantifiers                                                                 Description
+i)X*                                                                        Zero or more occurrences of X
+ii)X?                                                                       Zero or One occurrence of X
+iii)X+                                                                      One or more occurrences of X
+iv)X{n}                                                                     Exactly n occurrences of X
+v)X{n,}                                                                     At least n occurrences of X
+vi)X{n, m}                                                                  Count of occurrences of X is from n to m
+
+Types of Quantifiers in Java
+i)Greedy Quantifier
+-By default, quantifiers are greedy. Greedy quantifiers try to match the longest text that matches
+a given pattern
+-Greedy quantifiers work by first reading the entire string before trying any match
+-If the whole text does not match, remove the last character and try again, repeating the
+process until a match is found
+
+ii)Reluctant Quantifier
+-This quantifier uses the approach that is the opposite of the greedy quantifier
+It starts with the first character and then processes one character at a time
+
+
+iii)Possessive Quantifier
+-This quantifier matches as many characters as possible like a greedy quantifier. But if the entire String does not match
+then it doesn't try removing characters in the end
+
+Greedy Quantifiers                                            Possessive Quantifier
+i)Matches as much as possible                                 Matches as much as possible
+but allows backtracking if necessary                          without backtracking
+ii)Allows backtracking                                        Does not need backtracking
+iii)Default quantifiers:                                      Add a + after the quantifier
+(*, +, {}) are greedy                                         (*+, ++, {n,m} +)
+iv)Can be slower due to                                       Can be faster, but might fail to match
+backtracking                                                  in some cases

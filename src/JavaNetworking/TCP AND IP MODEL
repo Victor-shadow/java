@@ -1,0 +1,128 @@
+-The TCP/IP model is a framework that is used to model the communication in a network
+It is mainly a collection of network protocols and organization of these protocols in different
+layers for modeling the network
+*It has four layers, Application, Transport, Network/Internet and Network Access
+*While the OSI layer has seven layers, the 4 layer TCP/IP Model is simpler and used in
+current Internet and Networking Systems
+
+Role of TCP/IP
+-One of its main goals is to ensure that the data sent by the sender arrives safely and correctly
+at the receiver's end
+-To achieve this, data is broken down into smaller parts called packets before being sent
+These packets travel separately and are reassembled in the correct order when they reach the destination
+This helps to prevent errors and makes sure the message is complete and accurate
+
+
+Layers of TCP/IP Model
+i)Application Layer
+-The Application layer is the top layer of the TCP/IP model and the one closest to the user
+-This is where  all the apps that are used such as web browsers, email clients and file sharing tools
+connect to the network
+-It acts as a bridge between the software(Chrome, Whatsapp, Gmail) and lower layers of network that actually send and receive data
+It supports different protocols like HTTP(for websites) FTP(file transfers) SMTP(for emails),
+DNS(find website addresses)
+It also manages things like data formatting so that both sender and receiver understand the data
+encryption to keep data safe, and session management to keep track of ongoing sessions
+
+
+ii)Transport Layer
+-The transport layer is responsible for making sure that the data is sent reliably and in the correct order
+between devices
+-It checks the data that one sends  like a message, file, or video arrives safely and completely
+-This layer uses two main protocols: TCP and UDP  depending on whether the communication needs to be reliable
+or faster
+-TCP is used when the data needs to be correct and complete; loading a webpage and downloading a file
+It checks for errors and resends missing pieces to keep everything in order
+On the other hand UDP, is faster but does not guarantee delivery useful for things like
+live video or online games where speed matters more than perfect accuracy
+
+iii)Internet Layer
+-The Internet layer is used for finding the best path for data to travel across different networks
+so it can reach the right destination
+-It helps data packets to move from one network to another until they reach the correct device
+-This layer uses the Internet Protocol(IP) to give every device a unique IP address which helps to
+identify where data should go
+-The main job of this layer is routing deciding the best way data should travel
+It also takes care of packet forwarding (moving data from one point to  another)fragmentation(breaking  large data into smaller parts)
+
+
+iv)Network Access Layer
+-The Network Access Layer is the bottom layer of the TCP/IP model
+-It deals with the actual physical connection between devices on the same local network like computers
+connected by cables or communicating through wifi
+-This layer makes sure that data can travel over hardware, such as wire,switches or wireless signals
+-It also handles important tasks like using the MAC Address to indentify devices creating frames(the format used to send data over the physical link)
+and checking for basic errors during transmission
+
+                                      Sending Host                                           Receiving Host
+i)Application Layer                   Creates Request                                        Performs Request
+
+ii)Transport Layer                    TCP/UDP Segment                                        TCP/UDP Segment
+
+iii)Internet Layer                    IP Datagram                                            IP Datagram
+
+iv)Data Link Layer                    Frame                                                  Frame
+
+When Sending Data(From Sender to Receiver)
+Application Layer - Prepares user data using protocols like HTTP, FTP or SMTP
+Transport Layer(TCP/UDP) - Breaks data into segments  and ensures reliable TCP or fast UDP delivery
+Internet Layer(IP) - Adds IP addresses and decides the best route for each package
+Link Layer(Network Access Layer) - Converts packets into frames and sends them over the physical network
+
+When Receiving Data(At the Destination)
+i)Link Layer: Receives bits from the network and rebuilds frames to pass to the next layer
+ii)Internet Layer: Checks the IP address, removes the IP header and forwards data to the
+transport layer
+iii)Transport Layer: Reassembles segments, checks for errors, ensures data is complete
+iv)Application Layer: Delivers the final data to the correct application(display the web page on the browser)
+
+Why TCP/IP Is used over OSI Model
+TCP/IP is used over OSI  model because it is simpler, practical and widely adapted for real world networking
+and the internet
+
+OSI                                                  TCP/IP
+Application Layer                                    Application layer
+Presentation Layer                                   Transport Layer
+Session Layer                                        Network Layer
+Transport Layer                                      Network Access Layer
+Network Layer
+Data Link layer
+Physical Layer
+
+i)TCP/IP has only 4 layers, compared to 7 in OSI,  making it easier to understand and implement  in
+real systems
+
+ii)TCP/IP was designed based on working protocols, while the OSI model is more of a theoretical framework
+
+iii)TCP/IP adapts well to different hardware and networks and includes error handling, routing and
+congestion control
+
+iv)TCP/IP is open, free to use and not controlled by any single organization, helping it to gain
+universal acceptance
+
+v)The OSI model is great for education and design principles, but TCP/IP  is the one actually used in real
+world networking
+
+Advantages of TCP/IP Model
+i)Interoperability: The TCP/IP model allows different types of computers and networks to communicate with
+each other. promoting compatibility and cooperation among diverse systems
+ii)Scalability: TCP/IP is highly scalable, making it suitable for both small and large networks
+from local area networks(LAN) to wide area networks(WAN)  like the internet
+iii)Standardization: It is based on open standards and protocols ensuring that different devices and
+software can work together without compatibility issues
+iv)Flexibility: This model supports various routing protocols, data types  and communication methods
+making it adaptable to different networking needs
+v)Reliability: TCP/IP includes error-checking and retransmission features that enable reliable data transfers
+even over long distances and through various networking conditions
+
+Disadvantages of TCP/IP Model
+i)Security Concerns:TCP/IP was not originally designed with security in mind. While there are now many security protocols
+available such as (SSL/TLS) they have been added on top of the basic TCP/IP Model which can lead to
+vulnerabilities
+ii)Inefficiency for small networks: For very small networks, the overhead and complexity of the TCP/IP
+Model may be unnecessary and inefficient compared to simpler networking protocols
+iii)Linked by Address Space: Although IPv6 addresses this issue, the older IPv4 system has a limited
+address space, which can lead to issues while address exhaustion in larger
+networks
+iv)Data Overhead: TCP the transport protocol , includes a significant amount of overhead to ensure
+reliable transmission

@@ -1,0 +1,136 @@
+-Java uses the java.util.regex API for pattern matching with Regular Expressions
+To indicate any Syntax errors in a regular-expression pattern java provides a class called
+PatternSyntaxException
+
+PatternSyntaxException Class in Java
+-While writing regular expressions, to identify and throw any syntactical errors in the pattern
+PatternSyntaxException class is used
+-This is an unchecked exception available in java.util.regex package from java 1.4 version
+
+Syntax:
+public class PatternSyntaxException  extends IllegalArgumentException implements Serializable
+
+Hierarchy of PatternSyntaxException class
+java.lang.Object
+
+java.lang.Throwable
+
+java.lang.Exception
+
+java.lang.RuntimeException
+
+java.lang.IllegalArgumentException
+
+java.util.regex. PatternSyntaxException
+
+-The constructor of PatternSyntaxException class
+*To construct a new instance of PatternSyntaxException class;
+*PatternSyntaxException(String desc, String regex, int index)
+Parameters:
+i)desc: Description of the error
+ii)regex: The pattern which is incorrect
+iii)index: The approximate index of the error in the regex pattern or -1 if the index is not known
+
+Methods in PatternSyntaxException class
+Method                    Modifier                      Description
+I)getIndex()              int                           It returns the approximate index of the
+                                                        error in the pattern or -1 if the index is unknown
+
+II)getDescription()       String                        It returns the description of the error
+                                                        in the pattern
+
+III)getMessage()          String                        It returns the description of the Syntax error
+                                                        in the pattern and its index, the incorrect regular
+                                                        expression pattern and a visual indication of the
+                                                        error-index within the pattern in a full detailed
+                                                        message
+
+IV)getPattern()           String                        It returns the regular-expression pattern which is
+                                                        incorrect
+
+Inherited Methods  from java.lang.Throwable class
+Method Name                                       Modifier                           Description
+I)addSuppressed(Throwable exception)               void                              This method is thread-safe which appends
+                                                                                     the specific exception to the exceptions
+                                                                                     that were suppressed in order to deliver
+                                                                                     the exception
+
+II)getCause()                                     Throwable                          It returns the cause of this throwable
+                                                                                     or null if the cause is non-existent or
+                                                                                     unknown
+
+III)getStackTrace()                               StackTraceElement[]                It provides programmatic access  to the stack
+                                                                                     trace information printed by printStackTrace()
+                                                                                     method
+
+IV)initCause(Throwable cause)                      Throwable                         This method initializes the cause of this throwable
+                                                                                     to the specified value
+
+V)printStackTrace(PrintStream s)                   void                              Method prints the throwable  and its backtrace
+                                                                                     to the specified print stream
+
+VI)setStackTrace(StackTraceElement[]stackTrace)    void                              This method is designed for use by RPC Frameworks
+                                                                                     and other advanced systems which allows the client to
+                                                                                     override the default stack trace. It sets the stack trace
+                                                                                     elements that will be returned by getStackTrace() and printed
+                                                                                     by printStackTrace() and related methods
+
+VII)fillInStackTrace()                             Throwable                         This method records within this Throwable Object
+                                                                                     information about the current state of the stack frames for the
+                                                                                     current thread and fills in the execution stack trace
+
+VIII)getLocalizedMessage()                         String                            This method create a localized description  of this throwable
+
+IX)getSuppressed()                                 Throwable                         It returns an array containing all of the exceptions that were
+                                                                                     suppressed in order to deliver this exception
+
+X)printStackTrace()                                void                              It prints this throwable and its backtrace to the standard error
+                                                                                     stream
+
+XI)printStackTrace(PrintWriter s)                  void                              It prints this throwable and its backtrace to the specified
+                                                                                     print writer
+
+XII)toString()                                     String                            It returns a short description of this throwable with the name of the
+                                                                                     class of this object, ":"(a colon and a space)
+                                                                                     and the result of invoking this object's LocalizedMessage method
+
+
+
+Inherited Methods from java.lang.Object Class
+I)equals(Object obj)         boolean                      Indicates whether some other object is "equal to"
+                                                          this one or not
+II)wait()                    void                         It causes the current thread to wait until another
+                                                          thread invokes the notify() or notifyAll() method
+                                                          for this object
+III)wait(long timeout)       void                         It causes the current thread to wait until either another
+                                                          thread invokes the notify() and notifyAll() method for this
+                                                          object. or the amount of time that is specified  in the
+                                                          parameter has elapsed
+IV)notifyAll()               void                         It wakes up all the threads that are waiting on the
+                                                          object monitor
+V)hashCode()                 int                          It returns a hash code value for this object
+VI)clone()                  protected                     It creates and returns a copy of the object
+                             Object
+VII)finalize()              protected                     It is called by the garbage collector on an object when garbage collection
+                             void                         determines there are no more references to the object.We can perform
+                                                          cleanup operations before the object is irrevocably discarded
+
+VIII)wait(long timeout,        void                       It causes the current thread to wait until the other thread invokes
+int nanos)                                                the notify() or notifyAll() method  for this object
+                                                          or some other thread interrupts the current thread or a certain amount
+                                                          of real time that is specified has elapsed
+IX)notify()                   void                        It wakes up a single thread that is waiting for the object
+                                                          monitor
+X)getClass()                  Class<?>                    It returns the runtime class of this Object. The returned Class Object
+                                                          is the object that is locked by static synchronized methods of the
+                                                          represented class
+
+
+
+
+
+
+
+
+
+

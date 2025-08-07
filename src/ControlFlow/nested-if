@@ -1,0 +1,25 @@
+-Nested if in Java refers to having one if statement inside another if statement
+-If the outer condition is true, the inner conditions are checked and executed accordingly
+-Note:
+*Normal if condition checks condition independently which means  each condition works on its own
+*Whereas nested if checks conditions that depend on each other, which means one condition is only checked
+if another condition is true
+
+Syntax of Nested if
+if(condition 1){
+   if(condition 2){
+     if(condition 3){
+     //statements
+     }
+   }
+ }
+=If the outer condition satisfies then only the inner condition will be checked
+//Along with if condition, else condition can be executed
+
+Advantages
+It provides a clear structure for handling multiple related conditions
+-It ensures that inner conditions are evaluated only when necessary, improving efficiency
+
+Disadvantages
+-Overuse of this condition can lead to making code harder to read and maintain
+-It may lead to increased complexity if not structured properly

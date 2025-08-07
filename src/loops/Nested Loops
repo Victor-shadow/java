@@ -1,0 +1,42 @@
+-A nested loop means a loop statement inside another loop statement
+
+Nested For Loop
+for(initialization; condition; increment){
+   for(initialization; condition; increment){
+  //statement inside loop
+  }
+  //statement of outer loop
+}
+
+Nested While Loop
+while(condition){
+   while(condition){
+      //statement inside loop
+       }
+       //statement of outer loop
+   }
+
+
+Nested do while loop
+do {
+   do{
+     //statement of inside loop
+     }
+   while(condition);
+   //statement of outer loop
+   }
+   while(condition);
+
+
+Hybrid java nested loop
+do{
+  while(condition){
+      for(initialization; condition; increment){
+         //statement of inside for loop
+         }
+         //statement of inside while loop
+         }
+         //statement  of outer do-while loop
+         }while(condition);
+
+

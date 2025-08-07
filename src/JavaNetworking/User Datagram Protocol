@@ -1,0 +1,199 @@
+-User Datagram Protocol(UDP) is a Transport Layer protocol. UDP is part of the Internet Protocol suite, referred to as
+UDP/IP  suite
+-Unlike TCP, it is an unreliable and connectionless protocol. So there is no need to establish a connection
+before data transfer
+The UDP helps to establish low-latency and low-tolerating connections over the network
+-The UDP enables process-to-process communication
+
+User Datagram Protocol
+-User Datagram Protocol(UDP) is one of the core protocols of the Internet Protocol(IP) suite
+-It is a communication protocol used across the internet  for time-sensitive transmissions
+such as video playback or DNS lookups
+-Unlike Transmission control Protocol, UDP is a connectionless and does not guarantee delivery
+order or error checking, making it a lightweight and efficient option for certain types of data
+transmission
+
+UDP Header
+-UDP header is an 8-byte fixed and simple header, while for TCP it may vary from 20bytes to 60bytes
+The first 8 bytes, contain all necessary header information and the remaining part consists of data
+-UDP port number fields are each 16bits long, therefore the range of port numbers if defined from 0 to 65535
+port number 0 is reserved. Port numbers help to distinguish different user requests or processes
+
+     UDPHeader                                      UDP Data
+     Source port                                    Destination port
+     Length                                         Checksum
+
+i)Source port: It is a 2 Byte long field used to identify the port number of the source
+ii)Destination port: It is a 2 Byte long field, used to identify the port of the destined packet
+iii)Length: Length is the length of UDP including the header and the data. It is a 16-bits field
+iv)Checksum: Checksum is 2 Bytes long field. It is the 16-bit one's complement of the one's complement
+sum of the UDP header, the pseudo-header of information from the IP header, and the data, padded with
+zero octets at the end(if necessary) to make a multiple of two octets
+
+NOTE: Unlike TCP, the Checksum calculation is not mandatory in UDP. No error control or flow control
+is provided by UDP. Hence UDP, depends on IP and ICMP for error reporting
+Also UDP provides port numbers so that it can differentiate user requests
+
+Applications of UDP
+i)Used for simple request response communication when the size of data is less and hence there is lesser
+concern about flow and error control
+ii)It is a suitable protocol for multicasting as UDP supports packet switching
+iii)UDP is used for some routing update protocols like RoutingInformationProtocol
+RIP
+iv)Normally used for real time applications which cannot tolerate uneven delays between sections
+of a received message
+v)Voice Over Internet Protocol services such as Skype, Whatsapp use UDP for real time voice communication
+The delay in voice communication can be noticeable if packets are delayed due to
+congestion control, so UDP is used to ensure fast and efficient data transmission
+vi)Domain Name System: also uses UDP  for its query/response messages. DNS queries are typically small  and require a quick
+response time, making UDP a suitable protocol for this application
+vii)Dynamic Host Configuration Protocol: uses UDP to dynamically  assign IP addresses to devices on a network
+DHCP messages  are typically small, and the delay caused by packet loss or retransmission is generally not
+critical for the application
+Following Implementations use UDP as a transport layer protocol
+-Network Time Protocol
+-Domain Name Service
+-BOOTP, DHCP
+-Network News Protocol
+-Quote of the day protocol
+-TFTP, RTSP, RIP
+
+The application layer can do some task through UDP:
+Trace Route
+Record Route
+Timestamp
+UDP takes a datagram from a Network Layer  attaches its header and sends it to the user. So, it works fast
+
+TCP                                                                          UDP
+TCP is a connection-oriented protocol                                        UDP Is the Datagram oriented protocol
+Connection oriented means that the                                           This is because there is no overhead for
+communicating devices should establish                                       opening a connection, maintaining a connection
+a connection before transmitting data                                        or terminating a connection, UDP is efficient for
+and should close the connection after                                        broadcast and multicast  types of network
+transmitting the data                                                        transmission
+
+TCP is reliable as it guarantees the                                         The delivery of data to the destination
+delivery of data to the destination                                          cannot be guaranteed in a User Datagram
+router                                                                       Protocol
+
+TCP provides extensive error-checking                                        UDP has the only basic data checking
+mechanism. It is because it provides                                         mechanism using
+flow control and acknowledgement of data                                     checksum
+
+An acknowledgement segment is present                                        No acknowledgement segment is present
+
+Sequencing of data is a feature of                                           There is no sequencing of data in UDP,
+Transmission Control Protocol                                                If the order is required, it has to be managed by
+this means that  packets arrive in                                           the application layer
+order at the receiver
+
+TCP is comparatively lower than UDP                                          UDP is faster, simpler and more efficient
+
+Retransmission of lost packets                                               There is no retransmission of lost
+is possible in TCP, but not in                                               packets in UDP
+UDP
+
+TCP is heavy weight                                                          UDP is lightweight
+
+Uses handshake such as ACK, SYN                                              It is a connectionless protocol i.e
+SYN-ACK                                                                      No Handshake
+
+TCP does not support broadcasting                                            UDP supports broadcasting
+
+TCP is used by HTTP, HTTPS, FTP                                              UDP is used by  DNS, DHCP,  TFTP
+SMTP And Telnet                                                              SNMP RIP And VoIP
+
+TCP has a (20-60) bytes variable                                             UDP has 8 bytes
+length header                                                                fixed length header
+
+TCP connection is a byte stream                                              UDP is a message stream
+
+Low but higher than UDP                                                      Very Low
+
+This protocol is primarily utilized                                          This protocol is used in situations
+in situations when a safe and trustworthy                                    where quick communication is necessary
+communication procedure is necessary such                                    but where dependability is not of concern
+as in email, on the web surfing and in                                       as VoIP game streaming video and music streaming
+military services
+
+Advantages of UDP
+i)Speed: UDP is faster than TCP because it does not have the overhead of establishing a connection and ensuring reliable
+data delivery
+ii)Lower latency: Since there is no connection establishment, there is lower latency and faster response
+time
+iii)Simplicity: UDP has a simpler protocol design than TCP, making it easier to implement and manage it
+iv)Broadcast support: UDP supports broadcasting to multiple recipients, making it useful for applications such as
+video streaming and online gaming
+v)Smaller packet size: UDP uses smaller packet sizes than TCP which can reduce network congestion and improve overall
+network performance
+vi)User Datagram Protocol is more efficient in terms of latency and bandwidth
+
+Disadvantages of UDP
+i)No reliability: UDP does not guarantee delivery of packets  or order of delivery, which can lead to missing
+or duplicate data
+ii)No congestion control: UDP does not have congestion control, which means that it can send packets at a rate
+that can cause network congestion
+iii)Vulnerable to attacks: UDP is vulnerable to denial-of-services attack where an attacker can flood a network with UDP
+packets overwhelming the network causing it to crash
+iv)Limited Use cases: UDP is not suitable for applications that require reliable data delivery such as email or file transfers
+and better suited for applications that ca tolerate some data loss, such as Streaming and online gaming
+
+How is UDP used in DDos attacks
+-A UDP flood attack is a type of Distributed Denial of Service attack where an attacker sends a large number of
+User Datagram Protocol packets to a target port
+UDP protocol: Unlike TCP, UDP is connectionless and does not require a handshake  before data transfer. When a UDP  packet arrives at a server
+it checks the specified port for listening applications. If no app is found, the server sends an ICMP destination unreachable packet to the supposed sender
+(usually a random bystander due to a spoofed IP address)
+
+Attack Process:
+i)The attacker sends UDP packets with a spoofed IP sender addresses to random ports  on the target system
+ii)The server checks each incoming packet's port for a listening application
+(usually not found due to random port selection)
+iii)The server sends ICMP "destination unreachable" packets to the spoofed sender(random bystander)
+iv)The attackers flood the victim with UDP data packets, overwhelming its resources
+
+Mitigation: To protect against UDP flood attacks , monitoring network traffic for sudden spikes and implementing security measures
+are crucial. Organizations often use specialized tools and services to detect  and mitigate such attacks effectively
+
+UDP Pseudo Header
+-The purpose of using the pseudo header is to verify that the UDP packet has reached its correct
+destination
+-The correct destination consists of a specific machine and a specific protocol port number  within that machine
+
+                                    Source
+
+                                    Destination address
+
+           Zero                      Protocol                          UDP length
+
+UDP Pseudo header details
+-The UDP header  itself specifies only protocol port number thus to verify the destination  UDP
+on the sending machine computes a checksum that covers the destination  IP address as well as the UDP
+packet
+-At the ultimate destination, UDP software verifies the checksum using the destination IP address
+obtained from the header of the IP packet that carried the UDP message
+-If the checksum agrees, then it must be true, that the packet has reached the intended destination as well as the correct protocol
+port within that host
+
+User Interface
+-A user interface should allow the creation of new received ports , receive operations
+on the received ports that return the data octets is an indication of source port and source address
+and an operation that allows a datagram to be sent, specifying the data source and destination ports
+and address to be sent
+
+IP Interface
+i)The UDP module must be able to determine  the source and the destination internet address  and the
+protocol field from the internet header
+ii)One possible UDP/IP interface would return the whole internet datagram including the entire internet
+header in response to a received operation
+iii)Such an interface would also allow an UDP to pass a full internet datagram complete with the header
+to the IP to send. the IP would verify certain fields for consistency  and compute the internet header checksum
+iv)The IP interface allows the UDP module to interact with the network layer of the protocol stack
+which is responsible for routing  and delivering data across the network
+v)The IP interface provides a mechanism for the UDP module to communicate with other hosts
+on the network by providing access to the underlying IP protocol
+vi)The IP interface can be used by the UDP module to send and receive data packets over the network
+with the help of IP routing and addressing mechanisms
+
+
+

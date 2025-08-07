@@ -1,0 +1,21 @@
+-The pattern class in Java is used to define regular expressions to perform pattern matching
+on Strings
+-It is part of the java.util.regex package and it plays a key role in searching , replacing
+and manipulating Strings based on patterns
+-The Matcher class works together with pattern to perform regex operations like finding matches in a
+text
+
+Pattern class Structure
+-The Pattern class belongs to java.util.regex package and the package belongs to
+java.base(module)
+-The pattern class defines no constructors
+-The pattern is created using compile() factory method
+
+Syntax of Key Methods in a Pattern class
+1. compile(String pattern): Compiles the given regex into a Pattern object, which can be used for matching
+operations
+*static Pattern compile(String pattern)
+
+2. matcher(CharSequence input): Creates a Matcher object for a given input string
+The matcher is used for performing match operations like matches(), find(), replaceAll()
+Matcher matcher(CharSequence input)

@@ -1,0 +1,107 @@
+-java.lang.CharacterClass wraps the value of a primitive data type char to an object of datatype
+Character
+-This object contains a single field having the data type char
+-This class provides several methods  regarding character manipulations like conversion from lowercase
+to uppercase
+-Character Class is based on Unicode Standards to provide Character information
+
+Class Declaration
+public final class Character extends Object implements Serializable,Comparable
+
+Character Class Methods
+A)charCount()
+java.lang.charCount() method uses Unicode point to return the number of char values to represent argument
+char values
+A Unicode code point is used for character values in the range between  U+0000 and U+10FFFF
+and for 16-bit char values that are code units f the UTF-16 encoding
+
+Syntax:
+public static int charCount(int argchar)
+parameters: argchar- Unicode point of the character to be counted
+Return: 2 if the character is valid i.e or = to 0 x 1000
+
+B)charValue()
+The charValue() method returns primitive char value of defined Character object
+Syntax
+public char charValue()
+Return value: The primitive char value  of the specified Character object
+
+C)codePointAt()
+-The codePointAt(char[]array, int position) method returns Unicode Point of the character array
+present in the argumented position
+Syntax:
+public static int codePointAt(char[]array, int position)
+Parameters:
+array: character array
+position: The index of the character whose Unicode code point is needed
+
+Return value: The Unicode point of the character at the specified position
+
+D)codePointBefore()
+-The codePointBefore(char[]array, int position) method returns unicode  point of the Character array
+present but before the argumented position
+
+Syntax:
+*public static int codePointBefore(char[]array, int position)
+*public static int codePointBefore(char[]array, int position, int start)
+
+Parameters:
+array: The character array
+position: The index of the character whose preceding Unicode point is needed
+start: the start index of the character array(is optional)
+
+Return value: The Unicode Point of the character before the specified position
+
+E)codePointCount()
+The codePointCount() Method returns the number of Unicode point of the sub-character array
+Syntax
+:public static int codePointCount(char[]array, int start, int len)
+
+Parameters:
+array: the character array
+start: The starting index of the sub-array
+len: The length of the sub-array
+Return value: The number of Unicode Code points in the sub-array
+
+Exceptions:
+NullPointerException: if the character array is null
+IndexOutOfBoundsException: if the specified range is invalid
+
+F)compareTo()
+-The compareTo(Character argChar) method compares the given character with argumented character
+Syntax:
+public int compareTo(Character argChar)
+Parameters: argChar: The Character to be compared with
+
+Return value:
+= 0: if both characters are equal
+> 0: if the given character is greater
+< 0: If the argumented character is greater
+
+G)equals()
+-The equals() method compares the present char object  with the argumented char object
+Syntax
+public boolean equals(Object charObj)
+
+Parameter: charObj - char  object to compare with
+Returns true if both objects  are equal else false
+
+H)getNumericValue()
+-The getNumericValue(char arg) method returns int value for a specific Unicode character
+A-Z values range u0041 to u005A a-z value ranges from u0061 - u007A
+
+Syntax:
+public static int getNumericValue(char arg)
+-Parameters: arg: The char whose numeric value  is to be retrieved
+Return Value: The Integer value of the specified Unicode Character . If the character does not have
+a numeric value -1 is returned
+
+I)getType()
+-The getType(char arg) method identifies the general type of character  A - Z
+value ranges u0041 to u005A a-z values ranges U0061 to u007A
+
+Syntax
+public static int getType(char arg)
+Parameter arg: The char whose type category is to be identified
+Return value: An Integer value representing the character general type
+

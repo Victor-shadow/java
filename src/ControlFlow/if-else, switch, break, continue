@@ -1,0 +1,146 @@
+-A programming language uses control statements to control the flow of execution of a program
+based on certain conditions
+Java provides several control statements to manage program flow including:
+i)Conditional Statements: if, if-else, nested-if, if else-if
+ii)Switch Case: Fix value checks
+iii)Jump statements; break, continue, return
+
+Types of Decision making Statements
+-if
+-if-else
+-nested if
+-if-else-if
+-switch-case
+-jump-break, continue return
+
+Statement                                                                Use case
+if                                                                       Single condition check
+if-else                                                                  Two way decision
+nested-if                                                                Multi-level conditions
+if-else-if                                                               Multiple conditions
+switch-case                                                              Exact value matching
+break                                                                    Exit loop/switch
+continue                                                                 Skip iteration
+return                                                                   Exit method
+
+Java if statement
+-The if statement is the most simple decision making statement
+-It is used to decide whether a certain statement or a block of statements will be executed or not
+i.e if a certain condition is true then a block of statements is executed  otherwise not
+
+Syntax
+if(condition){
+   //Statements to execute if condition is true
+   }
+Here, the condition after evaluation will either be true or false.
+If statement accepts both boolean values - if the value is true then it will execute the block of statement
+under it. If it does not use curly braces{} only the next line after the if is considered as part of the block
+if(condition) //assume condition is true
+statement 1; //Belongs to the if block
+statement 2; Does not belong to the if block
+
+if the condition is True, statement 1 executes
+statement 2 runs no matter what because it is not part of the if block
+
+Java if else statement
+-The if statement alone tells us that if a condition is true it will execute a block of statements
+and if the condition is false it won't
+-We can use the else statement with the if statement to execute a block of code when the condition is false
+
+Syntax
+if(condition){
+  //Execute this block
+  //if the condition is true
+  }else{
+  //Execute this block
+  //if the condition is false
+  }
+
+Nested if statement
+-A nested if is an if statement that is the target of another if another if or else
+-Nested if statement means an if statement inside an if statement
+-Syntax
+if(condition 1){
+  //Executes when condition one is true
+  if(condition 2){
+  //Executes when condition two is true
+  }
+}
+
+Java if-else-if ladder
+-Here, a user can decide among multiple options
+-The if statements are executed from the top down
+-As soon as one of the conditions  controlling the if is true, the statement associated with 'if' is executed
+and the rest of the ladder is bypassed
+//if none of these conditions is true, then the final else statement will be executed
+There can be as many as 'else if' block associated with one 'if' block but only one 'else' block
+block is allowed with one 'if' statement
+
+Syntax
+if(condition 1){
+  //code to be executed if condition one is true
+  } else if(condition 2){
+  //code to be executed if condition two is true
+  } else {
+  //code to execute if the all conditions is false
+  }
+
+Java Switch case
+-The switch statement is a multi way branch statement
+-It provides an easy way to dispatch execution to different parts of the code based on the value
+of the expression
+
+Syntax
+switch(expression){
+case value 1:
+//code to be executed if expression ==  value1
+break;
+case value 2:
+//code to be executed if expression == value 2
+break;
+case value 3:
+//code to be executed if expression ==  value 3
+break;
+default:
+//code to be executed if no cases don't match
+
+//The expression can be type byte, short, int , char, or an enumeration
+Beginning with JDK7 the expression can be of type String
+//Duplicate case values are not allowed
+//The default statement is optional
+//The break statement is used inside the switch to terminate a statement sequence
+//The break statements are necessary without the break keyword,
+statements in switch blocks fall through
+//If the break keyword is omitted, execution will continue to the next case
+
+Jump statements
+Java supports three jump statements; break, continue and return
+These three statements transfer control to another part of the program
+Break: In Java a break is majorly used for
+:Terminate a sequence in a switch statement
+:To exit a loop
+:Used as a "civilized" form of goto
+
+Continue: Sometimes, it is useful to force an early iteration of a loop
+That is, you might want to continue running the loop but stop processing the remainder of the code
+in its body for this particular iteration
+//This is in effect, a goto just pass the body of the loop, to the loops end
+//The continue statement performs such an action
+
+Return Statement
+-The return statement is used to return explicitly from a method
+That is, it causes a program control to transfer back to the caller of the method
+
+if-else                                            Switch
+i)Suitable for conditional based checks            Best for exact value matching
+ii)More readable for a few conditions              More readable and efficient for many cases
+iii)Slower for many checks due to                  Faster and Optimized for handling many
+multiple conditions                                cases
+iv)Supports ranges and complex                     Only supports exact matches of values
+conditions
+
+Best Practices
+*Try avoid deep nesting
+*Allows include default in switch for unexpected cases
+*Prefer if-else for range checks
+*Use switch for multiple exact matches

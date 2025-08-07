@@ -1,0 +1,42 @@
+-Java while loop, is a control flow statement used to execute the block of statements repeatedly  until the given condition
+evaluates to false
+-Once the condition becomes false, the line immediately after the loop  gets executed
+
+Syntax of a while loop
+while(test_expression){
+   //statements
+   update_expression
+}
+
+Note:If we don't provide the curly braces '{' and '}' after while(condition) then by default the while
+statement will consider the immediate one statement to be inside its block
+
+Parts of Java While Loops
+Test expression: This condition is evaluated before each iteration. If it returns true, then the loop executes
+otherwise the loop exits
+i.e i<=5
+Update Expression: After executing the loop body, this expression increments and decrements the loop variable by some value
+i.e i++;
+
+i)Control enters the while loop
+ii)The condition is tested
+iii)if true, execute the body of the loop
+iv)If false, exit the loop
+v)After executing the body, update the loop variable
+vi)Repeat from step 2 until the condition is false
+
+while loop
+public class whileLoop{
+   public static void main(String[]args){
+        //initialize counter variable
+          int c = 1;
+          //while loop to print numbers from 1 to 5
+          while(c <= 5){
+            System.out.println(c);
+            //increment the counter
+            c++;
+            }
+    }
+}
+
+

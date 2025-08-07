@@ -1,0 +1,88 @@
+-In java, RegularExpressions is an API for defining String patterns that can be used to searching
+manipulating and editing strings in Java
+-Regex is widely used in defining constraints, Email validations and passwords
+-Regular Expressions in Java are provided under java.util.regex package
+
+Regex Classes and Interfaces
+i.Pattern class; Used for defining patterns
+ii.Matcher class: Used for performing match operations on text using patterns
+iii.PatternSyntaxExceptionClass: Used for indicating syntax errors  in a regular
+expression pattern
+iv.MatchResultInterface: Used for representing the result of a match
+operation
+
+Pattern class
+Methods
+1)compile(String regex): It is used to compile the given regular expression into a pattern
+2)compile(String regex, int flags): It is used to compile the given regular expression
+into a pattern with the given flags
+3)flags(): It is used to return this pattern's match flags
+4)matcher(CharSequence input): It is used to create a matcher that will match the given input
+against this pattern
+5)matches(String regex, CharSequence input): It is used to compile the given regular expression
+and attempts to match the given input against it
+6)pattern(): It is used to return the regular expression from which the pattern was compiled
+7)quote(String s): It is used to return the literal pattern String for the specified String
+8)split(CharSequence input): It is used to split the given input sequence around matches
+of this pattern
+9)split(CharSequence input, int limit): It is used to split the given input sequence around
+matches of this pattern.The limit parameter controls the number of times the pattern is applied
+10)toString(): It is used to return the string representation of the pattern
+
+Matcher class
+-This object is used to perform match operations for a Input String in Java
+thus interpreting the previously explained patterns
+-It does not define public constructors
+-This can be implemented by invoking the matcher() method on any pattern object
+
+Methods
+i)find(): It is mainly used for searching multiple occurrences of the regular expressions
+in the text
+ii)find(int start): It is used for searching occurrences of the regular expressions
+in the text starting from the given index
+iii)start(): It is used to get the starting index of a match that is being found using
+find() method
+iv)end(): It is used to get the end index of a match that is being found using
+find() method. It returns the index of the character  next to the last matching character
+v)groupCount(): It is used to find the total number of the matched subsequence
+vi)group(): It is used to find the matched subsequence
+vii)matches(): It is used to test whether the regular expression matches the pattern
+
+Note: T Pattern.matches() checks if the whole text matches with a pattern or not
+
+Regex Character class
+i)[xyz] - x, y or z
+ii)[^xyz] - Any other characters other than x, y and z
+iii)[a-z A-Z] - characters from range a to z or A to Z
+iv)[a-f[m-t]] - Union of a to f and m to t
+v)[a - z && p -y] - All the range of elements intersection between two ranges
+vi)[a - z && [^bc]] - a to z union except b and c
+vii)[a - z &&[^m-p]] - a to z union with except range m to p
+
+Regex Metacharacters
+i)X? - X appears once or not
+ii)X+ - X appears once or more than once
+iii)X* - X appears zero or not once
+iv)X{n} - X appears n times
+v)X{n,} - X appears n times or more than n
+vi)X{n,m} - X appears greater than or equal to n times and less than m times
+
+Regex Finder
+i). - any character
+ii)\d - any digits,[0-9]
+iii)\D - any non-digit, [^0-9]
+iv)\s - whitespace character[\t\n\x0B\f\r]
+v)\S - Non-whitespace character[^\S]
+vi)\w - word character[a-z, A-Z_0-9]
+vii)\W - non-word character[^\w]
+viii)\b - word boundary
+ix)\B -non-word boundary
+
+Note:
+i)We create a pattern object by calling Pattern.compile(), there is no constructor. compile()
+is a static method in the Pattern class
+ii)We create a matcher object using matcher() on objects of the Pattern class
+iii)Pattern.matches() is also a static method that is used to check a given text as a whole matches the
+pattern or not
+iv)find() is used to find multiple occurrences of patterns in a text
+v)We split a text based on a delimiter pattern using split method

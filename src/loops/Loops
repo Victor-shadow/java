@@ -1,0 +1,103 @@
+-Loops in programming allow a set of instructions to run multiple times based on a condition
+
+Loops in Java
+-for loop
+-while loop
+-do-while loop
+
+1.for loop
+-The for loop is used when we know the number of iterations(we know how many times to repeat a task)
+-The for statement includes: initialization, condition and increment/decrement in one line
+Syntax:
+for(initialization;condition;increment/decrement;){
+//code to be executed
+}
+
+
+-Initialization condition: Here, we initialize the variable in use. It marks the start of a for loop
+An already declared variable can be used or a variable can be declared, local to loop only
+-Testing condition: It is used for testing the exit condition of a for loop
+It must return a boolean value. It is also an Entry Control Loop as the condition is checked  prior to the
+execution of the loop statements
+-Statement execution: Once the condition is evaluated to true, the statements inside the loop body
+are executed
+-Increment/Decrement: It is used for updating the variable for next iteration
+-Loop termination:When the condition becomes false, the loop terminates marking the end of the cycle
+
+-There is another form of the for loop known as the Enhanced for loop(for-each loop)
+
+for-each loop
+-This loop is used to iterate over arrays or collections
+Syntax
+for(dataType variable:arrayOrCollection){
+//code to be executed
+}
+
+while loop
+-A while loop is used when we want to check the condition before executing the loop body
+Syntax
+while(condition){
+//code to be executed
+}
+
+-While loop starts with the checking of the Boolean condition, If it is evaluated to true,
+then the loop body statements are executed otherwise first statement following the loop is executed
+It is also called the Entry control loop
+-Once the condition is evaluated to true, the statements in the loop body are executed. Normally,
+the statements contain an update value for the variable being processed for the next iteration
+-When the condition becomes false, the loop terminates which marks the end of its life cycle
+
+do while loop
+-The do-while loop ensures that the code block executes at least once before checking the
+condition
+Syntax
+do{
+//code to be executed
+}
+
+-do while loop starts with the execution of the statement. There is no checking of the condition for the
+first time
+-After the execution of the statements, and update of the variable value; the condition is checked for true or false
+If it evaluates to true, next iteration of loop starts
+-When the condition becomes false, the loop terminates which marks the end of the life
+cycle
+-It is important to note that the do-while loop will execute its statements at least once
+before any condition is checked
+
+Common Loop mistakes and How to avoid them
+-If loops are not used correctly, they can introduce pitfalls and bugs that affect code performance
+readability and functionality
+
+-Infinite loops
+*This is where the loop fails to exit and runs for an infinite time
+-This happens when a condition fails for a particular reason
+
+Types of infinite loops
+i)infinite for loops
+ii)infinite while loops
+
+Off-By-One Error
+-They are caused when the loop runs one more or one fewer times than you wanted
+-It basically happens, when the condition in the loop is not set correctly
+
+Modify Loop variables inside the loop
+-When we change the loop condition(like i) inside the loop, it can cause the loop to skip certain
+iterations or behave in unexpected ways
+-This might lead to errors or unexpected behaviour
+
+Empty Loop body
+-An empty loop body occurs when a loop is written to iterate but does not perform any operations
+inside the loop
+
+Loop type                When to Use                       Condition checking                             Executed At Least Once
+i)for loop               When you want exact               Before loop body,                              no
+                         iterations                        it is called Entry-controlled
+
+ii)while loop            When you need condition           Before loop body,                              no
+                         check first                       it is called Entry-controlled
+
+iii)do-while            When you need to at least          After loop body, it is                         yes
+loop                    run once                           called Exit controlled
+
+iv)for-each             When you process all               Internally handled                             no
+loop                    collection items

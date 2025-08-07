@@ -1,0 +1,57 @@
+-Socket programming in Java allows different programs to communicate with each other over
+a network whether they are running on the same machine or different ones
+-A "socket" is an endpoint for sending and receiving data across a network
+
+Client Side Programming
+1. Establish a Socket Connection
+-To connect to another machine we need a socket connection
+A socket connection means that both machines know each other's IP addresses
+and TCP port
+The java.net socket class is used to create a socket
+Socket socket = new Socket("127.0.0.1", 5000)
+The first argument: The IP address of the Server  i.e 127.0.0.1 is the IP address of the local host
+where code will run on a single stand-alone machine
+The second argument: The TCP port number(A number representing  which application to run on a server)
+HTTP runs on port 80, Port number can be from 0 to 65535)
+
+2. Communication
+-To exchange data over a socket connection ,streams are used for input and output
+Input Stream: Reads data coming from the socket
+Output Stream: Sends data through the socket
+
+//Example to access these streams
+//to read data
+InputStream input = socket.getInputStream();
+//to send data
+OutputStream output = socket.getOutputStream();
+
+3. Closing the Connection
+-The socket connection is closed explicitly once the message to the server is sent
+
+Server Side Programming
+-1. Establish a Socket Connection
+-To create a server application two sockets are needed:
+ServerSocket:  This socket waits for incoming client requests. It listens for connection on a specific
+port
+Socket: Once the connection is established, the server uses this socket to communicate with the
+client
+
+-2.Communication
+-Once the connection is established, you can send and receive data through the socket using streams
+-The getOutputStream() method is used to send data to the client
+
+-3. Close the Communication
+-Once communication is finished, it is important to close the socket  and the input/output streams
+to free up resources
+
+Note:
+-Server application makes a Server Socket on a Specific port which is 5000
+This starts the server listening for client requests coming in for port 5000
+-Then server makes a new socket to communicate with the client
+socket = server.accept()
+-The accept() method blocks until  a client connects to the server
+-Then we take the input from the socket using getInputStream() method
+Our Server keeps receiving messages until client sends "Over"
+-Close the connection by closing the socket and the input stream
+-To run the client and the server application, compile both of them Then first run the server application
+then run the client application

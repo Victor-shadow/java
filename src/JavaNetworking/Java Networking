@@ -1,0 +1,296 @@
+-Networking occurs when computers, laptops, desktops,servers, smartphones, and tablets and an externally-expanding arrangement
+of IoT gadgets such as cameras,door locks,doorbells, refrigerators, audio/visual systems, thermostats and various sensors are
+sharing information and data with each other
+
+-Network programming  associates with writing programs that can be executed over various computer devices
+in which all the devices are connected to each other to share resources using a network
+
+Java Networking
+-Networking supplements a lot of power to simple programs. With networks, a single program can regain information stored
+in millions of computers positioned anywhere
+-Java Networking is a notion of combining two or more computing devices together to share a
+resource
+All the java programs communicates over a network are done at the application layer. The java.net package of J2SE API comprises
+various classes and interfaces that execute the low level communication features, enabling the user to
+formulate programs that focus on resolving the problem
+
+Common Network Protocols
+The java.net package of the Java programming language includes various classes and interfaces that provide an easy-to-use means
+to access network resources
+Other than classes and interfaces, the java.net package also provides support for the two well known network protocols
+These are:
+i)Transmission Control Protocol(TCP): It allows secure communication between two applications
+TCP is a connection-oriented protocol which means that once connection is established, data can be transmitted in two directions
+This protocol is typically used over the Internet Protocol. Therefore TCP is also referred to as TCP/IP
+TCP has in built methods to examine for errors and ensure the delivery of data in the order  it was sent,  making it a complete protocol
+for transporting information like still images, data files and web pages
+ii)User Datagram Protocol(UDP) - It is a connection-less protocol that allows data packages to be transmitted between two different applications
+UDP Is a simpler Internet Protocol in which error-checking and recovery services are not required. In UDP there is no overhead for opening a connection
+maintaining a connection, or terminating a connection. In UDP, the data is continuously sent to the recipient, whether they receive it or not
+
+Java Networking Terminology
+i)IP Address: An IP Address is an unique address that distinguishes a device on the internet or a local network
+IP Stands for "InternetProtocol". It comprises a set of rules governing the format of data sent via the internet or local network
+IP Address is referred to as a logical address that can be modified. It is composed of octets
+The range of each octet varies from 0 to 255
+Range of the IP Address: 0.0.0.0 to 255.255.255.255
+i.e 192.168.01
+
+ii)Port Number: A port number is a method to recognize a particular process connecting internet or other network information
+when it reaches a server. The port number is used to identify different applications uniquely
+The port number  behaves as a communication endpoint among applications
+The port number is correlated with the IPAddress for transmission and communication among two applications. There are 65,535 port numbers but not all are used everyday
+
+iii)Protocol: A network protocol is an organized set of commands that define how data is transmitted between different devices
+in the same network. Network protocols are the reason through which a user can easily communicate with people all over the world and thus
+play a critical role in digital communication i.e TCP, FTP, POP
+
+iv)MAC Address: MAC Address stands for Media Access Control address. It is a bizarre identifier that is allocated to a NIC(NetworkInterfaceController). It contains a 48 bitor 64 bit address
+which is combined by the network adapter. MAC Address can be in hexadecimal composition. In simple words, A MACAddress is a unique number
+that is used to track a device in a network
+
+v)Socket: A socket is one endpoint of a two-way communication between two applications running on a network
+The socket mechanism presents a method of inter-process communication(IPC) by setting named contact points
+between which the communication occurs.A socket is tied to a port number so that the TCP layer can recognize the application
+to which data is intended to be sent
+
+vi)Connection-Oriented and connection-less protocol: In a connection oriented service, the user must establish  a connection before
+starting the communication. When the connection is established, the user can send the message or information and after this, they can release the
+connection. However, in connectionless protocol, the data is transported in one route from source to destination without verifying that the destination
+is still there or not or if it ready to receive the message
+Authentication is not needed in a connectionless protocol:
+Connection-oriented Protocol: Transmission Control Protocol(TCP)
+Connectionless Protocol: User Datagram Protocol
+
+Java Networking classes
+-The java.net package of Java programming language includes various classes that provide an easy-to-use means  to access network resources
+The classes covered in java.net package are:
+1)CacheRequest: - The CacheRequest class is used in java whenever there is need to store resources
+in ResponseCache. The objects of this class provide an edge for the OutputStream object to store resource data
+into the cache
+
+2)CookieHandler: - The CookieHandler class is used in java to implement a callback mechanism  for securing up an HTTP state management policy
+implementation inside the HTTP protocol handler. The HTTP state management mechanism specifies the mechanism
+on how to make HTTP requests and responses
+
+3)CookieManager: - The Cookie Manager class is used to provide a precise implementation of the CookieHandler. This class
+separates the storage of cookies from the policy surrounding accepting and rejecting cookies
+A cookie manager comprises of a CookieStore and a CookiePolicy
+
+4)DatagramPacket: - The DatagramPacket class is used to provide a facility for the connectionless transfer of messages from on system to another
+This class provides tools for the production of datagram packets for connectionless transmission by applying the datagram
+socket class
+
+5)InetAddress: - The InetAddressClass is used to provide methods to get the IPAddress of any hostname
+An IPAddress is expressed by a 32-bit or 128-bit unsigned number. InetAddress can handle both IPV4 and IPV6
+addresses
+
+6)ServerSocket: -The ServerSocket class is used for implementing system-independent implementation of the server side of a client/server
+Socket Connection. The constructor for the ServerSocket class throws an exception  if it can't listen on the specified port
+-It will throw an exception if the port is already being used
+
+7)Socket: - The socket class is used to create socket objects that help the user in implementing the fundamental socket operations
+The users can implement various networking actions such as sending , reading data , and closing connections
+Each socket object built using java.net.Socket class has been connected exactly with 1 remote
+host for connecting to another host. A user, must create a new socket object
+
+8)Datagram Socket: - The DatagramSocket class is a network socket that provides a connectionless point for sending and
+Every packet sent from the datagram socket is individually routed and delivered. It can be further be practiced for transmitting and accepting
+broadcast information. DatagramSocket is Java's mechanism for providing network communication  via UDP instead of TCP
+
+9)Proxy: - A proxy is a changeless object and a kind of tool or method or program or system, which serves to preserve data of all
+users and computers. It behaves like a wall  between computers  and internet users. A Proxy Object represents the Proxy Settings  to be applied
+within a connection
+
+10)URL: - The URL class in java, is the entry point to any available sources in the internet. A Class URL describes a Uniform Resource Locator, which is a
+signal to a resource on the World Wide Web. A source can denote as a simple file or directory  or it can indicate a more difficult object
+such as a query to the database or a search engine
+
+11)URL connection: - The URLConnection class in Java is an abstract class describing a connection of a resource as defined  by a similar URL
+The URLConnection class is used for assisting two distinct yet  interrelated purposes
+Firstly, it provides control on interaction, with a server(especially an HTTP Server)
+than a URL class. Furthermore, with a URLConnection a user can verify the header transferred by the server
+and can react consequently. A user can also configure a header fields used in client requests using URL connection
+
+Java Networking Interfaces
+-The java.net package of the Java programming language  includes various interfaces also that provide an easy-to-use
+means to access network resources
+-The interfaces included in the java.net package are as:
+
+i)Cookie policy: the CookiePolicy interface in the java.net package provides the classes for implementing various networking
+applications. It decides which cookies should be accepted and which should be rejected. In Cookie policy there are three predefined
+policy implementations:
+ACCEPT_ALL, ACCEPT_NONE, ACCEPT_ORIGINAL_SERVER
+
+ii)Cookie store: A CookieStore is an interface that describes a storage space for cookies . CookieManager combines the cookies to the CookieStore
+for each HTTP response and recovers cookies for the CookieStore for each HTTP request
+
+iii)FileNameMap: The FileNameMap interface is an uncomplicated interface that implements a tool to outline
+a file name and a MIME type string.FileNameMap charges a filename map(known as a mimetable)
+from a data file
+
+iv)Socket Option: The SocketOption Interface helps the users to control  the behaviour of sockets. Often, it is essential
+to develop necessary features in Sockets. SocketOption allows one to set various standard options
+
+v)SocketImplFactory: - The SocketImplFactory is an interface that defines a factory for SocketImpl instances
+It is used by the socket class to create socket implementations that implement various policies
+
+vi)ProtocolFamily: - This interface represents a family of communication protocols
+The ProtocolFamily Interface  contains a method known as name(), which returns the name of the protocol
+family
+
+Socket Programming
+-Java Socket Programming, is practiced for communication between  the applications working on different JRE
+-Sockets implement the communication tool between two computers using TCP. Java Socket Programming can either be
+connection oriented or connection-less
+-In Socket programming, Socket and ServerSocket classes are managed for connection-oriented programming
+-However, DatagramSocket and DatagramPacket classes are utilized for connection-less socket programming
+
+A client application generates a socket on its end of the communication and strives to combine
+that socket with a server
+-When the connection is established, the server generates an object of socket class on its communication end
+The client and server can now communicate by writing to and reading from the socket
+
+The java.net.Socket class describes a socket and the java.net.ServerSocket class implements a tool for the server program
+to host clients  and build connections with them
+
+-Steps to establish a TCP connection  between two computing devices  using Socket Programming
+i)Step 1: The Server instantiates a ServerSocket Object, indicating at which port number  communication will occur
+
+ii)After instantiating the ServerSocket object, the server requests  the accept() method  of the ServerSocket class
+This program pauses until a client connects  to the given server at a given port
+
+iii)After the server is idling, a client instantiates an object of Socket class,  defining a server name  and the port number
+to connect to
+
+iv)The constructor of the Socket class strives to connect to the client and the designated server  and the port number
+If the communication is authenticated, the client port  with has a Socket object proficient  in interacting with the server
+
+v)On the server side, accept() method returns a reference to  a new socket  connected to a client
+socket
+
+After the connections are stabilized, communication can happen using I/OStreams
+Each object of a socket class, has both an OutputStream and an InputStream. The Client's OutputStream
+is correlated to the server's InputStream and the Client's InputStream is combined with the server
+OutputStream. TransmissionControlProtocol is a two way communication protocol
+Hence information can be transmitted over both streams at the corresponding time
+
+
+Socket Class
+-The socket class is used to create socket objects that helps users in implementing  all fundamental
+socket operations
+-The users can implement various networking actions such as sending, reading data, and closing connections
+-Each socket object created using java.net Socket class has been correlated specifically with 1 remote host
+If a user wants to connect to another host, then they must build a new socket object
+
+Methods of Socket Class
+i)public void connect(SocketAddress host, int timeout): This method is used  to connect to the socket
+to the particularized host. This method is required only when the user instantiates the Socket applying
+the no-argument constructor
+
+ii)public int getPort(): This method is used to return the port to which the socket is pinned on the
+remote machine
+
+iii)publicInetAddress getInetAddress(): This method is used to return the location of the other computer
+to which the socket is connected
+
+iv)public int getLocalPort(): This method is used to return the port to which the socket is joined
+on the local machine
+
+v)public socketAddress getRemoteSocketAddress(): This method returns the location of the remote
+socket
+
+vi)public InputStream getInputStream(): This method is used to return the input stream of the socket
+This input stream will be combined with the output stream of the remote socket
+
+vii)public OutputStream getOutputStream(): This method is used to return the Output Stream of the socket
+The output stream is combined with the input Stream of the remote socket
+
+viii)public void close(): This method is used to close the socket, which causes the object of the socket class
+to no longer be able to connect again to any server
+
+
+ServerSocket Class
+-The ServerSocketClass is used for providing system independent implementation of the server side of a client/server Socket Connection
+-the Constructor for ServerSocket class class throws an Exception  if it can't listen to the specified port
+i.e It will throw an exception if the port is already in use
+
+Methods of ServerSocket Class
+i)public int getLocalPort() - This method is used to return the port  that the server socket is monitoring on
+This method is beneficial if the user passed 0 as the port number in a constructor and lets the server
+find the port
+
+ii)public Socket accept() - This method waits for an incoming client. This method is blocked till either the client
+combines to the server on the specified port or the socket times out, considering that the timeout value has been set
+using the setSoTimeout() method. Otherwise, this method will be blocked immediately
+
+iii)public void setSoTimeout(int timeout): This method is used to set the timeout  value for the time in which the server socket
+pauses for a client during the accept() method
+
+iv)public void bind(SocketAddress host, int backlog): This method is used to bind the socket to the particularized server
+and port in the object of SocketAddress. The user should use this method if they have instantiated the ServerSocket using the
+no-argument constructor
+
+
+InetAddress
+-The InetAddress class is used to provide methods to get the IP Address of any host name
+-An IPAddress is expressed by 32-bit or 128-bit unsigned number
+-An object of InetAddress describes the IP Address with its analogous hostname, InetAddress can control
+both IPv4 and IPv6 addresses
+There are two different types of addresses
+Unicast: It is a identifier for a single interface
+Multicast: It is an identifier for a collection of interfaces
+
+Methods of InetAddress class
+i)static InetAddress getByAddress(byte[]address): This method is used  to return an object of the InetAddress class
+provided the raw IP Address
+
+ii)static InetAddress getByAddress(String host, byte[]address): This method is used to create an InetAddress based on the given
+Hostname and IP address
+
+iii)static InetAddress getByName(String host): This method is used to determine the IPAddress  of the host
+when the host name is given
+
+iv)static InetAddress InetAddress getLocalHost(): This method is used to return the local host
+
+v)String getHostName(): This method is used to get the name of the IP address
+
+vi)String getHostAddress(): This method returns the IP Address in the form of a String
+in a textual display
+
+vii)String toString(): This method is used to convert the IP address to a String
+
+Url Class
+-The URL  class in Java is the entry point to any available sources on the internet
+-A class URL describes the Uniform Resource Locator, which is a signal to a "resource"  on the World Wide Web
+A source can denote a simple file or directory or it can indicate a more difficult object
+such as a query to a database or a search engine
+-URL  is a string of text that  recognizes all sources on the internet showing us the address
+of the source and how to interact with it  and recover something in it
+
+Components of an URL
+1.Protocol: The protocol in an URL defines how information is transported among the host and a client(web browser)
+
+2.Hostname: The hostname is the name of the device on the resource exists
+
+3.File Name: The file name is the pathname  to the file on the device
+
+4.Port Number: The port number is used to identify different applications uniquely. It is typically
+optional
+
+Methods of URL class
+i)public String getProtocol(); This method returns  the protocol that is being used by the URL
+
+ii)public String getHost(): The method returns the hostname of the URL in an IPv6 composition
+
+iii)public int getPort(): This method returns the port associated with the protocol specified specified by the
+URL
+
+iv)public String getFile():  This method returns the Filename
+
+v)public String getPath(): This method returns the path of the URL, or null if empty
+
+vi)public String toString(): This method is used to return the String representation of the provided
+URL object
+
+vii)public int getDefaultPort(): This method returns the default port used

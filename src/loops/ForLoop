@@ -1,0 +1,88 @@
+-Java for loop is a control statement that allows code to be executed repeatedly based on a
+given condition
+-The for loop in Java  provides a efficient way to iterate over a range of values, execute code
+multiple times, or traverse arrays or collections
+
+//For loop
+class Main{
+    public static void main(String[]args){
+         /for loop to print numbers  from 1 to 5
+         for(int i = 1; i <= 5; i++){
+             System.out.println(" " + i);
+             }
+           System.out.println("The loop has ended");
+           }
+        }
+
+i)The program starts
+ii)The for loop initializes i  to 1
+iii)Condition i<= 5 is checked
+if true:
+Statement inside the loop executes, printing the current value of i
+increment i by 1
+if false:
+Loop terminates and the program continues
+
+iv) Repeat until i becomes 6, at which point the condition fails, and the  "loop has ended"
+is printed
+
+For loop in java
+-for(initialization expression; test expression;update expression){
+//body of the loop
+//statements to execute
+}
+
+Working
+-Control enters the loop
+-Initialization is executed once  at the beginning of the loop
+-The condition is evaluated
+*If true control moves to Step 4
+*If false, control jumps to step 7
+-The body of the loop is executed
+-Control moves to the update step
+-After Update, the flow returns to the condition(Step 3) and repeats the process
+-Once the condition becomes false, the control exits the for loop, the statements outside
+the loop are executed
+
+Java for loops is divided into various parts:
+Initialization Expression:
+-Initializes the loop variable. This is executed once at the start of the loop
+int i = 0;
+
+Test Expression
+-Tests the loop condition. If true the loop body is executed, otherwise the loop terminates
+i <= 10;
+
+Update Expression
+-After executing the loop body, this expression increments/decrements the loop variable by some
+value
+i++;
+
+FOR LOOP TO PRINT STRING
+-class Main{
+   public static void main(String[]args){
+       //write a for loop
+       //to print "Hello World" five times
+       for(int i = 1; i <= 5; i++){
+       System.out.println("Hello World");
+       }
+    }
+
+
+Infinite Loop
+-An infinite loop  occurs when the loop's condition never becomes false
+Example
+class Loop{
+   public static void main(String[]args){
+   i >= 1 is always true
+      for(int i =  1; i >= 1; i++){
+       System.out.println("Infinite loop " + i);
+       }
+   }
+}
+
+Advantage of a For loop
+-This is ideal for iterating over a known range or collection
+-Efficient syntax for initialization, condition checking and incrementing
+-Easy to control the number of iterations
+-Efficient for looping through arrays and collections

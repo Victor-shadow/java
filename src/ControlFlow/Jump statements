@@ -1,0 +1,213 @@
+-Jump statements are control statements that transfer execution control from one point to another point in a program
+-There are three jump statements that are provided in the Java Programming language
+i)Break statement
+ii)Continue statement
+iii)Return Statement
+
+
+
+//Break Statement
+i)Using Break statement to exit a loop
+//In Java the break statement is used to terminate the execution of the nearest looping statement or switch statement
+//The break statement is widely used with the switch statement, for loop, while loop, do-while loop
+Example:
+import java.io.*;
+
+class Break{
+   public static void main(String[]args){
+       int n = 10;
+       for(int i = 0; i < n; i++){
+          if(i == 6){
+            break;
+            System.out.println(i);
+            }
+       }
+ }
+
+ Use break as a form of goto
+-Java does not have the goto statement because it has an unstructured way to alter the flow of the program
+ execution
+-Java illustrates an extended form of the break statement
+-This form of break works with the label
+-The label is a name of a label that identifies a statement or a block of code
+
+Syntax
+break label;
+-When this form of break executes, control jumps out of the labeled statement or block
+
+
+
+The Break Statement in Java is a control flow statement  used to terminate loops and switch statements
+-As soon as the break statement is encountered within a loop the loop iterations stop there
+the control returns from the loop immediately to the first statement after the loop
+
+Syntax of break statement
+break;
+The break statements are used in situations when one is not sure about the actual number of iterations
+for the loop or one wants to terminate the loop based on some condition
+
+Working of Break Statement
+-In a Switch statement: The break exits the switch block and prevents any further cases from being
+executed once a case is mentioned
+-In a loop: The break statements terminates the loop execution, and control passes to the next
+statement after the loop
+
+
+The break statement can be used in a labeled block("goto" equivalent) to exit from nested blocks
+
+Using Break to Exit a loop
+-Using break, we can force immediate termination of a loop, bypassing a conditional expression and any
+remaining code in the body of the loop
+Note: Break when used inside a set of nested loop it will break out the innermost loop
+
+Break Statements in Labeled blocks
+-Java allows using block with labels  to exit from nested blocks
+-It is often referred to the alternative of goto statement
+
+Syntax
+label_name:{
+   //Block of Statements break label_name;
+   "label_name"}
+
+
+Summary
+-In Loops: The break statement is used to exit a loop early
+-In Switch cases: It is used to exit a switch block after executing a case
+-In Labeled Blocks: It can be used to exit nested blocks of code, providing structured control flow
+without using unstructured goto
+
+Continue
+//The continue statement pushes the next repetition of the loop to take place, hoping any code
+//between itself and the conditional expression that controls the loop
+
+-In java the continue statement is used inside the loops such as for, while and do-while loop
+to skip the current iteration and move directly to the next iteration in the loop
+
+When Continue Statements are used in Java
+-The continue statement is used in Java when we want to skip a particular condition and continue
+with the rest of the execution
+-Java continue statements are used for all types of loops but it is generally used in for, while and do-while
+loops
+-In the case of a for loop, the continue keyword forces control to jump immediately to the
+update statement
+-In the case of a while loop or do-while loop, control immediately jumps into the Boolean expression
+
+Return
+-return keyword in Java is a reserved keyword which is used to exit from a method
+with or without a value
+//The "return" keyword can help to transfer control  from one method to the method that called it
+//Since control jumps from one part of the program to another, the return is also a jump statement
+"return" is a reserved keyword we can't use it as an identifier
+It is used to exit from a method, with or without value
+-The usage of the return keyword can be categorized into:
+i)Methods returning a value
+ii)Methods not returning a value
+
+Methods Returning a value
+-For methods that define a return type, the return statement must be immediately followed
+by a return value
+
+Methods not returning a value
+-For methods that do not return a value, the return statement can be skipped
+Method Without return in a void function
+Method with Void return Type
+
+Unreachable Return Statements cause Compile-Time Error
+public class Return{
+   //Helper method with void return type
+   void demoFunc(double j){
+       //Exit the method
+       return;
+       //This results in a compile-time error as it is unreachable
+       ++j;
+       }
+   public static void main(String[]args){
+      //invoke the method
+      new Return().demoFunc(5);
+      }
+  }
+
+Switch Statements
+-The switch statement in Java is a multi-way branch statement
+-The Java switch statement executes one statement from multiple conditions
+-It is an alternative to an if-else-if ladder statement, It provides an easy way to dispatch execution
+to different parts of the code based on the value of the expression
+-The expression can be of type byte, short, char, int ,long, enums, String or wrapper classes(Integer, Short, Byte, Long)
+
+Syntax of Switch Statement
+switch(expression){
+case 1:
+//Statements
+break; //break is optional
+
+case 2:
+//statements
+break; //break is optional;
+
+default:
+//default statement
+}
+
+//Rules for Switch Statement
+-Case values must be constants or literals and of the same type as the switch expression
+-Duplicate case values are not allowed
+-The break statement is used to exit from the switch block. it is optional but recommended
+to prevent fall-through
+-The default case is optional and executes if no case matches the switch expression
+It can appear anywhere within the switch block
+
+Note:
+-Starting from Java 7, switch statements can use String type values. They can also handle Wrapper classes
+like Integer, Short, Byte, Long
+-Java switch expression must be of byte, short, int, long(With its wrapper types)
+enums and strings. Beginning with JDK7, it also works with enumerated types (Enums) in Java, the String class
+Wrapper classes
+
+Note: The Switch statement is a fall through statement that means it executes all the statements if break keyword is not used
+so it is essential to use break statement inside each case
+
+Nested Switch Statements
+-We can use a switch as part of the statement sequence of an outer switch
+-This is called a nested switch
+Since a switch statement defines its block. no conflicts arise between the case constants
+in the inner switch and those in the outer switch
+
+Enum in Switch Statements
+-Enums in java are a powerful feature used to represent a fixed set of constants
+They can be used in Switch statements for better type safety and readability
+
+Default Statement  in Java Switch case
+-The default case in a switch statement specifies the code to run if no other cases match
+-It can be placed at any position in the switch  block but is commonly placed at the end
+
+Case label variations
+-Case labels and switch arguments can be constant expressions
+-The switch arguments can be a variable expression but the case labels must be constant expressions
+
+Case label cannot be a variable
+-it must be a constant variable
+import java.io.*;
+
+class Main {
+    public static void main(String[] args)
+    {
+        int x = 2;
+        int y = 1;
+        switch (x) {
+        case 1:
+            System.out.println(1);
+            break;
+        case 2:
+            System.out.println(2);
+            break;
+        case x + y:
+            System.out.println(3);
+            break;
+        default:
+            System.out.println("Default");
+        }
+    }
+}
+Java Wrapper in Switch Statements
+-Java allows the use of wrapper classes(Integer, Short, Byte, Long, Character) in switch statements
+-This provides flexibility when dealing with primitive data types and their corresponding wrapper types

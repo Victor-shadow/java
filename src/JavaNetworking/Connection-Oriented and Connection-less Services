@@ -1,0 +1,121 @@
+-In computer networks, communication between devices occurs using two types of services
+connection-oriented and connectionless
+-These services define how data is transferred between a source and destination
+Connection-oriented services establish a dedicated connection before data transfer to enable reliability
+In contrast, connectionless services do not establish a connection, sending data without acknowledgement
+or error correction
+
+Connection-Oriented Service
+-Connection-oriented service involve setting up a dedicated path between the source  and destination before
+data transfer begins
+-These services ensure that data is delivered in the correct sequence without errors
+-In a connection-oriented service , the Handshake method is used to establish the connection
+between the sender and receiver
+-Before data transmission starts, connection-oriented services create a dedicated communication
+channel  between the sender and the recipient
+-As the connection is kept open until all data is successfully transferred, this guarantees dependable
+data delivery
+
+Examples of Connection-Oriented Service
+i)Transmission Control Protocol in the TCP/IP suite
+ii)Telephone calls in traditional telecommunication system
+
+Features of Connection-Oriented Service
+i)Dedicated Connection: A logical or physical connection is established before data
+transfer
+ii)Reliable Transmission: Data is transmitted with error checking, acknowledgements or retransmissions in case
+of errors
+iii)Sequencing: Data packets arrive at the destination in the correct order
+iv)Higher Overhead: Establishing and maintaining a connection involves additional overhead
+
+Advantages of Connection-Oriented Services
+i:Reliable Data Transfer: Ensures that all data reaches its destination without errors
+ii:Data Sequencing: Packets are delivered in the correct order
+iii:Error Connection: Mechanisms are in place to detect and correct errors during
+transmission
+iv:Guaranteed delivery: Retransmissions occurs if data is lost
+
+Disadvantages of Connection-Oriented Services
+i:Higher latency: Establishing a connection adds latency before  data transfer begins
+ii:More Overhead: Requires more resources for maintaining the connection, acknowledgements
+and retransmissions
+iii: Less Efficient for Small transfers: For short messages, the overhead of connection setup can outweigh
+the benefits
+
+Connection-Less Service
+-Connectionless services send data without establishing a dedicated connection between the sources
+and destination
+-Each data packet is treated independently, and there is no guarantee of delivery or sequencing
+-Connectionless Services does not guarantee of reliability. In this Packets, do not follow the same path
+to reach their destinations. Connectionless services, deliver individual data packets without  first making a connection
+Since each packet, is sent separately, delivery, order and mistake correction cannot be guaranteed
+As a result, the services is quicker but less dependable
+User Datagram Protocol is frequently used for streaming where dependability is not important as speed
+
+Connectionless Services
+*User Datagram Protocol
+*Postal Services(analogous to sending letters without confirmation of receipt)
+
+Features of Connectionless Services
+i)No Connection Setup: Data is sent directly  without establishing a prior connection
+ii)Independent Packets: Each packet is treated individually and may take different routes
+to the destination
+iii)Faster Transmission: No time is spent establishing and tearing down a connection
+iv)Unreliable: No acknowledgement, retransmission or error connection is performed
+
+Advantages of Connectionless Services
+1: Low Latency: Data is transmitted immediately without waiting for a connection to be
+established
+2: Efficient for small Transfers: Ideal for small, time-sensitive messages  like DNS
+lookups or VoIp
+3: Scalable: Suitable for systems with many simultaneous users, as no connection
+needs to be maintained
+
+Disadvantages of Connectionless Services
+-Unreliable: Data packets may be lost, duplicated, or arrive out of order
+-No Error Handling: No built-in mechanisms for retransmissions or error correction
+-Unsuitable for Large Transfers" Not ideal for applications requiring reliable  and
+ordered delivery
+
+Connection-oriented Services                                                          Connection-less Service
+i)Connection-oriented requires                                                        Connection-less Service does
+authentication                                                                        not require authentication
+
+ii)Connection-oriented services                                                       Connection-less Service requires
+require a bandwidth of high range                                                     a bandwidth of low range
+
+iii)Higher overhead due to connection                                                 Low overhead as no connection is
+setup and maintenance                                                                 required
+
+iv)Less scalable due to the need                                                      Highly scalable for large network
+for maintaining connection                                                            with many users
+
+v)Ensures data is delivered to the                                                    Data may arrive out of order or not
+correct order                                                                         at all
+
+vi)In connection-oriented Services                                                    In connection-less Service, packets
+Packets follow the same route                                                         do not follow the same route
+
+vii)Includes error detection, correction                                              No error handling: errors are not
+and retransmission                                                                    corrected
+
+viii)Connection-oriented service gives                                                Connection less services does not give
+the guarantee of reliability                                                          guarantee of reliability
+
+ix)In connection oriented service                                                     In connectionless Service congestion
+Congestion is not possible                                                            is possible
+
+x)Connection-oriented service                                                         Connectionless service is not
+is feasible                                                                           feasible
+
+xi)Connection oriented service                                                        Connectionless service is not
+is necessary                                                                          necessary
+
+xii)Connection-oriented service                                                       Connectionless service is preferred
+is preferred by long and steady                                                       by bursty communication
+communication
+
+xiii)Connection-oriented service                                                      Connectionless service is related
+is related to the telephone                                                           to the postal system
+system
+

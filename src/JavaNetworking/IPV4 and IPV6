@@ -1,0 +1,140 @@
+-IPv4 and IPv6 are two system versions that give devices a unique address on the internet
+known as the Internet Protocol
+-IP is like a set of rules that help devices send and receive data online
+Since the internet is made of billion connected devices , each one needs its own special
+number an IP address to be found
+-IPv4 is the older version and uses the 32-bit address which allows  for about 4 billion unique addresses
+It was used to be enough but with the growth of the internet and smart devices(IoT) there was running out
+of IPv4 addresses that's why IPv6 was created. It uses a 128 bit address, which means it can support trillions
+upto trillions of unique addresses
+
+IPv4
+IPV4 or Internet Protocol version 4, is the original addressing system of the internet introduced in 1983
+It uses a 32-bit address scheme, which theoretically allows for over 4 billion unique addresses
+(2^32)
+IPv4 addresses are typically displayed in decimal format, divided into four octets separated by dots
+192.168..1.1
+IPv4 Address Format is a 32-bit address that comprises binary digits separated by a dot
+
+     10000000               00001011                00000011                00011111
+
+
+                               128.11.3.31
+
+
+Characteristics of IPv4
+i)32-bit address length: Allows for approximately 4.3 billion unique addresses
+ii)Dot-decimal notation: IP addresses are written in a format of four decimal numbers separated by dots each
+192.168.1.1
+iii)Packet structure: Includes a header and a payload ; the header contains information essential for routing
+and delivery
+iv)Checksum fields: Uses checksums in the header for error-checker and header integrity
+v)Fragmentation: Allows packets to be fragmented at routers along the route if the packet
+size exceeds the maximum transmission unit(MTU)
+vi)Address Resolution Protocol: Used for mapping IP network addresses to the hardware addresses used
+by data link protocol
+vii)Manual and DHCP configuration: Supports both manual configuration of IP addresses and dynamic configuration
+through DHCP (Dynamic Host Configuration Protocol)
+viii)Limited Address space: The main limitation which has led to the development of many IPv6 to cater
+to more devices
+ix)Network Address Translation: Used to allow multiple devices on a private network to share a single public IP address
+x)Security: Lacks inherent security features requiring additional protocols  such as IPSec for secure
+communications
+
+Limitations of IPv4
+i)Limited Address Space: IPv4 has a limited number of addresses, which is not enough for the growing
+number of devices connecting to the internet
+ii)Complex configuration: IPv4 often requires manual configuration or DHCP to assign addresses
+which can be time consuming and prone to errors
+iii)Less Efficient Routing: The IPv4 header is more complex, which can slow data processing and routing
+iv)Security Issues: IPv4 does not have in-built security features, making it more vulnerable to attacks
+unless extra security measures are added
+v)Limited Support For Quality Of Services: IPv4 has a limited capabilities for prioritizing
+certain types of data which ca affect the performance of real time applications like Video Streaming and VoIP
+vi)Fragmentation: IPv4 allows routers to fragment packets which ca lead to inefficiencies and increased
+chances of data being lost or corrupt
+vii)Broadcasting Overhead: IPv4 uses broadcasting to communicate  with multiple devices on a network
+which can create unnecessary network traffics and reduce performance
+
+IPv6
+-It is a widely used version of the Internet Protocol today
+-It is becoming more common especially in areas like mobile networks
+IPv6 stands for Internet Protocol version 6, Its the newer and advanced version of IP, offering improvements in address space
+efficiency and security
+IPv6 addresses are written in eight groups of hexadecimal numbers separated by colon
+
+IPv6 address Format
+It is a 128-bit IPAddress which is written in a group of 8 hexadecimal numbers  separated by a colon
+
+ABCD:EF01:2345:6789:ABCD:B201:5482:DO23
+
+Characteristics of IPv6
+i)128-bit addressing: Uses a 128-bit address format, allowing for an almost unlimited number of unique
+IP addresses
+ii)Hexadecimal notation: IP addresses are written in eight groups of four hexadecimal digits, separated by colons
+i.e: 2001:0db8:85a3::8a2e:0370:7334.
+iii)Connectionless and Connection-Oriented Support: Supports both connectionless(UDP) and connection oriented(TCP)
+communications
+iv)No Broadcast: Does not use broadcasting; instead use multicast and anycast for efficient data
+delivery
+v)Simplified Header Format:Has a simple and more efficient packet header compared to IPv4, improving
+processing speed
+vi)Integrated Security(IPSec): Includes built-in support for IPSec to provide confidentiality
+and authentication and data integrity
+vii)Auto-Configuration: Supports stateless and stateful address configuration, including automatic address
+management
+viii)No need for NAT: Eliminates the need for Network Address Translation due to its vast address space
+ix)Improve Routing Efficiency: Reduces routing table size and simplifies network structure
+for faster data delivery
+x)Support for new Versions:Designed to work better with modern internet  services like mobile IP, VoIP,IoT devices
+
+
+Benefits of IPv6 over IPv4
+i)Larger Address Space: IPv6 has a larger address space than IPv4, which is required for expanding The IPConnected
+devices IPv6 has 128 bit Address rather and IPv4 has a 32-bit Address
+ii)Improved Security:IPv6 has some improved security which is built with it. IPv6 offers security like
+Data Authentication, Data Encryption e.tc Have an Internet Connection is more Secure
+iii)Simplified Header Format: As compared to IPv4, IPv6 has a simpler and more effective header structure
+which is more cost effective and also increases the speed of the Internet Connection
+iv)Prioritize:IPv6 contains stronger and more reliable support for QoS features, which helps in increasing
+traffic over website and increases audio and video quality on pages
+v)Improved Support for Mobile Devices: IPv6 has increased and better support for Mobile devices
+It helps in making quick connections over other Mobile devices and in a safer way than IPv4
+
+Switching from IPv4 to IPv6:
+*Dual Stacking: Devices that can use both IPv4 and IPv6 at the same time. This way they can talk to networks
+and devices using either version
+*Tunneling: This method allows IPv6 users to send data through the IPv4 network to reach other IPv6 users
+Network Address Translation(NAT): NAT helps devices using different versions of IP addresses(IPv4, IPv6) to communicate with each other
+by translating the addresses so they understand each other
+
+Difference between IPv4 and IPv6
+IPv4                                                                IPv6
+i)32-bit address                                                    128-bit address
+
+ii)Decimal format(192.168.0.1)                                      Hexadecimal format(2001:0db8:1)
+
+iii)Manual and DHCP configuration                                   Auto configuration and renumbering supported
+
+iv)End-to-end integrity is unavailable                              End-to-End integrity is available
+
+v)No built in security; external tools                              IP sec is built in for encryption and
+like IPsec                                                          authentication
+
+vi)Performed by sender and router                                   Performed only by sender
+
+vii)Not Available(Flow Identification)                              Uses the Flow Label Field  in header for packet flow identification
+
+viii)Checksum Field present                                         Checksum Field absent
+
+ix)Supports broadcast                                               Uses multicast and anycast; no broadcast
+
+x)Variable: (20-60 bytes)                                           Fixed 40 bytes
+
+xi)Can be converted to IPv6                                         Not all IPv6 can be converted to IPv4
+
+xii)4 fields separated by dots                                      8 fields separated by colon
+
+xiii)Has address classes(A, B, C, D, E)                             No concept of address classes
+
+xiv)Supports Variable Length Subnet Mask                            Does not support VLSM

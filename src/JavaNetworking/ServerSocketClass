@@ -1,0 +1,44 @@
+-ServerSocketClass in Java provides system independent way to implement the server side of a client/server
+socket connection
+-The constructor for ServerSocket throws an Exception if it can't listen on the specified port
+(The port is already been used)
+i. In java.nio.Channel, ServerSocketClass is used for retrieving  a Server Socket associated
+with this channel
+ii. In java.rmi.Server, ServerSocket class is used to create a server socket  on the specified port
+(port 0 indicates an anonymous port)
+iii. In javax.net teh Server socket is used widely to:
+*return an unbound server socket
+*return a server socket bound to the specified port
+*return a server socket bound to the specified port , and uses the specified
+connection backlog
+*return a server socket bound to the specified port, with a specified listen backlog and local IP
+
+Methods of ServerSocketClass
+i)accept() = Listens for a connection to be made to the socket and accepts it
+ii)bind(SocketAddress endpoint) = Binds the ServerSocket to a specific address(IP address, port number)
+iii)bind(SocketAddress endpoint,int backlog) = Binds the Server Socket to a specific IP address and port number
+and requests length. If the request arrives when the queue is full then the request will be rejected by the
+server
+iv)close() = closes the socket
+v)getChannel() = Returns the unique ServerSocketChannel object associated with this socket, if any
+vi)getInetAddress() = Returns the local address of the server socket
+vii)getLocalPort() = Returns the port number on which this socket is listening
+viii)getLocalSocketAddress() = Returns the address of the endpoint this socket is bound to, or null
+if it is not bound yet
+ix)getReceiveBufferSize() = Gets the value of the SO_RCVBUF option for this server socket
+that is the proposed buffer size that will be used for sockets accepted from this Server
+Socket
+x)getReuseAddress() = Tests if SO_REUSEADDR is enabled
+xi)getSoTimeout() = Retrieve setting for SO_TIMEOUT
+xii)implAccept(Socket s) = Subclasses of ServerSocket  use this method to override accept() to return
+their own subclass of the socket
+xiii)isBound() = Returns the binding state of the Server Socket
+xiv)isClosed() = Returns the closed state of the Server Socket
+xv)setPerformancePreferences(int connectionTime, int latency, int bandwidth) = Sets performance preferences for
+this server socket
+xvi)Sets performance preference for this socket = Sets a default proposed value of the SO_RCVBUF option for sockets accepted
+from this Server Socket
+xvii)setReuseAddress(boolean on) = Enable/Disable the SO_REUSEADDR socket option
+xviii)setSocketFactory(SocketImplFactory fac) = Sets the server socket implementation factory for the application
+xix)setSoTimeout(int timeout) = Enable or disable the SO_TIMEOUT with the specified timeout in milliseconds
+xx)toString() = Returns the implementation address and implementation port of this socket as a String

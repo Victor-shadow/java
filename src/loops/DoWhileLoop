@@ -1,0 +1,107 @@
+-Java, do while loop is an Exit control loop
+-Unlike for and while loop a do while loop checks for the condition after executing the
+statements of the loop body
+
+public class Main{
+   public static void main(String[]args){
+      int c = 1;
+      //use do-while loop
+      do{
+        System.out.println("do while loop: " +c);
+        c++;
+        } while(c<=5) {
+        }
+    }
+
+Syntax
+do{
+  //Loop body
+  Update expression
+  }
+
+//condition check
+while(test_expression);
+
+-The test expression for the do while loop must return a boolean value, else we get a compile time
+error
+
+Components of a do-while loop
+-Test Expression: In this expression, we have to test the conditions
+If the condition evaluates to true, then we will execute the body of the loop and go to update
+the expression
+-Otherwise we will exit the while loop
+
+i <= 10
+
+Update Expression
+-After executing the loop body, this expression increments/decrements the loop variable
+by some value
+i++;
+
+Execution of a do while loop
+-Control falls in the do-while loop
+-The statements inside the body of the do while loop get executed
+-Update takes place
+-The flow jumps to the condition
+-Condition is tested:
+if the condition yields true, go to step 6
+If the condition yields false, the flow goes outside the loop
+-The flow goes back to step 2
+
+Do while loop
+class Main{
+    public static void main(String[]args){
+    //declare and initialize expression
+    int c = 1;
+    //do while loop
+    do{
+       //Body of the do-while loop
+       //print Statement
+       System.out.println("Java is a high object oriented programming language");
+
+      //update expression
+      c++;
+      }
+   //test expression
+   while(c < 6);
+ }
+}
+
+The program executes in the following manner:
+1. Program starts
+2. c is initialized with a value of 1
+3.Execution enters the loop
+"Java is a high object oriented programming language" gets printed for the first time
+Update is done. Now c = 2
+4. Condition is checked. 2 < 6 yields true
+5. Execution enters the loop
+"Java is a high object oriented programming language" gets printed for the second time
+Update is done. Now c = 3
+6. Condition is checked 3 < 6 Yields true
+7. Execution enters the loop
+"Java is a high object oriented programming language" gets printed for the third time
+Update is done now c = 4
+8. Condition is checked 4 < 6 yields true
+9. Execution enters the loop
+"Java is a high object oriented programming language" gets printed for the fourth time
+Update is done now c = 5
+10. Condition is checked 5 < 6 yields true
+11 Execution enters the loop
+"Java is a high object oriented programming language" gets printed for the fifth time
+Update is done now c = 6
+12. Condition is checked 6 < 6 yields false
+13.The flow goes outside the loop
+
+do while loop without {}
+import java.io.*;
+class Main{
+   public static void main(String[]args){
+      int c = 1;
+      do
+      //only single statement in a do  block
+      System.out.println("do-while block");
+      //this condition is false  so only the do block
+      //executes
+      while(c >= 3);
+      }
+  }

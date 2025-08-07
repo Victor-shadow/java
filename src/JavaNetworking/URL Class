@@ -1,0 +1,101 @@
+-URL class in Java is part of the java.net.package that makes it easy to work with Uniform Resource
+Locator(URL s)
+-URL is simply a string of text that identifies all resources on the internet, telling the address
+of the resource, how to communicate with it, and retrieve something from it
+
+Components of an URL
+A URL can have many forms.
+https://www.geeksforgeeks.org/java/url-class-java-examples/
+
+
+i)Protocol: "http" is the protocol
+ii)Host Machine: Name of the machine on which the resource lives: www.geeksforgeeks.org
+iii)File Name: The pathname to the file on the machine
+iv)Port Number: Port Number to which to connect(typically optional)
+
+URL Class
+-The URL class In java is a fundamental concept for accessing resources on the internet
+-The URL can point to various types of resources such as: static files, dynamic content
+API's
+-The URL class provides constructors and methods to create URL objects and retrieve their
+components
+
+Constructors of a URL class
+1.URL(String address): It creates an URL object from the specified String
+Example:
+try{
+  URL url = new URL("https://www.geeksforgeeks.org/java/overriding-tostring-method-in-java/")
+} catch(MalformedURLException e){
+   e.printStackTrace();
+}
+
+2.URL(String Protocol, String host, String file): Creates a URL object from the specified protocol
+host or file name
+
+Example:
+try{
+ URL url = new URL("https://www.geeksforgeeks.org/android/android-tutorial/")
+ }
+catch(MalformedURLException e){
+e.printStackTrace();
+}
+
+3.URL(String protocol, String host, int port,String file)
+Creates an URL object from the Protocol, host, port and file name
+
+Example:
+try{
+   URL url = new URL("https://www.geeksforgeeks.org/android/android-tutorial/");
+} catch(MalformedURLException e){
+e.printStackTrace();
+}
+
+4.URL(URL context, String spec): Creates an URL object by parsing the given spec in the given context
+Example:
+try{
+ URL baseURL = new URL("https://www.geeksforgeeks.org/android/android-tutorial/")
+ URL relativeURL = new URL(baseURL, "/path/to/resource");
+} catch(MalformedURLException e){
+e.printStackTrace();
+}
+
+5.URL(String protocol, String host, int port, String file, URLStreamHandler handler): Creates a URL object from the specified
+protocol, host, port number, file and handler.
+Example:
+try{
+URL url = new URL("http", "www.geeksforgeeks.org", 80, "/path/to/resource", new MyCustomHandler());
+] catch(MalformedURLException e){
+e.printStackTrace();
+}
+
+6.URL(URL context, String spec, URLStreamHandler handler): Creates an URL by parsing the given spec
+with the specified handler within a specified context
+Example:
+try{
+URL url = new URL("https://www.geeksforgeeks.org/android/android-tutorial/");
+URL relativeURL = new URL(baseUrl, "/path/to/resource", new MyCustomHandler());
+} catch(MalformedURLException e){
+e.printStackTrace();
+}
+
+Java URL Methods
+i)getAuthority: Return the authority part of the URL or null if empty
+
+ii)getDefaultPort(): Returns the default port used
+
+iii)getFile(): Returns the file name
+
+iv)getHost(): Returns the Hostname of the URL in IPv6 format
+
+v)getPath(): Returns the path of the URL, or null if empty
+
+vi)getPort(): Returns the port associated with the protocol specified by the URL
+
+vii)getQuery(): Returns the Query part of the URL , which is the portion following the ? character
+used to pass parameters to a web application
+
+viii)getRef(): Return the reference part of the URL , Which is the portion following the
+# character typically used to navigate to a specific section within a web page
+
+ix)toString(): As in any class, toString() returns the string representation of the given URL object
+
