@@ -11,6 +11,7 @@
       <w>byteobj</w>
       <w>caaray</w>
       <w>cbuf</w>
+      <w>countrylanguage</w>
       <w>daynum</w>
       <w>deleteifexists</w>
       <w>dname</w>
@@ -42,6 +43,7 @@
       <w>mimetable</w>
       <w>newlist</w>
       <w>parametertype</w>
+      <w>postgre</w>
       <w>rcvbuf</w>
       <w>readlink</w>
       <w>reuseaddr</w>

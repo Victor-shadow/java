@@ -1,6 +1,4 @@
 package Interfaces;
-
-
 interface DefaultMethods {
     final int a = 1000;
     default void display(){

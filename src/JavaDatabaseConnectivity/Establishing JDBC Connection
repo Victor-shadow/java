@@ -1,0 +1,83 @@
+-Before performing any database operations, you first need to establish  a connection using JDBC
+This connection acts like a communication channel through which SQL queries are sent and results
+are received
+-Setting up this connection, involves loading the database driver, specifying the database URL
+and authenticating with a username and password
+
+STEPS TO ESTABLISH A JDBC CONNECTION
+I)Import the Packages
+II)load the drivers using the forName() method
+III)Register the drivers using the DriverManager
+IV)Establish the connection using the Connection class object
+V)Create a Statement
+VI)Execute the statement
+VII)Close the connection
+
+JDBC CONNECTIVITY
+Step 1: Import the JDBC Package
+-First, we need to import the packages
+
+Step 2: Load or Register the driver
+-In order to begin with, you first need to load the driver or register it before using it in the
+program.
+-Registration is to be done once in your program
+-You can register a driver in one of the two ways as followed:
+i)Class.forName()
+-Here, load the drivers class file into memory at runtime
+No need to create objects
+*Class.forName("oracle.jdbc.driver.OracleDriver");
+
+ii)DriverManager.registerDriver()
+=DriverManager is a Java inbuilt class with a static member register
+=The constructor of the driver class is called at compile time
+*DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver())
+
+Step 3: Establish a connection
+-After loading the driver, establish connections as:
+Connection connection = DriverManager.getConnection(url,user,password)
+a)user: Username from which the SQL command prompt can be accessed
+b)password:password from which the SQL command can be accessed
+c)connection:It is a reference to the connection interface
+d)Url: Uniform Resource Locator which is created as:
+*String url = "jdbc:oracle:thin:@localhost:1521:xe";
+
+Where,
+i)oracle is the database used, thin is the driver used
+ii)@localhost is the IP Address where the database is stored
+iii)1521 is the port number  and xe is the database service name
+
+All 3 parameters above are of String type  and are to be declared by the programmer before calling
+the function
+
+Step 4: Create a Statement
+Once a connection is established you can interact with the database
+The JDBC Statement, CallableStatement and the PreparedStatement interfaces define the methods that enable one to send SQL
+Queries  and receive data from the database
+Use of JDBC Statement is as:
+Statement statement= connection.createStatement();
+Note: In a real world application it is recommended to use PreparedStatement, CallableStatement instead of Statement for executing
+SQL Queries
+
+Step 5: Execute SQL Query
+The query here is a SQL Query they include:
+i)The query for updating/inserting a table into a database
+ii)The query for retrieving data
+
+-The executeQuery() method of the Statement interface is used to execute queries of retrieving
+values from the database. This method returns the object of the ResultSet  that can be used to get all the records of a table
+The executeUpdate(sql query) method of the Statement interface is used for executing queries of updating/inserting
+
+Example:
+int m = statement.executeUpdate(sql);
+if(m == 1)
+   System.out.println("inserted successfully"+sql);
+else
+   System.out.println("Insertion failed");
+
+
+Step 6: Close the Connection
+By closing the connection, objects of Statement and ResultSet should be closed automatically
+The close() method of the Connection interface is used to close the connection
+*connection.close()
+Note: It is recommended to use try-with resources to automatically close resources like
+Connection, Statement, ResultSet

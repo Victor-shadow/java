@@ -1,0 +1,95 @@
+-In Java, the map interface is part of the java.util.package and represents a collection of
+key-value pairs where:
+i Keys are unique(no duplicates allowed);
+ii Each key maps exactly to one value
+iii Values can be duplicates
+
+Key Features of map
+i No duplicate keys: Keys should be unique but values can be duplicated
+ii Null Handling: It allows one null key in implementations like HashMap and LinkedHashMap
+and multiple null values in most implementations
+iii Thread safe Alternatives: Use ConcurrentHashMap for thread safe operations. Also, wrap an existing map
+using Collections.synchronizedMap() for synchronized access
+
+The Map Data Structure is implemented by two interfaces
+i SortedMap Interface
+ii Map Interface
+
+The three primary classes that implement these interfaces include:
+i HashMap
+ii TreeMap
+iii LinkedHashMap
+
+HIERARCHY OF MAP
+Tree Map                    LinkedHashMap
+
+Sorted Map                   HashMap
+
+Map
+
+Create Map Objects
+-Since Map is an interface objects cannot be created of the type map
+A class is always needed to implement this map interface in order to create an object
+After the introduction of Generics in Java , it is possible to restrict the type of object that
+can be stored in the Map
+Syntax:
+Defining Type-safe Map
+Map<String, Integer> hashmap = new HashMap<>(); //Type-safe map
+//storing string keys and integer values
+
+Implemented class of Map Interface
+i HashMap: HashMap was introduced in java 1.2 and it is a basic implementation of the Map Interface
+that stores data in key-value pairs . It uses hashing to convert larger Strings into shorter ones for efficient indexing
+and faster searching
+ii LinkedHashMap : LinkedHashMap is like HashMap but it maintains the insertion order of elements
+It supports fast insertion, search and deletion while keeping track of the order in which the keys were added
+iii TreeMap: TreeMap implements Map and NavigableMap , storing key-value pairs in sorted order
+either by natural key  ordering or by custom Comparator . The ordering must be consistent
+with equals()  with no custom custom comparator used
+
+Operations on Map using HashMap
+1. Adding Elements
+-To add an element to the map, we can use the put() method . The insertion order is not retained in the hashmap
+Internally for every element a separate hash is generated and the elements are indexed based on this hash to make it
+efficient
+
+2. Changing Elements
+-After adding the elements, if one wants to change the elements, it can be done by trying to add the  same element with put method
+The elements in the map are indexed by using their keys the value of the keys can be changed
+by simply inserting the updated values for the key that needs to be changed
+
+3. Removing elements
+-To remove an element from a map we use the remove() method
+This method takes the key value and removes the mapping for a key from this map if it present in the
+map
+
+4. Iterate through the map
+-The most common way to iterate through the map is by the use of a for-each loop and get the keys
+The value of the key is found by using the getValue() method
+
+Methods in Java Map Interface
+i clear(): This method is used in Java map Interface to clear and remove all elements or mappings from a specified mapping
+collection
+2 containsKey(Object): This method checks if a key exists in a map
+3 containsValue(Object): This method checks if a value exists in a map
+4 entrySet(): Returns a set view of the map key-value pairs
+5 equals(Object): Compares two maps for equality
+6 get(Object): Returns the value of the given key, or null if not found
+7 hashCode(): This method is used in Map Interface to generate a hash Code for the given map containing
+keys and values
+8 isEmpty(): This method is used to check if a map is having any entry for key and value pairs
+If no mapping exists then this returns true
+9 keySet(): Returns a set view of the keys in the map
+1 put(Object Object): This method is used in Java Map Interface to associate the specified value with the specified key
+in this map
+11 putAllMap(): This method is used in Map Interface in Java to copy all the mappings from the specified map
+to this map
+12 remove(Object): This method is used in Map Interface to remove the mapping for a key from this map
+if it is present in the map
+13 size(): This method is used to return the number of key/value pairs available in the map
+14 values(): Returns a collection view of the map values
+15 getOrDefault(Object key, V default Value): Returns the value to which the specified key is mapped,
+or default Value if this map contains no mapping for the key
+16 merge(K key, V value, BiFunction<? super V, ?super V? extends V> remapping function): If the specified key is  not already
+ associated with a value or is associated with a null associate it with a given non-null value
+17 putIfAbsent(K Key, V value): Adds a mapping only if the key is not already mapped

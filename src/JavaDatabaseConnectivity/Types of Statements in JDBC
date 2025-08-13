@@ -1,0 +1,50 @@
+-In Java, the Statement Interface in Java Database Connectivity is used to create and execute SQL Queries
+in applications
+-JDBC provides three types of statements to interact with databases:
+i)Statement
+ii)Prepared Statement
+iii)Callable Statement
+
+1)Statement
+-A statement object is used for general purpose access to databases and is useful for executing static
+SQL Queries/statements at runtime
+Syntax:
+Statement statement = connection.createStatement();
+Implementation: Once the statement object is created , there are three ways to execute it:
+
+execute(String SQL) - It is used to execute any SQL Statements(Like SELECT, INSERT, UPDATE, DELETE) If the Result set object
+is retrieved then it returns true else false is returned
+executeUpdate(String SQL) -It is used to execute SQL statements (like INSERT, UPDATE, DELETE) it returns the
+number of rows affected by the SQL Statement
+ResultSet executeQuery(String SQL) - It is used to execute SELECT query. It returns a ResultSet object
+that contains the data retrieved  by the query
+
+
+2)Prepared Statement
+-A prepared statement represents a precompiled SQL statement that can be executed multiple times
+-It accepts parameterized SQL queries, with ?  as placeholders for the parameters which can be set dynamically
+
+Implementation
+:Once the prepared Statement object is created , there are three ways to execute it:
+i)execute() : This returns a boolean value and executes a static SQL statement that is present
+in the prepared statement object
+ii)executeQuery(): This returns a ResultSet from the current prepared statement
+iii)executeUpdate(): This returns the number of rows affected by the DML statements such as INSERT, DELETE
+or more that is present  in the current Prepared Statement
+
+3)Callable statement
+-A Callable Statement is used to execute stored procedures in the database
+-Stored procedures are precompiled SQL statements that can be called with  parameters
+They are useful for execute complex operations that involve multiple SQL Statements
+Syntax:
+CallableStatement callableStatement = connection.prepareCall("{call procedureName(?,?)}");
+
+{call procedureName(?,?)}: Calls a stored procedure named ProcedureName with placeholders ?
+for input parameters
+
+Methods to Execute
+i)execute(): Executes the stored procedure and returns a boolean indicating whether the result is a
+ResultSet(true)  or an update count(false)
+ii)executeQuery(): Executes a stored procedure that returns a Result Set
+iii)executeUpdate(): Executes a stored procedure that performs an update and returns the number of rows
+affected

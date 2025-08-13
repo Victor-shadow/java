@@ -1,0 +1,126 @@
+-JDC is an API that helps applications to communicate with databases
+-It allows java programs to connect with a database, run queries, retrieve and manipulate
+data
+
+------------------------------------------------------------------------------------------------------------------------
+                             JDBC  Architecture
+                             Application
+                             (Java servlet, applet)
+
+                             JDBC Api
+
+                             JDBC Driver Manager
+            SQL                 Oracle                 Data Source
+------------------------------------------------------------------------------------------------------------------------
+
+Application: It can be a java application or servlet that communicates with a data source
+The JDBC Api: It allows java programs to execute SQL queries and get results from the database
+Components of JDBC Api;
+-Interfaces like Driver, ResultSet, RowSet, PreparedStatement, Connection that  helps managing different databases
+tasks
+-Classes like DriverManager, Types, Blob and Clob that help to manage database
+connections
+DriverManager: It plays an important role in JDBC Architecture. It uses some database-specific
+drivers to effectively connect enterprise applications to databases
+JDBC Drivers: These drivers handle interactions between the application and the database
+
+The JDBC architecture consists of :
+------------------------------------------------------------------------------------------------------------------------
+Two-Tier Architecture
+-A java application communicates directly with the database using a JDBC driver
+It sends queries to the database and then the result is sent back to the application
+*In a client-server  system, the user's system acts as a client  that communicates with a remote
+database server
+
+Structure:
+Client application(Java) -> JDBC Driver -> Database
+------------------------------------------------------------------------------------------------------------------------
+
+Three-Tier Architecture
+-In this, user queries are sent to a middle-tier services, which interacts with the database
+The database results are processed by the middle-tier and then sent back to the user
+
+Structure:
+Client Application -> Application server -> JDBC Driver -> Database
+
+------------------------------------------------------------------------------------------------------------------------
+
+JDBC Components
+-There are generally 4 main components  of JDBC through which it can interact with the database
+1.JDBC API
+-It provides various methods and interfaces for easy communication with the database
+-It includes two key packages:
+i)java.sql - This package, is part of the Java Standard Edition, which contains the core interfaces
+and classes for accessing and processing data in relational databases
+It also provides essential functionalities like establishing connections, executing queries,
+handling result sets
+ii)javax.sql : This package is part of the Java Enterprise Edition which extends the capabilities
+of java.sql by offering additional features like connection pooling, statement pooling
+data source management
+
+-It also provides a standard to connect to the database to a client application
+
+2.JDBC Driver Manager
+-Driver Manager is responsible for loading correct database-specific driver to establish the connection
+with the database.It manages the available drivers and ensures the right one is used to process user requests
+and interact with the database
+
+3.JDBC TestSuite
+-It is used to test the operation(insertion, deletion, updating) being performed by the
+JDBC Drivers
+
+4.JDBC Drivers
+-JDBC Drivers are client-side adapters(installed on the client machine, not on the server) that convert requests from Java programs
+to a protocol that the DBMS can understand
+-There are four types of JDBC Drivers:
+i)Type-1 driver or JDBC-ODBC bridge driver
+ii)Type-2 driver or Native-API driver(partially java driver)
+iii)Type-3 driver or Network Protocol Driver(fully java driver)
+iv)Type-4 driver or thin driver(fully java driver) - It is the widely used driver
+
+JDBC Classes and Interfaces
+Classes/Interface                                               Description
+i)DriverManager                                                 Manages JDBC Drivers and establishes
+                                                                database connections
+ii)Connection                                                   Represents a session with a specific
+                                                                database
+iii)Statement                                                   Used to execute Static SQL queries
+iv)PreparedStatement                                            Precompiled SQL Statement, used for dynamic
+                                                                queries with parameters
+v)CallableStatement                                             Used to execute stored procedures in the
+                                                                database
+vi)ResultSet                                                    Represents the result set of the query, allowing
+                                                                navigation through the rows
+vii)SQLException                                                Handles SQL-related exceptions during database operations
+
+
+Connect to a SQL Database using JDBC
+i)Load the JDBC Driver
+-Class.forName("com.mysql.cj.jdbc.Driver");
+
+ii)Establish a Connection
+Connection connection = DriverManager.getConnection(
+   "jdbc:mysql://localhost:3306/database",
+   "username",
+   "password"
+);
+
+iii)Create a Statement
+Statement statement = connection.createStatement();
+
+iv)Execute a Query
+String query = "INSERT INTO entity(id, name) VALUES(, "");
+int rowsAffected = statement.executeUpdate(query)
+System.out.println("Rows affected:" + rowsAffected);
+
+v)Close the connection
+statement.close()
+connection.close
+
+Features of JDBC
+I)Platform Independence: JDBC can perform database operations on any platform
+II)Standard API: It provides different ways to interact with different databases
+III)Support for multiple databases: JDBC provides support for multiple databases:
+MySQL, PostgreSQL, Oracle
+
+

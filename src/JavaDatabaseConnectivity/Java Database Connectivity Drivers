@@ -1,0 +1,118 @@
+-Java Database Connectivity is an Application Programming Interface for the Java Programming Language
+that defines how a client can access and interact with a relational database
+-DBC Drivers are software components that enable java applications to communicate with different databases
+-Each database i.e ORACLE, MYSQL, POSTGRESQL requires a specific JDBC Driver that translates java
+Java JDBC calls into a specific database protocol
+
+The JDBC classes are contained in the Java packages java.sql, javax.sql
+JDBC allows Java applications to perform the following:
+i)Connect to  a data source(MySQL, PostgresSQL)
+ii)Send SQL queries and update statements to the database
+iii)Retrieve and process results from the database
+
+Structure of The JDBC Driver
+-The application interacts with the JDBC API
+-The API communicates with the JDBC Driver Manager, which manages different database drivers i.e
+SQL server, Oracle to establish database connectivity
+                                      Application
+                                      (Java Servlet, applet)
+
+                                      JDBC API
+
+                                      JDBC Driver Manager
+
+    SQLServer                         Oracle                             Data Source
+
+JDBC Drivers
+-JDBC Drivers are client-side adapters (installed on the client machines rather than the server) that translates requests
+from Java programs into a protocol understood by the DBMS
+-These drivers are software components that implement the interfaces in the JDBC API allowing java applications
+to interact with the database
+-Sun Microsystems defines four types of JDBC Drivers:
+i)Type-1 driver or JDBC-ODBC bridge driver
+ii)Type-2 driver or Native-API driver
+iii)Type-3 driver or Network Protocol driver
+iv)Type-4 driver or Thin driver
+
+1)JDBC-ODBC Bridge Driver - Type 1 Driver
+*)Jdbc API -> Java Application -> JDBC-ODBC bridge driver -> ODBC Driver -> Vendor Database Library -> Database
+
+
+-Type-1 driver or JDBC-ODBC bridge driver uses ODBC driver to connect to the database
+-The JDBC-ODBC Bridge Driver converts JDBC method calls into the ODBC function calls
+Type-1 driver is also called Universal driver because it can be used to connect to any databases
+
+Advantages
+-This driver software is built-in with JDK so there is no need to install separately
+-It is a database independent driver
+
+Disadvantages
+-As a common driver, it is used in order to interact with different databases, the data transferred through
+this driver is not so secured
+-The ODBC bridge driver is needed to be installed in an individual client machines
+-Type 1 driver is not written in java, that is why it is not a portable driver
+
+
+2)Native API Driver - Type 2 Driver (Partially Java Driver)
+*Jdbc API -> JAVA Application -> Native API Driver -> Vendor Database Library -> Database
+
+-The Native API driver uses the client-side libraries of the database
+-This driver converts the JDBC methods into a native call of the database API
+In order to interact with different databases this driver needs their local API , that's why data transfer
+is much more secure compared to type-1 driver
+This driver is not fully written in java  that is why it is also called partially Java Driver
+
+Advantage
+i)Native-API driver gives better performance than JDBC-ODBC bridge driver
+ii)More secure compared to type-1 driver
+
+Disadvantage
+i)Driver needs to be installed separately in individual client machines
+ii)The Vendor client library needs to be installed in the client machine
+iii)Type-2 driver is not written in java , that is why it isn't a portable driver
+iv)It is a database dependent driver
+
+3)Network Protocol Driver - Type 3 Driver (Fully Java Driver)
+*Jdbc API -> JAVA application -> Network Protocol Driver -> Middleware -> Database
+
+-The Network Protocol driver uses middleware (application server)  that converts JDBC calls
+directly and indirectly into the vendor-specific database
+protocol
+-Here all the database connectivity drivers are present in a single server, hence there is no need for
+individual client-side installation
+
+Advantages:
+i)Type-3 drivers are fully written in Java, hence they are portable drivers
+ii)No client side library is required because of the application server that can perform many tasks
+like auditing, load balancing, logging
+iii)Easy to switch databases
+
+Disadvantages
+i)Network support is required on client machines
+ii)Maintenance of network Protocol Driver becomes costly  because it requires database-specific coding to be done in the
+middle tier
+
+Thin Driver - Type 4 Driver (Fully Java Driver)
+* JDBC API -> JAVA application -> Thin Driver -> Database
+
+-Type-4 driver is also called native protocol driver. This driver interacts directly with the database
+It does not require any native database libraries, that is why it is known as a Thin Driver
+
+Advantages
+i)Does not require any native library and Middleware server, so no client-side or server-side installation
+ii)It is fully written in Java language hence there are portable drivers
+
+Disadvantages
+i)If the database changes, a new driver may be needed
+
+When to use which driver
+i)If you are accessing one type of database, such as Oracle, Sybase or IBM then the preferred type of driver
+is type 4
+ii)If your java application is accessing multiple types of database at the same time, type-3 is the preferred
+driver
+iii)Type 2 drivers are useful in Situations where a type 3 or a type 4 driver is not available in your
+database
+iv)The type 1 driver is not considered as deployment-level driver and typically is used for development
+and testing purposes only
+
+

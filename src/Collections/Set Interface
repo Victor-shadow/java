@@ -1,0 +1,60 @@
+-In Java, the set Interface is part of the java Collection Framework, located in the java.util.package
+It represents a collection of unique elements, meaning it does not allow duplicate values
+
+Key Features of Set
+i)No duplicates: Set does not allow duplicate elements,each item must be unique
+ii)No guaranteed order: Elements in a Set are not stored or retrieved in any defined order
+iii)Ordering exceptions: LinkedHashSet maintains insertion order, while TreeSet keeps elements
+sorted
+iv)One null allowed: Most sort implementations allow only a single null element
+v)Collection methods inherited: Set supports standard methods like add(), remove(), contains()
+size() and iterator() from the Collection Interface
+
+Hierarchy of Java Set Interface
+                                   Set
+      EnumSet           HashSet           LinkedHashSet                 TreeSet
+
+Declaration of set Interface
+public interface Set extends Collection
+
+Create Set Objects
+-Since Set is an interface, objects cannot be created of the type set. We need a class that extends the list in order
+to create an object
+-It is also possible to restrict the type of Objects that can be stored in the Set after the Introduction
+of Generics
+//The type-safe Set can be defined as:
+//Obj is the type of Object to be stored in the set
+Set<Obj> set = new HashSet<Obj>();
+
+Performing Various Operations on the Set
+Set interface provides commonly used operations to manage unique elements in the collection. These include:
+i)Adding elements
+ii)Accessing elements
+iii)Removing elements
+iv)Iterating elements
+
+Classes that implement the Set Interface
+i)HashSet: The HashSet is a collection class that implements a Hash table-based Set, storing elements based on their
+HashCode without maintaining their insertion order and allowing one null element
+ii)EnumSet: EnumSet is a specialized Set implementation for use with enum types. It is part of the Java
+Collection Framework and offers High performance often faster than HashSet. All elements in a EnumSet
+must belong to the same enum type, defined at creation time
+iii)LinkedHashSet: LinkedHashSet is an ordered version of HashSet  that maintains insertion order using a doubly-linked list
+across all its elements
+iv)TreeSet: TreeSet is a sorted Set implementation  that stores elements in ascending order
+using a tree structure, ensuring natural ordering or a custom comparator
+
+Methods of Set Interface
+i)add(element): Adds elements if already not present. Returns true if not added
+ii)addAll(collection): Adds all elements from the given collection
+iii)clear(): removes all the elements from the set
+iv)contains(element): Checks if the set contains the specified element
+v)containsAll(collection): Checks if the set contains all elements from the given collection
+vi)hashCode(): Returns the hash Code of the set
+vii)isEmpty(): This method is used to check whether the set is empty or not
+viii)iterator(): This method is used to return the iterator of the set
+ix)remove(element): Removes the specified element from the set
+x)removeAll(collection): Removes all elements in the given collection from the set
+xi)retainAll(collection): Retains only elements present in the given collection
+xii)size(): Returns the number of elements in the set
+xiii)toArray(): This method is used to form an array of the same elements as that of the set

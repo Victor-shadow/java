@@ -1,0 +1,149 @@
+-Deque interface is present in the java.util package and it is a subtype of queue interface
+The Deque is related to the double ended queue that supports addition and removal of elements
+from either end of the data structure
+-It can either be used as a queue(first-in-first-out or as a stack(Last-in-First-Out
+Deque is the acronym of double-ended queue
+-NullHandling: Most implementations do not allow null elements, as null is used as a specific return value
+to indicate the absence of elements
+-ThreadSafeAlternatives: Use ConcurrentLinkedDeque or LinkedBlockingDeque for thread safe execution and avoid ArrayDeque
+in concurrent environments as it is not thread safe
+
+Hierarchy Diagram of the Queue and the Deque Interface
+=The Deque Interface extends the Queue Interface
+
+                          Iterable
+                          (Interface)
+
+                          Collection
+                          (interface)
+
+                          Queue
+                          (Interface)
+
+                          Deque                         PriorityQueue(class)
+                          (Interface)
+
+LinkedList                                              ArrayDeque
+(Class)                                                 (Class)
+
+//The deque interface is declared as:
+public interface Deque extends Queue
+
+Create Deque Objects
+-Since Deque is an Interface, objects cannot be created of the type Deque
+A class is always needed to extend the list in order to create an Object and it is possible to restrict
+the type of Object that can be stored in the Deque after the introduction of Generics In Java
+The type-safe deque can be defined as:
+//Obj is the type of Object  to be stored in the Deque
+Deque<Obj> deque = new ArrayDeque<>();
+
+Deque Interface
+import java.util.*;
+
+public class Deque{
+    public static void main(String[]args){
+            Deque<String> deque = new LinkedList<String>();
+            //Add at the last
+            deque.add("Element 1(Java)");
+            //Add at the first
+            deque.addFirst("Element 2(Kotlin)");
+            //Add at the last
+            deque.addLast("Element 3(C++)");
+            //Add at the first
+            deque.push("Element 4(c#)");
+            //Add at the last
+            deque.offer("Element 5(Python)");
+            //Add at the first
+            deque.offerFirst("Element 6(Scala)");
+            System.out.println(deque+ "\n");
+            //One can remove the first element or the last element
+            deque.removeFirst();
+            deque.removeLast();
+            System.out.println("Deque after removing " + "first and last: " + deque);
+     }
+}
+
+Operations using the Deque Interface and Array Deque class
+i)Adding Elements
+-In order to add elements in a Deque , we can use the add method
+In a deque the addition is possible from any direction unlike a queue
+Therefore there are other two methods to add elements at either end: addFirst() and addLast()
+
+ii)Removing Elements
+-In order to remove an element from a deque, there are various methods available, Since we can
+also remove from both ends deque provides with  removeFirst(), removeLast() methods
+-The interface provides  with poll(), pop(), pollFirst(),  pollLast() methods where pop() method is used to remove]
+and return the head of the deque
+-poll() is used because it offers the same functionality as pop() and does not return an exception
+when the deque is empty
+
+Array Deque
+-Array deque class which is implemented in the Collection framework provides one with a way to apply
+a resizable array
+-This is a special kind of array that grows and allows users to add or remove an element from both sides
+of the queue
+Array deque's have no capacity restrictions and grow as necessary to support usage
+They are not thread safe which means in the absence of external synchronization ArrayDeque does not
+support concurrent access by multiple threads
+-ArrayDeque class is likely to be faster than a Stack when used as a Stack
+ArrayDeque class is likely to be faster than a LinkedList when used as a Queue
+
+Methods of Deque Interface
+i: add(element) -  This method is used to add an element at the end of the deque. If the Deque is capacity
+restricted and no space is left for insertion, it returns an IllegalStateException. The function returns true
+on successful insertion
+ii: addFirst(element) - This method is used to add an element at the start of the deque. If the Deque is capacity restricted
+and no space is left for insertion, it returns an IllegalStateException. The function returns true on
+successful insertion
+iii: addLast(element) - This method is used to add an element at the end of the deque. If the Deque is capacity restricted
+and no space is left for insertion, it returns an IllegalStateException. The function returns true on
+successful insertion
+iv: contains: - This method is used to check whether the deque contains the given object or not
+v: descendingIterator: - This method returns the iterator of the deque . The elements will be returned in the order
+from last to first
+vii: element() - This method is used to retrieve , but not remove the start of the deque represented
+by this deque
+viii: getFirst() - This method is used to retrieve, but not remove the first element of the deque
+ix: getLast() - This method is used to retrieve, but not remove the last element of the deque
+x: iterator() - This method returns an iterator for the deque. The elements will be returned in order from first to
+last
+xi: offer(element) - This method is used to add an element at the end of the deque. This method is preferable to add
+since these methods do not throw an Exception when the capacity of the container is full since it returns
+false
+xii: offerFirst(element) - This method is used to add an element at the start of the deque. This method is preferable to
+addFirst() method since this method does not throw an exception when the capacity of the container is full
+since it returns false
+xiii: offerLast(element) - This method is used to add an element at the end of the deque. This method is preferable to
+add() method since the method does not throw an exception when the capacity of the container is full
+since it returns false
+xiv: peek() - This method is used to retrieve the elements at the head of the deque but does not remove the
+elements from the deque.This method returns null if the deque is empty
+xv: peekFirst() - This method is used to retrieve elements at the head of the deque but does not remove the element
+from the deque . This method returns null if the deque is empty
+xvi: peekLast() - This method is used to retrieve the element at the end of the deque but doesn't remove the
+element from the deque. This method returns null if the deque is empty
+xvii: poll() - This method is used to retrieve and remove the element at the head of the deque. This method returns null
+if the deque is empty
+xviii: pollFirst() - This method is used to retrieve and remove the element at the head of the deque. This method returns null
+if the deque is empty
+xix: pollLast() - This method is used to retrieve and remove the elements at the end of the deque
+This method returns null if the deque is empty
+xx: pop() - This method is used to remove an element from the head of the queue and return it
+xxi: push(element) - This method is used to add an element at the head of the deque
+xxii: removeFirst() - This method is used to remove an element at the head of the deque
+xxiii: removeLast() - This method is used to remove an element at the tail of the deque
+xxiv: size() - This method is used to find and return the size of the deque
+
+Advantages of using the Deque
+i) Double-Ended: The main advantage of the Deque interface is that it provides the Double-Ended queue, which allows elements
+to be added and removed from both ends of the queue
+ii)Flexibility: The Deque interface provides a number of methods for adding, removing and retrieving elements
+from both ends of the queue, giving a great deal of the flexibility in how it is used
+iii)Blocking Operations: The Deque interface provides blocking methods, such as takeFirst() and takeLast()
+that allows one to wait for elements to become available or for space to become available in the queue
+This makes it a good choice for concurrent and multithreaded applications
+
+Disadvantages of using Deque
+i) Performance: The performance of a deque can be slower than other data structures , such as a LinkedList or array
+because it provides more functionality
+ii) Implementation Dependent: The behaviour of the Deque can depend on the implementations that are used
