@@ -1,0 +1,129 @@
+-List Iterator is one of the java four cursors . It is a java iterator that is used to traverse all types of Lists
+including ArrayList, Vector, LinkedList, Stack
+-It extends the iterator interface
+
+Hierarchy of List Iterator
+                   Iterator
+
+                   ListIterator
+
+Note:
+i:The list Iterator is useful for list implemented class
+ii:It supports bi-directional traversal i.e both forward and backward direction
+iii:It supports all the four CRUD Operations(Create, Read, Update and Delete) operations
+
+Facts about ListIterator
+i: There is no current element in the list iterator. Its cursor always lies between the previous and the
+next elements. The previous() will always return to the previous element and the next() will always return
+to the next element
+for a list of n length, there are n + 1 possible cursors
+
+Syntax:
+public interface ListIterator<E> extends Iterator<E>
+Where E represents the generic type i.e any parameter of any type/user defined object
+
+To get a list iterator on the list:
+ListIterator<E> listIterator
+This returns the list iterator of all elements of the list
+
+ListIterator is a bi-directional iterator.For this functionality,it has two kinds of methods:
+i)Forward Direction iteration
+-hasNext(): This method returns true when the list has more elements to traverse while traversing
+in the forward direction
+-next(): This method returns the next element of the list and advances the position of the cursor
+-nextIndex(): This method returns the index of the element that would be returned on the calling of next() method
+
+ii)Backward Direction Iteration
+-hasPrevious(): The method returns true when the list has more elements  to traverse while traversing in the
+reverse direction
+-previous(): This method returns the previous element of the list and shifts the cursor  one position
+backward
+-previousIndex(): This method returns the index of the element that would be returned on calling the previous()
+method
+
+Array list iterator
+A. listIterator(): The listIterator() method of java.util.ArrayList class  is used to return a list iterator
+over the elements in this list(in proper sequence)
+The returned list iterator is fail-fast
+
+Syntax:
+public ListIterator listIterator()
+Return value: This method returns a list iterator over the elements in this list(in proper sequence)
+
+B. listIterator(int index)
+-The listIterator(int index) method is used to return a list iterator over the elements in the list
+in proper sequence, starting at the specified position in the list
+The specified index indicates the first element that would be returned by the initial call to the next
+An initial call to the previous would return the element with the specified index minus one
+The returned list iterator is fail-fast
+
+Syntax:
+public ListIterator listIterator(int index)
+Parameters: This method takes the index of the first element as a parameter to be returned from the list iterator
+(by a call or next)
+Return value: This method returns a list iterator over the elements in the list in the proper sequence
+,starting at the specified position in the list
+Exception: this method throws IndexOutOfBoundsException if the index is out of range(index size())
+
+Advantages
+i)It supports all four CRUD operations(Create, Read, Update, Delete)
+ii)It supports Bi-Directional traversing; i.e both forward and backward  direction iteration
+iii)Simple method names are easy to use
+
+Disadvantages/Limitations
+i)This iterator is only for list implementation classes
+ii)Not a universal cursor
+iii)It is not applicable to all collection api
+iv)Parallel iteration of elements is not supported by the list iterator
+v)list iteration does not support the good performance  of numerous element iteration
+
+Iterator v/s ListIterator
+Similarities
+i: They both are used for iteration lists
+ii: The both support forward direction traversal
+iii: They both support READ and DELETE operations
+
+Differences
+ITERATOR                                                                        LIST ITERATOR
+I)It can traverse a collection                                                  It traverses only list collections implemented
+of any type                                                                     classes like LinkedList,ArrayList
+
+II)Traversal can only be done in                                                Traversal of elements can be done in both forward
+the forward direction                                                           and backward direction
+
+III)Iterator object can be created                                              ListIterator object  can be created by calling
+by calling iterator() method of the                                             directions listIterator() method of the collection
+collection interface                                                            interface
+
+IV)Deletion of elements is not                                                  Deletion of elements is allowed
+allowed                                                                         in ListIterator
+
+V)It throws ConcurrentModificationException,                                    Addition of elements is allowed
+doing addition operations                                                       in ListIterator
+hence addition is not allowed
+
+VI)In iterator, we can't access the index                                       In ListIterator, we have nextIndex() and previousIndex()
+of the traversed element                                                        methods for accessing the index of the traversed or the next
+                                                                                traversing element
+
+VII)Modification of any elements is not                                         Modification of elements is allowed
+allowed
+
+Methods of List Iterator
+1)add(E e) - This method inserts the specific element into the list
+2)hasNext() - This method returns true if the list has more elements to traverse
+3)hasPrevious() - This method returns true if the list iterator has more elements while traversing the list
+in the backward direction
+4)next() - This method returns the next element and increases the cursor by one position
+5)nextIndex() - This method returns the index of the element which would be returned on calling the next() method
+6)previous() - This method returns the previous element of the list and shifts the cursor
+one position backward
+7)previousIndex() - This method returns the index of the element which would be returned on calling the previous() method
+8)remove() - This method removes the last element from the list that was returned on calling the next() method
+or previous() method element
+9)set(E e) - This method replaces the last element that was returned on calling the next() or previous() method
+with the specified element
+
+Method Declared in the java.util.Iterator
+i)default void forEachRemaining(Consumer<? super E> action) - Performs the given action for each remaining element
+until all the elements have been processed or the action throws an Exception

@@ -1,0 +1,153 @@
+-The List Interface in java extends the Collection Interface and it is part of the java.util package
+It is used to store ordered collections where duplicates are allowed, and elements can be accessed by their Index
+
+Features of List interface
+i) Maintains Insertion Order
+ii) Allows Duplicate elements
+iii) Supports null elements(implementation dependent)
+iv)Provides index-based access
+v)Supports Bi-directional traversal via ListIterator
+
+Declaration of List Interface
+public interface List<E> extends Collection<E>;
+//To use a list one must instantiate a class that implements it
+List<Type> list = new ArrayList<Type>();
+
+Implementation classes of the List Interface
+1: ArrayList: It implements by using a resizable array, offers fast random access but slower in
+insert/date
+2: LinkedList: It implements by using a Doubly-linked list, efficient for frequent insertions and
+deletions
+3: Vector: It implements by using the Legacy synchronized dynamic array, thread safe but slower
+4: Stack: It is implemented by using Last-In-First-Out(LIFO) subclass of vector for stack operations
+
+Java List Operations
+Lists can only be used by classes that implement this interface
+1. Adding Elements
+-To add an element to the list, we can use the add() method . This method is overloaded to perform multiple
+operations based on different parameters
+*add(Object o) - This method is used to add an element at the end of the list
+*add(int index, Object o) - This method is used to add an element at the specified index of a list
+
+2. Updating Elements
+-To update an element in a list, use the set() method with the target index and the new value
+Since List is indexed, the element is replaced at the specified position
+
+3. Searching Elements
+-Searching in a list can be done using indexOf(), lastIndexOf() method
+Parameters:
+-indexOf(Object o): It returns the index of the first occurrence of the specified element in the list
+or -1 if the element is not found
+-lastIndexOf(Object o): it returns the index of the last occurrence of the specified element in the list, or -1
+if the element is not found
+
+4.Removing Elements
+-To remove an element from the list, we can use the remove() method. This method is overloaded
+to perform multiple operations based on different parameters
+Parameters:
+i)remove(Object o): This method is used to simply remove an object  from the List. If there are multiple such objects
+the first occurrence of the object is removed
+ii)remove(int index): This method takes an integer value which simply removes the element present in the specified
+index in the List. After, removing the element, all the elements are moved to the left to fill the space and
+the indices of the objects are updated
+
+5.Accessing Elements
+-To access an element in the list, we can use the get() method which returns the element at the specified
+index
+Parameter: get(int index): This method returns the element at the specified index in the list
+
+6. Check if an Element is present in the list or not
+To check if an element is present in the list,we can use the contains() method
+-The method returns true if the specified element is present in the list, otherwise it returns
+false
+-Parameter: contains(Object o) This method takes a single parameter, the object to be checked if it present in
+the list
+
+Complexity of the List Interface
+Operation                         Time Complexity                             Space Complexity
+Adding Elements in the             O(1)                                       O(1)
+List Interface
+
+Remove Element from the            O(N)                                       O(1)
+List Interface
+
+Replace Elements in the            O(1)                                       O(1)
+List Interface
+
+Traverse Elements in               O(N)                                       O(1)
+List interface
+
+Iterate over List Interface
+For larger datasets, Lists can be iterated using:
+1. Basic for loop with get(index)
+2. Enhanced for each loop
+
+------------------------------------------------------------------------------------------------------------------------
+Methods of the List Interface
+i)add(int index, element) - This method is used with the Java List Interface to add a particular element at a particular
+index in the list. When a single parameter is passed, it simply adds the elements  at the end of the list
+
+ii)addAll(int index, Collection collection) - This method is used with a List Interface in Java to add all the elements in
+the given collection to the list. When a single parameter is passed, it adds all the elements of the given collection
+at the end of the list
+
+iii)size(): This method is used with Java List Interface to return the size of the list
+
+iv)clear(): This method is used to remove all the elements in the list. However, the reference
+of the list created is still stored
+
+v)remove(int index): This method is used to remove an element from the specified index. It shifts the subsequent
+elements(if any) to the left and decreases their index by one
+
+vi)remove(element):This method is used with Java List Interface to remove the first occurrence of the given element
+in the list
+
+vii)get(int index):This method returns the element at the specified index
+
+viii)set(int index, element): This method replaces elements at a given index with the
+new element. This function returns the element which was just replaced with  the new element
+
+ix)indexOf(element): This method returns the first occurrence of the given element or -1 if the
+element is not present in the list
+
+x)lastIndexOf(element): This method returns the last occurrence of the given element or -1 if the
+element is not present in the list
+
+xi)equals(element): This method is used with Java List Interface to compare the equality of the given
+element with the elements of the list
+
+xii)hashCode(): The method is used with the List Interface in Java to return the hashcode value
+of the given list
+
+xii)isEmpty(): This method is with java List Interface to check if the list is empty or not
+It returns true if the list is empty otherwise it returns false
+
+xiii)contains(element): this method is used with the List interface  in Java to check if the list contains
+the given element or not.It returns true if the list contains the element
+
+xiv)containsAll(Collection, collection): This method is used with Java List Interface to check if the list
+contains all the collection of the element
+
+xv)sort(Comparator comp): this method is used with the List Interface in Java to sort the elements of the List
+on the basis of the given comparator
+------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------
+Differences between the List vrs Set
+List                                                                            Set
+i)The list is an ordered sequence                                               The Set is an unordered sequence
+
+ii)List allows duplicate elements                                               Set does not allow duplicate elements
+
+iii)Elements in their position can                                              Position access to elements is not
+be accessed                                                                     allowed
+
+iv)Multiple null elements can be                                                The null element can only be stored
+stored                                                                          once
+
+v)List implementations are ArrayList                                            Set implementations are HashSet,
+LinkedList, Vector, Stack                                                       LinkedHashSet
+------------------------------------------------------------------------------------------------------------------------
+
+

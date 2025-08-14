@@ -1,0 +1,94 @@
+-An Iterator in java is an interface used to traverse elements  in a Collection sequentially
+-It provides methods like hasNext(), next() and remove() to loop through collections and perform
+manipulations
+An Iterator is part of the Java Collection Framework and it can be used with collections like ArrayList
+LinkedList, and other classes that implement the Collection Interface
+-A java cursor is an iterator that is used to traverse or iterate or retrieve a Collection or Stream object
+element one by one
+
+Types of Cursor in Java
+i)Iterator
+ii)Enumeration
+iii)ListIterator
+
+Note: Spliterator can also be considered as a cursor and it is a type of iterator only
+-Iterator is a concrete implementation of a cursor. The cursor refers to the traversing a collection
+but the iterator is one specific implementation
+
+Iterators in java are used in the collection framework to retrieve elements one by one
+It is an universal iterator  as it can be applied to any Collection object
+Using an Iterator one can perform read and remove operations from an element
+
+Syntax
+To use an iterator, one has to create it from a collection object that implements the Collection Interface
+Iterator<E> iterator = collection.iterator();
+Here collection, is an object of any class implementing the Collection interface
+
+Working of the Iterator
+*LinkedList Object
+List<String> list = new LinkedList<>();
+    list.add("");
+    list.add("");
+    list.add("");
+
+Step 1: Create a iterator object on the List Object
+Iterator<String> iterator = list.iterator();
+-The iterator cursor is pointing before the first element in the list
+
+Step 2: Run the following code snippet
+*listIterator.hasNext();
+*listIterator.next();
+-The iterator cursor points to the first element in the list
+
+Step 3: Run the following code snippet
+*listIterator.hasNext();
+*listIterator.next();
+-The iterator cursor points to the second element in the list
+
+Step 4:Do the same process to reach the Iterator's cursor to the end of the element of the list
+
+Step 5:After reading the final element, if we run the code snippet it returns a false value
+*listIterator.hasNext();
+
+Methods of Iterator Interface
+i)hasNext() - Returns true if the iterator has more elements
+public boolean hasNext();
+
+ii)next() - returns the next element in the iteration. It throws NoSuchElementException if no more element is present
+public Object next();
+
+iii)remove() - Removes the next element in the iteration. This method can be called only once per call to the next()
+public void remove();
+
+remove() method can throw two exceptions namely as follows:
+I)UnsupportedOperationException: if the remove operation is not supported by the iterator
+II)IllegalStateException: If the next method has not yet been called, or the remove() method
+has already been called after the last call to the next method
+
+Types of Iterators
+ListIterator - The ListIterator extends the Iterator and allows both forward and backward traversal
+It also supports element modification
+ListIterator<E> listIterator = list.listIterator();
+
+Enumeration - An Enumeration is an older interface used for iterating over collections
+It only supports forward iteration and does not allow element removal
+Enumeration<E> enumeration = collection.elements();
+
+Advantages of Iterator
+1);The iterator is a simple and easy-to-use interface that allows one to traverse a collection without
+exposing its underlying implementation
+ii); The Iterator is an efficient way to iterate over a collection, especially with large
+amounts of data
+iii); The iterator provides a safe way to remove elements from a collection during iteration without
+causing any concurrent modification exception
+iv); The Iterator Interface is implemented by the collection classes in Java, so we can use
+the same code to iterate over different types of collection
+
+Disadvantages of Iterator
+1 The Iterator is an unidirectional interface meaning that one can only move forward through a collection
+We cannot move backward or jump a specific element
+2 The iterator is not thread safe , so we cannot use it to iterate over a collection in a multi-threaded environment
+without proper synchronization
+3 The iterator does not provide a mechanism to modify any elements while iterating over a collection
+apart from removing elements If we need to modify elements one needs to use other interfaces like ListIterator
+or a simple for loop
