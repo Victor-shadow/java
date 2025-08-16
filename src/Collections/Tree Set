@@ -1,0 +1,119 @@
+-A Tree set is a collection class that stores unique elements in a sorted order
+It is part of the java.util package that implements the SortedSet Interface, and internally uses
+a Red-Black tree to maintain sorting
+
+Key Features of TreeSet
+i:Tree set does not allow duplicate elements; duplicate insertions are ignored
+ii:Tree set does not allow null values; inserting null elements throws NullPointerException
+iii:Implements the NavigableSet Interface and provides navigation methods like higher(), lower(), ceiling() and
+floor()
+iv:Not thread-safe; for concurrent access, it must be synchronized using Collections.synchronizedSet()
+
+Hierarchy Diagram of the TreeSet
+                                      Collection
+
+                                      Set
+
+     HashSet                                                               SortedSet
+
+     LinkedHashSet                                                         NavigableSet
+
+                                                                           TreeSet
+
+
+Note:
+I)A class must implement Comparable(or use a Comparator) for its objects to be stored in the TreeSet
+II)Built-in classes like String, StringBuffer, and wrapper classes already implement Comparable, so no ClassCastException
+occurs
+III)TreeSet does not allow null values  from JDK 7 and Onwards(inserting null throws a NullPointerException)
+IV)Ideal for storing large, sorted data  with fast access and retrieval
+
+Constructors of a TreeSet
+In order to create a TreeSet, we need to create an object of the TreeSet class
+-The TreeSet class consists of various constructors which allow the possible creation of a TreeSet
+-The following are the constructors available in the class:
+i)TreeSet(): Creates an Empty TreeSet that sorts elements in their natural order
+Syntax:
+TreeSet treeSet= new TreeSet();
+
+ii)TreeSet(Comparator): The constructor is used to build an empty TreeSet object in which elements
+will need an external specification of the sorting order
+Syntax:
+TreeSet treeSet = new TreeSet(Comparator comp)
+
+iii)TreeSet(Collection): This constructor is used to build a TreeSet object containing all the elements
+from the given collection in which elements will get stored in default natural sorting order
+The constructor is used when any conversion is needed from any Collection object  to TreeSet object
+Syntax:
+TreeSet treeSet = new TreeSet(Collection col)
+
+iv)TreeSet(SortedSet): Creates a TreeSet containing the same elements  and order as the specified Sorted
+Set
+Syntax:
+TreeSet treeSet = new TreeSet(SortedSet s)
+
+Methods of TreeSet
+i)add(Object o): Adds elements in a sorted order; ignores duplicates
+
+ii)addAll(Collection c): Adds all the elements from a collection; ignores duplicates
+
+iii)ceiling?(E e): This method returns the least element in this set greater than or equal to  the given element
+or null if there is no such element
+
+iv)clear(): This method wil remove all the elements
+
+v)clone(): This method is used to return a shallow copy of the set, which is just a simple copied set
+
+vi)Comparator comparator(): This method will return the Comparator  used to sort the Elements  in the TreeSet
+or it will return null if the default natural sorting order is used
+
+vii)contains(Object o): This method will return true if a given element is present in the set or else it will return
+False
+
+viii)descendingIterator(): This method returns an iterator over the elements in this set in
+descending order
+
+ix)descendingSet(): This method returns the reverse order view of the elements contained in the set
+
+x)first(): This method will return the first element in the TreeSet if the TreeSet is not null else it will throw
+NoSuchElementException
+
+xi)floor(E e): This method returns the greatest element in this set less than or equal to the given
+element, or null if there is no such element
+
+xii)headSet(Object toElement): This method will return the elements of the TreeSet which are less than
+the specified element
+
+xiii)higher(E e): This method returns the least element in this set strictly greater than the given element
+or null if there is no such element
+
+xiv)isEmpty(): This method is used to return true if this set contains no elements or is empty
+and false for the Opposite case
+
+xv)Iterator iterator(): Returns an Iterator for iterating over the elements in the set
+
+xvi)last(): This method will return the last element in the Tree Set  if the TreeSet is not null or else
+it will throw NoSuchElementException
+
+xvii)lower(E e): This method returns the greatest element in this set strictly less than
+the given element, or null if there is no such element
+
+xviii)pollFirst(): The method retrieves and removes the first(lowest) element, or returns null
+if the set is empty
+
+xix)pollLast(): This method retrieves and removes the last(highest) element, or returns null if this
+set is empty
+
+xx)remove(Object o): This method is used to return a Specific element  from the set
+
+xxi)size(): This method is used to return the size of the set or the number of elements
+present in the set
+
+xxii)spliterator(): This method creates a late-binding and fail-fast Spliterator  over the elements in
+this set
+
+xxiii)subSet(Object fromElement, Object toElement): This method will return elements ranging fromElement - toElement
+and is inclusive of fromElement and exclusive toElement
+
+xxiv)tailSet(Object fromElement): This method will return elements of the TreeSet which are greater than or equal to
+the specified element

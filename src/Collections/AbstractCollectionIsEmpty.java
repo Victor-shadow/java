@@ -6,9 +6,8 @@
 //Parameters: The method does not take any parameters
 //Return Value; The function returns true if the collection is empty else it returns false
 package Collections;
-import java.util.*;
 import java.util.AbstractCollection;
-
+import java.util.*;
 public class AbstractCollectionIsEmpty {
     public static void main(String[]args){
         //Create an Empty Collection

@@ -8,9 +8,8 @@
 
 
 package Collections;
-import java.util.*;
 import java.util.AbstractCollection;
-
+import java.util.*;
 public class AbstractCollectionRemoveMethod {
     public static void main(String[]args){
         //Create an Empty AbstractCollection

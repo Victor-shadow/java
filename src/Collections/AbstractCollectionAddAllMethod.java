@@ -14,7 +14,6 @@
 
 package Collections;
 import java.util.*;
-import java.util.AbstractCollection;
 
 
 public class AbstractCollectionAddAllMethod {

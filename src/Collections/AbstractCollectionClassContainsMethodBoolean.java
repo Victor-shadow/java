@@ -1,7 +1,6 @@
 package Collections;
-import java.util.*;
 import java.util.AbstractCollection;
-
+import java.util.*;
 public class AbstractCollectionClassContainsMethodBoolean {
     public static void main(String[]args){
         //Create an empty collection
