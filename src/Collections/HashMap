@@ -1,0 +1,153 @@
+//A HashMap is part of the Java Collection Framework and it implements the Map Interface
+It stores elements in key-value pairs, where:
+i)keys are unique
+ii)values can be duplicated
+iii)Data is stored using hashing for quick access, insertion and deletion. Internally, uses Hashing
+
+Key Features of HashMap
+1)Not Synchronized: (Unlike HashTable) and hence faster for most cases
+2)Allows to store null keys as well, but there should only be one null key object, and there can
+be any number of null values
+3)Duplicate keys are not allowed in HashMaps; if you try to insert a duplicate key,
+it will replace the existing value of the corresponding key
+4)HashMap uses keys in the same way as an Array uses Index
+5)HashMap allows for efficient key-based retrieval , insertion, and removal with an average of O(1)
+time complexity
+
+HashMap declaration
+public class HashMap<K,V> extends AbstractMap<K, V> implements Map<K, V> Cloneable, Serializable
+It takes two parameters namely:
+i)the type of keys maintained by the map
+ii)the type of mapped values
+Note:
+i)Key and values in a HashMap cannot be primitive types
+*Keys must be objects that implement hashCode() and equals() and should be immutable
+so their hash Code and equality remain constant
+*Values can be wrapper classes, custom  objects, arrays, reference types and null
+*Arrays can be used as values but not keys
+
+-HashMap in Java implements Serializable, Cloneable Map<K, V> interfaces
+Java HashMap extends AbstractMap<K,V> class
+The direct subclasses are LinkedHashMap and PrinterState
+
+Hierarchy of Java HashMap
+                          Map
+
+                          implements
+
+                          HashMap
+
+Capacity of a HashMap
+-The capacity of a HashMap is the number of buckets it can hold for storing entries
+*new capacity = old capacity * 2;
+Default capacity: Default capacity of hash Map is 16
+Load Factor: 0.75(default) when 75% of the capacity is filled, the capacity is doubled
+
+Operations on HashMap
+1)Add Elements in a HashMap
+-To add an element to the map, we can use the put() method. However, the insertion order is not retained in the map
+Internally for every element a separate hash is generated  and the elements are indexed based on their hash
+to make it more efficient
+
+2)Changing Elements of a HashMap
+-After adding elements, To change elements of a HashMap,it can be done by again adding the element with the put method
+Since the elements in the map are indexed by keys the value of the key can be changed by simply inserting
+the updated value for the key for which one wants to change
+
+3)Remove Elements from a Java HashMap
+-To Remove elements from a Map, we can use the remove() method
+this method takes the key value and removes the mapping for the key from this map
+if it is present in the map
+
+4)Traversal of a Java HashMap
+-We can use the Iterator interface to traverse over any structure of the Collection Framework
+Since Iterators work with one type of data we use Entry<?, ?> to resolve two separate types
+into a compatible format
+Then using the next() method print the entries of the HashMap
+
+Time and Space Complexity
+Methods                             TimeComplexity                                   SpaceComplexity
+i)Add Elements into                 0(1)                                             0(N)
+a HashMap
+
+ii)Removing Element from            0(1)                                             O(N)
+a HashMap
+
+iii)Extract Element                 0(1)                                             0(N)
+
+Synchronized HashMap
+HashMap is unsynchronized, meaning multiple threads can access it at the same time. If at least, one thread modifies it,
+you must synchronize externally(wrap with Collections.synchronizedMap()), to prevent concurrent access issues
+
+Map map = Collections.synchronizedMap(new HashMap(...))
+Now the map is synchronized. Iterators of this class are fail-fast if any structural modification is done after the creation
+of the iterator, in any way except through the iterator remove() method
+In a failure of an iterator, it will throw ConcurrentModificationException
+*HashMap is mainly the implementation of hashing. It is useful when we need efficient implementation of search, insert and delete
+operations
+
+Methods of HashMap
+K-  The Type of Keys in the map
+V- the type of Values mapped to the map
+
+Method
+i)clear() - Removes all of the mappings from this map
+
+ii)clone() - Returns a shallow copy of the HashMap instance
+
+iii)compute(K key, BiFunction<? super K,? super V,? extends V> remappingFunction) - Attempts to compute  a mapping for a specific
+key and its current mapped value
+
+iv)computeIfAbsent(K key, Function<?super K,? extends V> mappingFunction) - Adds a Computed value if the key is absent/null
+
+v)computeIfPresent(K key, BiFunction<? super K,? super V,? extends V> remappingFunction) - If the value for the specified key is present and non-null
+attempts to compute a new mapping given the key and its current mapped value
+
+vi)containsKey(Object key) - Returns true if the map contains a mapping for a specific key
+
+vii)containsValue(Object value) - Returns true if the map maps one or more keys to the specified value
+
+viii)entrySet() - Returns a set view of the mappings contained in this map
+
+ix)get(Object key) - Returns the value to which the specified key is mapped, or null if this map
+contains no mapping for the key
+
+x)isEmpty() - Returns true if this map contains no key-value mappings
+
+xi)keySet() - Returns a set view of the keys contained in the map
+
+xii)merge(K key, V value, BiFunction<? super V,? super V,? extends V> remappingFunction) -If the specified key is not already
+associated with a value or is associated with null, associate it with a given non-null value
+
+xiii)put(K key, V value) -Associates the specified value with the specific key for the map
+
+xiv)putAll(Map<? extends K,? extends V> m) - copies all the mappings from the specified map to this map
+
+xv)remove(Object key) - Removes the mapping for the specified key from this map if present
+
+xvi)size() - Returns the number of key-value mappings in this map
+
+xvii)values() - Returns a Collection view of the values contained in the Map
+
+Methods inherited from java.util.AbstractMap
+i)equals() - Compares the specified object with this map for equality
+ii)hashCode() - Returns the hash Code value for this map
+iii)toString() - Returns a String representation of this map
+
+Methods Inherited from java.util.Map
+i)equals() : Compares the specified object with this map for equality
+ii)forEach(BiConsumer<? super K, ? super V> action): Performs the given action for each entry in this map
+until all entries have been processed or the action throws an Exception
+iii)getOrDefault(Object key, V default value): Returns the value to which the specified key is mapped
+or defaultValue if this map contains no mapping from the key
+iv)hashCode(): Returns the hashCode value for this object
+v)putIfAbsent(K key, V value): If the specified key is not already associated with a value(or is mapped to null)
+associates it with a given value and returns null, else returns the current value
+vi)remove(Object key, Object value): Removes the entries for the specified key only if it is currently mapped to the
+specified value
+vii)replace(K Key, V Value): Replaces the entries for the specified key only if it is currently mapped to some
+value
+viii)replace(K Key, V oldValue, V newValue): Replaces the entries for the specified key only if currently mapped
+to the specified value
+ix)replaceAll(BiFunction<? super K,? super V,? extends V> function) - Replaces each entry's value with the result of invoking
+the given function on that entry until all entries  have been processed or the function throws an exception
