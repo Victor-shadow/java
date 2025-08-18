@@ -1,0 +1,94 @@
+-The HashSet in java implements the Set Interface of the Collection Framework
+-It is used to store unique elements  and it does not maintain any specific order of elements
+*Can store the null values
+*Use HashMap implementation of hash table data structure
+*Also implements the Serializable and Cloneable Interface
+*HashSet is not thread safe, so to make it safe thread synchronization is needed
+
+Declaring a HashSet
+public class HashSet<E> extends AbstractSet<E> implements Set<E> , Cloneable, Serializable
+-where E is the type of elements stored in the HashSet
+
+Note: Before storing an Object, HashSet checks for duplicates using hashCode() and equals()
+Two lists are equal if they have the same elements in the same order, and they produce the same hash Code
+
+Capacity of the HashSet
+-Capacity refers to the number of buckets in the HashTable. The default capacity of the HashSet is 16 and the
+load factor is 0.75
+-When the number of elements exceeds the capacity automatically increases (resizes) to maintain performance
+
+new capacity = old capacity * 2
+
+Load Factor
+-Load Factor is a measure that controls how full the HashSet can get before resizing
+Default Load Factor = 0.75
+-If the number of elements exceeds the threshold, the capacity is doubled
+Threshold = capacity * load factor
+
+Constructors of HashSet
+-To create a HashSet, one needs to create an Object of the HashSet class.
+The HashSet class consists of the various constructors that allow the possible creation of the HashSet
+The following are the constructors present in the class
+
+1)HashSet
+-Creates a new empty HashSet with a default capacity(16) and a load factor (0.75)
+Syntax: HashSet<Type> hashSet = new HashSet<>();
+Example: HashSet<String> hashSet = new HashSet<>();
+
+2)HashSet(int initialCapacity)
+-Creates an Empty HashSet with the specified initial capacity and default load factor(0.75)
+Syntax: HashSet<Type> hashSet = new HashSet<>(int, initialCapacity);
+Example: HashSet<Integer> hashSet = new HashSet<>(20); //capacity is 20
+
+3)HashSet(int initialCapacity, float loadFactor)
+-Creates an Empty HashSet with the given initial capacity and load factor
+Syntax: HashSet<Type> hashSet = new HashSet<>(int initialCapacity, float loadFactor)
+Example: HashSet<String> hashSet = new HashSet<>(20, 0.5f) //Capacity = 20, loadFactor = 0.5f
+
+4)HashSet(Collection<?extends E>c)
+-Creates a new HashSet containing the elements of the specified collection(removes duplicates automatically)
+Syntax: HashSet<Type> hashSet = new HashSet<>(Collection);
+Example: List<String> list = Arrays.asList("A","B","C");
+HashSet<String> hashSet = new HashSet<>(list); //output [A, B]
+
+
+Methods of the HashSet
+i)add(E e) : Used to add the specified element if it is not present, if it is present it returns
+false
+ii)clear(): Used to remove all elements from the set
+iii)contains(Object o): Used to return true if an element is present in the set
+iv)remove(Object o): Used to remove an element if it is present in the set
+v)iterator():Used to return an iterator over the element in the set
+vi)isEmpty(): Used to check whether the set is empty or not. Returns true for empty
+and false for non-empty condition of a set
+vii)size(): Used to return the size of the set
+viii)clone(): Used to create a shallow copy of the set
+
+Differences Between the HashSet and HashMap
+HashSet                                                                HashMap
+i)HashSet implements the Set                                           HashMap implements the Map
+interface                                                              Interface
+
+ii)HashSet does not allow                                              HashMap stores key-value pairs and does not allow
+duplicate values                                                       duplicate key. A duplicate key replaces the old
+                                                                       value
+
+iii)HashSet requires only one                                          HashMap requires two Objects put(K key, V Value)
+Object add(Object o)                                                   to add an element to the HashMap object
+
+iv)HashSet internally uses                                             HashMap does not have a concept of dummy
+a HashMap, where each element                                          value
+added is stored as a key with
+a dummy value
+
+v)HashSet internally uses                                              HashMap internally uses hashing to store
+a HashMap object to store                                              or add objects
+and add objects
+
+vi)HashSet is slower than                                              HashMap is faster than the HashSet
+HashMap
+
+vii)HashSet uses the add()                                             HashMap uses the put() method for storing
+to insert/add and store elements/data                                  data
+
+

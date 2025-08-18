@@ -1,6 +1,5 @@
 package Collections;
 import java.util.*;
-import java.io.*;
 
 class CollectionSpliteratorHashSet {
     public static void main(String[]args){
