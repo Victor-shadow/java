@@ -1,0 +1,137 @@
+-In java, an array list is a resizable array implementation that is part of the java.util package
+Unlike regular array the size is not specified as the array can grow or shrink dynamically as elements
+are added or removed
+
+Array             ->            List                          -> Collection
+List                            Interface
+
+Key Features
+i)Resizable array: The array can automatically grow dynamically in size
+ii)Indexed Access: ArrayList elements can be accessed using indices like arrays
+iii)Supports Generics: It ensures type safety at compile-time
+iv)Not Synchronized:ArrayList uses Collections.synchronizedList() for thread safety
+v)Allows Null and Duplicate values: ArrayList allows both null and duplicate values/elements
+vi)Maintains Insertion order: Elements are stored in the order they are added
+
+Syntax
+ArrayList<Integer> arr = new ArrayList<>();
+Note:You can also create a generic array list
+
+Constructors of the ArrayList in Java
+-In order to create an array list, one needs to create an object of an ArrayList class
+The ArrayList class consists of various constructors which allow the possible creation of an
+arrayList
+-The following are the available constructors
+
+1.ArrayList(); This constructor is used to build an empty ArrayList
+*ArrayList<Integer> arr = new ArrayList<>();
+
+2.ArrayList(Collection c): This constructor is used to build an array list initialized with the elements
+from the collection c
+*ArrayList<String> arr = new ArrayList<>(collection);
+
+3.ArrayList(int capacity): This constructor is used to build an array list with the initial capacity being specified
+*ArrayList<Double> arr = new ArrayList<>(20);
+
+Advantages of ArrayList
+1)Dynamic size; ArrayList can dynamically grow and shrink in size, making it easy to add or remove
+elements as needed
+2)Easy to use; ArrayList is simple to use
+3)Fast access; ArrayList provides fast access to elements, as it is implemented as an array under the
+hood
+4)Ordered collection: ArrayList preserves the order of elements, allowing one to access elements as
+needed
+5)Supports null values: ArrayList can store null values, making it useful in cases where there is absence
+of a value that needs to be represented
+
+------------------------------------------------------------------------------------------------------------------------
+ArrayList Methods
+i)add(int index, Object element): This method is used to insert a specific element at a specific index/position
+in the list
+
+ii)add(Object o): This method is used to append a specific element to the end of the list
+
+iii)addAll(Collection C): This method is used to append all elements from a specific collection
+to the end of the mentioned list, in such an order that the values are returned by the specific collection
+iterator
+
+iv)addAll(int index, Collection C): Used to insert all elements starting at a specific position from a specific
+collection onto the mentioned list
+
+v)clear(): This method is used to remove all elements from the ArrayList
+
+vi)clone(); This method is used to return a shallow copy of the ArrayList
+
+vii)contains(Object o): Returns true if the list contains the specified element
+
+viii)ensureCapacity(int minCapacity):Increases the capacity of the ArrayList Instance, if necessary to ensure that
+it can hold the least number of elements specified by the minimum capacity argument
+
+ix)forEach(Consumer<? super E> action): Performs the given action for each element
+of the Iterable until all elements have been processed or the action throws an exception
+
+x)get(int index): Returns the element at the specified index/position in this list
+
+xi)indexOf(Object o): The index of the first occurrence of a specific element is either returned
+or -1 in case the element is not in the list
+
+xii)isEmpty(): Returns true if the list contains no element
+
+xiii)lastIndexOf(Object o): The index of the last occurrence of a specific element is either returned or -1
+in case the element is not in the list
+
+xiv)listIterator(): Returns a list iterator over the elements in ths list(in this proper sequence)
+
+xv)listIterator(int index): Returns a list iterator over the elements in this list(in proper sequence)
+starting at the specified position in this list
+
+xvi)remove(int index): Removes the element at the specified index/position in the list
+
+xvii)remove(Object o): Removes the first occurrence of the specified element from this list
+if it is present
+
+xviii)removeAll(Collection c): Removes from this list all of its elements that are contained in the
+specified collection
+
+xix)removeIf(Predicate filter): Removes all of the elements of this collection that satisfy the given predicate
+
+xx)removeRange(int fromIndex, int toIndex): Removes from this list all of the elements whose index is between from Index
+inclusive and toIndex exclusive
+
+xxi)retainAll(Collection<? > c): Retains only the elements in this list that are contained in the specific
+collection
+
+xxii)set(int index, E element): Relaces the element at the specified position in this list
+with the specified element
+
+xxiii)size(): Returns the number of elements in this list
+
+xxiv)spliterator(): Creates a late binding and fail-fast Spliterator over the elements in this
+list
+
+xxv)subList(int fromIndex, int toIndex): Returns a view of the portion of this list between
+the specified fromIndex, inclusive and toIndex exclusive
+
+xxvi)toArray(): This method is used to return an Array containing all of the elements in the list in the
+correct order
+
+xxvii)toArray(Object[]O): It is also used to return an array containing all of the elements in this list
+in the correct order as in the previous method
+
+xxviii)trimToSize():This method is used to trim the capacity of the instance of the ArrayList to the list
+current size
+------------------------------------------------------------------------------------------------------------------------
+
+
+Operation                                   TimeComplexity                                              SpaceComplexity
+i)Inserting Elements                        O(1)                                                        O(N)
+into the ArrayList
+
+ii)Removing Elements                        O(N)                                                        O(1)
+from an ArrayList
+
+iii)Traverse elements                       O(N)                                                        O(N)
+in an ArrayList
+
+iv)Replace elements in a                    O(1)                                                        O(1)
+ArrayList

@@ -13,7 +13,6 @@
 //IllegalArgumentException = If some property of an element prevents it from being added to the collection
 //IllegalStateException = If the element cannot be added at this time due to insertion restrictions
 package Collections;
-import java.io.*;
 import java.util.*;
 public class CollectionAddMethod {
     public static void main(String[]args){

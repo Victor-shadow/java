@@ -1,6 +1,5 @@
 package Collections;
 import java.util.*;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class DequeInterfaceElementMethodException {
     public static void main(String[]args) throws IllegalStateException{

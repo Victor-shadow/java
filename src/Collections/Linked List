@@ -1,0 +1,135 @@
+-Linked list is part of the Java Collection Framework and is present in the java.util package
+-It implements a doubly-linked list data structure where elements(called nodes) are not stored in contiguous memory locations
+Each node contains two parts: data and a reference to the next(previous) node
+*Nodes in a LinkedList cannot be accessed directly by index like arrays
+To access an element, traversal must begin from the head node and continue until a desired node is reached
+
+Constructors of a LinkedList
+-In order to create a LinkedList, one needs to create an object of the LinkedList class
+The LinkedList class consists of various constructors that allow the possible creation of lists
+
+i)LinkedList: This constructor is used to create an empty linked list. If one wants to create an empty linkedlist
+with the name of the list then it can be created as:
+LinkedList list = new LinkedList();
+
+ii)LinkedList(Collection C): This constructor is used to create an ordered List that contains all the elements of a specified
+collection, as returned by the collection iterator;
+If one wishes to create a linked list with the name of a List, then it can be created as
+LinkedList list = new LinkedList(C)
+
+
+Advantages of a LinkedList
+i)A LinkedList can dynamically grow or shrink in size as needed
+ii)Adding or removing elements in the middle is efficient since only links need to be updated
+iii)Doubly linked list allow traversal in both forward and backward direction
+
+Disadvantages of a LinkedList
+i)Access time is slower since elements must be accessed sequentially from the head
+ii)Each node stores extra memory for pointers, leading to higher memory usage
+
+------------------------------------------------------------------------------------------------------------------------
+Methods of Java LinkedList
+i)add(int index, Element e): Inserts an element at a given index
+
+ii)add(Element e): This method Appends the specified element to the end of the list
+
+iii)addAll(int index, Collection<E> c): Inserts all the elements of the collection starting at index
+
+iv)addFirst(Element e): This method inserts the specified element at the beginning of this list
+
+v)addLast(Element e): This method appends the specified element to the end of the list
+
+vi)clear(): This method clears /removes all the elements from the list
+
+vii)clone(): This method returns a shallow copy of the LinkedList
+
+viii)contains(Object o):This method returns true if the list contains the specified element
+
+ix)descendingIterator(); This method returns an iterator over the elements in the list in reverse sequential
+order
+
+x)element(): This method retrieves but does not remove the head(first element) of the list
+
+xi)get(int index):This method returns the element at the specified position in the list
+
+xii)getFirst(): This method returns the first element of this list
+
+xiii)getLast(); This method returns the last element of this list
+
+xiv)indexOf(Object o): Returns first index of the element or -1 if the element is non present
+
+xv)lastIndexOf(Object o): Returns last index of element or -1 if the element is non present
+
+xvi)listIterator(int index): This method returns a list iterator of the elements
+
+xvii)offer(Element e): This method Adds the specified element as the tail(last element) of this list
+
+xviii)offerFirst(Element e): This method inserts the specified element at the start/front of the list
+
+xix):offerLast(Element e): This method inserts the specified element at the end of the list
+
+xx)peek(): This method retrieves but does not remove the head(first element) of this list
+
+xxi)peekFirst():This method retrieves but does not remove the first element of this list or returns null if the
+list is empty
+
+xxii)peekLast(): This method retrieves but does not  remove the last element of the list or returns null if the
+list is empty
+
+xxiii)poll(): This method retrieves and removes the head(first element) of the list
+
+xxiv)pollFirst(): This method retrieves and removes the first element of the list or returns null if the list
+is empty
+
+xxv)pollLast(): This method retrieves and removes the last element of this list or returns null if this
+list is empty
+
+xxvi)pop(): This method pops the element from the stack represented by the list
+
+xxvii)push(Element e): This method pushes an element onto the stack represented by the list
+
+xxviii)remove(): This method retrieves and removes the head(first element) of the list
+
+xxix)remove(int index): This method removes the element at the specified position in the list
+
+xxx)remove(Object o): This method removes the first occurrence of the specified element in the list
+if it is present
+
+xxxi)removeFirst(): This method removes and returns the first element from the list
+
+xxxii)removeFirstOccurrence(Object o):This method removes the first occurrence of the specified element in the list
+
+xxxiii)removeLast(): This method removes and returns the last element from the list
+
+xxxiv)removeLastOccurrence(Object o): This method removes the last occurrence of the specified element in this list
+
+xxxv)set(int index, Element E): This method replaces the element at the specified position in the list
+with this specified element
+
+xxxvi)size(): This method returns the number of elements in this list
+
+xxxvii)spliterator(): this method creates a late binding and fail-fast spliterator over the elements in this
+list
+
+xxxviii)toArray():This method returns an Array containing all the elements of this list in a proper
+sequence
+
+xxxix)toArray(T[] a): This method returns an array of all the elements in a given type
+
+xl)toString(): The method returns a string representation of the list
+------------------------------------------------------------------------------------------------------------------------
+
+
+ArrayList                                                           LinkedList
+i)Underlying structure is dynamic                                   Underlying structure is a
+Array                                                               Doubly-linked list
+
+ii)O(1) - Fast random access                                        O(n) slow random access
+
+iii)Memory is lower                                                 Memory is higher(extra pointers per node)
+(contiguous memory)
+
+iv)Iteration speed is faster                                        Iteration speed is lower
+
+v)Insertion and deletion is slower                                  Insertion and deletion is faster
+

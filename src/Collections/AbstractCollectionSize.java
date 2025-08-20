@@ -1,6 +1,6 @@
 package Collections;
-import java.util.*;
 import java.util.AbstractCollection;
+import java.util.LinkedList;
 
 public class AbstractCollectionSize {
     public static void main(String[]args){

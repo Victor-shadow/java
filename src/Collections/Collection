@@ -1,0 +1,220 @@
+-A collection in java is a group of individual objects that are treated as a Single Unit
+In Java, a separate framework named the "Collection Framework" was defined in JDK 1.2, which contains
+all the Java Collection classes and Interfaces
+-In Java, the Collection interface(java.util.Collection) and Map Interface(java.util.Map) are the two
+main "root" interfaces of Java Collection classes
+
+Advantages of Java Collection Framework
+i)Consistent API: Interfaces like List,Set and Map have common methods across classes(ArrayList, LinkedList)
+ii)Less coding effort:Developers focus on usage, ot designing data structures - supports OOP abstraction
+iii)Better Performance:Offers fast, reliable implementations of data structures, improving speed and quality
+of code
+
+Hierarchical of the Collection Framework in Java
+-The Collection interface extends iterable and serves as the root , defining common methods
+inherited by all collection classes
+
+                               Iterable(Interface)
+
+                               Collection(Interface)
+
+List(Interface)                Queue(Interface)                            Set(Interface)
+ArrayList                      PriorityQueue                               HashSet
+Vector
+Stack                          Deque                SortedSet              EnumSet
+LinkedList                     Array Deque          TreeSet                LinkedHashSet
+
+
+Interfaces that Extend the Java Collection Interface
+The collection framework contains multiple interfaces where every interfaces is used to store
+a specific type of data
+
+------------------------------------------------------------------------------------------------------------------------
+1.Iterable Interface
+-Iterable interface is the root of the Collection Framework. It is extended by the
+Collection interface, making all collections inherently iterable
+Its primary purpose is to provide an iterator to traverse elements, defined by a single abstract
+method iterator()
+*Iterator iterator()
+------------------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------------------
+2.Collection Interface
+-The Collection interface extends iterable and serves as the foundation of the Collection framework
+It defines common methods like add(), remove() and clear() ensuring consistency and reusability
+across all collection implementation
+------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------------------------------
+3.List Interface
+-The List Interface extends the Collection interface and represents an ordered collection that allows duplicate elements
+It is implemented by classes like Vector, Stack and ArrayList
+Since all these classes implement List, a list object can be instantiated  using any of them
+
+*List<T> al = new ArrayList<>();
+*List<T> ll = new LinkedList<>();
+*List<T> v  =  new Vector<>();
+Where T is the Type of Object
+-The classes which implement the List interface are:
+i)ArrayList
+-An array list provides a dynamic array in Java that resizes automatically as elements are added or removed
+-Although slower than standard arrays,  it is efficient for frequent modifications
+It supports random access but cannot store primitive types directly - wrapper classes like: Integer, or Character as
+required
+
+ii)LinkedList
+-LinkedLis is a linear data structure where elements(nodes) are stored non-contiguously
+-Each node contains data and a reference to the next(and optionally previous)  node forming a chain
+of elements linked by pointers
+
+
+iii)Vector
+-it provides a dynamic array in Java, similar to ArrayList, but with synchronized methods for thread safety
+While slower due to synchronized overhead, it is useful for multithreaded environments
+-It resizes automatically  during element manipulation
+
+iv)Stack
+-Stack class implements LIFO(Last-In-Fast-Out) data structure
+It supports each operations like push() and pop() along with peek(), empty() and search()
+Stack is a subclass of Vector and inherits all of its properties
+Stack is a subclass of Vector and a legacy class. It is thread-safe which might be overhead in an environment
+when thread safety is not needed
+An alternative to Stack is the Array Deque which is not thread safe and has a faster array implementation
+------------------------------------------------------------------------------------------------------------------------
+
+
+v)Queue Interface
+-The Queue interface follows FIFO(First-In-First-Out) principle, where elements are processed in the order
+they were added
+It is used when order is of importance. Classes like PriorityQueue and ArrayDeque implement this interface
+allowing queue objects to be instantiated accordingly
+
+*Queue<T> pq = new PriorityQueue<>();
+*Queue<T> ad = new ArrayDeque<>();
+Where T is the type of the Object
+
+The most frequently used implementation of the queue interface is the PriorityQueue
+
+PriorityQueue
+-It processes elements based on their priority rather than insertion order
+It uses a priority heap for internal storage
+Elements are ordered either by their natural ordering or by a custom Comparator provided at construction
+------------------------------------------------------------------------------------------------------------------------
+
+5.Deque Interface
+-Deque interface extends Queue and allows insertion or removal of elements from both ends
+It is implemented by classes like ArrayDeque, which can be used to instantiate a Deque Object
+
+*Deque<T> ad = new ArrayDeque<>();
+Where T is the type of Object
+
+The class which implements the deque interface is the ArrayDeque
+
+ArrayDeque
+-ArrayDeque class implements a Resizable, double-ended queue that allows insertion and removal at both ends
+It has no capacity restrictions and grows automatically as needed
+
+Set Interface
+-The Set interface represents an unordered collection that stores only unique objects(no duplicates)
+It is implemented by classes like HashSet, TreeSet, and LinkedHashSet
+and can be instantiated using the following:
+i)Set<T> hs = new HashSet<>();
+ii)Set<T> lhs = new LinkedHashSet<>();
+iii)Set<T> ts = new TreeSet<>();
+Where T is the type of object
+
+Classes that implement the Set Interface
+HashSet
+-HashSet class implements a hash table and stores elements based on their hash codes
+It does not guarantee insertion order and allows null elements
+
+LinkedHashSet
+-It is very similar to the HashSet. The difference is that it uses a doubly linked list
+to store the data and retains the ordering of elements
+
+Sorted Set Interface
+-SortedSet interface extends Set and maintains elements in a Sorted order. It includes additional
+methods for range views and ordering
+It is implemented by the TreeSet class
+*SortedSet<T> ts = new TreeSet<>();
+Where T is the Type of Object
+
+The class which implements the SortedSet interface is the TreeSet
+
+TreeSet
+-The tree set uses a self-balancing tree(Red-Black tree) to store elements in a Sorted order
+It maintains natural ordering or uses a custom Comparator if provided during creation
+Ordering must be consistent with equals to ensure proper Set behaviour
+
+Map Interface
+-Map is a data structure that supports the key-value pair for mapping of data
+This interface does not support duplicate keys because the same keys cannot have multiple mappings
+however, it allows duplicate values in different keys
+-A map is useful if there is data and one wishes to perform operations on the basis of the key
+This map interface  is implemented by various classes like HashMap, TreeMap
+Since all the subclasses implement the map, we cannot instantiate a map object with any of these classes
+
+TreeMap                                LinkedHashMap
+
+SortedMap                              HashMap
+
+Map
+
+*Map<T> hm = new HashMap<>();
+*Map<T> tm = new TreeMap<>();
+
+Where T is the type of Object
+
+The frequently used implementation  of the MapInterface is the HashMap
+
+HashMap
+-It is an implementation of the Map Interface that stores data as key-value pairs
+It uses hashing for fast access, converting keys to hash codes to index values efficiently
+To retrieve a value, the corresponding key is required
+Internally a HashSet is backed up by a HashMap
+
+
+------------------------------------------------------------------------------------------------------------------------
+Methods of the Collection Interface
+i)add(Object) - This method is used to add an object to the collection
+
+ii)addAll(Collection c) - This method adds all the elements in the given collection to this collection
+
+iii)clear() - This method removes all of the elements from the collection
+
+iv)contains(Object o) - This method returns true if the collection contains the specified element
+
+v)containsAll(Collection c) - This method returns true if the collection contains all of the elements in the given
+collection
+
+vi)equals(Object o) - This method compares the specified object with this collection for equality
+
+vii)hashCode() - This method is used to return the hash code value for this collection
+
+viii)isEmpty() - This method returns true if the collection contains no elements
+
+ix)iterator() - This method returns an iterator over the collection
+
+x)parallelStream() - This method returns a parallel stream with the collection as its course
+
+xi)remove(Object o) - This method is used to remove the given object from the collection
+If there are duplicate values, then this method removes the first occurrence of the Object
+
+xii)removeAll(Collection c) - This method is used to remove all of the objects mentioned in the given collection
+from this collection
+
+xiii)removeIf(Predicate filter) - This method is used to remove all of the elements in this collection that satisfy
+the given predicate
+
+xiv)retainAll(Collection c) -This method is used to retain only the elements in this collection that are contained in the
+specific collection
+
+xv)size() - This method is used to return the number of elements in the collection
+
+xvi)spliterator() - This method is used to create a Spliterator over the elements in this collection
+
+xvii)stream() - This method is used to return a Sequential stream with this collection as its source
+
+xviii)toArray() - This method is used to return an array containing all of the elements in this collection
+------------------------------------------------------------------------------------------------------------------------

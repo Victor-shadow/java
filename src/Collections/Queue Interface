@@ -1,0 +1,84 @@
+-The Queue interface is part of the java.util package and extends the Collection interface
+-It stores and processes the data in an order where the elements are added at the rear and removed from
+the front
+
+Key Features
+i)FIFO Order: Elements are processed in the order they were inserted(First-In-First-Out)
+ii)No random access: unlike Lists, elements cannot be accessed directly by index
+iii)Multiple variants; includes PriorityQueue, Deque, ArrayDeque and LinkedList Implementations
+iv)Two sets or methods; Throws exception versions(add, remove, element) and safe versions(offer, poll, peek)
+
+Declaration of Java Queue Interface
+The Queue interface is declared as:
+public interface Queue extends Collection
+
+-One cannot instantiate a queue directly as it is an Interface. Here a class like a LinkedList or a PriorityQueue
+can be used as it implements the interface
+*Queue<Obj> queue = new LinkedList<Obj>();
+
+Being an interface, the queue needs a concrete class for the declaration and the most common classes are the PriorityQueue
+and LinkedList in Java
+Neither of these implementations are thread-safe. PriorityBlockingQueue is an alternative implementation if the thread-safe
+implementation is needed
+
+Create Queue Objects
+-The Queue is an interface, so objects cannot be created of the type queue
+We always need a class which extends this list in order to create an object. And also after the introduction of Generics
+it is possible to restrict the type of Object that can be stored in the Queue
+-The type-safe queue can be defined as:
+//Obj is of the type Object to be stored in the Queue
+Queue<Obj> queue = new PriorityQueue<Obj>();
+
+Common Methods
+-The Queue interface provides several methods for adding, removing and inspecting elements in the queue
+1.add(element) - Adds an element to the rear of the queue. If the queue is full it throws an exception
+2.offer(element) - Adds an element to the rear of the queue. If the queue is full, it returns false
+3.remove() - Removes and returns the element at the front of the queue. If the queue is empty, it throws an
+exception
+4.poll() - Removes and returns the element at the front of the queue. If the queue is empty it returns null
+5.element() - Returns the element at th front of the queue without removing it. If the queue is empty,
+it throws an exception
+6.peek() - Returns the element at the front of the queue without removing it. If the queue is empty it returns null
+
+
+Classes that implement the Queue Interface
+1. PriorityQueue
+-PriorityQueue class lets one process elements  based on their priority instead of the usual FIFO(First-In-First-Out)
+order of a normal queue
+-It is useful when elements must be handled in priority order
+
+2. LinkedList
+-LinkedList is a linear data structure where elements are stored as separate objects each containing data and a link
+to the next element
+The elements are connected using pointers, not stored in contiguous memory locations
+
+3. PriorityBlocking Queue
+-The PriorityBlocking Queue is a thread-safe, unbounded blocking queue that orders elements like a priority queue
+and supports blocking retrieval
+Since it is unbounded adding elements can still fail if memory runs out
+
+Methods of the Queue Interface
+i)boolean add(Element e) - Inserts elements, throws exceptions if full
+ii)boolean offer(Element e) - Inserts elements, returns false if full
+iii)Element remove() - Removes head; throws exception if empty
+iv)Element  poll() - Removes head; returns null if empty
+v)Element element() - Retrieves head, throws exception if empty
+vi)Element peek() - Retrieves head, returns null if empty
+vii)boolean addAll(Collection<? extends E> c) - Adds all elements from another collection
+viii)void clear() - Removes all elements
+ix)boolean contains(Object o) - checks if elements exist
+x)boolean containsAll(Collection<?> c) - Checks if all elements exist
+xi)boolean equals(Object o) - Compares with another collection
+xii)int hashCode() - Returns hash code
+xiii)boolean isEmpty() - Checks if the collection is empty
+xiv)Iterator<E> iterator - Returns iterator for elements
+xv)boolean remove(Object o) - Removes a specific element
+xvi)boolean removeAll(Collection<?> c) -Removes all matching elements
+xvii)boolean retainAll(Collection<?> c) - Keeps only specified elements
+xviii)int size() - Returns number of elements
+xix)Object [] toArray() - Returns elements as an array
+xx)<T> T[] toArray(T[]a) - Returns elements as typed array
+xxi)default void forEach(Consumer<? super E> action) - Performs action for each element
+xxii)default Spliterator<E> spliterator() - Returns a spliterator
+xxiii)default Stream<E> stream() - Returns a sequential stream
+xxiv)default Stream<E> parallelStream() - Returns a parallel stream

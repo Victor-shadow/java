@@ -7,8 +7,9 @@
 //The parameter element is of type Collection. This parameter refers to the element whose occurrence is needed to be checked in the collection
 //Return Value: The method returns true if the element is present  in the collection otherwise it returns false
 package Collections;
-import java.util.*;
 import java.util.AbstractCollection;
+import java.util.LinkedList;
+
 public class AbstractCollectionContainsMethod {
     public static void main(String[]args){
         AbstractCollection<String> abs = new LinkedList<String>();

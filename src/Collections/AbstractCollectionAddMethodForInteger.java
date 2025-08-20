@@ -1,6 +1,7 @@
 package Collections;
-import java.util.*;
 import java.util.AbstractCollection;
+import java.util.LinkedList;
+
 public class AbstractCollectionAddMethodForInteger {
     public static void main(String[]args){
         AbstractCollection<Object> abs = new LinkedList<Object>();
